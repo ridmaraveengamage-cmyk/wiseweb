@@ -1,29 +1,27 @@
 # WiseWeb
 
-A 90-day beginner course in six tech tracks, built as a single interactive web page.
+A 90-day, full-time tech bootcamp in six tracks, built as a single interactive web page.
 
-**Course dates:** Monday 9 November 2026 to Saturday 6 February 2027
-**Daily load:** 4 hours, as two 2-hour blocks; Sunday is a project day
+**Live site:** https://ridmaraveengamage-cmyk.github.io/wiseweb/
 
-| Track | Hours |
+**Dates:** Monday 16 November 2026 to Saturday 13 February 2027
+**Load:** 8 hours Monday to Friday, a 7-hour project on Saturday, a 6-hour test and review day on Sunday (about 682 hours)
+
+| Track | Teaching hours |
 | --- | --- |
-| Software | 60 |
-| AI and machine learning | 56 |
-| Data analytics and big data | 52 |
-| Cyber security | 44 |
-| Hardware | 40 |
-| Blockchain and crypto | 36 |
-| Sunday labs + capstone | 72 |
+| Software engineering | 85 |
+| AI and machine learning | 85 |
+| Data analytics and big data | 75 |
+| Cyber security | 65 |
+| Hardware and electronics | 55 |
+| Blockchain and crypto | 55 |
+| Projects, tests, review and capstone | 262 |
 
 ## What's in the page
 
-- **Home:** today's two lessons, progress across the six tracks, the three phases and the capstone week
+- **Home:** today's two sessions, the daily timetable, progress across the six tracks, the four phases
 - **Calendar:** all 90 days, filterable by phase and track, with a tick box for each day
-- **Tracks:** the full syllabus for every track
-- **Day 1 lessons:** "What are AI and machine learning?" and "What is electricity?", with simulations, quizzes and homework
+- **Tracks:** all 120 sessions with their hours, day and date
+- **Lessons:** "What is electricity?" (Day 1) and "What are AI and machine learning?" (Day 4), with simulations, quizzes and homework
 
-Progress is saved in your browser (localStorage).
-
-## Run it
-
-Open `index.html` in any modern browser. There is no build step and nothing to install.
+Progress is saved in your browser (localStorage). Open `index.html` in any modern browser; there is no build step.

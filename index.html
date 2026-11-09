@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<meta name="description" content="WiseWeb: a 90-day beginner course in software, data, AI, hardware, cyber security and blockchain.">
+<meta name="description" content="WiseWeb: a 90-day full-time bootcamp in software, data, AI, hardware, cyber security and blockchain.">
 <style>:root{color-scheme:light;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
 <title>WiseWeb</title>
 <meta name="claude:viewport-fit-sides" content="cover">
@@ -342,10 +342,10 @@ a.tc .s{color:var(--tc);font-weight:600}
       <a href="#roadmap">Home</a>
       <a href="#calendar">Calendar</a>
       <a href="#tracks">Tracks</a>
-      <a href="#ai-1">Day 1 · AI</a>
-      <a href="#hw-1">Day 1 · Hardware</a>
+      <a href="#hw-1">Lesson: Electricity</a>
+      <a href="#ai-1">Lesson: What is AI</a>
     </nav>
-    <span class="wk-pill" id="wk-pill">Day 1 of 90</span>
+    <span class="wk-pill" id="wk-pill">Starts 16 Nov</span>
   </div>
 </header>
 
@@ -356,12 +356,12 @@ a.tc .s{color:var(--tc);font-weight:600}
   <div class="wrap">
     <div class="hero">
       <div class="hero-txt">
-        <span class="eyebrow">9 November 2026 – 6 February 2027</span>
+        <span class="eyebrow">90-day bootcamp · 16 November 2026 – 13 February 2027</span>
         <h1>From beginner to master in 90&nbsp;days.</h1>
-        <p class="lead">Six tracks, four hours a day: software, data, AI, hardware, cyber security and blockchain. Built for someone starting from zero.</p>
+        <p class="lead">A full-time bootcamp: 6–8 hours a day across software, data, AI, hardware, cyber security and blockchain. Built for someone starting from zero.</p>
         <div class="row">
-          <a class="btn solid" href="#ai-1">Start Day 1</a>
-          <a class="btn" href="#calendar" style="background:var(--panel);color:var(--ink)">See all 90 days</a>
+          <a class="btn solid" href="#calendar">Open the calendar</a>
+          <a class="btn" href="#tracks" style="background:var(--panel);color:var(--ink)">See the six tracks</a>
         </div>
       </div>
       <div class="hero-art">
@@ -388,26 +388,42 @@ a.tc .s{color:var(--tc);font-weight:600}
     </div>
 
     <div class="stats">
-      <div class="stat"><span class="n" id="days-left">91</span><span class="l">days to go</span></div>
-      <div class="stat"><span class="n">360</span><span class="l">hours of learning</span></div>
-      <div class="stat"><span class="n">6</span><span class="l">tracks, 13 projects</span></div>
+      <div class="stat"><span class="n" id="days-left">96</span><span class="l">days to go</span></div>
+      <div class="stat"><span class="n">682</span><span class="l">hours of learning</span></div>
+      <div class="stat"><span class="n">120</span><span class="l">sessions, 13 projects</span></div>
       <div class="stat"><span class="n" id="st-pct">0%</span><span class="l">of days complete</span></div>
     </div>
 
     <div class="sec"><div class="today" id="today"></div></div>
 
     <div class="sec">
-      <div class="sec-head"><h2>Six tracks.</h2><span class="muted" style="font-size:.95rem">Open a track to see every module and when it happens.</span></div>
+      <div class="sec-head"><h2>Your bootcamp day.</h2><span class="muted" style="font-size:.95rem">Monday to Friday · 8 hours of work</span></div>
+      <div class="tbl-wrap" style="background:var(--panel)"><table>
+        <thead><tr><th>Time</th><th>Block</th><th>What happens</th></tr></thead>
+        <tbody>
+          <tr><td>08:00–08:30</td><td><b>Warm-up</b></td><td style="white-space:normal">Flashcards from earlier days and yesterday's mistakes</td></tr>
+          <tr><td>08:30–10:30</td><td><b>Session A, part 1</b></td><td style="white-space:normal">Concept lesson with its history, then guided practice</td></tr>
+          <tr><td>10:45–12:45</td><td><b>Session A, part 2</b></td><td style="white-space:normal">Independent lab: code, build or analyse</td></tr>
+          <tr><td>13:45–15:15</td><td><b>Session B, part 1</b></td><td style="white-space:normal">Concept lesson and guided practice for the second track</td></tr>
+          <tr><td>15:30–17:00</td><td><b>Session B, part 2</b></td><td style="white-space:normal">Lab or exercises</td></tr>
+          <tr><td>17:00–17:30</td><td><b>Close</b></td><td style="white-space:normal">Daily quiz, learning journal, plan tomorrow</td></tr>
+        </tbody>
+      </table></div>
+      <p class="muted" style="font-size:.95rem"><b style="color:var(--ink)">Saturday (7 h):</b> build the week's project and push it to GitHub. <b style="color:var(--ink)">Sunday (6 h):</b> weekly test, spaced review and catch-up. Breaks at 10:30, 12:45 (lunch) and 15:15.</p>
+    </div>
+
+    <div class="sec">
+      <div class="sec-head"><h2>Six tracks.</h2><span class="muted" style="font-size:.95rem">Open a track to see every session and when it happens.</span></div>
       <div class="tgrid" id="track-cards"></div>
     </div>
 
     <div class="sec">
-      <h2>Three phases.</h2>
+      <h2>Four phases.</h2>
       <div class="phases">
-        <div class="phase"><span class="k">Phase 1 · Days 1–28 · 9 Nov–6 Dec</span><b>Foundations</b><p>Python, spreadsheets and statistics, circuits, networks, Linux and Git.</p><span class="gate">Phase 1 exam · Day 28</span></div>
-        <div class="phase"><span class="k">Phase 2 · Days 29–56 · 7 Dec–3 Jan</span><b>Core skills</b><p>SQL and pandas, first machine-learning models, the web, cryptography.</p><span class="gate">Phase 2 exam · Day 56</span></div>
-        <div class="phase"><span class="k">Phase 3 · Days 57–84 · 4–31 Jan</span><b>Applied</b><p>Deep learning and LLMs, big data, IoT devices, smart contracts, security operations.</p><span class="gate">Phase 3 exam · Day 84</span></div>
-        <div class="phase cap"><span class="k">Final week · Days 85–90 · 1–6 Feb</span><b>Capstone</b><p>Build a project that uses three tracks, polish your portfolio, then present it.</p><span class="gate">Demo day · Day 90</span></div>
+        <div class="phase"><span class="k">Phase 1 · Days 1–28 · 16 Nov–13 Dec</span><b>Foundations</b><p>Python, statistics and maths for ML, circuits and logic, networks and Linux.</p><span class="gate">Phase 1 exam · Day 28</span></div>
+        <div class="phase"><span class="k">Phase 2 · Days 29–56 · 14 Dec–10 Jan</span><b>Core skills</b><p>SQL and pandas, ML model families, HTML, CSS and JavaScript, cryptography, CPUs, Solidity.</p><span class="gate">Phase 2 exam · Day 56</span></div>
+        <div class="phase"><span class="k">Phase 3 · Days 57–84 · 11 Jan–7 Feb</span><b>Advanced</b><p>LLMs, RAG and agents, full-stack apps, big data, IoT, ethical hacking, dApps. Major chosen on Day 57.</p><span class="gate">Phase 3 exam · Day 84</span></div>
+        <div class="phase cap"><span class="k">Final week · Days 85–90 · 8–13 Feb</span><b>Capstone</b><p>Build a project in your major, finish your portfolio and CV, then present it.</p><span class="gate">Demo day · Day 90</span></div>
       </div>
     </div>
 
@@ -416,19 +432,19 @@ a.tc .s{color:var(--tc);font-weight:600}
       <div class="goals">
         <div class="goal">
           <span class="eyebrow" style="color:var(--good)">By Day 90</span>
-          <h3>Beginner skills in all six fields</h3>
-          <p class="muted" style="font-size:.95rem">Write Python and deploy a web app, answer business questions with SQL and pandas, train ML models and build with LLMs, wire sensor devices, secure accounts and websites, and deploy a smart contract.</p>
+          <h3>Strong foundations in six fields</h3>
+          <p class="muted" style="font-size:.95rem">Deploy a full-stack app, run sound A/B tests and Spark jobs, ship LLM and RAG apps, build IoT and edge-AI devices, run a legal pen test, and audit a smart contract. Plus 13 projects on GitHub.</p>
         </div>
         <div class="goal">
-          <span class="eyebrow">After Day 90</span>
-          <h3>Pick one or two to go deep</h3>
-          <div class="chips"><span class="chip">AI Marketing Specialist</span><span class="chip">Data Analyst</span><span class="chip">ML Engineer</span><span class="chip">Security Analyst</span><span class="chip">Web Developer</span><span class="chip">IoT Developer</span></div>
+          <span class="eyebrow">Your major (Day 57)</span>
+          <h3>Junior-level depth in one or two</h3>
+          <div class="chips"><span class="chip">AI / ML Engineer</span><span class="chip">Data Analyst</span><span class="chip">Full-stack Developer</span><span class="chip">SOC Analyst</span><span class="chip">IoT Developer</span><span class="chip">Blockchain Developer</span></div>
         </div>
         <div class="goal hw">
           <span class="eyebrow">Kit and rules</span>
           <h3>Before you start</h3>
-          <p class="muted" style="font-size:.95rem"><b style="color:var(--ink)">Buy by 13 Jan:</b> an Arduino Uno starter kit and a digital multimeter.</p>
-          <p class="muted" style="font-size:.95rem"><b style="color:var(--ink)">Always:</b> 5–12 V only, hack only what you own, test networks only for crypto, no client data in AI tools.</p>
+          <p class="muted" style="font-size:.95rem"><b style="color:var(--ink)">Buy:</b> Arduino starter kit and multimeter by 9 Jan; Raspberry Pi by 22 Jan.</p>
+          <p class="muted" style="font-size:.95rem"><b style="color:var(--ink)">Always:</b> 5–12 V only, hack only what you own, test networks only for crypto, no client data in AI tools, sleep 7–8 hours.</p>
         </div>
       </div>
     </div>
@@ -437,7 +453,7 @@ a.tc .s{color:var(--tc);font-weight:600}
   <footer class="foot">
     <div class="wrap">
       <span><b style="color:var(--bad)">Safety:</b> batteries and USB power only (5–12 V). Never wall sockets: Sri Lankan mains is 230 V.</span>
-      <span>Day 1 lessons are ready. More lessons are added ahead of each day.</span>
+      <span>Lessons are added ahead of each day. Ready now: Electricity (Day 1) and What is AI (Day 4).</span>
     </div>
   </footer>
 </section>
@@ -445,7 +461,7 @@ a.tc .s{color:var(--tc);font-weight:600}
 <!-- ============ CALENDAR ============ -->
 <section class="view wrap" id="v-calendar" hidden>
   <div class="pagehead">
-    <span class="eyebrow">4 hours a day · two 2-hour blocks · Sunday is project day</span>
+    <span class="eyebrow">8 hours on weekdays · Saturday project · Sunday test and review</span>
     <h1>The 90 days.</h1>
     <div class="ctl">
       <div class="seg" id="cal-ph"><button data-p="1">Phase 1 · Days 1–28</button><button data-p="2">Phase 2 · Days 29–56</button><button data-p="3">Phase 3 · Days 57–90</button></div>
@@ -483,7 +499,7 @@ a.tc .s{color:var(--tc);font-weight:600}
 <!-- ============ AI LESSON 1 ============ -->
 <section class="view ai wrap" id="v-ai-1" hidden>
   <div class="lhero">
-    <div class="meta"><span class="pill">Day 1 · Block A · AI</span><span class="pill">About 2 hours</span></div>
+    <div class="meta"><span class="pill">Day 4 · Session B · AI</span><span class="pill">3 hours</span></div>
     <h1>What are AI and machine learning?</h1>
     <p class="lead muted">You'll learn how the pieces of AI fit together, where they came from, and you'll train your first real model on customer data.</p>
     <div class="lprog"><div class="row" style="justify-content:space-between"><span id="lp-ai-txt">0 of 8 missions complete</span><span id="lp-ai-xp"></span></div><div class="bar"><i id="lp-ai-bar"></i></div></div><nav class="lpath" id="lpath-ai" aria-label="Lesson missions"></nav>
@@ -617,7 +633,7 @@ a.tc .s{color:var(--tc);font-weight:600}
 <!-- ============ HARDWARE LESSON 1 ============ -->
 <section class="view hw wrap" id="v-hw-1" hidden>
   <div class="lhero">
-    <div class="meta"><span class="pill">Day 1 · Block B · Hardware</span><span class="pill">About 45 minutes</span></div>
+    <div class="meta"><span class="pill">Day 1 · Session B · Hardware</span><span class="pill">3 hours</span></div>
     <h1>What is electricity?</h1>
     <p class="lead muted">From a single copper atom to a working LED circuit. Everything here runs on safe, simulated batteries.</p>
     <div class="lprog"><div class="row" style="justify-content:space-between"><span id="lp-hw-txt">0 of 9 missions complete</span><span id="lp-hw-xp"></span></div><div class="bar"><i id="lp-hw-bar"></i></div></div><nav class="lpath" id="lpath-hw" aria-label="Lesson missions"></nav>
@@ -838,149 +854,56 @@ function renderParts(){for(const k in PARTS){const list=PARTS[k],n=doneIn(k);
     $('#lp-'+k+'-txt').textContent=`${n} of ${list.length} sections complete`;$('#lp-'+k+'-bar').style.width=(n/list.length*100)+'%';$('#lp-'+k+'-xp').textContent=GS.ev['done:1'+(k==='ai'?'a':'h')]?'Lesson complete ✓':'';
     list.forEach(([id,,how])=>{const blk=$('#'+id);if(!blk)return;const d=!!GS.ev['part:'+id];const hd=$(':scope > header',blk);let m=$('.mission',hd);if(!m){m=document.createElement('span');hd.appendChild(m)}m.className='mission'+(d?' ok':'');m.innerHTML=d?'<i>✓</i>Completed':`<i></i>To complete: ${how}`})}}
 
-/* ---------- course data (approved plan, 7 Nov 2026) ---------- */
-const START='2026-11-09';
+/* ---------- course data (90-day bootcamp, approved 9 Nov 2026) ---------- */
+const START='2026-11-16';
 const TR={
- S:{n:'Software',h:60,d:'From your first line of Python to building and deploying a small web app.'},
- D:{n:'Data analytics & big data',h:52,d:'Spreadsheets, statistics, SQL, pandas and dashboards, then Spark and cloud warehouses.'},
- A:{n:'AI & machine learning',h:56,d:'Classic ML models, deep learning, and building with large language models and agents.'},
- H:{n:'Hardware',h:40,d:'From a single electron to how computers and AI chips work, and sensor devices you build.'},
- C:{n:'Cyber security',h:44,d:'Protect yourself, understand networks and encryption, and how attacks are detected.'},
- B:{n:'Blockchain & crypto',h:36,d:'How digital money works, smart contracts on test networks, and the real risks.'}};
-const MODS={
- S:[['How computers and programs work','Hardware vs software, how code becomes instructions, programming languages',2,'2'],['Python basics','Colab setup, variables, data types, input and output, strings',4,'3–4'],['Control flow','If/else decisions and loops; build a guessing game',4,'8–9'],['Functions and modules','Reusable code, libraries, reading documentation',4,'10–11'],['Data structures','Lists, tuples, dictionaries, sets',4,'15–16'],['Files and debugging','Read and write CSV files, handle errors, debug step by step',4,'17–18'],['Command line and Git','Terminal basics, version control, a GitHub portfolio',4,'22–23'],['Object-oriented programming','Classes, objects, inheritance, organising a project',4,'25–26'],['Algorithms','Searching, sorting, Big-O, breaking problems down',4,'29, 31'],['The web, HTML and CSS','HTTP, browsers and servers; build and style a responsive page',6,'38–40'],['JavaScript','Syntax, functions, arrays, objects, making pages interactive',6,'45–47'],['APIs and JSON','What an API is; call real APIs from Python',4,'52–53'],['Databases from code','SQLite with Python',2,'54'],['Web apps with Flask','Routes, forms, templates, a database, deploying online',6,'72–74'],['Professional practice','Testing, clean code, working with AI coding assistants',2,'81']],
- D:[['Data thinking','Types of data, the data lifecycle, choosing KPIs',2,'2'],['Spreadsheets for analysis','Formulas, cleaning, pivot tables, charts',4,'4–5'],['Descriptive statistics','Mean, median, spread, distributions, outliers',4,'9, 11'],['Probability and sampling','Probability rules, the normal distribution, samples vs populations',4,'15, 17'],['Hypothesis tests and A/B testing','p-values, confidence, sample size, testing campaigns',4,'23–24'],['SQL I','SELECT, WHERE, ORDER BY, GROUP BY, aggregates',4,'29–30'],['SQL II','JOINs, subqueries, window functions',4,'32–33'],['pandas I','Load, explore and clean messy data',4,'36–37'],['pandas II','groupby, merge, time series',4,'43–44'],['Visualisation and dashboards','matplotlib, seaborn, Looker Studio, data storytelling',4,'50–51'],['Marketing analytics','Funnels, cohorts, RFM, customer lifetime value, attribution',4,'52–53'],['Big data concepts','The 5 Vs, distributed storage, HDFS, MapReduce',2,'57'],['Apache Spark','PySpark DataFrames, Spark SQL, large aggregations',4,'58–59'],['Warehouses and pipelines','Data lakes vs warehouses, BigQuery, ETL/ELT, data quality',4,'64–65']],
- A:[['What AI and ML are','The four circles, the history, three ways machines learn',2,'1'],['Using AI tools well','Prompting, limits, hallucinations, checking outputs',2,'5'],['Maths for ML','Vectors, matrices, gradients and optimisation, explained intuitively',4,'20, 22'],['The ML workflow','Features, labels, train/test split, overfitting, metrics',4,'30–31'],['Regression','Linear regression in scikit-learn; predict sales',4,'36–37'],['Classification','Logistic regression, decision trees, precision and recall',4,'43–44'],['Ensembles','Random forests, gradient boosting, feature importance',4,'46–47'],['Unsupervised learning','k-means customer segmentation, PCA',4,'50–51'],['Neural networks','Neurons, layers, activations; train one in Keras',4,'57–58'],['Computer vision','CNNs, transfer learning, classifying product images',4,'60–61'],['Natural language processing','Text cleaning, sentiment, embeddings, similarity',4,'64–65'],['How LLMs work','Tokens, transformers, attention, fine-tuning, RLHF, limits',4,'67–68'],['Building with LLMs','LLM APIs, structured output, RAG over your own documents',4,'71–72'],['Agents and automation','Tool-using agents, AI workflows for marketing',4,'78–79'],['Responsible and deployed AI','Bias, privacy, evaluation, deploying models, MLOps basics',4,'80–81']],
- H:[['What electricity is','Charge, voltage, current, resistance, Ohm\'s law',2,'1'],['Power and circuits','Watts, series and parallel circuits, AC/DC, safety',2,'6'],['Components','Resistors, LEDs, capacitors, diodes, breadboards, the multimeter',4,'8, 12'],['Semiconductors and transistors','How a transistor switches, and why chips hold billions of them',2,'16'],['Digital logic','Binary, logic gates, flip-flops, memory',4,'18–19'],['Inside a computer','CPU, RAM, storage, motherboard, buses, power supply',4,'24–25'],['How a CPU and OS work','Fetch-decode-execute, processes, memory management',4,'34, 38'],['AI hardware','GPUs, TPUs, NPUs, data centres',2,'45'],['PC building and troubleshooting','Choosing parts, assembling, diagnosing faults',2,'54'],['Microcontrollers','Arduino programming, first in a simulator, then on a real board',4,'61, 66'],['Sensors and actuators','Temperature, light and motion sensors; motors, relays, displays',4,'69, 71'],['Internet of Things','MQTT, connected devices, Raspberry Pi',4,'76'],['Edge AI','Run a small AI model on a device',2,'79']],
- C:[['Security basics','The CIA triad, common threats, passwords, MFA, updates',2,'3'],['Social engineering','Phishing and pretexting, and protecting a marketing team',2,'6'],['Networking I','IP addresses, ports, DNS, TCP/UDP, the OSI model',4,'10, 13'],['Networking II','Wi-Fi, routers, firewalls, VPNs, watching traffic in Wireshark',4,'19–20'],['Linux','Command line, users, permissions, processes',4,'26–27'],['Cryptography','Hashing, encryption, public keys, certificates, HTTPS',4,'32–33'],['Web security','The OWASP Top 10: injection, XSS, authentication flaws',4,'39–40'],['Malware and incident response','Ransomware, and what to do when you are hacked',4,'48'],['Identity and cloud','MFA, single sign-on, least privilege, cloud security',4,'59–60'],['Security operations','Logs, SIEM, threat intelligence, detection',4,'66–67'],['Ethical hacking','Methodology, and building a safe home lab',4,'75'],['Governance and careers','Risk, compliance, Sri Lankan law, certifications',4,'80, 82']],
- B:[['Money and trust','Ledgers, the double-spend problem, Bitcoin\'s origin',2,'12'],['Cryptographic building blocks','Hashes, digital signatures, Merkle trees',2,'13'],['How Bitcoin works','Transactions, blocks, mining, proof of work',4,'27, 34'],['Wallets and safety','Keys, seed phrases, custody, spotting scams',4,'41'],['Ethereum','The "world computer", and what smart contracts can and can\'t do',4,'55'],['Solidity','Write a contract and deploy it to a test network',4,'62'],['Tokens','ERC-20 tokens, stablecoins, NFTs, digital ownership',4,'68–69'],['DeFi and exchanges','Lending, DEXs, liquidity, on-ramps and their risks',4,'73–74'],['Consensus and scaling','Proof of stake, layer 2',2,'78'],['Risk and regulation','Regulation, central bank digital currencies, Sri Lanka\'s position',2,'82'],['Applied web3','Real-world uses, web3 marketing, a token-gated mini app',4,'83']]};
-const DAYS=[
-["A","What AI and machine learning are (Lesson 1)","H","What electricity is, Ohm's law (Lesson 1)"],
-["S","How computers and programs work","D","Data types, the data lifecycle, KPIs"],
-["S","Python setup, variables, data types","C","CIA triad, passwords, MFA, updates"],
-["S","Python input, output, strings, numbers","D","Spreadsheet formulas and cleaning"],
-["A","Using AI tools well: prompting and limits","D","Pivot tables and charts"],
-["H","Power, series and parallel, AC/DC, safety","C","Social engineering and phishing"],
-["L","Lab 1: security checklist for your own accounts + a campaign KPI spreadsheet"],
-["S","If/else decisions","H","Resistors, LEDs, breadboards"],
-["S","Loops","D","Mean, median, spread"],
-["S","Functions","C","IP addresses, ports, DNS"],
-["S","Modules and libraries","D","Distributions and outliers"],
-["B","Money, ledgers and trust; Bitcoin's origin","H","Capacitors, diodes, the multimeter"],
-["C","TCP/UDP and the OSI model","B","Hashes, signatures, Merkle trees"],
-["L","Lab 2: number-guessing game in Python + LED circuit in a simulator"],
-["S","Lists and tuples","D","Probability basics"],
-["S","Dictionaries and sets","H","Semiconductors and transistors"],
-["S","Reading and writing files, CSV","D","Distributions and sampling"],
-["S","Errors and debugging","H","Binary and logic gates"],
-["C","Wi-Fi, routers, firewalls, VPNs","H","Flip-flops and memory"],
-["C","Watching traffic in Wireshark","A","Maths for ML: vectors and matrices"],
-["L","Lab 3: analyse a sales CSV with plain Python"],
-["S","The command line","A","Maths for ML: gradients and optimisation"],
-["S","Git and GitHub","D","Hypothesis tests and p-values"],
-["D","A/B testing for marketers","H","Inside a computer: CPU, RAM, storage"],
-["S","Classes and objects","H","Motherboard, buses, power supply"],
-["S","Inheritance and project structure","C","Linux basics"],
-["C","Linux users, permissions, processes","B","Bitcoin transactions and blocks"],
-["L","Lab 4 + Phase 1 exam: first GitHub repository + a hardened Linux account"],
-["D","SQL: SELECT, WHERE, ORDER BY","S","Searching and sorting"],
-["D","SQL: GROUP BY and aggregates","A","ML workflow: features, labels, train/test split"],
-["S","Big-O and problem solving","A","Overfitting, cross-validation, metrics"],
-["D","SQL JOINs","C","Hashing and symmetric encryption"],
-["D","Subqueries and window functions","C","Public keys, certificates, HTTPS"],
-["B","Mining and proof of work","H","How a CPU runs instructions"],
-["L","Lab 5: answer 20 business questions from a marketing database in SQL"],
-["D","pandas: loading and exploring","A","Linear regression: predicting sales"],
-["D","pandas: cleaning messy data","A","Regression in scikit-learn, and evaluating it"],
-["S","How the web works: HTTP, browsers, servers","H","Operating systems: processes, memory, files"],
-["S","HTML structure","C","OWASP Top 10: injection and XSS"],
-["S","CSS layout and responsive design","C","Authentication flaws, securing a website"],
-["B","Wallets, keys, seed phrases","B","Custody, exchanges, spotting scams"],
-["L","Lab 6: clean a real marketing dataset + predict monthly revenue"],
-["D","pandas: groupby and merge","A","Classification: logistic regression"],
-["D","Time series and dates","A","Decision trees, precision, recall"],
-["S","JavaScript basics","H","GPUs, TPUs, NPUs, data centres"],
-["S","JS functions, arrays, objects","A","Random forests"],
-["S","The DOM: interactive pages","A","Gradient boosting, feature importance"],
-["C","Malware and ransomware","C","Incident response: what to do when hacked"],
-["L","Lab 7: customer churn model + a web page showing its results"],
-["D","Charts with matplotlib and seaborn","A","k-means customer segmentation"],
-["D","Dashboards and data storytelling","A","PCA and dimensionality reduction"],
-["S","APIs and JSON","D","Funnels and cohorts"],
-["S","Calling real APIs from Python","D","RFM, lifetime value, attribution"],
-["S","SQLite databases from Python","H","Spec, build and troubleshoot a PC"],
-["B","Ethereum, the \"world computer\"","B","What smart contracts can and can't do"],
-["L","Lab 8 + Phase 2 exam: a segmented marketing dashboard"],
-["A","Neural networks: neurons, layers, activations","D","Big data: the 5 Vs, HDFS, MapReduce"],
-["A","Train a neural network in Keras","D","Apache Spark with PySpark"],
-["D","Spark SQL and large aggregations","C","MFA, single sign-on, least privilege"],
-["A","Computer vision with CNNs","C","Cloud security basics"],
-["A","Transfer learning: classify product images","H","Arduino programming in a simulator"],
-["B","Solidity basics","B","Deploy a contract to a test network"],
-["L","Lab 9: product-image classifier + your own token contract on a test network"],
-["A","NLP: text cleaning and sentiment","D","Warehouses, lakes and BigQuery"],
-["A","Embeddings and text similarity","D","ETL/ELT pipelines and data quality"],
-["H","Arduino on a real board: inputs and outputs","C","Logs and SIEM"],
-["A","How LLMs work: tokens, transformers, attention","C","Threat intelligence and detection"],
-["A","Fine-tuning, RLHF and the limits of LLMs","B","ERC-20 tokens and stablecoins"],
-["B","NFTs and digital ownership","H","Sensors: temperature, light, motion"],
-["L","Lab 10: Arduino sensor logger feeding a BigQuery table"],
-["A","LLM APIs: prompts in code, structured output","H","Motors, relays, displays"],
-["A","RAG: chat with your own documents","S","Web apps with Flask"],
-["S","Flask forms, templates, database","B","DeFi: lending, DEXs, liquidity"],
-["S","Deploy your app online","B","Exchanges, on-ramps and their risks"],
-["C","Ethical hacking methodology","C","Build a safe home lab"],
-["H","IoT and MQTT","H","Raspberry Pi basics"],
-["L","Lab 11: deploy a RAG chatbot for a brand + check it against the OWASP Top 10"],
-["A","Agents: tools, planning, memory","B","Proof of stake and layer 2"],
-["A","Automation workflows with AI","H","Edge AI: a model on a device"],
-["A","Responsible AI: bias, privacy, evaluation","C","Governance, risk, Sri Lankan law"],
-["A","Deploying models, MLOps basics","S","Testing, clean code, AI coding assistants"],
-["B","Risks, regulation, CBDCs, Sri Lanka","C","Security careers and certifications"],
-["B","Real-world uses, web3 marketing","B","Token-gated mini app on a test network"],
-["L","Lab 12 + Phase 3 exam: an AI agent that automates a marketing task"],
-["L","Capstone: choose, plan, gather data"],
-["L","Capstone: build"],
-["L","Capstone: build"],
-["L","Capstone: build + security review"],
-["L","Portfolio: GitHub write-ups, LinkedIn, CV"],
-["L","Demo day: present your capstone, review the 90 days, plan what's next"]];
-const PH=[{n:1,name:'Foundations',from:1,to:28},{n:2,name:'Core skills',from:29,to:56},{n:3,name:'Applied',from:57,to:90}];
-const LINK={1:['#ai-1','#hw-1']};
+ S:{n:'Software engineering',h:85,d:'From your first line of Python to a deployed full-stack app with React, an API and a database.'},
+ D:{n:'Data analytics & big data',h:75,d:'Statistics, SQL, pandas and dashboards, then Spark, cloud warehouses and streaming.'},
+ A:{n:'AI & machine learning',h:85,d:'The maths, classic ML and neural networks from scratch, then PyTorch, LLMs, RAG and agents.'},
+ H:{n:'Hardware & electronics',h:55,d:'From a single electron to CPUs and operating systems, then Arduino, Raspberry Pi and edge AI.'},
+ C:{n:'Cyber security',h:65,d:'Networking, Linux and cryptography, then web security, SOC work, incident response and a legal hacking lab.'},
+ B:{n:'Blockchain & crypto',h:55,d:'How trust works without a bank; write, test and audit smart contracts and build a dApp on test networks.'}};
+const DAYS=[["S", "How computers run programs: binary, CPU, memory, OS; dev setup (VS Code, Python, terminal)", "H", "Electricity: charge, voltage, current, resistance, Ohm's law, and their history"], ["S", "Python I: variables, types, operators, strings, input and output", "D", "Data thinking: data types, the data lifecycle, KPIs, asking good questions"], ["D", "Spreadsheets in depth: formulas, lookups, cleaning, pivot tables, charts", "C", "Security foundations: CIA triad, threat actors, attack surface, personal hygiene"], ["S", "Python II: conditionals, loops, the debugging mindset", "A", "What AI is: history from 1950, the four circles, ways machines learn"], ["H", "Circuits: series and parallel, power, Kirchhoff's laws, simulation", "S", "Python III: functions, scope, modules, reading documentation"], ["P", "Project 1 (7 h): Security audit of your own accounts + a campaign KPI spreadsheet + a Python unit-converter script"], ["T", "Week 1 test, spaced review and catch-up (6 h)"], ["S", "Problem-solving clinic: 30 Python exercises and solution patterns", "A", "Using AI tools professionally: prompt engineering, limits, checking outputs"], ["D", "Maths refresher: algebra, functions, graphs, percentages, logarithms", "D", "Descriptive statistics: centre, spread, distributions, outliers"], ["S", "Data structures I: lists, tuples, dictionaries, sets, comprehensions", "H", "Components: resistors, capacitors, inductors, diodes, LEDs, the multimeter"], ["C", "Social engineering and phishing; securing a marketing team's accounts", "C", "Networking I: OSI and TCP/IP models, IP addressing, subnetting"], ["A", "Linear algebra for ML: vectors, matrices, dot products, transformations", "B", "Money, ledgers and trust: the history of money, the double-spend problem"], ["P", "Project 2 (7 h): Python text-adventure game + LED circuit in a simulator + descriptive statistics of a real dataset"], ["T", "Week 2 test, spaced review and catch-up (6 h)"], ["S", "Files, exceptions, CSV/JSON, virtual environments and pip", "S", "Command line and Git/GitHub: commits, branches, pull requests"], ["D", "Probability: rules, conditional probability, Bayes' theorem", "A", "Calculus for ML: derivatives, gradients, the chain rule, gradient descent"], ["H", "Semiconductors and transistors: doping, BJTs, MOSFETs, switches and amplifiers", "B", "Cryptographic foundations: hashes, digital signatures, Merkle trees"], ["C", "Networking II: TCP/UDP, DNS, DHCP, HTTP/S, routing, NAT", "C", "Network analysis: Wireshark, firewalls, VPNs, Wi-Fi security"], ["D", "Distributions and sampling: normal, binomial, Poisson, central limit theorem", "H", "Digital logic: Boolean algebra, logic gates, combinational circuits"], ["P", "Project 3 (7 h): Command-line expense tracker on GitHub + a Wireshark traffic report"], ["T", "Week 3 test, spaced review and catch-up (6 h)"], ["S", "Object-oriented programming: classes, inheritance, composition", "D", "NumPy: arrays, vectorisation, broadcasting"], ["D", "pandas I: loading, exploring, cleaning, missing data", "S", "Data structures II: stacks, queues, linked lists, hash maps, trees, graphs"], ["A", "The ML workflow: framing a problem, features, labels, splits, data leakage", "A", "Linear regression from scratch and in scikit-learn; regression metrics"], ["C", "Linux for security: shell, users, permissions, processes, logs, bash scripting", "C", "Windows security: Active Directory concepts, PowerShell, Event Viewer"], ["H", "Sequential logic: flip-flops, registers, counters, memory cells", "B", "Bitcoin in depth: UTXOs, transactions, blocks, mining, proof of work"], ["P", "Project 4 (7 h): Sales-forecast model in pandas + a hardened Linux setup"], ["T", "Phase 1 exam (6 h): written + practical, then review"], ["S", "Algorithms: recursion, searching, sorting, Big-O", "D", "Inferential statistics: confidence intervals, hypothesis tests, p-values"], ["D", "A/B testing and experiment design: power, sample size, common pitfalls", "A", "Logistic regression and classification metrics: confusion matrix, ROC-AUC"], ["A", "Decision trees, random forests and gradient boosting (XGBoost)", "C", "Cryptography I: hashing, symmetric encryption, password storage"], ["H", "Computer architecture: ALU, registers, control unit, fetch–decode–execute, assembly", "H", "Memory and storage: cache, RAM, SSD/HDD, buses, I/O"], ["B", "Wallets, keys and custody; recognising scams", "S", "Testing and clean code: pytest, refactoring, type hints, code review"], ["P", "Project 5 (7 h): A/B-test analysis of a campaign + a tested classification model"], ["T", "Week 5 test, spaced review and catch-up (6 h)"], ["D", "SQL I: SELECT, filtering, sorting, aggregates, GROUP BY", "S", "How the web works: HTTP, DNS, client/server, REST"], ["A", "Model selection: cross-validation, hyperparameter tuning, bias–variance", "D", "SQL II: JOINs, subqueries, CTEs, window functions"], ["S", "HTML and CSS: semantic HTML, flexbox, grid, responsive design, accessibility", "B", "Consensus: proof of work, proof of stake, BFT, forks"], ["A", "Feature engineering, pipelines and imbalanced data", "H", "Operating systems: processes, threads, scheduling, virtual memory, file systems"], ["C", "Cryptography II: public-key crypto, digital signatures, certificates, TLS", "A", "Unsupervised learning: k-means, hierarchical clustering, PCA; segmentation"], ["P", "Project 6 (7 h): SQL analysis of an e-commerce database + a responsive portfolio website"], ["T", "Week 6 test, spaced review and catch-up (6 h)"], ["A", "Recommender systems and time-series forecasting", "C", "Web application security: OWASP Top 10, injection, XSS, CSRF (lab only)"], ["S", "JavaScript I: syntax, functions, arrays, objects, the DOM, events", "S", "JavaScript II: async, promises, fetch, building a dynamic page"], ["D", "pandas II: groupby, merge, reshape, time series", "A", "Neural networks from scratch: the perceptron and backpropagation in NumPy"], ["B", "Ethereum: accounts, the EVM, gas, smart contracts", "D", "Data visualisation: matplotlib, seaborn, Plotly; choosing the right chart"], ["A", "Deep learning with PyTorch: tensors, training loops, optimisers, regularisation", "H", "AI hardware: GPUs, TPUs, NPUs, parallel computing, data centres"], ["P", "Project 7 (7 h): Interactive JavaScript page + customer segmentation and neural-network notebook"], ["T", "Week 7 test, spaced review and catch-up (6 h)"], ["D", "Dashboards and storytelling: Power BI and Looker Studio", "A", "Computer vision: CNNs, transfer learning, image classification"], ["A", "NLP foundations: tokenisation, embeddings, word2vec, sentiment", "B", "Solidity I: syntax, types, functions, Remix, test networks"], ["S", "APIs: consuming REST APIs from Python and JavaScript; keys and rate limits", "S", "Databases for developers: relational design, PostgreSQL, ORMs"], ["C", "Identity and access: MFA, OAuth/SSO, least privilege, IAM", "C", "Malware and ransomware: types, basic analysis, defences"], ["B", "Solidity II: mappings, events, modifiers, testing with Hardhat", "H", "PC building, troubleshooting and peripherals"], ["P", "Project 8 (7 h): Marketing dashboard + your first Solidity contract on a test network"], ["T", "Phase 2 exam (6 h): written + practical, then review"], ["A", "Transformers and attention: how LLMs work, pretraining, fine-tuning, RLHF", "C", "Security operations: logs, SIEM (Splunk/Elastic), detection rules"], ["D", "Marketing analytics: funnels, cohorts, RFM, CLV, attribution", "A", "Building with LLM APIs: prompts in code, structured output, tool calling"], ["S", "Backend with FastAPI: routes, validation, authentication", "D", "Data engineering: ETL/ELT, data quality, pipelines, orchestration"], ["H", "Microcontrollers: Arduino C/C++, GPIO, PWM, timing", "B", "Tokens: ERC-20, ERC-721/1155 (NFTs), stablecoins"], ["B", "Smart contract security: reentrancy, common exploits, audits", "S", "React fundamentals: components, props, state, hooks"], ["P", "Project 9 (7 h): LLM-powered API built with FastAPI + an Arduino sensor build"], ["T", "Week 9 test, spaced review and catch-up (6 h)"], ["A", "RAG systems: chunking, vector databases, evaluating retrieval", "B", "DeFi: AMM exchanges, lending, oracles, risks"], ["D", "Big data concepts: the 5 Vs, distributed systems, HDFS, MapReduce", "A", "AI agents and automation: tool use, planning, multi-step workflows"], ["B", "dApp development: ethers.js, connecting a web front end to a contract", "C", "Incident response and basic digital forensics"], ["C", "Vulnerability management: Nmap, OpenVAS, CVEs, patching", "S", "Full-stack integration: React front end + API + database"], ["H", "Sensors, actuators and protocols: I2C, SPI, UART", "H", "Raspberry Pi and embedded Linux"], ["P", "Project 10 (7 h): RAG chatbot over a brand's documents with a React front end"], ["T", "Week 10 test, spaced review and catch-up (6 h)"], ["A", "Generative AI for marketing: image, video and audio generation; brand safety", "S", "Deployment and DevOps: Linux servers, Docker, CI/CD with GitHub Actions"], ["A", "MLOps: experiment tracking, serving models with FastAPI, monitoring, drift", "A", "Responsible AI: bias, fairness, privacy, explainability (SHAP), regulation"], ["B", "Scaling and interoperability: layer 2, rollups, bridges", "B", "Regulation and risk: global rules, Sri Lanka's position, CBDCs, AML"], ["C", "Ethical hacking: recon, exploitation and reporting in a home lab", "C", "Cloud security: shared responsibility, AWS/Azure basics, misconfigurations"], ["H", "IoT systems: MQTT, cloud dashboards, power and device security", "D", "Apache Spark: PySpark DataFrames, Spark SQL, performance"], ["P", "Project 11 (7 h): IoT sensor station streaming to a cloud dashboard + a pen-test report on your own app"], ["T", "Week 11 test, spaced review and catch-up (6 h)"], ["A", "AI product thinking: choosing use cases, measuring ROI, presenting work", "C", "Governance, risk and compliance: ISO 27001, NIST, Sri Lankan law"], ["S", "Software design: design patterns, system design basics, scalability", "D", "Cloud data platforms: BigQuery, warehouses, lakes, lakehouses, dbt"], ["D", "Streaming and NoSQL: Kafka concepts, MongoDB, Redis; choosing storage", "B", "Real-world uses: ticketing, loyalty, supply chain, web3 marketing"], ["B", "Blockchain build: NFT tickets or a token-gated fan club on a test network", "S", "Professional workflow: AI coding assistants, documentation, Agile/Scrum"], ["C", "Security careers: SOC analyst path, Security+ and other certifications", "H", "Edge AI: TinyML and running models on devices"], ["P", "Project 12 (7 h): AI marketing agent + NFT ticketing app on a test network"], ["T", "Phase 3 exam (6 h): written + practical, then review"], ["X", "Capstone: choose, scope and plan; gather data (8 h)"], ["X", "Capstone build day 1 (8 h)"], ["X", "Capstone build day 2 (8 h)"], ["X", "Capstone build day 3 + security and quality review (8 h)"], ["X", "Portfolio day: GitHub write-ups, LinkedIn, CV, mock interview (8 h)"], ["X", "Demo day: present your capstone, final review, Season 2 plan (6 h)"]];
+const MODS={"S": [["How computers run programs: binary, CPU, memory, OS; dev setup (VS Code, Python, terminal)", 4, 1], ["Python I: variables, types, operators, strings, input and output", 4, 2], ["Python II: conditionals, loops, the debugging mindset", 4, 4], ["Python III: functions, scope, modules, reading documentation", 3, 5], ["Problem-solving clinic: 30 Python exercises and solution patterns", 4, 8], ["Data structures I: lists, tuples, dictionaries, sets, comprehensions", 4, 10], ["Files, exceptions, CSV/JSON, virtual environments and pip", 4, 15], ["Command line and Git/GitHub: commits, branches, pull requests", 3, 15], ["Object-oriented programming: classes, inheritance, composition", 4, 22], ["Data structures II: stacks, queues, linked lists, hash maps, trees, graphs", 3, 23], ["Algorithms: recursion, searching, sorting, Big-O", 4, 29], ["Testing and clean code: pytest, refactoring, type hints, code review", 3, 33], ["How the web works: HTTP, DNS, client/server, REST", 3, 36], ["HTML and CSS: semantic HTML, flexbox, grid, responsive design, accessibility", 4, 38], ["JavaScript I: syntax, functions, arrays, objects, the DOM, events", 4, 44], ["JavaScript II: async, promises, fetch, building a dynamic page", 3, 44], ["APIs: consuming REST APIs from Python and JavaScript; keys and rate limits", 4, 52], ["Databases for developers: relational design, PostgreSQL, ORMs", 3, 52], ["Backend with FastAPI: routes, validation, authentication", 4, 59], ["React fundamentals: components, props, state, hooks", 3, 61], ["Full-stack integration: React front end + API + database", 3, 67], ["Deployment and DevOps: Linux servers, Docker, CI/CD with GitHub Actions", 3, 71], ["Software design: design patterns, system design basics, scalability", 4, 79], ["Professional workflow: AI coding assistants, documentation, Agile/Scrum", 3, 81]], "D": [["Data thinking: data types, the data lifecycle, KPIs, asking good questions", 3, 2], ["Spreadsheets in depth: formulas, lookups, cleaning, pivot tables, charts", 4, 3], ["Maths refresher: algebra, functions, graphs, percentages, logarithms", 4, 9], ["Descriptive statistics: centre, spread, distributions, outliers", 3, 9], ["Probability: rules, conditional probability, Bayes' theorem", 4, 16], ["Distributions and sampling: normal, binomial, Poisson, central limit theorem", 4, 19], ["NumPy: arrays, vectorisation, broadcasting", 3, 22], ["pandas I: loading, exploring, cleaning, missing data", 4, 23], ["Inferential statistics: confidence intervals, hypothesis tests, p-values", 3, 29], ["A/B testing and experiment design: power, sample size, common pitfalls", 4, 30], ["SQL I: SELECT, filtering, sorting, aggregates, GROUP BY", 4, 36], ["SQL II: JOINs, subqueries, CTEs, window functions", 3, 37], ["pandas II: groupby, merge, reshape, time series", 4, 45], ["Data visualisation: matplotlib, seaborn, Plotly; choosing the right chart", 3, 46], ["Dashboards and storytelling: Power BI and Looker Studio", 4, 50], ["Marketing analytics: funnels, cohorts, RFM, CLV, attribution", 4, 58], ["Data engineering: ETL/ELT, data quality, pipelines, orchestration", 3, 59], ["Big data concepts: the 5 Vs, distributed systems, HDFS, MapReduce", 4, 65], ["Apache Spark: PySpark DataFrames, Spark SQL, performance", 3, 75], ["Cloud data platforms: BigQuery, warehouses, lakes, lakehouses, dbt", 3, 79], ["Streaming and NoSQL: Kafka concepts, MongoDB, Redis; choosing storage", 4, 80]], "A": [["What AI is: history from 1950, the four circles, ways machines learn", 3, 4], ["Using AI tools professionally: prompt engineering, limits, checking outputs", 3, 8], ["Linear algebra for ML: vectors, matrices, dot products, transformations", 4, 12], ["Calculus for ML: derivatives, gradients, the chain rule, gradient descent", 3, 16], ["The ML workflow: framing a problem, features, labels, splits, data leakage", 4, 24], ["Linear regression from scratch and in scikit-learn; regression metrics", 3, 24], ["Logistic regression and classification metrics: confusion matrix, ROC-AUC", 3, 30], ["Decision trees, random forests and gradient boosting (XGBoost)", 4, 31], ["Model selection: cross-validation, hyperparameter tuning, bias–variance", 4, 37], ["Feature engineering, pipelines and imbalanced data", 4, 39], ["Unsupervised learning: k-means, hierarchical clustering, PCA; segmentation", 3, 40], ["Recommender systems and time-series forecasting", 4, 43], ["Neural networks from scratch: the perceptron and backpropagation in NumPy", 3, 45], ["Deep learning with PyTorch: tensors, training loops, optimisers, regularisation", 4, 47], ["Computer vision: CNNs, transfer learning, image classification", 3, 50], ["NLP foundations: tokenisation, embeddings, word2vec, sentiment", 4, 51], ["Transformers and attention: how LLMs work, pretraining, fine-tuning, RLHF", 4, 57], ["Building with LLM APIs: prompts in code, structured output, tool calling", 3, 58], ["RAG systems: chunking, vector databases, evaluating retrieval", 4, 64], ["AI agents and automation: tool use, planning, multi-step workflows", 3, 65], ["Generative AI for marketing: image, video and audio generation; brand safety", 4, 71], ["MLOps: experiment tracking, serving models with FastAPI, monitoring, drift", 4, 72], ["Responsible AI: bias, fairness, privacy, explainability (SHAP), regulation", 3, 72], ["AI product thinking: choosing use cases, measuring ROI, presenting work", 4, 78]], "H": [["Electricity: charge, voltage, current, resistance, Ohm's law, and their history", 3, 1], ["Circuits: series and parallel, power, Kirchhoff's laws, simulation", 4, 5], ["Components: resistors, capacitors, inductors, diodes, LEDs, the multimeter", 3, 10], ["Semiconductors and transistors: doping, BJTs, MOSFETs, switches and amplifiers", 4, 17], ["Digital logic: Boolean algebra, logic gates, combinational circuits", 3, 19], ["Sequential logic: flip-flops, registers, counters, memory cells", 4, 26], ["Computer architecture: ALU, registers, control unit, fetch–decode–execute, assembly", 4, 32], ["Memory and storage: cache, RAM, SSD/HDD, buses, I/O", 3, 32], ["Operating systems: processes, threads, scheduling, virtual memory, file systems", 3, 39], ["AI hardware: GPUs, TPUs, NPUs, parallel computing, data centres", 3, 47], ["PC building, troubleshooting and peripherals", 3, 54], ["Microcontrollers: Arduino C/C++, GPIO, PWM, timing", 4, 60], ["Sensors, actuators and protocols: I2C, SPI, UART", 4, 68], ["Raspberry Pi and embedded Linux", 3, 68], ["IoT systems: MQTT, cloud dashboards, power and device security", 4, 75], ["Edge AI: TinyML and running models on devices", 3, 82]], "C": [["Security foundations: CIA triad, threat actors, attack surface, personal hygiene", 3, 3], ["Social engineering and phishing; securing a marketing team's accounts", 4, 11], ["Networking I: OSI and TCP/IP models, IP addressing, subnetting", 3, 11], ["Networking II: TCP/UDP, DNS, DHCP, HTTP/S, routing, NAT", 4, 18], ["Network analysis: Wireshark, firewalls, VPNs, Wi-Fi security", 3, 18], ["Linux for security: shell, users, permissions, processes, logs, bash scripting", 4, 25], ["Windows security: Active Directory concepts, PowerShell, Event Viewer", 3, 25], ["Cryptography I: hashing, symmetric encryption, password storage", 3, 31], ["Cryptography II: public-key crypto, digital signatures, certificates, TLS", 4, 40], ["Web application security: OWASP Top 10, injection, XSS, CSRF (lab only)", 3, 43], ["Identity and access: MFA, OAuth/SSO, least privilege, IAM", 4, 53], ["Malware and ransomware: types, basic analysis, defences", 3, 53], ["Security operations: logs, SIEM (Splunk/Elastic), detection rules", 3, 57], ["Incident response and basic digital forensics", 3, 66], ["Vulnerability management: Nmap, OpenVAS, CVEs, patching", 4, 67], ["Ethical hacking: recon, exploitation and reporting in a home lab", 4, 74], ["Cloud security: shared responsibility, AWS/Azure basics, misconfigurations", 3, 74], ["Governance, risk and compliance: ISO 27001, NIST, Sri Lankan law", 3, 78], ["Security careers: SOC analyst path, Security+ and other certifications", 4, 82]], "B": [["Money, ledgers and trust: the history of money, the double-spend problem", 3, 12], ["Cryptographic foundations: hashes, digital signatures, Merkle trees", 3, 17], ["Bitcoin in depth: UTXOs, transactions, blocks, mining, proof of work", 3, 26], ["Wallets, keys and custody; recognising scams", 4, 33], ["Consensus: proof of work, proof of stake, BFT, forks", 3, 38], ["Ethereum: accounts, the EVM, gas, smart contracts", 4, 46], ["Solidity I: syntax, types, functions, Remix, test networks", 3, 51], ["Solidity II: mappings, events, modifiers, testing with Hardhat", 4, 54], ["Tokens: ERC-20, ERC-721/1155 (NFTs), stablecoins", 3, 60], ["Smart contract security: reentrancy, common exploits, audits", 4, 61], ["DeFi: AMM exchanges, lending, oracles, risks", 3, 64], ["dApp development: ethers.js, connecting a web front end to a contract", 4, 66], ["Scaling and interoperability: layer 2, rollups, bridges", 4, 73], ["Regulation and risk: global rules, Sri Lanka's position, CBDCs, AML", 3, 73], ["Real-world uses: ticketing, loyalty, supply chain, web3 marketing", 3, 80], ["Blockchain build: NFT tickets or a token-gated fan club on a test network", 4, 81]]};
+
+const PH=[{n:1,name:'Foundations',from:1,to:28},{n:2,name:'Core skills',from:29,to:56},{n:3,name:'Advanced',from:57,to:84},{n:4,name:'Capstone',from:85,to:90}];
+const CALPH=[{n:1,from:1,to:28},{n:2,from:29,to:56},{n:3,from:57,to:90}];
+const LINK={1:[null,'#hw-1'],4:[null,'#ai-1']};
 const MON=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'],WD=['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
 const t0=Date.parse(START+'T00:00:00Z');
 const dateOf=n=>new Date(t0+(n-1)*864e5);
 const fmtD=n=>{const d=dateOf(n);return `${WD[d.getUTCDay()]} ${d.getUTCDate()} ${MON[d.getUTCMonth()]}`};
 const shortD=n=>{const d=dateOf(n);return `${d.getUTCDate()} ${MON[d.getUTCMonth()]}`};
 const todayN=()=>Math.floor((Date.parse(colToday()+'T00:00:00Z')-t0)/864e5)+1;
-const blocks=n=>{const a=DAYS[n-1],out=[];for(let i=0;i<a.length;i+=2)out.push({t:a[i],x:a[i+1]});return out};
+const KIND={P:'Project day · 7 hours',T:'Test and review day · 6 hours',X:'Capstone week'};
+const blocks=n=>{const a=DAYS[n-1];if(a.length===2)return[{t:a[0],x:a[1]}];return[{t:a[0],x:a[1],h:4},{t:a[2],x:a[3],h:3}]};
 const phaseOf=n=>PH.find(p=>n>=p.from&&n<=p.to);
-const isDone=n=>!!GS.ev['day:'+n]||(n===1&&!!GS.ev['done:1a']&&!!GS.ev['done:1h']);
-function trackProg(t){let tot=0,dn=0;for(let n=1;n<=90;n++)blocks(n).forEach(b=>{if(b.t===t){tot++;if(isDone(n))dn++}});return[dn,tot]}
-
-function blockHTML(b,n,i){if(b.t==='L')return`<span class="blk lab"><span class="tg">${n>84?'Capstone week · 4 h':'Project day · 4 h'}</span>${b.x}</span>`;const href=LINK[n]&&LINK[n][i];return`<span class="blk tk-${b.t}"><span class="tg">${TR[b.t].n}</span>${href?`<a href="${href}">${b.x} →</a>`:b.x}</span>`}
+const calPhaseOf=n=>CALPH.find(p=>n>=p.from&&n<=p.to).n;
+const isDone=n=>!!GS.ev['bday:'+n];
+function trackProg(t){let tot=0,dn=0;for(let n=1;n<=90;n++)blocks(n).forEach(b=>{if(b.t===t){tot+=b.h;if(isDone(n))dn+=b.h}});return[dn,tot]}
+function blockHTML(b,n,i){if(!TR[b.t])return`<span class="blk lab"><span class="tg">${KIND[b.t]}</span>${b.x}</span>`;const href=LINK[n]&&LINK[n][i];return`<span class="blk tk-${b.t}"><span class="tg">${TR[b.t].n} · ${b.h} h</span>${href?`<a href="${href}">${b.x} →</a>`:b.x}</span>`}
 let calPhase=null,calTrack='all',selTrack='S';
-function renderCal(){const tn=todayN();if(!calPhase)calPhase=tn>=1&&tn<=90?phaseOf(tn).n:1;const ph=PH[calPhase-1];let h='';
+function renderCal(){const tn=todayN();if(!calPhase)calPhase=tn>=1&&tn<=90?calPhaseOf(tn):1;const ph=CALPH[calPhase-1];let h='';
   for(let w=Math.ceil(ph.from/7);w<=Math.ceil(ph.to/7);w++){const s=(w-1)*7+1,e=Math.min(w*7,90);
-    h+=`<div class="wkb"><div class="wk-h"><b>Week ${w}${w===13?' · Capstone':''}</b><span>${shortD(s)} – ${shortD(e)}</span></div>`;
+    h+=`<div class="wkb"><div class="wk-h"><b>Week ${w}${w===13?' · Capstone':w%4===0?' · Phase exam':''}</b><span>${shortD(s)} – ${shortD(e)}</span></div>`;
     for(let n=s;n<=e;n++){const bs=blocks(n),dim=calTrack!=='all'&&!bs.some(b=>b.t===calTrack);
       h+=`<div class="dr${n===tn?' today':''}${isDone(n)?' done':''}${dim?' dim':''}" id="day-${n}"><label class="dchk"><input type="checkbox" data-day="${n}" ${isDone(n)?'checked':''} aria-label="Mark Day ${n} done"></label><div class="dn"><b>Day ${n}</b><span>${fmtD(n)}</span>${n===tn?'<span class="now-pill">Today</span>':''}</div><div class="bl">${bs.map((b,i)=>blockHTML(b,n,i)).join('')}</div></div>`}
     h+='</div>'}
   $('#cal').innerHTML=h;$$('#cal-ph button').forEach(b=>b.setAttribute('aria-pressed',+b.dataset.p===calPhase));$$('#cal-tr button').forEach(b=>b.setAttribute('aria-pressed',b.dataset.t===calTrack))}
-function todayCard(b,n,i){if(b.t==='L')return`<div class="tc"><span class="k">${n>84?'Capstone week':'Project day'} · 4 hours</span><span class="t">${b.x}</span><span class="s">Uses everything from this week</span></div>`;const href=LINK[n]&&LINK[n][i],tag=href?'a':'div';return`<${tag} ${href?`href="${href}" `:''}class="tc tk-${b.t}"><span class="k">Block ${i?'B':'A'} · ${TR[b.t].n} · 2 hours</span><span class="t">${b.x}</span><span class="s">${href?'Open lesson →':'Lesson added before this day'}</span></${tag}>`}
+function todayCard(b,n,i){if(!TR[b.t])return`<div class="tc"><span class="k">${KIND[b.t]}</span><span class="t">${b.x}</span><span class="s">${b.t==='P'?'Push the result to GitHub and write it up':b.t==='T'?'Test, spaced review, then catch up':'Your major, end to end'}</span></div>`;const href=LINK[n]&&LINK[n][i],tag=href?'a':'div';return`<${tag} ${href?`href="${href}" `:''}class="tc tk-${b.t}"><span class="k">Session ${i?'B':'A'} · ${TR[b.t].n} · ${b.h} hours</span><span class="t">${b.x}</span><span class="s">${href?'Open lesson →':'Lesson added before this day'}</span></${tag}>`}
 function renderToday(){const tn=todayN();let n,label;
-  if(tn<1){n=1;label=`Starts ${fmtD(1)} · ${1-tn} day${1-tn>1?'s':''} away`}else if(tn>90){n=90;label='Course complete'}else{n=tn;label=`Today · ${fmtD(n)}`}
-  const ph=phaseOf(n);
-  $('#today').innerHTML=`<div class="td-h"><span class="eyebrow" style="color:var(--muted)">${label}</span><h2>Day ${n} <span class="muted">of 90</span></h2><span class="pill">Phase ${ph.n} · ${ph.name} · Week ${Math.ceil(n/7)}</span></div><div class="td-b">${blocks(n).map((b,i)=>todayCard(b,n,i)).join('')}</div><div class="row" style="justify-content:space-between"><label class="dchk"><input type="checkbox" data-day="${n}" ${isDone(n)?'checked':''}> Mark Day ${n} done</label><a class="btn" href="#calendar" data-goto-day="${n}" style="background:var(--paper);color:var(--ink)">Open in calendar</a></div>`}
-function renderTrackCards(){$('#track-cards').innerHTML=Object.keys(TR).map(t=>{const tr=TR[t],[d,tot]=trackProg(t);return`<a class="tcard tk-${t}" href="#tracks" data-track="${t}"><span class="k">${tr.h} hours · ${MODS[t].length} modules</span><span class="t">${tr.n}</span><span class="d">${tr.d}</span><span class="pbar"><i style="width:${d/tot*100}%"></i></span><span class="s">${d} of ${tot} sessions done</span></a>`}).join('')}
+  if(tn<1){n=1;label=`Starts ${fmtD(1)} · ${1-tn} day${1-tn>1?'s':''} away`}else if(tn>90){n=90;label='Bootcamp complete'}else{n=tn;label=`Today · ${fmtD(n)}`}
+  const ph=phaseOf(n),bs=blocks(n),learn=bs.length===2;
+  $('#today').innerHTML=`<div class="td-h"><span class="eyebrow" style="color:var(--muted)">${label}</span><h2>Day ${n} <span class="muted">of 90</span></h2><span class="pill">Phase ${ph.n} · ${ph.name} · Week ${Math.ceil(n/7)}${learn?' · 8 hours':''}</span></div><div class="td-b">${bs.map((b,i)=>todayCard(b,n,i)).join('')}</div>${learn?'<p class="muted" style="font-size:.92rem">Plus the 30-minute warm-up at 08:00 and the 30-minute quiz and journal at 17:00.</p>':''}<div class="row" style="justify-content:space-between"><label class="dchk"><input type="checkbox" data-day="${n}" ${isDone(n)?'checked':''}> Mark Day ${n} done</label><a class="btn" href="#calendar" data-goto-day="${n}" style="background:var(--paper);color:var(--ink)">Open in calendar</a></div>`}
+function renderTrackCards(){$('#track-cards').innerHTML=Object.keys(TR).map(t=>{const tr=TR[t],[d,tot]=trackProg(t);return`<a class="tcard tk-${t}" href="#tracks" data-track="${t}"><span class="k">${tr.h} hours · ${MODS[t].length} sessions</span><span class="t">${tr.n}</span><span class="d">${tr.d}</span><span class="pbar"><i style="width:${d/tot*100}%"></i></span><span class="s">${d} of ${tot} hours done</span></a>`}).join('')}
 function renderTracks(){const tr=TR[selTrack],[d,tot]=trackProg(selTrack);$$('#tr-seg button').forEach(b=>b.setAttribute('aria-pressed',b.dataset.t===selTrack));
-  $('#tr-body').innerHTML=`<div class="tr-head tk-${selTrack}"><span class="eyebrow">${tr.h} hours · ${MODS[selTrack].length} modules · ${d} of ${tot} sessions done</span><h2>${tr.n}</h2><p class="lead">${tr.d}</p><span class="pbar"><i style="width:${d/tot*100}%"></i></span></div><div class="tbl-wrap"><table><thead><tr><th>#</th><th>Module</th><th>What you learn and do</th><th>Hours</th><th>Days</th></tr></thead><tbody>${MODS[selTrack].map((m,i)=>`<tr><td>${i+1}</td><td><b>${m[0]}</b></td><td style="white-space:normal;min-width:240px">${m[1]}</td><td>${m[2]}</td><td>${m[3]}</td></tr>`).join('')}</tbody></table></div>`}
+  $('#tr-body').innerHTML=`<div class="tr-head tk-${selTrack}"><span class="eyebrow">${tr.h} hours · ${MODS[selTrack].length} sessions · ${d} of ${tot} hours done</span><h2>${tr.n}</h2><p class="lead">${tr.d}</p><span class="pbar"><i style="width:${d/tot*100}%"></i></span></div><div class="tbl-wrap"><table><thead><tr><th>#</th><th>Session</th><th>Hours</th><th>Day</th><th>Date</th></tr></thead><tbody>${MODS[selTrack].map((m,i)=>`<tr${isDone(m[2])?' style="opacity:.55"':''}><td>${i+1}</td><td style="white-space:normal;min-width:260px"><b>${m[0].split(':')[0]}</b>${m[0].includes(':')?':'+m[0].slice(m[0].indexOf(':')+1):''}</td><td>${m[1]}</td><td><a href="#calendar" data-goto-day="${m[2]}">Day ${m[2]}</a></td><td>${fmtD(m[2])}</td></tr>`).join('')}</tbody></table></div>`}
 function stats(){const tn=todayN(),done=Array.from({length:90},(_,i)=>isDone(i+1)).filter(Boolean).length;$('#st-pct').textContent=Math.round(done/90*100)+'%';
-  const end=Date.UTC(2027,1,6,18,30);$('#days-left').textContent=Math.max(0,Math.floor((end-Date.now())/864e5));
-  $('#wk-pill').textContent=tn<1?'Starts 9 Nov':tn>90?'Course complete':`Day ${tn} of 90`}
+  const end=Date.UTC(2027,1,13,18,30);$('#days-left').textContent=Math.max(0,Math.floor((end-Date.now())/864e5));
+  $('#wk-pill').textContent=tn<1?'Starts 16 Nov':tn>90?'Bootcamp complete':`Day ${tn} of 90`}
 function refresh(){renderToday();renderTrackCards();renderCal();renderTracks();stats()}
 function initGame(){refresh();renderParts()}
-document.addEventListener('change',e=>{const c=e.target.closest('input[data-day]');if(!c)return;const n=+c.dataset.day;if(c.checked)GS.ev['day:'+n]=1;else{delete GS.ev['day:'+n];if(n===1){delete GS.ev['done:1a'];delete GS.ev['done:1h']}}saveG();refresh();renderParts();toast(c.checked?`Day ${n} done ✓`:`Day ${n} unmarked`)});
+document.addEventListener('change',e=>{const c=e.target.closest('input[data-day]');if(!c)return;const n=+c.dataset.day;if(c.checked)GS.ev['bday:'+n]=1;else delete GS.ev['bday:'+n];saveG();refresh();toast(c.checked?`Day ${n} done ✓`:`Day ${n} unmarked`)});
 document.addEventListener('click',e=>{
   const b=e.target.closest('[data-complete]');if(b){const k=b.dataset.complete;toast(award('done:'+k)?'Lesson marked complete ✓':'Already complete');refresh();renderParts();return}
   const g=e.target.closest('[data-gotit]');if(g){partDone(g.dataset.gotit);g.textContent='✓ Got it';g.disabled=true;return}
@@ -988,7 +911,7 @@ document.addEventListener('click',e=>{
   const ft=e.target.closest('#cal-tr button');if(ft){calTrack=ft.dataset.t;renderCal();return}
   const ts=e.target.closest('#tr-seg button');if(ts){selTrack=ts.dataset.t;renderTracks();return}
   const tc=e.target.closest('[data-track]');if(tc){selTrack=tc.dataset.track;renderTracks();return}
-  const gd=e.target.closest('[data-goto-day]');if(gd){e.preventDefault();const n=+gd.dataset.gotoDay;calPhase=phaseOf(n).n;renderCal();location.hash='calendar';setTimeout(()=>{const r=document.getElementById('day-'+n);if(r)r.scrollIntoView({block:'center',behavior:reduced?'auto':'smooth'})},80)}});
+  const gd=e.target.closest('[data-goto-day]');if(gd){e.preventDefault();const n=+gd.dataset.gotoDay;calPhase=calPhaseOf(n);renderCal();location.hash='calendar';setTimeout(()=>{const r=document.getElementById('day-'+n);if(r)r.scrollIntoView({block:'center',behavior:reduced?'auto':'smooth'})},80)}});
 
 /* ---------- shared: timeline ---------- */
 function timeline(root,ev,key,part){const track=$('.tl-track',root),card=$('.tl-card',root);let i=0;
