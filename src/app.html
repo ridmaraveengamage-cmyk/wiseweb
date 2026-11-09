@@ -1,0 +1,1208 @@
+<title>WiseWeb</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@500;600;700;800&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500;600&display=swap">
+<style>
+/* Layout: premium light. White page, soft grey rounded surfaces, oversized tight headlines. Blue = AI, orange = hardware. */
+:root{
+  --paper:#FFFFFF; --panel:#F5F5F7; --ink:#1D1D1F; --muted:#6E6E73; --line:#E3E3E8;
+  --ai:#0066CC; --ai-deep:#004C99; --ai-soft:#E8F1FB; --on-ai:#FFFFFF;
+  --cu:#B25E00; --cu-bright:#FF9F0A; --cu-deep:#8A4800; --cu-soft:#FFF2E0; --on-cu:#FFFFFF;
+  --good:#1E8E3E; --bad:#D70015; --warn:#9A5B00; --sky:#2E9BD6; --on-accent:#FFFFFF;
+  --f-display:'Inter Tight','SF Pro Display','Helvetica Neue',system-ui,sans-serif;
+  --f-body:'Inter','SF Pro Text','Helvetica Neue',system-ui,sans-serif;
+  --f-mono:'JetBrains Mono',ui-monospace,Menlo,Consolas,monospace;
+  --t:var(--ai); --t-deep:var(--ai-deep); --t-soft:var(--ai-soft); --on-t:var(--on-ai);
+}
+@media (prefers-color-scheme: dark){ :root:not([data-theme="light"]){
+  --paper:#000000; --panel:#161617; --ink:#F5F5F7; --muted:#A1A1A6; --line:#2C2C2E;
+  --ai:#2997FF; --ai-deep:#0A6FD6; --ai-soft:#0E2238; --on-ai:#FFFFFF;
+  --cu:#FFA94D; --cu-bright:#FF9F0A; --cu-deep:#D9800A; --cu-soft:#2E200F; --on-cu:#1D1200;
+  --good:#30D158; --bad:#FF453A; --warn:#FFD60A; --sky:#64D2FF; --on-accent:#FFFFFF; color-scheme:dark }}
+:root[data-theme="dark"]{
+  --paper:#000000; --panel:#161617; --ink:#F5F5F7; --muted:#A1A1A6; --line:#2C2C2E;
+  --ai:#2997FF; --ai-deep:#0A6FD6; --ai-soft:#0E2238; --on-ai:#FFFFFF;
+  --cu:#FFA94D; --cu-bright:#FF9F0A; --cu-deep:#D9800A; --cu-soft:#2E200F; --on-cu:#1D1200;
+  --good:#30D158; --bad:#FF453A; --warn:#FFD60A; --sky:#64D2FF; --on-accent:#FFFFFF; color-scheme:dark }
+
+*{box-sizing:border-box}
+body{background:var(--paper);color:var(--ink);font-family:var(--f-body);font-size:17px;line-height:1.55;-webkit-font-smoothing:antialiased}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--paper)}
+.wrap{max-width:1120px;margin:0 auto;padding-left:max(20px,env(safe-area-inset-left,0px));padding-right:max(20px,env(safe-area-inset-right,0px))}
+h1,h2,h3{font-family:var(--f-display);line-height:1.04;text-wrap:balance;margin:0;font-weight:700;letter-spacing:-.025em}
+h1{font-size:clamp(2.6rem,7vw,4.9rem);font-weight:800;letter-spacing:-.035em;line-height:.98}
+h2{font-size:clamp(1.8rem,4vw,2.75rem)}
+h3{font-size:1.3rem;letter-spacing:-.015em}
+p{margin:0}
+.mono{font-family:var(--f-mono)}
+.eyebrow{font-size:.95rem;font-weight:600;color:var(--t)}
+.muted{color:var(--muted)}
+a{color:var(--t)}
+:focus-visible{outline:3px solid var(--ai);outline-offset:3px;border-radius:8px}
+.ai{--t:var(--ai);--t-deep:var(--ai-deep);--t-soft:var(--ai-soft);--on-t:var(--on-ai)}
+.hw{--t:var(--cu);--t-deep:var(--cu-deep);--t-soft:var(--cu-soft);--on-t:var(--on-cu)}
+
+/* ---------- header ---------- */
+header.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:9;background:color-mix(in srgb,var(--paper) 86%,transparent);backdrop-filter:saturate(180%) blur(18px);-webkit-backdrop-filter:saturate(180%) blur(18px);border-bottom:1px solid var(--line)}
+header.top .wrap{display:flex;flex-wrap:wrap;align-items:center;gap:10px 28px;padding-block:12px}
+.brand{display:flex;align-items:center;gap:10px;font-family:var(--f-display);font-weight:700;font-size:1.2rem;color:var(--ink);text-decoration:none;letter-spacing:-.01em}
+.tabs{display:flex;gap:2px 22px;flex-wrap:wrap}
+.tabs a{font-weight:500;font-size:.94rem;text-decoration:none;color:var(--muted);padding:4px 0;border-bottom:2px solid transparent}
+.tabs a:hover{color:var(--ink)}
+.tabs a[aria-current="page"]{color:var(--ink);border-color:var(--ink)}
+.wk-pill{margin-left:auto;font-size:.85rem;font-weight:600;padding:6px 14px;border-radius:999px;background:var(--panel);color:var(--ink);white-space:nowrap}
+@media (max-width:620px){.wk-pill{display:none}}
+
+main{padding-block:0 80px}
+.view{display:grid;gap:22px;padding-top:28px}
+
+/* ---------- blocks ---------- */
+.block{grid-template-columns:minmax(0,1fr);background:var(--panel);border-radius:30px;padding:clamp(22px,4vw,44px);display:grid;gap:22px;min-width:0;scroll-margin-top:90px}
+.block > header{display:grid;gap:10px;grid-template-columns:minmax(0,1fr)}
+.lead{font-size:1.15rem;max-width:62ch;color:var(--muted);line-height:1.5}
+.prose{display:grid;gap:12px;max-width:68ch}
+.two{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:22px;align-items:start}
+.note{background:var(--paper);border-radius:18px;padding:16px 20px}
+.note b:first-child{color:var(--t)}
+.danger{background:color-mix(in srgb,var(--bad) 9%,var(--paper))}
+.danger b:first-child{color:var(--bad)}
+.mission{display:inline-flex;align-items:center;gap:8px;justify-self:start;max-width:100%;font-size:.85rem;font-weight:500;color:var(--muted)}
+.mission i{font-style:normal;width:18px;height:18px;border-radius:50%;border:1.5px solid var(--muted);display:grid;place-items:center;font-size:.7rem;font-weight:700}
+.mission.ok{color:var(--good);font-weight:600}
+.mission.ok i{background:var(--good);border-color:var(--good);color:var(--on-accent)}
+
+/* ---------- buttons & controls ---------- */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;font:600 1rem var(--f-body);padding:12px 22px;border-radius:999px;border:0;background:var(--paper);color:var(--t);cursor:pointer;text-decoration:none;transition:transform .15s,background .15s,filter .15s}
+.btn:hover{filter:brightness(.97)}
+.btn:active{transform:scale(.97)}
+.btn.solid{background:var(--t);color:var(--on-t)}
+.btn.solid:hover{filter:brightness(1.08)}
+.btn.go-green{--t:var(--good);--on-t:var(--on-accent)}
+.btn:disabled{opacity:.45;cursor:not-allowed;transform:none}
+.row{display:flex;gap:12px;flex-wrap:wrap;align-items:center}
+.seg{display:inline-flex;flex-wrap:wrap;gap:4px;padding:4px;background:var(--paper);border-radius:999px}
+.seg button{font:600 .9rem var(--f-body);border:0;background:transparent;color:var(--muted);padding:8px 15px;border-radius:999px;cursor:pointer}
+.seg button[aria-pressed="true"]{background:var(--ink);color:var(--paper)}
+.stage{border-radius:20px;background:var(--paper);overflow:hidden;position:relative;min-width:0}
+canvas{display:block;max-width:100%}
+.readout{font-family:var(--f-mono);font-size:.88rem;display:flex;gap:8px 18px;flex-wrap:wrap;font-variant-numeric:tabular-nums}
+.readout b{color:var(--t)}
+.pill{display:inline-flex;align-items:center;gap:6px;font-size:.82rem;font-weight:600;padding:5px 12px;border-radius:999px;background:var(--panel);color:var(--ink)}
+label.slider{display:grid;gap:4px;font-weight:600;font-size:.94rem;min-width:min(100%,240px);flex:1}
+input[type=range]{width:100%;accent-color:var(--t)}
+input[type=number],input[type=text],textarea{font:1rem var(--f-body);color:var(--ink);background:var(--paper);border:1.5px solid var(--line);border-radius:14px;padding:11px 14px;width:100%}
+textarea{min-height:110px;resize:vertical}
+input:focus,textarea:focus{border-color:var(--t);outline:none}
+.legend{display:flex;gap:16px;flex-wrap:wrap;font-size:.88rem;color:var(--muted)}
+.legend span{display:inline-flex;align-items:center;gap:6px}
+.sw{width:12px;height:12px;border-radius:50%;display:inline-block}
+
+/* ---------- home ---------- */
+.hero{display:flex;flex-wrap:wrap;align-items:center;gap:48px;padding-block:clamp(40px,8vw,90px) 40px}
+.hero-txt{flex:1 1 460px;min-width:0;display:grid;gap:24px}
+.hero-txt .lead{font-size:1.3rem;max-width:34ch}
+.hero-art{flex:1 1 400px;min-width:0;background:var(--panel);border-radius:34px;padding:26px;display:grid;gap:10px}
+.hero-art svg{width:100%;height:auto;display:block}
+.hero-art .cap{display:flex;justify-content:space-between;font-size:.8rem;font-weight:600;color:var(--muted)}
+.stats{display:flex;flex-wrap:wrap;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.stat{flex:1 1 200px;padding:26px 8px;display:grid;gap:2px}
+.stat .n{font-family:var(--f-display);font-weight:700;font-size:2.8rem;letter-spacing:-.03em;line-height:1.05;font-variant-numeric:tabular-nums}
+.stat .l{font-size:.92rem;color:var(--muted)}
+.sec{display:grid;gap:26px;padding-block:56px 8px}
+.sec-head{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:end;gap:10px}
+.cards{display:flex;flex-wrap:wrap;gap:20px}
+.lcard{flex:1 1 380px;min-width:0;text-decoration:none;color:var(--ink);background:var(--panel);border-radius:30px;padding:clamp(24px,3.5vw,36px);display:grid;gap:12px;transition:transform .25s}
+.lcard:hover{transform:translateY(-3px)}
+.lcard .k{font-size:.9rem;font-weight:600;color:var(--t)}
+.lcard .t{font-family:var(--f-display);font-weight:700;font-size:1.9rem;line-height:1.08;letter-spacing:-.02em}
+.lcard .d{color:var(--muted)}
+.pbar{display:block;height:6px;border-radius:6px;background:var(--line);overflow:hidden;margin-top:6px}
+.pbar i{display:block;height:100%;width:0;border-radius:6px;background:var(--t);transition:width .6s}
+.lcard .s{font-size:.9rem;font-weight:600}
+.road{background:var(--paper);border-radius:28px;padding:6px clamp(18px,3vw,30px)}
+.wrow{display:flex;flex-wrap:wrap;gap:8px 28px;padding:22px 0;border-bottom:1px solid var(--line);align-items:baseline}
+.wrow:last-child{border-bottom:0}
+.wrow .w{flex:0 0 150px;display:grid;gap:2px}
+.wrow .w b{font-weight:600}
+.wrow .w span{font-size:.85rem;color:var(--muted)}
+.wrow .c{flex:1 1 260px;min-width:0;display:grid;gap:2px}
+.wrow .c .tt{font-weight:600}
+.wrow .c .a{color:var(--ai)} .wrow .c .h{color:var(--cu)}
+.wrow .c p{font-size:.92rem;color:var(--muted)}
+.wrow .c a{font-size:.9rem;font-weight:600;text-decoration:none;width:max-content}
+.wrow.locked .tt{color:var(--ink)!important}
+.now-pill{display:inline-block;margin-left:6px;font-size:.72rem;font-weight:700;padding:2px 9px;border-radius:999px;background:var(--ai);color:var(--on-ai);vertical-align:2px}
+.done-pill{display:inline-block;margin-left:6px;font-size:.72rem;font-weight:700;padding:2px 9px;border-radius:999px;background:var(--good);color:var(--on-accent);vertical-align:2px}
+.band{background:var(--panel);margin-top:64px;padding-block:64px}
+.band .road{background:var(--paper)}
+.goals{display:flex;flex-wrap:wrap;gap:20px}
+.goal{flex:1 1 320px;min-width:0;border:1px solid var(--line);border-radius:28px;padding:30px;display:grid;gap:14px;align-content:start}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{padding:7px 14px;border-radius:999px;background:var(--panel);font-size:.9rem;font-weight:500}
+footer.foot{border-top:1px solid var(--line);margin-top:64px}
+footer.foot .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px 24px;padding-block:26px;font-size:.88rem;color:var(--muted)}
+
+/* ---------- lesson header ---------- */
+.lhero{display:grid;gap:18px;padding-block:clamp(28px,6vw,64px) 10px}
+.lhero .meta{display:flex;gap:8px;flex-wrap:wrap}
+.lhero .meta .pill:first-child{background:var(--t);color:var(--on-t)}
+.lhero .lead{font-size:1.25rem}
+.lprog{display:grid;gap:8px;max-width:520px}
+.lprog .row{font-size:.9rem;font-weight:600}
+.lprog .bar{height:6px;border-radius:6px;background:var(--line);overflow:hidden}
+.lprog .bar i{display:block;height:100%;width:0;border-radius:6px;background:var(--t);transition:width .6s}
+.lpath{display:flex;flex-wrap:wrap;gap:8px}
+.lnode{display:inline-flex;align-items:center;gap:8px;text-decoration:none;color:var(--ink);font-size:.88rem;font-weight:500;padding:7px 14px 7px 7px;border-radius:999px;background:var(--panel);transition:background .15s}
+.lnode:hover{background:var(--line)}
+.lnode .dot{width:24px;height:24px;border-radius:50%;display:grid;place-items:center;background:var(--paper);font-size:.75rem;font-weight:700;color:var(--muted)}
+.lnode.done .dot{background:var(--good);color:var(--on-accent)}
+
+/* ---------- lesson pieces ---------- */
+.circles svg{width:100%;max-width:420px;height:auto;display:block;margin:auto}
+.circles .ringc{cursor:pointer}
+.circles .ringc circle{transition:stroke-width .2s}
+.circles .ringc[aria-pressed="true"] circle{stroke-width:4}
+.info{display:grid;gap:12px;align-content:start}
+.info .pill{background:var(--t);color:var(--on-t);width:max-content}
+.info .ex{display:flex;flex-wrap:wrap;gap:6px}
+.info .ex span{font-size:.85rem;padding:5px 12px;border-radius:999px;background:var(--paper);font-weight:500}
+.flow svg{width:100%;height:auto;display:block}
+.flowline{stroke-dasharray:6 6;animation:dash 1s linear infinite}
+@keyframes dash{to{stroke-dashoffset:-12}}
+.tl{display:grid;gap:14px}
+.tl-track{display:flex;gap:8px;overflow-x:auto;padding:2px 2px 10px}
+.tl-dot{flex:none;display:grid;gap:1px;text-align:left;padding:10px 16px;border-radius:16px;border:0;background:var(--paper);cursor:pointer;color:var(--ink);min-width:112px;position:relative}
+.tl-dot .tl-year{font:700 1.05rem var(--f-display);letter-spacing:-.01em}
+.tl-dot .tl-who{font-size:.78rem;color:var(--muted)}
+.tl-dot.seen::after{content:"";position:absolute;top:10px;right:10px;width:6px;height:6px;border-radius:50%;background:var(--good)}
+.tl-dot[aria-pressed="true"]{background:var(--ink);color:var(--paper)}
+.tl-dot[aria-pressed="true"] .tl-who{color:var(--paper);opacity:.75}
+.tl-card{display:grid;grid-template-columns:auto minmax(0,1fr);gap:26px;align-items:start;padding:28px;border-radius:24px;background:var(--paper);min-height:200px}
+.tl-big{font:800 clamp(2.6rem,6vw,4.4rem)/1 var(--f-display);letter-spacing:-.04em;color:var(--t);font-variant-numeric:tabular-nums}
+.tl-card h3{margin-bottom:4px;font-size:1.5rem}
+.tl-person{font-size:.9rem;color:var(--muted);margin-bottom:10px}
+.tl-why{margin-top:12px;font-size:.95rem}
+@media (max-width:600px){.tl-card{grid-template-columns:1fr}}
+.tbl-wrap{overflow-x:auto;border-radius:18px;background:var(--paper)}
+table{border-collapse:collapse;width:100%;font-size:.92rem;font-variant-numeric:tabular-nums}
+th,td{padding:12px 14px;text-align:left;border-bottom:1px solid var(--line);white-space:nowrap;transition:background .2s}
+th{font-size:.78rem;font-weight:600;color:var(--muted)}
+tr:last-child td{border-bottom:0}
+.hl-feat{background:var(--ai-soft)}
+.hl-label{background:color-mix(in srgb,var(--good) 16%,var(--paper))}
+.hl-all td,.hl-all th{background:var(--ai-soft)}
+.ltabs{display:inline-flex;flex-wrap:wrap;gap:4px;padding:4px;background:var(--paper);border-radius:999px;width:max-content;max-width:100%}
+.ltabs button{font:600 .92rem var(--f-body);border:0;background:transparent;color:var(--muted);padding:8px 16px;cursor:pointer;border-radius:999px}
+.ltabs button[aria-selected="true"]{background:var(--ink);color:var(--paper)}
+.ads{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,200px),1fr));gap:12px}
+.ad{border-radius:20px;padding:18px;background:var(--paper);display:grid;gap:8px;border:2px solid transparent}
+.ad.best{border-color:var(--good)}
+.ads .bar{height:6px;background:var(--line);border-radius:6px;overflow:hidden}
+.ads .bar i{display:block;height:100%;background:var(--t);width:0;transition:width .15s}
+.quiz{display:grid;gap:14px}
+.q{border-radius:22px;padding:22px;display:grid;gap:12px;background:var(--paper)}
+.q .qt{font-weight:600;font-size:1.05rem}
+.opts{display:grid;gap:8px;grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr))}
+.opt{text-align:left;font:500 1rem var(--f-body);padding:12px 16px;border-radius:14px;border:1.5px solid var(--line);background:var(--paper);color:var(--ink);cursor:pointer;transition:border-color .15s}
+.opt:hover{border-color:var(--muted)}
+.opt.right{border-color:var(--good);background:color-mix(in srgb,var(--good) 10%,var(--paper))}
+.opt.wrong{border-color:var(--bad);background:color-mix(in srgb,var(--bad) 8%,var(--paper))}
+.expl{font-size:.92rem;color:var(--muted)}
+.score{font-family:var(--f-display);font-weight:700;font-size:1.4rem;letter-spacing:-.015em}
+.hwk{display:grid;gap:18px}
+.hwk .item{display:grid;gap:8px}
+.hwk .item > label{font-weight:600}
+.fb{font-size:.92rem;font-weight:600}
+.fb.ok{color:var(--good)} .fb.no{color:var(--bad)}
+.done-bar{display:flex;gap:12px;flex-wrap:wrap;align-items:center;justify-content:space-between;padding:20px 24px;border-radius:22px;background:var(--paper)}
+.atom svg{width:100%;max-width:340px;height:auto;display:block;margin:auto}
+.shell{transform-box:view-box;transform-origin:170px 170px;animation:spin linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+.tri svg{width:100%;max-width:260px;height:auto;display:block;margin:auto}
+.tri polygon{cursor:pointer;transition:fill .2s}
+.calc{display:grid;gap:12px;align-content:start}
+.calc .res{font:700 1.5rem var(--f-display);letter-spacing:-.01em;color:var(--t);font-variant-numeric:tabular-nums}
+.calc .eyebrow{font-size:.85rem}
+.circuit svg{width:100%;height:auto;display:block}
+#sw-g{cursor:pointer}
+.led-glow{transition:opacity .25s}
+.smoke{animation:smoke 1.6s ease-out forwards}
+@keyframes smoke{from{opacity:.8;transform:translateY(0) scale(.6)}to{opacity:0;transform:translateY(-50px) scale(1.6)}}
+.msg{padding:14px 18px;border-radius:16px;font-weight:500;background:var(--paper)}
+.msg.ok{color:var(--good);background:color-mix(in srgb,var(--good) 9%,var(--paper))}
+.msg.no{color:var(--bad);background:color-mix(in srgb,var(--bad) 8%,var(--paper))}
+.msg.warn{color:var(--warn);background:color-mix(in srgb,var(--warn) 10%,var(--paper))}
+.sort{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,220px),1fr));gap:12px}
+.thing{border-radius:20px;padding:16px;display:grid;gap:10px;background:var(--paper);border:2px solid transparent}
+.thing.ok{border-color:var(--good)} .thing.no{border-color:var(--bad)}
+.thing .nm{font-weight:600}
+.thing .why{font-size:.85rem;color:var(--muted)}
+.thing .row{gap:6px}
+.thing .row button{font:600 .82rem var(--f-body);padding:6px 12px;border-radius:999px;border:0;background:var(--panel);color:var(--ink);cursor:pointer}
+.thing .row button:hover{background:var(--line)}
+.vscale{position:relative;height:150px;margin:8px 6px 0}
+.vscale .band{position:absolute;left:0;right:0;top:64px;height:14px;border-radius:7px;background:linear-gradient(90deg,var(--good) 0 36%,var(--cu-bright) 36% 56.6%,var(--bad) 56.6% 100%);margin:0;padding:0}
+.vscale .mk{position:absolute;top:0;bottom:0;width:0}
+.vscale .mk::before{content:"";position:absolute;left:-1px;top:56px;height:30px;border-left:2px solid var(--ink)}
+.vscale .mk span{position:absolute;transform:translateX(-50%);white-space:nowrap;font-size:.78rem;text-align:center;line-height:1.25}
+.vscale .mk.up span{bottom:100px} .vscale .mk.dn span{top:94px}
+.vscale .mk b{display:block;font-weight:700}
+.vlabels{display:flex;justify-content:space-between;font-size:.8rem;font-weight:600;gap:8px;flex-wrap:wrap}
+.toast{visibility:hidden;position:fixed;left:50%;bottom:calc(22px + env(safe-area-inset-bottom,0px));transform:translateX(-50%) translateY(200%);background:var(--ink);color:var(--paper);padding:12px 20px;border-radius:999px;font-weight:600;font-size:.95rem;transition:transform .3s,visibility .3s;z-index:20;max-width:calc(100% - 32px)}
+.toast.show{visibility:visible;transform:translateX(-50%) translateY(0)}
+@media (prefers-reduced-motion: reduce){
+  *,*::before,*::after{animation-duration:0s!important;animation-iteration-count:1!important;transition:none!important}
+}
+</style>
+
+<style>
+:root{--c-S:#6E3BC9;--c-D:#00796B;--c-A:#0066CC;--c-H:#B25E00;--c-C:#C0284D;--c-B:#8A6A00}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){--c-S:#B794FF;--c-D:#3FD2C0;--c-A:#2997FF;--c-H:#FFA94D;--c-C:#FF6B8B;--c-B:#E8C547}}
+:root[data-theme="dark"]{--c-S:#B794FF;--c-D:#3FD2C0;--c-A:#2997FF;--c-H:#FFA94D;--c-C:#FF6B8B;--c-B:#E8C547}
+.tk-S{--tc:var(--c-S)}.tk-D{--tc:var(--c-D)}.tk-A{--tc:var(--c-A)}.tk-H{--tc:var(--c-H)}.tk-C{--tc:var(--c-C)}.tk-B{--tc:var(--c-B)}
+.today{background:var(--panel);border-radius:30px;padding:clamp(22px,4vw,40px);display:grid;gap:22px}
+.td-h{display:grid;gap:8px}
+.td-h h2 .muted{font-weight:500}
+.td-h .pill{background:var(--paper);width:max-content}
+.td-b{display:flex;flex-wrap:wrap;gap:16px}
+.tc{flex:1 1 300px;min-width:0;background:var(--paper);border-radius:22px;padding:24px;display:grid;gap:8px;text-decoration:none;color:var(--ink);border-top:4px solid var(--tc,var(--ink));transition:transform .2s}
+a.tc:hover{transform:translateY(-3px)}
+.tc .k{font-size:.85rem;font-weight:600;color:var(--tc,var(--muted))}
+.tc .t{font-family:var(--f-display);font-weight:700;font-size:1.5rem;line-height:1.12;letter-spacing:-.02em}
+.tc .s{font-size:.9rem;color:var(--muted);font-weight:500}
+a.tc .s{color:var(--tc);font-weight:600}
+.dchk{display:inline-flex;align-items:center;gap:8px;font-weight:600;cursor:pointer}
+.dchk input{width:20px;height:20px;accent-color:var(--good);margin:0}
+.tgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,300px),1fr));gap:16px}
+.tcard{background:var(--panel);border-radius:26px;padding:26px;display:grid;gap:8px;text-decoration:none;color:var(--ink);transition:transform .2s;align-content:start}
+.tcard:hover{transform:translateY(-3px)}
+.tcard .k{font-size:.85rem;font-weight:600;color:var(--tc)}
+.tcard .t{font-family:var(--f-display);font-weight:700;font-size:1.45rem;letter-spacing:-.02em;line-height:1.1}
+.tcard .d{font-size:.92rem;color:var(--muted)}
+.tcard .pbar i,.tr-head .pbar i{background:var(--tc)}
+.tcard .s{font-size:.85rem;font-weight:600}
+.phases{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,220px),1fr));gap:14px}
+.phase{border:1px solid var(--line);border-radius:24px;padding:24px;display:grid;gap:6px;align-content:start}
+.phase.cap{background:var(--ai-soft);border-color:var(--ai)}
+.phase .k{font-size:.82rem;color:var(--muted);font-weight:600}
+.phase b{font-family:var(--f-display);font-size:1.35rem;letter-spacing:-.015em}
+.phase p{font-size:.92rem;color:var(--muted)}
+.phase .gate{font-size:.85rem;font-weight:600;margin-top:8px;display:flex;align-items:center;gap:8px}
+.phase .gate::before{content:"";width:10px;height:10px;background:var(--ink);transform:rotate(45deg)}
+.pagehead{display:grid;gap:14px;padding-block:clamp(28px,6vw,56px) 4px}
+.ctl{display:grid;gap:12px}
+.chips-f{display:flex;flex-wrap:wrap;gap:6px}
+.chips-f button{font:600 .85rem var(--f-body);padding:7px 13px;border-radius:999px;border:1.5px solid var(--line);background:var(--paper);color:var(--ink);cursor:pointer;display:inline-flex;align-items:center;gap:7px}
+.chips-f button i{width:9px;height:9px;border-radius:50%;background:var(--tc,var(--ink))}
+.chips-f button[aria-pressed="true"]{border-color:var(--ink);background:var(--ink);color:var(--paper)}
+.cal{display:grid;gap:18px}
+.wkb{background:var(--panel);border-radius:26px;padding:6px clamp(16px,3vw,26px)}
+.wk-h{display:flex;justify-content:space-between;gap:6px 12px;flex-wrap:wrap;align-items:baseline;padding:16px 0 12px;border-bottom:1px solid var(--line)}
+.wk-h b{font-family:var(--f-display);font-size:1.25rem;letter-spacing:-.015em}
+.wk-h span{color:var(--muted);font-size:.9rem}
+.dr{display:grid;grid-template-columns:24px 118px minmax(0,1fr);gap:10px 16px;padding:14px 0;border-bottom:1px solid var(--line);align-items:start;scroll-margin-top:110px;transition:opacity .2s}
+.dr:last-child{border-bottom:0}
+.dr.today{background:var(--paper);margin-inline:-12px;padding-inline:12px;border-radius:16px;border-bottom-color:transparent}
+.dr.done .bl{opacity:.5}
+.dr.dim{opacity:.3}
+.dn{display:grid;gap:1px}
+.dn b{font-weight:600}
+.dn span{font-size:.82rem;color:var(--muted)}
+.dn .now-pill{margin:4px 0 0;width:max-content}
+.bl{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px 18px}
+.blk{display:grid;gap:1px;font-size:.95rem;padding-left:12px;border-left:3px solid var(--tc,var(--ink));min-width:0}
+.blk .tg{font-size:.72rem;font-weight:700;color:var(--tc,var(--muted));text-transform:uppercase;letter-spacing:.05em}
+.blk a{color:var(--ink);font-weight:600}
+.blk.lab{grid-column:1/-1;font-weight:600}
+@media (max-width:700px){.dr{grid-template-columns:24px minmax(0,1fr)}.bl{grid-column:2;grid-template-columns:1fr}}
+.tr-head{display:grid;gap:10px}
+.tr-head .eyebrow{color:var(--tc)}
+.tr-head .pbar{max-width:520px}
+.trk-seg button{display:inline-flex;align-items:center;gap:7px}
+</style>
+
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="#roadmap">
+      <svg width="28" height="28" viewBox="0 0 28 28" aria-hidden="true"><rect width="28" height="28" rx="8" fill="var(--ink)"/><path d="M16 5 8 16h5l-2 7 9-11h-5z" fill="var(--paper)"/></svg>
+      <span id="brand-name">WiseWeb</span>
+    </a>
+    <nav class="tabs" aria-label="Sections">
+      <a href="#roadmap">Home</a>
+      <a href="#calendar">Calendar</a>
+      <a href="#tracks">Tracks</a>
+      <a href="#lessons">Lessons</a>
+    </nav>
+    <span class="wk-pill" id="wk-pill">Not started</span>
+  </div>
+</header>
+
+<main>
+
+<!-- ============ HOME ============ -->
+<section class="view" id="v-roadmap" style="padding-top:0;gap:0">
+  <div class="wrap">
+    <div class="hero">
+      <div class="hero-txt">
+        <span class="eyebrow">90-day bootcamp · start any day you choose</span>
+        <h1>From beginner to master in 90&nbsp;days.</h1>
+        <p class="lead">A full-time bootcamp: 6–8 hours a day across software, data, AI, hardware, cyber security and blockchain. Built for someone starting from zero.</p>
+        <div class="row">
+          <a class="btn solid" href="#today-sec">Start or continue</a>
+          <a class="btn" href="#lessons" style="background:var(--panel);color:var(--ink)">Browse lessons</a>
+        </div>
+      </div>
+      <div class="hero-art">
+        <svg viewBox="0 0 460 340" role="img" aria-label="A microchip whose circuit lines flow into the nodes of a neural network">
+          <defs><radialGradient id="hg" cx="0.68" cy="0.5" r="0.45"><stop offset="0" stop-color="var(--ai)" stop-opacity="0.16"/><stop offset="1" stop-color="var(--ai)" stop-opacity="0"/></radialGradient></defs>
+          <rect width="460" height="340" fill="url(#hg)"/>
+          <g stroke="var(--cu-bright)" stroke-width="2.5" fill="none" stroke-linejoin="round" stroke-linecap="round">
+            <path id="tr1" d="M142 140 H190 V92 H262"/><path id="tr2" d="M142 170 H262"/><path id="tr3" d="M142 200 H190 V248 H262"/>
+            <path d="M70 120 V104 M92 120 V104 M114 120 V104 M70 220 V236 M92 220 V236 M114 220 V236"/>
+          </g>
+          <rect x="52" y="120" width="90" height="100" rx="18" fill="var(--paper)" stroke="var(--cu-bright)" stroke-width="2.5"/>
+          <text x="97" y="176" text-anchor="middle" font-family="var(--f-display)" font-weight="700" font-size="15" fill="var(--cu)">GPU</text>
+          <g stroke="var(--ai)" stroke-opacity="0.28" stroke-width="1.5"><path d="M262 92 L350 62 M262 92 L350 136 M262 92 L350 206 M262 92 L350 278 M262 170 L350 62 M262 170 L350 136 M262 170 L350 206 M262 170 L350 278 M262 248 L350 62 M262 248 L350 136 M262 248 L350 206 M262 248 L350 278 M350 62 L420 130 M350 136 L420 130 M350 206 L420 130 M350 278 L420 130 M350 62 L420 214 M350 136 L420 214 M350 206 L420 214 M350 278 L420 214"/></g>
+          <g fill="var(--paper)" stroke="var(--ai)" stroke-width="2.5"><circle cx="262" cy="92" r="11"/><circle cx="262" cy="170" r="11"/><circle cx="262" cy="248" r="11"/><circle cx="350" cy="62" r="11"/><circle cx="350" cy="136" r="11"/><circle cx="350" cy="206" r="11"/><circle cx="350" cy="278" r="11"/></g>
+          <circle cx="420" cy="130" r="12" fill="var(--ai)"/><circle cx="420" cy="214" r="12" fill="var(--ai)"/>
+          <g class="pulse">
+            <circle r="4" fill="var(--cu-bright)"><animateMotion dur="2.6s" repeatCount="indefinite"><mpath href="#tr1"/></animateMotion></circle>
+            <circle r="4" fill="var(--cu-bright)"><animateMotion dur="2.6s" begin="-0.9s" repeatCount="indefinite"><mpath href="#tr2"/></animateMotion></circle>
+            <circle r="4" fill="var(--cu-bright)"><animateMotion dur="2.6s" begin="-1.8s" repeatCount="indefinite"><mpath href="#tr3"/></animateMotion></circle>
+          </g>
+        </svg>
+        <div class="cap"><span>Hardware</span><span>AI model</span></div>
+      </div>
+    </div>
+
+    <div class="stats">
+      <div class="stat"><span class="n" id="days-left">90</span><span class="l">days to go</span></div>
+      <div class="stat"><span class="n">682</span><span class="l">hours of learning</span></div>
+      <div class="stat"><span class="n">120</span><span class="l">sessions, 13 projects</span></div>
+      <div class="stat"><span class="n" id="st-pct">0%</span><span class="l">of days complete</span></div>
+    </div>
+
+    <div class="sec" id="today-sec"><div class="today" id="today"></div></div>
+
+    <div class="sec">
+      <div class="sec-head"><h2>Your bootcamp day.</h2><span class="muted" style="font-size:.95rem">Days 1–5 of each week · 8 hours of work</span></div>
+      <div class="tbl-wrap" style="background:var(--panel)"><table>
+        <thead><tr><th>Time</th><th>Block</th><th>What happens</th></tr></thead>
+        <tbody>
+          <tr><td>08:00–08:30</td><td><b>Warm-up</b></td><td style="white-space:normal">Flashcards from earlier days and yesterday's mistakes</td></tr>
+          <tr><td>08:30–10:30</td><td><b>Session A, part 1</b></td><td style="white-space:normal">Concept lesson with its history, then guided practice</td></tr>
+          <tr><td>10:45–12:45</td><td><b>Session A, part 2</b></td><td style="white-space:normal">Independent lab: code, build or analyse</td></tr>
+          <tr><td>13:45–15:15</td><td><b>Session B, part 1</b></td><td style="white-space:normal">Concept lesson and guided practice for the second track</td></tr>
+          <tr><td>15:30–17:00</td><td><b>Session B, part 2</b></td><td style="white-space:normal">Lab or exercises</td></tr>
+          <tr><td>17:00–17:30</td><td><b>Close</b></td><td style="white-space:normal">Daily quiz, learning journal, plan tomorrow</td></tr>
+        </tbody>
+      </table></div>
+      <p class="muted" style="font-size:.95rem"><b style="color:var(--ink)">Day 6 of each week (7 h):</b> build the week's project and push it to GitHub. <b style="color:var(--ink)">Day 7 (6 h):</b> weekly test, spaced review and catch-up. Breaks at 10:30, 12:45 (lunch) and 15:15.</p>
+    </div>
+
+    <div class="sec">
+      <div class="sec-head"><h2>Six tracks.</h2><span class="muted" style="font-size:.95rem">Open a track to see every session and when it happens.</span></div>
+      <div class="tgrid" id="track-cards"></div>
+    </div>
+
+    <div class="sec">
+      <h2>Four phases.</h2>
+      <div class="phases">
+        <div class="phase"><span class="k">Phase 1 · Days 1–28</span><b>Foundations</b><p>Python, statistics and maths for ML, circuits and logic, networks and Linux.</p><span class="gate">Phase 1 exam · Day 28</span></div>
+        <div class="phase"><span class="k">Phase 2 · Days 29–56</span><b>Core skills</b><p>SQL and pandas, ML model families, HTML, CSS and JavaScript, cryptography, CPUs, Solidity.</p><span class="gate">Phase 2 exam · Day 56</span></div>
+        <div class="phase"><span class="k">Phase 3 · Days 57–84</span><b>Advanced</b><p>LLMs, RAG and agents, full-stack apps, big data, IoT, ethical hacking, dApps. Major chosen on Day 57.</p><span class="gate">Phase 3 exam · Day 84</span></div>
+        <div class="phase cap"><span class="k">Final week · Days 85–90</span><b>Capstone</b><p>Build a project in your major, finish your portfolio and CV, then present it.</p><span class="gate">Demo day · Day 90</span></div>
+      </div>
+    </div>
+
+    <div class="sec">
+      <h2>Where this leads.</h2>
+      <div class="goals">
+        <div class="goal">
+          <span class="eyebrow" style="color:var(--good)">By Day 90</span>
+          <h3>Strong foundations in six fields</h3>
+          <p class="muted" style="font-size:.95rem">Deploy a full-stack app, run sound A/B tests and Spark jobs, ship LLM and RAG apps, build IoT and edge-AI devices, run a legal pen test, and audit a smart contract. Plus 13 projects on GitHub.</p>
+        </div>
+        <div class="goal">
+          <span class="eyebrow">Your major (Day 57)</span>
+          <h3>Junior-level depth in one or two</h3>
+          <div class="chips"><span class="chip">AI / ML Engineer</span><span class="chip">Data Analyst</span><span class="chip">Full-stack Developer</span><span class="chip">SOC Analyst</span><span class="chip">IoT Developer</span><span class="chip">Blockchain Developer</span></div>
+        </div>
+        <div class="goal hw">
+          <span class="eyebrow">Kit and rules</span>
+          <h3>Before you start</h3>
+          <p class="muted" style="font-size:.95rem"><b style="color:var(--ink)">Buy:</b> Arduino starter kit and multimeter by Day 55; Raspberry Pi by Day 68.</p>
+          <p class="muted" style="font-size:.95rem"><b style="color:var(--ink)">Always:</b> 5–12 V only, hack only what you own, test networks only for crypto, no client data in AI tools, sleep 7–8 hours.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer class="foot">
+    <div class="wrap">
+      <span><b style="color:var(--bad)">Safety:</b> batteries and USB power only (5–12 V). Never wall sockets: Sri Lankan mains is 230 V.</span>
+      <span>Week 1 (Days 1–7) is fully built. Later weeks are added ahead of you and marked “Not built yet” until then.</span>
+    </div>
+  </footer>
+</section>
+
+<!-- ============ CALENDAR ============ -->
+<section class="view wrap" id="v-calendar" hidden>
+  <div class="pagehead">
+    <span class="eyebrow">Days 1–5: 8 hours · Day 6: project · Day 7: test and review</span>
+    <h1>The 90 days.</h1>
+    <div class="ctl">
+      <div class="seg" id="cal-ph"><button data-p="1">Phase 1 · Days 1–28</button><button data-p="2">Phase 2 · Days 29–56</button><button data-p="3">Phase 3 · Days 57–90</button></div>
+      <div class="chips-f" id="cal-tr">
+        <button data-t="all">All tracks</button>
+        <button data-t="S" class="tk-S"><i></i>Software</button>
+        <button data-t="D" class="tk-D"><i></i>Data</button>
+        <button data-t="A" class="tk-A"><i></i>AI</button>
+        <button data-t="H" class="tk-H"><i></i>Hardware</button>
+        <button data-t="C" class="tk-C"><i></i>Cyber</button>
+        <button data-t="B" class="tk-B"><i></i>Blockchain</button>
+      </div>
+    </div>
+  </div>
+  <div class="cal" id="cal"></div>
+</section>
+
+<!-- ============ TRACKS ============ -->
+<section class="view wrap" id="v-tracks" hidden>
+  <div class="pagehead">
+    <span class="eyebrow">Syllabus</span>
+    <h1>Six tracks.</h1>
+    <div class="chips-f" id="tr-seg">
+      <button data-t="S" class="tk-S"><i></i>Software</button>
+      <button data-t="D" class="tk-D"><i></i>Data</button>
+      <button data-t="A" class="tk-A"><i></i>AI</button>
+      <button data-t="H" class="tk-H"><i></i>Hardware</button>
+      <button data-t="C" class="tk-C"><i></i>Cyber</button>
+      <button data-t="B" class="tk-B"><i></i>Blockchain</button>
+    </div>
+  </div>
+  <div class="block" id="tr-body"></div>
+</section>
+
+<!-- ============ AI LESSON 1 ============ -->
+<section class="view ai wrap" id="v-ai-1" hidden>
+  <div class="lhero">
+    <div class="meta"><span class="pill">Day 4 · Session B · AI</span><span class="pill">3 hours</span></div>
+    <h1>What are AI and machine learning?</h1>
+    <p class="lead muted">You'll learn how the pieces of AI fit together, where they came from, and you'll train your first real model on customer data.</p>
+    <div class="lprog"><div class="row" style="justify-content:space-between"><span id="lp-ai-txt">0 of 8 missions complete</span><span id="lp-ai-xp"></span></div><div class="bar"><i id="lp-ai-bar"></i></div></div><nav class="lpath" id="lpath-ai" aria-label="Lesson missions"></nav>
+  </div>
+
+  <div class="block" id="ai-s1">
+    <header><span class="eyebrow">Part 1</span><h2>The big picture: four circles</h2><p class="muted">Each circle sits inside the one before it. Tap a circle to explore it.</p></header>
+    <div class="two">
+      <div class="circles">
+        <svg viewBox="0 0 400 400" id="circles-svg" role="group" aria-label="Nested circles: AI contains Machine Learning, which contains Deep Learning, which contains Generative AI"></svg>
+      </div>
+      <div class="info" id="circle-info" aria-live="polite"></div>
+    </div>
+  </div>
+
+  <div class="block" id="ai-s2">
+    <header><span class="eyebrow">Part 2</span><h2>The most important idea in machine learning</h2><p class="muted">Machine learning flips traditional programming around.</p></header>
+    <div class="two flow">
+      <div style="display:grid;gap:10px">
+        <h3>Traditional programming</h3>
+        <svg viewBox="0 0 420 170" role="img" aria-label="Rules plus Data go into a computer, which produces Answers">
+          <g font-family="var(--f-body)" font-weight="700" font-size="15" text-anchor="middle">
+            <rect x="8" y="18" width="120" height="50" rx="10" fill="var(--panel)" stroke="var(--line)" stroke-width="1.5"/><text x="68" y="48" fill="var(--ink)">Rules</text>
+            <rect x="8" y="102" width="120" height="50" rx="10" fill="var(--panel)" stroke="var(--line)" stroke-width="1.5"/><text x="68" y="132" fill="var(--ink)">Data</text>
+            <rect x="168" y="55" width="104" height="60" rx="10" fill="var(--paper)" stroke="var(--muted)" stroke-width="1.5"/><text x="220" y="90" fill="var(--muted)">Computer</text>
+            <rect x="310" y="60" width="102" height="50" rx="10" fill="var(--panel)" stroke="var(--ink)" stroke-width="2"/><text x="361" y="90" fill="var(--ink)">Answers</text>
+          </g>
+          <g stroke="var(--muted)" stroke-width="2" fill="none"><path class="flowline" d="M128 43 C150 43 150 75 166 78"/><path class="flowline" d="M128 127 C150 127 150 95 166 92"/><path class="flowline" d="M272 85 H306"/></g>
+        </svg>
+        <p class="muted" style="font-size:.95rem">A person writes the rule by hand: <i>"If an email contains FREE MONEY, mark it as spam."</i> The computer only follows it.</p>
+      </div>
+      <div style="display:grid;gap:10px">
+        <h3 style="color:var(--ai)">Machine learning</h3>
+        <svg viewBox="0 0 420 170" role="img" aria-label="Data plus Answers go into a learning algorithm, which produces the Rules">
+          <g font-family="var(--f-body)" font-weight="700" font-size="15" text-anchor="middle">
+            <rect x="8" y="18" width="120" height="50" rx="10" fill="var(--panel)" stroke="var(--line)" stroke-width="1.5"/><text x="68" y="48" fill="var(--ink)">Data</text>
+            <rect x="8" y="102" width="120" height="50" rx="10" fill="var(--panel)" stroke="var(--line)" stroke-width="1.5"/><text x="68" y="132" fill="var(--ink)">Answers</text>
+            <rect x="168" y="55" width="104" height="60" rx="10" fill="var(--ai-soft)" stroke="var(--ai)" stroke-width="1.5"/><text x="220" y="83" fill="var(--ai)">Learning</text><text x="220" y="101" fill="var(--ai)">algorithm</text>
+            <rect x="310" y="60" width="102" height="50" rx="10" fill="var(--ai)" /><text x="361" y="90" fill="var(--on-accent)">Rules!</text>
+          </g>
+          <g stroke="var(--ai)" stroke-width="2" fill="none"><path class="flowline" d="M128 43 C150 43 150 75 166 78"/><path class="flowline" d="M128 127 C150 127 150 95 166 92"/><path class="flowline" d="M272 85 H306"/></g>
+        </svg>
+        <p class="muted" style="font-size:.95rem">You show the computer 100,000 emails already labelled "spam" or "not spam", and <b style="color:var(--ink)">it works out the rules itself</b>, including patterns no person would think of.</p>
+      </div>
+    </div>
+    <p class="note"><b>Marketing example:</b> you have 5,000 past customers and you know which ones bought again. A model studies them and learns the pattern, so you can predict which <i>new</i> customers will buy again and target them first. You'll do exactly this in Part 4.</p>
+    <div class="row"><button class="btn solid" data-gotit="ai-s2">Got it</button></div>
+  </div>
+
+  <div class="block" id="ai-s3">
+    <header><span class="eyebrow">Part 3</span><h2>How we got here: 1950 to today</h2><p class="muted">Tap a year, or use the arrows.</p></header>
+    <div class="tl" id="tl-ai">
+      <div class="tl-track"></div>
+      <div class="tl-card" aria-live="polite"></div>
+      <div class="row"><button class="btn tl-prev">← Earlier</button><button class="btn tl-next">Later →</button></div>
+    </div>
+  </div>
+
+  <div class="block" id="ai-s4">
+    <header><span class="eyebrow">Part 4 · Hands-on</span><h2>Train your first model</h2><p class="lead muted">Each dot is a past customer. The model has to learn who buys again from two things: how many of your emails they opened, and how long ago they last bought. Press <b>Train</b> and watch it learn.</p></header>
+    <div class="legend"><span><i class="sw" style="background:var(--good)"></i>Bought again</span><span><i class="sw" style="border:2px solid var(--bad)"></i>Didn't buy again</span><span><i class="sw" style="background:var(--good);opacity:.25;border-radius:3px"></i>Model says "will buy"</span></div>
+    <div class="stage"><canvas id="lr-cv" aria-label="Scatter plot of customers with the model's prediction area"></canvas></div>
+    <div class="row" style="justify-content:space-between">
+      <div class="row"><button class="btn solid" id="lr-train">▶ Train the model</button><button class="btn" id="lr-reset">Reset</button></div>
+      <div class="readout"><span>Training steps <b id="lr-step">0</b></span><span>Accuracy <b id="lr-acc">–</b></span></div>
+    </div>
+    <p class="msg" id="lr-msg" aria-live="polite">Right now the model is untrained, so its guesses are random. Press Train.</p>
+    <p class="muted" style="font-size:.95rem">After training, <b style="color:var(--ink)">tap anywhere on the chart</b> to add a new customer. The model predicts how likely they are to buy again. Notice it's never 100% right: real customers are messy, and that's normal in ML.</p>
+  </div>
+
+  <div class="block" id="ai-s5">
+    <header><span class="eyebrow">Part 5</span><h2>The three ways machines learn</h2></header>
+    <div class="ltabs" role="tablist">
+      <button role="tab" aria-selected="true" data-tab="sup">Supervised</button>
+      <button role="tab" aria-selected="false" data-tab="uns">Unsupervised</button>
+      <button role="tab" aria-selected="false" data-tab="rl">Reinforcement</button>
+    </div>
+    <div data-pane="sup" class="prose">
+      <h3>Learning from examples that have answers</h3>
+      <p>The data comes with the correct answer attached, called a <b>label</b>. The model studies the examples and learns to predict the label for new cases.</p>
+      <p><b>You already did this in Part 4.</b> Every past customer was labelled "bought again" or "didn't", and the model learned to predict it.</p>
+      <p class="note"><b>Marketing uses:</b> predicting which leads will convert, which subscribers will unsubscribe, how many tickets an event will sell, or which reviews are positive or negative.</p>
+    </div>
+    <div data-pane="uns" hidden style="display:grid;gap:14px">
+      <div class="prose"><h3>Finding hidden groups, with no answers given</h3><p>Here nobody tells the model what the groups are. It looks at 75 customers' <b>average order value</b> and <b>visits per month</b> and finds natural groups by itself. This method is called <b>k-means clustering</b> (invented by Stuart Lloyd at Bell Labs in 1957).</p></div>
+      <div class="stage"><canvas id="km-cv" aria-label="Customers plotted by order value and visits, being grouped into clusters"></canvas></div>
+      <div class="row" style="justify-content:space-between"><div class="row"><button class="btn solid" id="km-run">▶ Let the AI find groups</button><button class="btn" id="km-reset">Reset</button></div><div class="readout"><span>Round <b id="km-it">0</b></span></div></div>
+      <p class="msg" id="km-msg" aria-live="polite">Every customer is grey: the model doesn't know any groups yet.</p>
+    </div>
+    <div data-pane="rl" hidden style="display:grid;gap:14px">
+      <div class="prose"><h3>Learning by trial and error</h3><p>The AI tries actions, gets a reward when something works, and gradually does more of what earns rewards. Ad platforms do this to decide which ad to show. Below, an AI shows three ads for an event and learns which one gets the most clicks. It doesn't know the real click rates; it has to discover them.</p></div>
+      <div class="ads" id="ads"></div>
+      <div class="row" style="justify-content:space-between"><div class="row"><button class="btn solid" id="rl-run">▶ Show 600 ads</button><button class="btn" id="rl-reset">Reset</button></div><div class="readout"><span>Ads shown <b id="rl-n">0</b></span><span>Clicks <b id="rl-c">0</b></span></div></div>
+      <p class="msg" id="rl-msg" aria-live="polite">At first the AI shows all three ads equally, to explore.</p>
+    </div>
+  </div>
+
+  <div class="block" id="ai-s6">
+    <header><span class="eyebrow">Part 6</span><h2>Five words you'll use every day</h2><p class="muted">Tap a word to see it on a real dataset.</p></header>
+    <div class="seg" id="vocab-seg"><button data-v="dataset" aria-pressed="true">Dataset</button><button data-v="feature" aria-pressed="false">Feature</button><button data-v="label" aria-pressed="false">Label</button><button data-v="training" aria-pressed="false">Training</button><button data-v="model" aria-pressed="false">Model</button></div>
+    <p class="msg" id="vocab-msg" aria-live="polite"></p>
+    <div class="tbl-wrap"><table id="vocab-tbl">
+      <thead><tr><th>Customer</th><th data-c="f">Age</th><th data-c="f">Emails opened</th><th data-c="f">City</th><th data-c="f">Events attended</th><th data-c="l">Bought again?</th></tr></thead>
+      <tbody>
+        <tr><td>Customer 1</td><td data-c="f">24</td><td data-c="f">8</td><td data-c="f">Colombo</td><td data-c="f">3</td><td data-c="l">Yes</td></tr>
+        <tr><td>Customer 2</td><td data-c="f">37</td><td data-c="f">1</td><td data-c="f">Kandy</td><td data-c="f">0</td><td data-c="l">No</td></tr>
+        <tr><td>Customer 3</td><td data-c="f">29</td><td data-c="f">6</td><td data-c="f">Galle</td><td data-c="f">2</td><td data-c="l">Yes</td></tr>
+        <tr><td>Customer 4</td><td data-c="f">45</td><td data-c="f">2</td><td data-c="f">Kalutara</td><td data-c="f">1</td><td data-c="l">No</td></tr>
+        <tr><td>Customer 5</td><td data-c="f">31</td><td data-c="f">9</td><td data-c="f">Negombo</td><td data-c="f">4</td><td data-c="l">Yes</td></tr>
+        <tr id="vocab-new" hidden><td><b>New customer</b></td><td>27</td><td>7</td><td>Colombo</td><td>2</td><td><b style="color:var(--ai)">Model predicts: Yes (84%)</b></td></tr>
+      </tbody>
+    </table></div>
+  </div>
+
+  <div class="block" id="ai-s7">
+    <header><span class="eyebrow">Part 7</span><h2>Check yourself</h2><p class="muted">Six questions with instant feedback. Your answers are saved in this browser.</p></header>
+    <div class="quiz" id="quiz-ai"></div>
+  </div>
+
+  <div class="block" id="ai-s8">
+    <header><span class="eyebrow">Part 8</span><h2>Homework (about 30 minutes)</h2><p class="muted">Type your answers here. They save automatically. When you're done, copy them and paste them into our chat so I can mark them.</p></header>
+    <div class="hwk" id="hw-ai">
+      <div class="item"><label for="ha1">1. In your own words, explain the difference between traditional programming and machine learning, as if to a client.</label><textarea id="ha1" data-q="Explain traditional programming vs machine learning to a client"></textarea></div>
+      <div class="item"><label for="ha2">2. Name three marketing tasks at your work or for AWAKAASHA that could use AI. For each, say whether it's supervised, unsupervised or generative AI.</label><textarea id="ha2" data-q="Three marketing tasks that could use AI, and their type"></textarea></div>
+      <div class="item"><label for="ha3">3. For one of them, list the features and the label you would need.</label><textarea id="ha3" data-q="Features and label for one task"></textarea></div>
+    </div>
+    <div class="done-bar"><span><b>Last step:</b> copy your answers and paste them in our chat so I can mark them, then mark the lesson complete.</span><div class="row"><button class="btn" data-part="ai-s8" data-copy="hw-ai" data-title="AI Lesson 1 homework">Copy my answers</button><button class="btn solid go-green" data-complete="1a">Mark lesson complete</button></div></div>
+  </div>
+</section>
+
+<!-- ============ HARDWARE LESSON 1 ============ -->
+<section class="view hw wrap" id="v-hw-1" hidden>
+  <div class="lhero">
+    <div class="meta"><span class="pill">Day 1 · Session B · Hardware</span><span class="pill">3 hours</span></div>
+    <h1>What is electricity?</h1>
+    <p class="lead muted">From a single copper atom to a working LED circuit. Everything here runs on safe, simulated batteries.</p>
+    <div class="lprog"><div class="row" style="justify-content:space-between"><span id="lp-hw-txt">0 of 9 missions complete</span><span id="lp-hw-xp"></span></div><div class="bar"><i id="lp-hw-bar"></i></div></div><nav class="lpath" id="lpath-hw" aria-label="Lesson missions"></nav>
+  </div>
+
+  <div class="block" id="hw-s1">
+    <header><span class="eyebrow">Part 1</span><h2>Where it all begins: the atom</h2></header>
+    <div class="two">
+      <div class="atom"><svg viewBox="0 0 340 340" id="atom-svg" role="img" aria-label="A copper atom: a nucleus of 29 protons with 29 electrons in four shells of 2, 8, 18 and 1. The single outer electron is loosely held."></svg></div>
+      <div class="prose">
+        <p>Everything is made of atoms. Each atom has a <b>nucleus</b> in the centre, holding <b>protons</b> (positive charge) and neutrons (no charge). Around it move <b>electrons</b> (negative charge).</p>
+        <p>This is a <b style="color:var(--cu)">copper</b> atom. It has 29 electrons arranged in shells of 2, 8, 18 and… just <b>1</b> on the outside.</p>
+        <p>That lonely outer electron is held so loosely that it can drift away to the next atom. In a copper wire, billions of these <b>free electrons</b> roam around. That's why wires are made of copper.</p>
+        <p class="note"><b>Electricity is the flow of these electrons.</b></p>
+      </div>
+    </div>
+    <h3>Inside a copper wire</h3>
+    <div class="stage"><canvas id="wire-cv" aria-label="Electrons inside a copper wire, moving randomly or drifting when a battery is connected"></canvas></div>
+    <div class="row" style="justify-content:space-between"><button class="btn solid" id="wire-btn">Connect a battery</button><span class="muted" id="wire-msg" style="font-size:.95rem">No battery: the electrons jiggle around randomly, but there's no overall flow.</span></div>
+  </div>
+
+  <div class="block" id="hw-s2">
+    <header><span class="eyebrow">Part 2</span><h2>2,600 years in ten steps</h2><p class="muted">Tap a year, or use the arrows.</p></header>
+    <div class="tl" id="tl-hw">
+      <div class="tl-track"></div>
+      <div class="tl-card" aria-live="polite"></div>
+      <div class="row"><button class="btn tl-prev">← Earlier</button><button class="btn tl-next">Later →</button></div>
+    </div>
+  </div>
+
+  <div class="block" id="hw-s3">
+    <header><span class="eyebrow">Part 3 · Sorting game</span><h2>Electrical or electronic?</h2>
+      <div class="two" style="margin-top:6px"><p><b>Electrical</b> means using electricity for <b>power</b>: heat, light, movement. Large amounts of energy.</p><p><b>Electronic</b> means using electricity to <b>control and process information</b>. Tiny currents, controlled very precisely by chips.</p></div>
+    </header>
+    <div class="sort" id="sorter"></div>
+    <p class="score" id="sort-score">0 / 8 sorted</p>
+  </div>
+
+  <div class="block" id="hw-s4">
+    <header><span class="eyebrow">Part 4 · Simulator</span><h2>Voltage, current and resistance: the water tank</h2><p class="lead muted">Imagine a water tank on a roof, connected to a pipe. Move the sliders and watch the flow.</p></header>
+    <div class="stage"><canvas id="tank-cv" aria-label="Water tank simulator: tank height is voltage, pipe width is resistance, flow is current"></canvas></div>
+    <div class="row" style="gap:18px">
+      <label class="slider" for="tank-v">Voltage (tank height): <span class="mono" id="tank-vl">9 V</span><input type="range" id="tank-v" min="1" max="12" step="0.5" value="9"></label>
+      <label class="slider" for="tank-r">Resistance (narrow pipe): <span class="mono" id="tank-rl">450 Ω</span><input type="range" id="tank-r" min="100" max="1000" step="10" value="450"></label>
+    </div>
+    <p class="msg mono" id="tank-out" aria-live="polite"></p>
+    <div class="tbl-wrap"><table>
+      <thead><tr><th>Concept</th><th>Water version</th><th>What it means</th><th>Unit</th><th>Letter</th></tr></thead>
+      <tbody>
+        <tr><td><b>Voltage</b></td><td>Water pressure (how high the tank is)</td><td>The "push" that drives electrons</td><td>Volt (V)</td><td class="mono">V</td></tr>
+        <tr><td><b>Current</b></td><td>Amount of water flowing</td><td>How many electrons flow per second</td><td>Ampere (A)</td><td class="mono">I</td></tr>
+        <tr><td><b>Resistance</b></td><td>How narrow the pipe is</td><td>How much a material resists the flow</td><td>Ohm (Ω)</td><td class="mono">R</td></tr>
+      </tbody>
+    </table></div>
+    <p class="muted" style="font-size:.95rem">Why is current "I"? It comes from the French <i>intensité de courant</i>, because Ampère was French.</p>
+  </div>
+
+  <div class="block" id="hw-s5">
+    <header><span class="eyebrow">Part 5</span><h2>Ohm's law: the most important formula in electronics</h2><p class="lead">Georg Ohm found it in 1827: <b class="mono" style="color:var(--cu)">V = I × R</b>. Tap a letter in the triangle to "cover" it. The two letters left over show you the formula.</p></header>
+    <div class="two">
+      <div class="tri"><svg viewBox="0 0 200 180" role="group" aria-label="Ohm's law triangle">
+        <polygon id="tri-V" points="100,10 150.6,100 49.4,100" stroke="var(--cu)" stroke-width="2" tabindex="0" role="button" aria-label="Cover V"/>
+        <polygon id="tri-I" points="49.4,100 100,100 100,170 10,170" stroke="var(--cu)" stroke-width="2" tabindex="0" role="button" aria-label="Cover I"/>
+        <polygon id="tri-R" points="100,100 150.6,100 190,170 100,170" stroke="var(--cu)" stroke-width="2" tabindex="0" role="button" aria-label="Cover R"/>
+        <g font-family="var(--f-display)" font-weight="800" font-size="30" text-anchor="middle" pointer-events="none"><text id="tt-V" x="100" y="86">V</text><text id="tt-I" x="72" y="148">I</text><text id="tt-R" x="128" y="148">R</text><text x="100" y="146" font-size="20" fill="var(--muted)">×</text></g>
+      </svg></div>
+      <div class="calc">
+        <p class="eyebrow">Calculator</p>
+        <p class="res" id="calc-f">I = V ÷ R</p>
+        <div class="row" id="calc-in"></div>
+        <p class="res" id="calc-out" aria-live="polite"></p>
+        <p class="muted" style="font-size:.92rem" id="calc-tip"></p>
+      </div>
+    </div>
+    <p class="note"><b>Worked example:</b> a 9 V battery and a 450 Ω resistor. I = 9 ÷ 450 = <b>0.02 A</b>, or 20 milliamps (mA). An LED usually needs about 20 mA, so Ohm's law tells you which resistor will protect it. Try it in the next part.</p>
+  </div>
+
+  <div class="block" id="hw-s6">
+    <header><span class="eyebrow">Part 6 · Circuit lab</span><h2>Light an LED without burning it out</h2><p class="lead muted">A circuit has to be a closed loop. Pick a battery and a resistor, then tap the switch to close the loop. The LED uses about 2 V itself, and the resistor has to limit the current to around 20 mA.</p></header>
+    <div class="stage circuit"><svg viewBox="0 0 560 320" id="circ" role="img" aria-label="Circuit with a battery, a switch, a resistor, an LED and a current meter">
+      <defs><radialGradient id="glow"><stop offset="0" stop-color="#FF5A4E" stop-opacity=".95"/><stop offset=".45" stop-color="#FF5A4E" stop-opacity=".35"/><stop offset="1" stop-color="#FF5A4E" stop-opacity="0"/></radialGradient></defs>
+      <path id="loop" d="M80 100 V50 H480 V270 H80 V210" fill="none" stroke="var(--muted)" stroke-width="4" stroke-linejoin="round"/>
+      <path id="flow" d="M80 100 V50 H480 V270 H80 V210" fill="none" stroke="var(--cu)" stroke-width="5" stroke-linecap="round" stroke-dasharray="2 16" opacity="0"/>
+      <!-- battery -->
+      <rect x="70" y="91" width="20" height="10" rx="2" fill="var(--cu)"/>
+      <rect x="52" y="100" width="56" height="110" rx="9" fill="var(--cu-soft)" stroke="var(--cu)" stroke-width="2.5"/>
+      <text x="80" y="122" text-anchor="middle" font-family="var(--f-mono)" font-size="16" font-weight="600" fill="var(--cu)">+</text>
+      <text x="80" y="200" text-anchor="middle" font-family="var(--f-mono)" font-size="16" font-weight="600" fill="var(--cu)">−</text>
+      <text id="bat-v" x="80" y="161" text-anchor="middle" font-family="var(--f-display)" font-size="17" font-weight="800" fill="var(--ink)">9 V</text>
+      <text x="80" y="235" text-anchor="middle" font-family="var(--f-mono)" font-size="11" fill="var(--muted)">BATTERY</text>
+      <!-- switch -->
+      <g id="sw-g" tabindex="0" role="button" aria-label="Switch: tap to open or close">
+        <rect x="150" y="18" width="100" height="50" fill="transparent"/>
+        <rect x="160" y="44" width="80" height="12" fill="var(--paper)"/>
+        <circle cx="165" cy="50" r="6" fill="var(--panel)" stroke="var(--ink)" stroke-width="2.5"/>
+        <circle cx="235" cy="50" r="6" fill="var(--panel)" stroke="var(--ink)" stroke-width="2.5"/>
+        <line id="sw-lever" x1="165" y1="50" x2="232" y2="50" stroke="var(--ink)" stroke-width="5" stroke-linecap="round" style="transform-origin:165px 50px;transition:transform .25s"/>
+        <text x="200" y="22" text-anchor="middle" font-family="var(--f-mono)" font-size="11" fill="var(--muted)" id="sw-lbl">SWITCH · OPEN</text>
+      </g>
+      <!-- resistor -->
+      <g id="res-g">
+        <rect x="298" y="44" width="104" height="12" fill="var(--paper)"/>
+        <line x1="298" y1="50" x2="402" y2="50" stroke="var(--muted)" stroke-width="3"/>
+        <rect x="312" y="37" width="76" height="26" rx="12" fill="#E3CFA6" stroke="var(--cu)" stroke-width="1.5"/>
+        <rect id="rb1" x="324" y="37" width="7" height="26"/><rect id="rb2" x="338" y="37" width="7" height="26"/><rect id="rb3" x="352" y="37" width="7" height="26"/><rect x="370" y="37" width="7" height="26" fill="#C9A227"/>
+        <text id="res-lbl" x="350" y="84" text-anchor="middle" font-family="var(--f-mono)" font-size="12" font-weight="600" fill="var(--ink)">330 Ω</text>
+      </g>
+      <text id="res-none" x="350" y="84" text-anchor="middle" font-family="var(--f-mono)" font-size="12" font-weight="600" fill="var(--bad)" opacity="0">NO RESISTOR</text>
+      <!-- LED -->
+      <circle id="led-glow" class="led-glow" cx="480" cy="165" r="54" fill="url(#glow)" opacity="0"/>
+      <rect x="470" y="128" width="20" height="76" fill="var(--paper)"/>
+      <line x1="480" y1="128" x2="480" y2="150" stroke="var(--muted)" stroke-width="3"/>
+      <line x1="480" y1="186" x2="480" y2="204" stroke="var(--muted)" stroke-width="3"/>
+      <path id="led-body" d="M466 186 V160 a14 14 0 0 1 28 0 V186 Z" fill="#E5484D" fill-opacity=".55" stroke="#C53039" stroke-width="2"/>
+      <rect x="462" y="184" width="36" height="6" rx="2" fill="#C53039" id="led-rim"/>
+      <path id="led-crack" d="M472 158 L480 168 L476 174 L486 182" stroke="var(--ink)" stroke-width="2" fill="none" opacity="0"/>
+      <g id="smoke-g"></g>
+      <text x="506" y="170" font-family="var(--f-mono)" font-size="11" fill="var(--muted)">LED</text>
+      <!-- meter -->
+      <rect x="220" y="262" width="140" height="16" fill="var(--paper)"/>
+      <rect x="226" y="240" width="128" height="60" rx="10" fill="var(--ink)"/>
+      <rect x="236" y="248" width="108" height="30" rx="4" fill="var(--cu-soft)"/>
+      <text id="meter" x="290" y="270" text-anchor="middle" font-family="var(--f-mono)" font-size="17" font-weight="600" fill="var(--ink)">0.0 mA</text>
+      <text x="290" y="293" text-anchor="middle" font-family="var(--f-mono)" font-size="9" fill="var(--panel)" letter-spacing="1.5">CURRENT METER</text>
+    </svg></div>
+    <div class="two">
+      <div style="display:grid;gap:8px"><span class="eyebrow">Battery</span><div class="seg" id="bat-seg"></div></div>
+      <div style="display:grid;gap:8px"><span class="eyebrow">Resistor</span><div class="seg" id="res-seg"></div></div>
+    </div>
+    <div class="row"><button class="btn solid" id="sw-btn">Close the switch</button><button class="btn" id="led-new" hidden>Fit a new LED</button></div>
+    <p class="msg" id="circ-msg" aria-live="polite"></p>
+    <p class="mono muted" id="circ-math" style="font-size:.92rem"></p>
+    <p class="muted" style="font-size:.92rem">The coloured stripes on a resistor are a code for its value. Brown = 1, black = 0, red = 2, orange = 3, yellow = 4, violet = 7. The third stripe says how many zeros to add, so red-red-brown means 2, 2, plus one zero: 220 Ω. You'll learn the full code in Week 3.</p>
+  </div>
+
+  <div class="block" id="hw-s7">
+    <header><span class="eyebrow">Part 7</span><h2>AC vs DC</h2></header>
+    <div class="seg" id="osc-seg"><button data-m="dc" aria-pressed="true">DC · battery</button><button data-m="ac" aria-pressed="false">AC · wall socket</button></div>
+    <div class="stage"><canvas id="osc-cv" aria-label="Oscilloscope showing voltage over time"></canvas></div>
+    <p class="msg" id="osc-msg" aria-live="polite"></p>
+    <div class="two">
+      <div class="prose"><p><b>DC (direct current)</b> flows in <b>one direction</b>. Batteries, phones, laptops and every electronic chip run on DC.</p></div>
+      <div class="prose"><p><b>AC (alternating current)</b> pushes back and forth. In Sri Lanka it completes <b>50 back-and-forth cycles every second (50 Hz)</b>. Your phone charger is a small AC→DC converter: it turns 230 V AC into 5 V DC.</p></div>
+    </div>
+    <h3>Everyday voltages</h3>
+    <div class="vscale" id="vscale" aria-label="Voltage scale"></div>
+    <div class="vlabels"><span style="color:var(--good)">Safe for this course (up to 12 V)</span><span style="color:var(--warn)">Take care</span><span style="color:var(--bad)">Dangerous (above about 50 V)</span></div>
+  </div>
+
+  <div class="block" id="hw-s8">
+    <header><span class="eyebrow">Part 8</span><h2>Check yourself</h2><p class="muted">Six questions with instant feedback.</p></header>
+    <div class="quiz" id="quiz-hw"></div>
+  </div>
+
+  <div class="block" id="hw-s9">
+    <header><span class="eyebrow">Part 9</span><h2>Homework (about 15 minutes)</h2><p class="muted">The two calculations check themselves. Your answers save automatically.</p></header>
+    <div class="hwk" id="hw-hw">
+      <div class="item"><label for="hh1">1. In your own words, what are voltage, current and resistance? Use the water analogy.</label><textarea id="hh1" data-q="Voltage, current and resistance with the water analogy"></textarea></div>
+      <div class="item"><label for="hh2">2. Calculate the current: a 12 V battery with a 600 Ω resistor. (Answer in amps.)</label><div class="row"><input type="text" inputmode="decimal" id="hh2" data-q="Current for 12 V and 600 Ω (A)" style="max-width:200px" placeholder="e.g. 0.5"><button class="btn" data-check="hh2">Check</button><span class="fb" id="fb-hh2" aria-live="polite"></span></div></div>
+      <div class="item"><label for="hh3">3. Calculate the resistance: 5 V pushes 0.025 A through a component. (Answer in ohms.)</label><div class="row"><input type="text" inputmode="decimal" id="hh3" data-q="Resistance for 5 V and 0.025 A (Ω)" style="max-width:200px" placeholder="e.g. 100"><button class="btn" data-check="hh3">Check</button><span class="fb" id="fb-hh3" aria-live="polite"></span></div></div>
+      <div class="item"><label for="hh4">4. Name 3 electrical and 3 electronic devices in your home.</label><textarea id="hh4" data-q="3 electrical and 3 electronic devices at home"></textarea></div>
+    </div>
+    <div class="done-bar"><span><b>Last step:</b> copy your answers and paste them in our chat so I can mark them, then mark the lesson complete.</span><div class="row"><button class="btn" data-part="hw-s9" data-copy="hw-hw" data-title="Hardware Lesson 1 homework">Copy my answers</button><button class="btn solid go-green" data-complete="1h">Mark lesson complete</button></div></div>
+  </div>
+</section>
+
+<section class="view wrap" id="v-lessons" hidden>
+  <div class="pagehead"><span class="eyebrow">Week 1 ready · new weeks added ahead of you</span><h1>Lessons.</h1><p class="lead" style="max-width:62ch">Each lesson has the history behind the ideas, clear explanations, interactive tools, Python you run right in the page, a quiz, flashcards and homework.</p></div>
+  <div class="cal" id="lessons-list"></div>
+</section>
+<section class="view wrap" id="v-lesson" hidden></section>
+</main>
+<div class="toast" id="toast" role="status"></div>
+<textarea id="copy-fallback" aria-label="Your answers, ready to copy" hidden style="position:fixed;left:16px;right:16px;bottom:80px;width:auto;z-index:21;min-height:160px"></textarea>
+
+<style>@media (prefers-reduced-motion: reduce){.pulse{display:none}}</style>
+@@include src/engine.css@@
+<script>
+@@include src/lessons/week1-days1-2.js@@
+</script>
+<script>
+@@include src/lessons/week1-days2-3.js@@
+</script>
+<script>
+@@include src/lessons/week1-days4-5.js@@
+</script>
+<script>
+@@include src/lessons/week1-days6-7.js@@
+</script>
+<script>
+(()=>{
+const $=(s,r=document)=>r.querySelector(s), $$=(s,r=document)=>[...r.querySelectorAll(s)];
+const store={get(k,d){try{const v=localStorage.getItem('rtl:'+k);return v===null?d:JSON.parse(v)}catch(e){return d}},set(k,v){try{localStorage.setItem('rtl:'+k,JSON.stringify(v))}catch(e){}}};
+const reduced=matchMedia('(prefers-reduced-motion: reduce)').matches;
+const FB="'Atkinson Hyperlegible', 'Segoe UI', sans-serif", FM="'JetBrains Mono', Menlo, monospace";
+const C={};const TOK=['paper','panel','ink','muted','line','ai','ai-soft','cu','cu-soft','good','bad','warn','on-accent','xp','sky','pink','good-deep'];
+function readC(){const cs=getComputedStyle(document.documentElement);TOK.forEach(k=>C[k]=cs.getPropertyValue('--'+k).trim())}
+readC();
+const redraws=new Set(), resizers=new Set(), anims=[];
+function themeChanged(){readC();redraws.forEach(f=>f())}
+try{matchMedia('(prefers-color-scheme: dark)').addEventListener('change',themeChanged)}catch(e){}
+new MutationObserver(themeChanged).observe(document.documentElement,{attributes:true,attributeFilter:['data-theme']});
+if(document.fonts&&document.fonts.ready)document.fonts.ready.then(()=>redraws.forEach(f=>f()));
+let rT;window.addEventListener('resize',()=>{clearTimeout(rT);rT=setTimeout(()=>resizers.forEach(f=>f()),120)});
+function loop(){anims.forEach(a=>{const v=$('#v-'+a.view);if(v&&!v.hidden)a.fn()});requestAnimationFrame(loop)}
+requestAnimationFrame(loop);
+function toast(t){const el=$('#toast');el.textContent=t;el.classList.add('show');clearTimeout(toast._t);toast._t=setTimeout(()=>el.classList.remove('show'),2400)}
+function rng(seed){return function(){seed|=0;seed=seed+0x6D2B79F5|0;let t=Math.imul(seed^seed>>>15,1|seed);t=t+Math.imul(t^t>>>7,61|t)^t;return((t^t>>>14)>>>0)/4294967296}}
+function gauss(r){let u=0,v=0;while(!u)u=r();while(!v)v=r();return Math.sqrt(-2*Math.log(u))*Math.cos(2*Math.PI*v)}
+function setup(cv,h){const w=cv.parentElement.clientWidth;if(!w)return null;const d=window.devicePixelRatio||1;cv.width=Math.round(w*d);cv.height=Math.round(h*d);cv.style.width=w+'px';cv.style.height=h+'px';const ctx=cv.getContext('2d');ctx.setTransform(d,0,0,d,0,0);return{ctx,w,h}}
+function ln(ctx,a,b,c,d){ctx.beginPath();ctx.moveTo(a,b);ctx.lineTo(c,d);ctx.stroke()}
+const fmt=n=>!isFinite(n)?'—':String(parseFloat(n.toPrecision(4)));
+function msg(el,text,cls){el.className='msg'+(cls?' '+cls:'');el.innerHTML=text}
+const SVGNS='http://www.w3.org/2000/svg';
+function S(tag,attrs,parent){const e=document.createElementNS(SVGNS,tag);for(const k in attrs)e.setAttribute(k,attrs[k]);if(parent)parent.appendChild(e);return e}
+
+/* ---------- routing ---------- */
+const VIEWS=['roadmap','calendar','tracks','lessons','lesson','ai-1','hw-1'];const inited={};
+function route(){let h=location.hash.slice(1),lid=null;if(h==='today-sec'){h='roadmap';history.replaceState(null,'','#roadmap');VIEWS.forEach(v=>$('#v-'+v).hidden=v!=='roadmap');$('#today-sec').scrollIntoView({behavior:reduced?'auto':'smooth'});return}
+  if(h.startsWith('l-')&&window.WW_LESSONS&&WW_LESSONS[h.slice(2)]){lid=h.slice(2);h='lesson'}if(!VIEWS.includes(h)||(h==='lesson'&&!lid))h='roadmap';
+  VIEWS.forEach(v=>$('#v-'+v).hidden=v!==h);const tab=['lesson','ai-1','hw-1'].includes(h)?'lessons':h;$$('.tabs a').forEach(a=>a.setAttribute('aria-current',a.getAttribute('href')==='#'+tab?'page':'false'));window.scrollTo(0,0);
+  if(h==='lesson'){renderLesson(lid);return}if(h==='lessons'){renderLessonsIndex();return}
+  if(!inited[h]){inited[h]=true;INIT[h]()}else{if(['roadmap','calendar','tracks'].includes(h))refresh();resizers.forEach(f=>f())}}
+window.addEventListener('hashchange',route);
+document.addEventListener('click',e=>{const j=e.target.closest('[data-jump]');if(j){e.preventDefault();const t=document.getElementById(j.dataset.jump);if(t)t.scrollIntoView({behavior:reduced?'auto':'smooth',block:'start'})}});
+
+/* ---------- progress ---------- */
+const colToday=()=>new Date(Date.now()+19800000).toISOString().slice(0,10);
+const GS=Object.assign({ev:{}},store.get('game',{}));GS.ev=GS.ev||{};
+let QUIET=true;
+function saveG(){store.set('game',GS)}
+function unlock(){}
+function award(key){if(GS.ev[key])return false;GS.ev[key]=1;saveG();return true}
+const PARTS={ai:[['ai-s1','Big picture','tap all 4 circles'],['ai-s2','Key idea','press “Got it”'],['ai-s3','History','visit all 10 years'],['ai-s4','Train a model','train the model'],['ai-s5','Three ways to learn','run the groups demo and the ads demo'],['ai-s6','Vocabulary','tap all 5 words'],['ai-s7','Quiz','answer all 6 questions'],['ai-s8','Homework','copy your answers to send me']],
+  hw:[['hw-s1','The atom','connect the battery'],['hw-s2','History','visit all 10 events'],['hw-s3','Sorting game','sort all 8 devices'],['hw-s4','Water tank','move a slider'],['hw-s5',"Ohm's law",'cover all 3 letters'],['hw-s6','Circuit lab','light the LED safely'],['hw-s7','AC vs DC','switch to AC'],['hw-s8','Quiz','answer all 6 questions'],['hw-s9','Homework','copy your answers to send me']]};
+const doneIn=k=>PARTS[k].filter(([id])=>GS.ev['part:'+id]).length;
+function partDone(id){if(award('part:'+id)){renderParts();if(!QUIET)toast('Section complete ✓')}}
+function renderParts(){for(const k in PARTS){const list=PARTS[k],n=doneIn(k);
+    $('#lpath-'+k).innerHTML=list.map(([id,t],i)=>{const d=!!GS.ev['part:'+id];return`<a class="lnode${d?' done':''}" href="#" data-jump="${id}"><span class="dot">${d?'✓':i+1}</span>${t}</a>`}).join('');
+    $('#lp-'+k+'-txt').textContent=`${n} of ${list.length} sections complete`;$('#lp-'+k+'-bar').style.width=(n/list.length*100)+'%';$('#lp-'+k+'-xp').textContent=GS.ev['done:1'+(k==='ai'?'a':'h')]?'Lesson complete ✓':'';
+    list.forEach(([id,,how])=>{const blk=$('#'+id);if(!blk)return;const d=!!GS.ev['part:'+id];const hd=$(':scope > header',blk);let m=$('.mission',hd);if(!m){m=document.createElement('span');hd.appendChild(m)}m.className='mission'+(d?' ok':'');m.innerHTML=d?'<i>✓</i>Completed':`<i></i>To complete: ${how}`})}}
+
+/* ---------- course data (90-day bootcamp; start date chosen by the learner) ---------- */
+const TR={
+ S:{n:'Software engineering',h:85,d:'From your first line of Python to a deployed full-stack app with React, an API and a database.'},
+ D:{n:'Data analytics & big data',h:75,d:'Statistics, SQL, pandas and dashboards, then Spark, cloud warehouses and streaming.'},
+ A:{n:'AI & machine learning',h:85,d:'The maths, classic ML and neural networks from scratch, then PyTorch, LLMs, RAG and agents.'},
+ H:{n:'Hardware & electronics',h:55,d:'From a single electron to CPUs and operating systems, then Arduino, Raspberry Pi and edge AI.'},
+ C:{n:'Cyber security',h:65,d:'Networking, Linux and cryptography, then web security, SOC work, incident response and a legal hacking lab.'},
+ B:{n:'Blockchain & crypto',h:55,d:'How trust works without a bank; write, test and audit smart contracts and build a dApp on test networks.'}};
+const DAYS=[["S", "How computers run programs: binary, CPU, memory, OS; dev setup (VS Code, Python, terminal)", "H", "Electricity: charge, voltage, current, resistance, Ohm's law, and their history"], ["S", "Python I: variables, types, operators, strings, input and output", "D", "Data thinking: data types, the data lifecycle, KPIs, asking good questions"], ["D", "Spreadsheets in depth: formulas, lookups, cleaning, pivot tables, charts", "C", "Security foundations: CIA triad, threat actors, attack surface, personal hygiene"], ["S", "Python II: conditionals, loops, the debugging mindset", "A", "What AI is: history from 1950, the four circles, ways machines learn"], ["H", "Circuits: series and parallel, power, Kirchhoff's laws, simulation", "S", "Python III: functions, scope, modules, reading documentation"], ["P", "Project 1 (7 h): Security audit of your own accounts + a campaign KPI spreadsheet + a Python unit-converter script"], ["T", "Week 1 test, spaced review and catch-up (6 h)"], ["S", "Problem-solving clinic: 30 Python exercises and solution patterns", "A", "Using AI tools professionally: prompt engineering, limits, checking outputs"], ["D", "Maths refresher: algebra, functions, graphs, percentages, logarithms", "D", "Descriptive statistics: centre, spread, distributions, outliers"], ["S", "Data structures I: lists, tuples, dictionaries, sets, comprehensions", "H", "Components: resistors, capacitors, inductors, diodes, LEDs, the multimeter"], ["C", "Social engineering and phishing; securing a marketing team's accounts", "C", "Networking I: OSI and TCP/IP models, IP addressing, subnetting"], ["A", "Linear algebra for ML: vectors, matrices, dot products, transformations", "B", "Money, ledgers and trust: the history of money, the double-spend problem"], ["P", "Project 2 (7 h): Python text-adventure game + LED circuit in a simulator + descriptive statistics of a real dataset"], ["T", "Week 2 test, spaced review and catch-up (6 h)"], ["S", "Files, exceptions, CSV/JSON, virtual environments and pip", "S", "Command line and Git/GitHub: commits, branches, pull requests"], ["D", "Probability: rules, conditional probability, Bayes' theorem", "A", "Calculus for ML: derivatives, gradients, the chain rule, gradient descent"], ["H", "Semiconductors and transistors: doping, BJTs, MOSFETs, switches and amplifiers", "B", "Cryptographic foundations: hashes, digital signatures, Merkle trees"], ["C", "Networking II: TCP/UDP, DNS, DHCP, HTTP/S, routing, NAT", "C", "Network analysis: Wireshark, firewalls, VPNs, Wi-Fi security"], ["D", "Distributions and sampling: normal, binomial, Poisson, central limit theorem", "H", "Digital logic: Boolean algebra, logic gates, combinational circuits"], ["P", "Project 3 (7 h): Command-line expense tracker on GitHub + a Wireshark traffic report"], ["T", "Week 3 test, spaced review and catch-up (6 h)"], ["S", "Object-oriented programming: classes, inheritance, composition", "D", "NumPy: arrays, vectorisation, broadcasting"], ["D", "pandas I: loading, exploring, cleaning, missing data", "S", "Data structures II: stacks, queues, linked lists, hash maps, trees, graphs"], ["A", "The ML workflow: framing a problem, features, labels, splits, data leakage", "A", "Linear regression from scratch and in scikit-learn; regression metrics"], ["C", "Linux for security: shell, users, permissions, processes, logs, bash scripting", "C", "Windows security: Active Directory concepts, PowerShell, Event Viewer"], ["H", "Sequential logic: flip-flops, registers, counters, memory cells", "B", "Bitcoin in depth: UTXOs, transactions, blocks, mining, proof of work"], ["P", "Project 4 (7 h): Sales-forecast model in pandas + a hardened Linux setup"], ["T", "Phase 1 exam (6 h): written + practical, then review"], ["S", "Algorithms: recursion, searching, sorting, Big-O", "D", "Inferential statistics: confidence intervals, hypothesis tests, p-values"], ["D", "A/B testing and experiment design: power, sample size, common pitfalls", "A", "Logistic regression and classification metrics: confusion matrix, ROC-AUC"], ["A", "Decision trees, random forests and gradient boosting (XGBoost)", "C", "Cryptography I: hashing, symmetric encryption, password storage"], ["H", "Computer architecture: ALU, registers, control unit, fetch–decode–execute, assembly", "H", "Memory and storage: cache, RAM, SSD/HDD, buses, I/O"], ["B", "Wallets, keys and custody; recognising scams", "S", "Testing and clean code: pytest, refactoring, type hints, code review"], ["P", "Project 5 (7 h): A/B-test analysis of a campaign + a tested classification model"], ["T", "Week 5 test, spaced review and catch-up (6 h)"], ["D", "SQL I: SELECT, filtering, sorting, aggregates, GROUP BY", "S", "How the web works: HTTP, DNS, client/server, REST"], ["A", "Model selection: cross-validation, hyperparameter tuning, bias–variance", "D", "SQL II: JOINs, subqueries, CTEs, window functions"], ["S", "HTML and CSS: semantic HTML, flexbox, grid, responsive design, accessibility", "B", "Consensus: proof of work, proof of stake, BFT, forks"], ["A", "Feature engineering, pipelines and imbalanced data", "H", "Operating systems: processes, threads, scheduling, virtual memory, file systems"], ["C", "Cryptography II: public-key crypto, digital signatures, certificates, TLS", "A", "Unsupervised learning: k-means, hierarchical clustering, PCA; segmentation"], ["P", "Project 6 (7 h): SQL analysis of an e-commerce database + a responsive portfolio website"], ["T", "Week 6 test, spaced review and catch-up (6 h)"], ["A", "Recommender systems and time-series forecasting", "C", "Web application security: OWASP Top 10, injection, XSS, CSRF (lab only)"], ["S", "JavaScript I: syntax, functions, arrays, objects, the DOM, events", "S", "JavaScript II: async, promises, fetch, building a dynamic page"], ["D", "pandas II: groupby, merge, reshape, time series", "A", "Neural networks from scratch: the perceptron and backpropagation in NumPy"], ["B", "Ethereum: accounts, the EVM, gas, smart contracts", "D", "Data visualisation: matplotlib, seaborn, Plotly; choosing the right chart"], ["A", "Deep learning with PyTorch: tensors, training loops, optimisers, regularisation", "H", "AI hardware: GPUs, TPUs, NPUs, parallel computing, data centres"], ["P", "Project 7 (7 h): Interactive JavaScript page + customer segmentation and neural-network notebook"], ["T", "Week 7 test, spaced review and catch-up (6 h)"], ["D", "Dashboards and storytelling: Power BI and Looker Studio", "A", "Computer vision: CNNs, transfer learning, image classification"], ["A", "NLP foundations: tokenisation, embeddings, word2vec, sentiment", "B", "Solidity I: syntax, types, functions, Remix, test networks"], ["S", "APIs: consuming REST APIs from Python and JavaScript; keys and rate limits", "S", "Databases for developers: relational design, PostgreSQL, ORMs"], ["C", "Identity and access: MFA, OAuth/SSO, least privilege, IAM", "C", "Malware and ransomware: types, basic analysis, defences"], ["B", "Solidity II: mappings, events, modifiers, testing with Hardhat", "H", "PC building, troubleshooting and peripherals"], ["P", "Project 8 (7 h): Marketing dashboard + your first Solidity contract on a test network"], ["T", "Phase 2 exam (6 h): written + practical, then review"], ["A", "Transformers and attention: how LLMs work, pretraining, fine-tuning, RLHF", "C", "Security operations: logs, SIEM (Splunk/Elastic), detection rules"], ["D", "Marketing analytics: funnels, cohorts, RFM, CLV, attribution", "A", "Building with LLM APIs: prompts in code, structured output, tool calling"], ["S", "Backend with FastAPI: routes, validation, authentication", "D", "Data engineering: ETL/ELT, data quality, pipelines, orchestration"], ["H", "Microcontrollers: Arduino C/C++, GPIO, PWM, timing", "B", "Tokens: ERC-20, ERC-721/1155 (NFTs), stablecoins"], ["B", "Smart contract security: reentrancy, common exploits, audits", "S", "React fundamentals: components, props, state, hooks"], ["P", "Project 9 (7 h): LLM-powered API built with FastAPI + an Arduino sensor build"], ["T", "Week 9 test, spaced review and catch-up (6 h)"], ["A", "RAG systems: chunking, vector databases, evaluating retrieval", "B", "DeFi: AMM exchanges, lending, oracles, risks"], ["D", "Big data concepts: the 5 Vs, distributed systems, HDFS, MapReduce", "A", "AI agents and automation: tool use, planning, multi-step workflows"], ["B", "dApp development: ethers.js, connecting a web front end to a contract", "C", "Incident response and basic digital forensics"], ["C", "Vulnerability management: Nmap, OpenVAS, CVEs, patching", "S", "Full-stack integration: React front end + API + database"], ["H", "Sensors, actuators and protocols: I2C, SPI, UART", "H", "Raspberry Pi and embedded Linux"], ["P", "Project 10 (7 h): RAG chatbot over a brand's documents with a React front end"], ["T", "Week 10 test, spaced review and catch-up (6 h)"], ["A", "Generative AI for marketing: image, video and audio generation; brand safety", "S", "Deployment and DevOps: Linux servers, Docker, CI/CD with GitHub Actions"], ["A", "MLOps: experiment tracking, serving models with FastAPI, monitoring, drift", "A", "Responsible AI: bias, fairness, privacy, explainability (SHAP), regulation"], ["B", "Scaling and interoperability: layer 2, rollups, bridges", "B", "Regulation and risk: global rules, Sri Lanka's position, CBDCs, AML"], ["C", "Ethical hacking: recon, exploitation and reporting in a home lab", "C", "Cloud security: shared responsibility, AWS/Azure basics, misconfigurations"], ["H", "IoT systems: MQTT, cloud dashboards, power and device security", "D", "Apache Spark: PySpark DataFrames, Spark SQL, performance"], ["P", "Project 11 (7 h): IoT sensor station streaming to a cloud dashboard + a pen-test report on your own app"], ["T", "Week 11 test, spaced review and catch-up (6 h)"], ["A", "AI product thinking: choosing use cases, measuring ROI, presenting work", "C", "Governance, risk and compliance: ISO 27001, NIST, Sri Lankan law"], ["S", "Software design: design patterns, system design basics, scalability", "D", "Cloud data platforms: BigQuery, warehouses, lakes, lakehouses, dbt"], ["D", "Streaming and NoSQL: Kafka concepts, MongoDB, Redis; choosing storage", "B", "Real-world uses: ticketing, loyalty, supply chain, web3 marketing"], ["B", "Blockchain build: NFT tickets or a token-gated fan club on a test network", "S", "Professional workflow: AI coding assistants, documentation, Agile/Scrum"], ["C", "Security careers: SOC analyst path, Security+ and other certifications", "H", "Edge AI: TinyML and running models on devices"], ["P", "Project 12 (7 h): AI marketing agent + NFT ticketing app on a test network"], ["T", "Phase 3 exam (6 h): written + practical, then review"], ["X", "Capstone: choose, scope and plan; gather data (8 h)"], ["X", "Capstone build day 1 (8 h)"], ["X", "Capstone build day 2 (8 h)"], ["X", "Capstone build day 3 + security and quality review (8 h)"], ["X", "Portfolio day: GitHub write-ups, LinkedIn, CV, mock interview (8 h)"], ["X", "Demo day: present your capstone, final review, Season 2 plan (6 h)"]];
+const MODS={"S": [["How computers run programs: binary, CPU, memory, OS; dev setup (VS Code, Python, terminal)", 4, 1], ["Python I: variables, types, operators, strings, input and output", 4, 2], ["Python II: conditionals, loops, the debugging mindset", 4, 4], ["Python III: functions, scope, modules, reading documentation", 3, 5], ["Problem-solving clinic: 30 Python exercises and solution patterns", 4, 8], ["Data structures I: lists, tuples, dictionaries, sets, comprehensions", 4, 10], ["Files, exceptions, CSV/JSON, virtual environments and pip", 4, 15], ["Command line and Git/GitHub: commits, branches, pull requests", 3, 15], ["Object-oriented programming: classes, inheritance, composition", 4, 22], ["Data structures II: stacks, queues, linked lists, hash maps, trees, graphs", 3, 23], ["Algorithms: recursion, searching, sorting, Big-O", 4, 29], ["Testing and clean code: pytest, refactoring, type hints, code review", 3, 33], ["How the web works: HTTP, DNS, client/server, REST", 3, 36], ["HTML and CSS: semantic HTML, flexbox, grid, responsive design, accessibility", 4, 38], ["JavaScript I: syntax, functions, arrays, objects, the DOM, events", 4, 44], ["JavaScript II: async, promises, fetch, building a dynamic page", 3, 44], ["APIs: consuming REST APIs from Python and JavaScript; keys and rate limits", 4, 52], ["Databases for developers: relational design, PostgreSQL, ORMs", 3, 52], ["Backend with FastAPI: routes, validation, authentication", 4, 59], ["React fundamentals: components, props, state, hooks", 3, 61], ["Full-stack integration: React front end + API + database", 3, 67], ["Deployment and DevOps: Linux servers, Docker, CI/CD with GitHub Actions", 3, 71], ["Software design: design patterns, system design basics, scalability", 4, 79], ["Professional workflow: AI coding assistants, documentation, Agile/Scrum", 3, 81]], "D": [["Data thinking: data types, the data lifecycle, KPIs, asking good questions", 3, 2], ["Spreadsheets in depth: formulas, lookups, cleaning, pivot tables, charts", 4, 3], ["Maths refresher: algebra, functions, graphs, percentages, logarithms", 4, 9], ["Descriptive statistics: centre, spread, distributions, outliers", 3, 9], ["Probability: rules, conditional probability, Bayes' theorem", 4, 16], ["Distributions and sampling: normal, binomial, Poisson, central limit theorem", 4, 19], ["NumPy: arrays, vectorisation, broadcasting", 3, 22], ["pandas I: loading, exploring, cleaning, missing data", 4, 23], ["Inferential statistics: confidence intervals, hypothesis tests, p-values", 3, 29], ["A/B testing and experiment design: power, sample size, common pitfalls", 4, 30], ["SQL I: SELECT, filtering, sorting, aggregates, GROUP BY", 4, 36], ["SQL II: JOINs, subqueries, CTEs, window functions", 3, 37], ["pandas II: groupby, merge, reshape, time series", 4, 45], ["Data visualisation: matplotlib, seaborn, Plotly; choosing the right chart", 3, 46], ["Dashboards and storytelling: Power BI and Looker Studio", 4, 50], ["Marketing analytics: funnels, cohorts, RFM, CLV, attribution", 4, 58], ["Data engineering: ETL/ELT, data quality, pipelines, orchestration", 3, 59], ["Big data concepts: the 5 Vs, distributed systems, HDFS, MapReduce", 4, 65], ["Apache Spark: PySpark DataFrames, Spark SQL, performance", 3, 75], ["Cloud data platforms: BigQuery, warehouses, lakes, lakehouses, dbt", 3, 79], ["Streaming and NoSQL: Kafka concepts, MongoDB, Redis; choosing storage", 4, 80]], "A": [["What AI is: history from 1950, the four circles, ways machines learn", 3, 4], ["Using AI tools professionally: prompt engineering, limits, checking outputs", 3, 8], ["Linear algebra for ML: vectors, matrices, dot products, transformations", 4, 12], ["Calculus for ML: derivatives, gradients, the chain rule, gradient descent", 3, 16], ["The ML workflow: framing a problem, features, labels, splits, data leakage", 4, 24], ["Linear regression from scratch and in scikit-learn; regression metrics", 3, 24], ["Logistic regression and classification metrics: confusion matrix, ROC-AUC", 3, 30], ["Decision trees, random forests and gradient boosting (XGBoost)", 4, 31], ["Model selection: cross-validation, hyperparameter tuning, bias–variance", 4, 37], ["Feature engineering, pipelines and imbalanced data", 4, 39], ["Unsupervised learning: k-means, hierarchical clustering, PCA; segmentation", 3, 40], ["Recommender systems and time-series forecasting", 4, 43], ["Neural networks from scratch: the perceptron and backpropagation in NumPy", 3, 45], ["Deep learning with PyTorch: tensors, training loops, optimisers, regularisation", 4, 47], ["Computer vision: CNNs, transfer learning, image classification", 3, 50], ["NLP foundations: tokenisation, embeddings, word2vec, sentiment", 4, 51], ["Transformers and attention: how LLMs work, pretraining, fine-tuning, RLHF", 4, 57], ["Building with LLM APIs: prompts in code, structured output, tool calling", 3, 58], ["RAG systems: chunking, vector databases, evaluating retrieval", 4, 64], ["AI agents and automation: tool use, planning, multi-step workflows", 3, 65], ["Generative AI for marketing: image, video and audio generation; brand safety", 4, 71], ["MLOps: experiment tracking, serving models with FastAPI, monitoring, drift", 4, 72], ["Responsible AI: bias, fairness, privacy, explainability (SHAP), regulation", 3, 72], ["AI product thinking: choosing use cases, measuring ROI, presenting work", 4, 78]], "H": [["Electricity: charge, voltage, current, resistance, Ohm's law, and their history", 3, 1], ["Circuits: series and parallel, power, Kirchhoff's laws, simulation", 4, 5], ["Components: resistors, capacitors, inductors, diodes, LEDs, the multimeter", 3, 10], ["Semiconductors and transistors: doping, BJTs, MOSFETs, switches and amplifiers", 4, 17], ["Digital logic: Boolean algebra, logic gates, combinational circuits", 3, 19], ["Sequential logic: flip-flops, registers, counters, memory cells", 4, 26], ["Computer architecture: ALU, registers, control unit, fetch–decode–execute, assembly", 4, 32], ["Memory and storage: cache, RAM, SSD/HDD, buses, I/O", 3, 32], ["Operating systems: processes, threads, scheduling, virtual memory, file systems", 3, 39], ["AI hardware: GPUs, TPUs, NPUs, parallel computing, data centres", 3, 47], ["PC building, troubleshooting and peripherals", 3, 54], ["Microcontrollers: Arduino C/C++, GPIO, PWM, timing", 4, 60], ["Sensors, actuators and protocols: I2C, SPI, UART", 4, 68], ["Raspberry Pi and embedded Linux", 3, 68], ["IoT systems: MQTT, cloud dashboards, power and device security", 4, 75], ["Edge AI: TinyML and running models on devices", 3, 82]], "C": [["Security foundations: CIA triad, threat actors, attack surface, personal hygiene", 3, 3], ["Social engineering and phishing; securing a marketing team's accounts", 4, 11], ["Networking I: OSI and TCP/IP models, IP addressing, subnetting", 3, 11], ["Networking II: TCP/UDP, DNS, DHCP, HTTP/S, routing, NAT", 4, 18], ["Network analysis: Wireshark, firewalls, VPNs, Wi-Fi security", 3, 18], ["Linux for security: shell, users, permissions, processes, logs, bash scripting", 4, 25], ["Windows security: Active Directory concepts, PowerShell, Event Viewer", 3, 25], ["Cryptography I: hashing, symmetric encryption, password storage", 3, 31], ["Cryptography II: public-key crypto, digital signatures, certificates, TLS", 4, 40], ["Web application security: OWASP Top 10, injection, XSS, CSRF (lab only)", 3, 43], ["Identity and access: MFA, OAuth/SSO, least privilege, IAM", 4, 53], ["Malware and ransomware: types, basic analysis, defences", 3, 53], ["Security operations: logs, SIEM (Splunk/Elastic), detection rules", 3, 57], ["Incident response and basic digital forensics", 3, 66], ["Vulnerability management: Nmap, OpenVAS, CVEs, patching", 4, 67], ["Ethical hacking: recon, exploitation and reporting in a home lab", 4, 74], ["Cloud security: shared responsibility, AWS/Azure basics, misconfigurations", 3, 74], ["Governance, risk and compliance: ISO 27001, NIST, Sri Lankan law", 3, 78], ["Security careers: SOC analyst path, Security+ and other certifications", 4, 82]], "B": [["Money, ledgers and trust: the history of money, the double-spend problem", 3, 12], ["Cryptographic foundations: hashes, digital signatures, Merkle trees", 3, 17], ["Bitcoin in depth: UTXOs, transactions, blocks, mining, proof of work", 3, 26], ["Wallets, keys and custody; recognising scams", 4, 33], ["Consensus: proof of work, proof of stake, BFT, forks", 3, 38], ["Ethereum: accounts, the EVM, gas, smart contracts", 4, 46], ["Solidity I: syntax, types, functions, Remix, test networks", 3, 51], ["Solidity II: mappings, events, modifiers, testing with Hardhat", 4, 54], ["Tokens: ERC-20, ERC-721/1155 (NFTs), stablecoins", 3, 60], ["Smart contract security: reentrancy, common exploits, audits", 4, 61], ["DeFi: AMM exchanges, lending, oracles, risks", 3, 64], ["dApp development: ethers.js, connecting a web front end to a contract", 4, 66], ["Scaling and interoperability: layer 2, rollups, bridges", 4, 73], ["Regulation and risk: global rules, Sri Lanka's position, CBDCs, AML", 3, 73], ["Real-world uses: ticketing, loyalty, supply chain, web3 marketing", 3, 80], ["Blockchain build: NFT tickets or a token-gated fan club on a test network", 4, 81]]};
+
+const PH=[{n:1,name:'Foundations',from:1,to:28},{n:2,name:'Core skills',from:29,to:56},{n:3,name:'Advanced',from:57,to:84},{n:4,name:'Capstone',from:85,to:90}];
+const CALPH=[{n:1,from:1,to:28},{n:2,from:29,to:56},{n:3,from:57,to:90}];
+const LINK={};const addLink=(d,s,u)=>{(LINK[d]=LINK[d]||[null,null])[s]=u};addLink(1,1,'#hw-1');addLink(4,1,'#ai-1');Object.values(window.WW_LESSONS||{}).forEach(L=>addLink(L.day,L.slot||0,'#l-'+L.id));
+const MON=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'],WD=['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
+const t0=()=>Date.parse(GS.start+'T00:00:00Z');
+const dateOf=n=>new Date(t0()+(n-1)*864e5);
+const fmtD=n=>{if(!GS.start)return '';const d=dateOf(n);return `${WD[d.getUTCDay()]} ${d.getUTCDate()} ${MON[d.getUTCMonth()]}`};
+const shortD=n=>{if(!GS.start)return 'Day '+n;const d=dateOf(n);return `${d.getUTCDate()} ${MON[d.getUTCMonth()]}`};
+const todayN=()=>GS.start?Math.floor((Date.parse(colToday()+'T00:00:00Z')-t0())/864e5)+1:0;
+const linkId=href=>href?(href.startsWith('#l-')?href.slice(3):href.slice(1)):null;
+const KIND={P:'Project day · 7 hours',T:'Test and review day · 6 hours',X:'Capstone week'};
+const blocks=n=>{const a=DAYS[n-1];if(a.length===2)return[{t:a[0],x:a[1]}];return[{t:a[0],x:a[1],h:4},{t:a[2],x:a[3],h:3}]};
+const phaseOf=n=>PH.find(p=>n>=p.from&&n<=p.to);
+const calPhaseOf=n=>CALPH.find(p=>n>=p.from&&n<=p.to).n;
+const isDone=n=>!!GS.ev['bday:'+n];
+function trackProg(t){let tot=0,dn=0;for(let n=1;n<=90;n++)blocks(n).forEach(b=>{if(b.t===t){tot+=b.h;if(isDone(n))dn+=b.h}});return[dn,tot]}
+function blockHTML(b,n,i){const href=LINK[n]&&LINK[n][i],id=linkId(href);const st=id?(lessonDone(id)?' <em class="nb ok">Complete ✓</em>':''):' <em class="nb">Not built yet</em>';const body=(href?`<a href="${href}">${b.x} →</a>`:b.x)+st;
+  if(!TR[b.t])return`<span class="blk lab"><span class="tg">${KIND[b.t]}</span>${body}</span>`;return`<span class="blk tk-${b.t}"><span class="tg">${TR[b.t].n} · ${b.h} h</span>${body}</span>`}
+let calPhase=null,calTrack='all',selTrack='S';
+function renderCal(){const tn=todayN();if(!calPhase)calPhase=tn>=1&&tn<=90?calPhaseOf(tn):1;const ph=CALPH[calPhase-1];let h='';
+  for(let w=Math.ceil(ph.from/7);w<=Math.ceil(ph.to/7);w++){const s=(w-1)*7+1,e=Math.min(w*7,90);
+    h+=`<div class="wkb"><div class="wk-h"><b>Week ${w}${w===13?' · Capstone':w%4===0?' · Phase exam':''}</b><span>${GS.start?shortD(s)+' – '+shortD(e):'Days '+s+'–'+e}</span></div>`;
+    for(let n=s;n<=e;n++){const bs=blocks(n),dim=calTrack!=='all'&&!bs.some(b=>b.t===calTrack);
+      h+=`<div class="dr${n===tn?' today':''}${isDone(n)?' done':''}${dim?' dim':''}" id="day-${n}"><label class="dchk"><input type="checkbox" data-day="${n}" ${isDone(n)?'checked':''} aria-label="Mark Day ${n} done"></label><div class="dn"><b>Day ${n}</b><span>${fmtD(n)}</span>${n===tn?'<span class="now-pill">Today</span>':''}</div><div class="bl">${bs.map((b,i)=>blockHTML(b,n,i)).join('')}</div></div>`}
+    h+='</div>'}
+  $('#cal').innerHTML=h;$$('#cal-ph button').forEach(b=>b.setAttribute('aria-pressed',+b.dataset.p===calPhase));$$('#cal-tr button').forEach(b=>b.setAttribute('aria-pressed',b.dataset.t===calTrack))}
+function todayCard(b,n,i){const href=LINK[n]&&LINK[n][i],id=linkId(href),tag=href?'a':'div',dn=id&&lessonDone(id);const k=TR[b.t]?`Session ${i?'B':'A'} · ${TR[b.t].n} · ${b.h} hours`:KIND[b.t];
+  return`<${tag} ${href?`href="${href}" `:''}class="tc${TR[b.t]?' tk-'+b.t:''}"><span class="k">${k}</span><span class="t">${b.x}</span><span class="s">${href?(dn?'Complete ✓ · open again →':'Open lesson →'):'Not built yet: added before you reach this day'}</span></${tag}>`}
+function renderToday(){const tn=todayN();let n,label,pre='',post='';
+  if(!GS.start){n=1;label='Not started yet · Day 1 preview';pre=`<div class="start-box"><h3 style="margin:0">Start whenever you're ready.</h3><p class="muted" style="margin:0">Choose your Day 1. Calendar dates, your daily plan and the countdown all follow from it, and you can change it later.</p><div class="row"><label class="slider" style="flex:0 1 230px;min-width:0">My Day 1<input type="date" id="start-date" value="${colToday()}"></label><button class="btn solid" id="start-btn">Start my bootcamp</button></div></div>`}
+  else if(tn<1){n=1;label=`Starts ${fmtD(1)} · ${1-tn} day${1-tn>1?'s':''} away`}else if(tn>90){n=90;label='Bootcamp complete'}else{n=tn;label=`Today · ${fmtD(n)}`}
+  const ph=phaseOf(n),bs=blocks(n),learn=bs.length===2;
+  $('#today').innerHTML=`<div class="td-h"><span class="eyebrow" style="color:var(--muted)">${label}</span><h2>Day ${n} <span class="muted">of 90</span></h2><span class="pill">Phase ${ph.n} · ${ph.name} · Week ${Math.ceil(n/7)}${learn?' · 8 hours':''}</span></div><div class="td-b">${bs.map((b,i)=>todayCard(b,n,i)).join('')}</div>${learn?'<p class="muted" style="font-size:.92rem">Plus the 30-minute warm-up at 08:00 and the 30-minute quiz and journal at 17:00.</p>':''}<div class="row" style="justify-content:space-between"><label class="dchk"><input type="checkbox" data-day="${n}" ${isDone(n)?'checked':''}> Mark Day ${n} done</label><a class="btn" href="#calendar" data-goto-day="${n}" style="background:var(--paper);color:var(--ink)">Open in calendar</a></div>${GS.start?`<details class="chg"><summary>Change my start date (Day 1 is ${fmtD(1)})</summary><div class="row"><input type="date" id="start-date2" value="${GS.start}" aria-label="New Day 1"><button class="btn" id="start-save" style="background:var(--paper)">Save</button></div></details>`:''}`;if(pre)$('#today').insertAdjacentHTML('afterbegin',pre)}
+function renderTrackCards(){$('#track-cards').innerHTML=Object.keys(TR).map(t=>{const tr=TR[t],[d,tot]=trackProg(t);return`<a class="tcard tk-${t}" href="#tracks" data-track="${t}"><span class="k">${tr.h} hours · ${MODS[t].length} sessions</span><span class="t">${tr.n}</span><span class="d">${tr.d}</span><span class="pbar"><i style="width:${d/tot*100}%"></i></span><span class="s">${d} of ${tot} hours done</span></a>`}).join('')}
+function renderTracks(){const tr=TR[selTrack],[d,tot]=trackProg(selTrack);$$('#tr-seg button').forEach(b=>b.setAttribute('aria-pressed',b.dataset.t===selTrack));
+  $('#tr-body').innerHTML=`<div class="tr-head tk-${selTrack}"><span class="eyebrow">${tr.h} hours · ${MODS[selTrack].length} sessions · ${d} of ${tot} hours done</span><h2>${tr.n}</h2><p class="lead">${tr.d}</p><span class="pbar"><i style="width:${d/tot*100}%"></i></span></div><div class="tbl-wrap"><table><thead><tr><th>#</th><th>Session</th><th>Hours</th><th>Day</th><th>Date</th></tr></thead><tbody>${MODS[selTrack].map((m,i)=>`<tr${isDone(m[2])?' style="opacity:.55"':''}><td>${i+1}</td><td style="white-space:normal;min-width:260px"><b>${m[0].split(':')[0]}</b>${m[0].includes(':')?':'+m[0].slice(m[0].indexOf(':')+1):''}</td><td>${m[1]}</td><td><a href="#calendar" data-goto-day="${m[2]}">Day ${m[2]}</a></td><td>${fmtD(m[2])||'—'}</td></tr>`).join('')}</tbody></table></div>`}
+function stats(){const tn=todayN(),done=Array.from({length:90},(_,i)=>isDone(i+1)).filter(Boolean).length;$('#st-pct').textContent=Math.round(done/90*100)+'%';
+  $('#days-left').textContent=GS.start&&tn>=1?Math.max(0,91-tn):90;
+  $('#wk-pill').textContent=!GS.start?'Not started':tn<1?`Starts ${shortD(1)}`:tn>90?'Bootcamp complete':`Day ${tn} of 90`}
+document.addEventListener('click',e=>{const sb=e.target.closest('#start-btn,#start-save');if(!sb)return;const v=$(sb.id==='start-btn'?'#start-date':'#start-date2').value;if(!/^\d{4}-\d{2}-\d{2}$/.test(v)){toast('Pick a date first');return}GS.start=v;saveG();calPhase=null;refresh();toast(sb.id==='start-btn'?`Started · Day 1 is ${fmtD(1)}`:'Start date updated')});
+function refresh(){renderToday();renderTrackCards();renderCal();renderTracks();stats()}
+function initGame(){refresh();renderParts()}
+document.addEventListener('change',e=>{const c=e.target.closest('input[data-day]');if(!c)return;const n=+c.dataset.day;if(c.checked)GS.ev['bday:'+n]=1;else delete GS.ev['bday:'+n];saveG();refresh();toast(c.checked?`Day ${n} done ✓`:`Day ${n} unmarked`)});
+document.addEventListener('click',e=>{
+  const b=e.target.closest('[data-complete]');if(b){const k=b.dataset.complete;toast(award('done:'+k)?'Lesson marked complete ✓':'Already complete');refresh();renderParts();return}
+  const g=e.target.closest('[data-gotit]');if(g){partDone(g.dataset.gotit);g.textContent='✓ Got it';g.disabled=true;return}
+  const ph=e.target.closest('#cal-ph button');if(ph){calPhase=+ph.dataset.p;renderCal();return}
+  const ft=e.target.closest('#cal-tr button');if(ft){calTrack=ft.dataset.t;renderCal();return}
+  const ts=e.target.closest('#tr-seg button');if(ts){selTrack=ts.dataset.t;renderTracks();return}
+  const tc=e.target.closest('[data-track]');if(tc){selTrack=tc.dataset.track;renderTracks();return}
+  const gd=e.target.closest('[data-goto-day]');if(gd){e.preventDefault();const n=+gd.dataset.gotoDay;calPhase=calPhaseOf(n);renderCal();location.hash='calendar';setTimeout(()=>{const r=document.getElementById('day-'+n);if(r)r.scrollIntoView({block:'center',behavior:reduced?'auto':'smooth'})},80)}});
+
+/* ---------- shared: timeline ---------- */
+function timeline(root,ev,key,part){const track=$('.tl-track',root),card=$('.tl-card',root);let i=0;
+  ev.forEach((e,k)=>{const b=document.createElement('button');b.className='tl-dot';b.innerHTML=`<span class="tl-year">${e.y}</span><span class="tl-who">${e.short}</span>`;b.onclick=()=>show(k);track.appendChild(b)});
+  function show(k,init){i=k;{const q=QUIET;if(init)QUIET=true;award('tl:'+key+':'+k,2);QUIET=q}if(ev.every((x,j)=>GS.ev['tl:'+key+':'+j])){partDone(part);unlock('hist-'+key)}[...track.children].forEach((b,j)=>{b.setAttribute('aria-pressed',j===i);b.classList.toggle('seen',!!GS.ev['tl:'+key+':'+j])});const e=ev[i];card.innerHTML=`<div class="tl-big">${e.y}</div><div><h3>${e.title}</h3><p class="tl-person">${e.who}</p><p>${e.story}</p><p class="tl-why"><b>Why it matters:</b> ${e.why}</p></div>`;const b=track.children[i];track.scrollTo({left:b.offsetLeft-track.clientWidth/2+b.offsetWidth/2,behavior:reduced?'auto':'smooth'});$('.tl-prev',root).disabled=i===0;$('.tl-next',root).disabled=i===ev.length-1}
+  $('.tl-prev',root).onclick=()=>show(Math.max(0,i-1));$('.tl-next',root).onclick=()=>show(Math.min(ev.length-1,i+1));show(0,true)}
+
+/* ---------- shared: quiz ---------- */
+function quiz(el,key,qs){const saved=store.get('quiz:'+key,{});el.innerHTML='';
+  const sc=document.createElement('div');sc.className='row';sc.style.justifyContent='space-between';sc.innerHTML='<p class="score"></p><button class="btn">Reset quiz</button>';
+  const score=()=>{const n=qs.filter((q,i)=>saved[i]===q.a).length,d=Object.keys(saved).length;$('.score',sc).textContent=`Score: ${n} / ${qs.length}`+(d<qs.length?` · ${qs.length-d} to go`:n===qs.length?' · perfect!':'')};
+  qs.forEach((q,i)=>{const box=document.createElement('div');box.className='q';box.innerHTML=`<p class="qt">${i+1}. ${q.q}</p><div class="opts">${q.o.map((o,j)=>`<button class="opt" data-j="${j}">${o}</button>`).join('')}</div><p class="expl" hidden></p>`;el.appendChild(box);
+    const pick=(j,silent)=>{saved[i]=j;$$('.opt',box).forEach((b,k)=>{b.classList.toggle('right',k===q.a);b.classList.toggle('wrong',k===j&&j!==q.a)});const ex=$('.expl',box);ex.hidden=false;ex.innerHTML=(j===q.a?'<b style="color:var(--good)">Correct.</b> ':'<b style="color:var(--bad)">Not quite.</b> ')+q.e;if(!silent){store.set('quiz:'+key,saved);if(j===q.a)award('q:'+key+':'+i,10);if(Object.keys(saved).length===qs.length)partDone({ai1:'ai-s7',hw1:'hw-s8'}[key]||('q-'+key));if(qs.every((qq,ii)=>saved[ii]===qq.a))unlock('quiz-'+key)}score()};
+    $$('.opt',box).forEach(b=>b.onclick=()=>pick(+b.dataset.j));if(saved[i]!=null)pick(saved[i],true)});
+  el.appendChild(sc);$('button',sc).onclick=()=>{store.set('quiz:'+key,{});quiz(el,key,qs)};score()}
+
+/* ---------- shared: homework ---------- */
+function homework(id){$$('textarea,input',$('#'+id)).forEach(f=>{f.value=store.get('hw:'+f.id,'');f.addEventListener('input',()=>store.set('hw:'+f.id,f.value))})}
+document.addEventListener('click',e=>{const b=e.target.closest('[data-copy]');if(!b)return;if(b.dataset.part)partDone(b.dataset.part);
+  const fields=$$('textarea,input',$('#'+b.dataset.copy));const text=b.dataset.title+'\n\n'+fields.map((f,i)=>`${i+1}. ${f.dataset.q}\n${f.value.trim()||'(not answered yet)'}`).join('\n\n');
+  const fallback=()=>{const ta=$('#copy-fallback');ta.value=text;ta.hidden=false;ta.focus();ta.select();toast('Copy the selected text, then paste it in our chat');ta.onblur=()=>ta.hidden=true};
+  try{navigator.clipboard.writeText(text).then(()=>toast('Copied. Paste it into our chat.'),fallback)}catch(err){fallback()}});
+
+/* =============== AI LESSON =============== */
+const AI_EVENTS=[
+{y:'1950',short:'Alan Turing',title:'"Can machines think?"',who:'Alan Turing · British mathematician',story:'Turing, who helped break Nazi codes in World War II, published the paper "Computing Machinery and Intelligence". He proposed the Turing Test: if you chat with a machine and can\'t tell it from a person, it can be called intelligent.',why:'It turned "thinking machines" from science fiction into a serious scientific question.'},
+{y:'1956',short:'Dartmouth',title:'The birth of "Artificial Intelligence"',who:'John McCarthy, with Marvin Minsky, Claude Shannon and Nathaniel Rochester',story:'McCarthy invented the term "artificial intelligence" for a summer workshop at Dartmouth College in the USA. The group believed every part of learning could be described precisely enough for a machine to copy it.',why:'This workshop is considered the founding moment of AI as a field.'},
+{y:'1958',short:'Perceptron',title:'The first machine that learned',who:'Frank Rosenblatt · American psychologist',story:'Rosenblatt built the Perceptron, a machine that learned to recognise simple shapes by adjusting itself after every mistake. Newspapers predicted it would one day walk, talk and think.',why:'It is the earliest ancestor of today\'s neural networks. The model you train in Part 4 is a close cousin.'},
+{y:'1959',short:'Arthur Samuel',title:'"Machine learning" gets its name',who:'Arthur Samuel · IBM engineer',story:'Samuel wrote a checkers (draughts) program that improved by playing thousands of games against itself, until it could beat him. He called this "machine learning": the ability to learn without being explicitly programmed.',why:'It proved a machine could become better than its own programmer.'},
+{y:'1970s–80s',short:'AI winters',title:'The AI winters',who:'The whole field',story:'AI promised too much and delivered too little. Governments and companies cut funding, and the field nearly died twice: in the 1970s and again in the late 1980s.',why:'A lesson for today: hype is cheap. Judge AI by what it actually does.'},
+{y:'1986',short:'Backpropagation',title:'Teaching networks to learn from mistakes',who:'Geoffrey Hinton, David Rumelhart and Ronald Williams',story:'They popularised backpropagation, a method that tells every part of a neural network how much it contributed to a mistake, so it can adjust. Hinton kept working on neural networks when most researchers had given up on them.',why:'Almost every modern AI is trained this way. Hinton shared the 2024 Nobel Prize in Physics for this line of work.'},
+{y:'1997',short:'Deep Blue',title:'A computer beats the world chess champion',who:'IBM\'s Deep Blue vs Garry Kasparov',story:'IBM\'s Deep Blue defeated world champion Garry Kasparov in a six-game match in New York.',why:'Computers could now beat the best humans at a task seen as pure intelligence, though Deep Blue relied on raw calculation more than learning.'},
+{y:'2012',short:'AlexNet',title:'The deep learning boom begins',who:'Alex Krizhevsky, Ilya Sutskever and Geoffrey Hinton',story:'Their network, AlexNet, crushed the ImageNet image-recognition competition. The secret: deep neural networks trained on gaming graphics chips (GPUs).',why:'The modern AI boom starts here, and so does the importance of chip makers like NVIDIA. This is where your two tracks meet.'},
+{y:'2017',short:'Transformer',title:'"Attention Is All You Need"',who:'Ashish Vaswani and colleagues at Google',story:'Google researchers published the Transformer, a design that lets a model look at all the words in a passage at once and work out which ones matter most to each other.',why:'It is the "T" in GPT and the engine inside ChatGPT, Claude and Gemini.'},
+{y:'2022',short:'ChatGPT',title:'AI goes mainstream',who:'OpenAI · 30 November 2022',story:'OpenAI released ChatGPT to the public. It reached an estimated 100 million users in about two months, one of the fastest-growing apps in history.',why:'AI moved out of research labs and into everyday work, including marketing.'}];
+
+const RINGS=[
+{k:'ai',name:'Artificial Intelligence',short:'AI',r:188,cy:200,op:.07,since:'Named in 1956',def:'Any machine doing something that normally needs human intelligence: understanding language, recognising faces, making decisions.',ex:['Google Maps route planning','Chess computers','Voice assistants'],mk:'Even a simple rule-based chatbot on a website counts as AI.'},
+{k:'ml',name:'Machine Learning',short:'ML',r:144,cy:244,op:.13,since:'Named in 1959',def:'The part of AI where machines learn from examples instead of following rules a person wrote.',ex:['Spam filters','Netflix recommendations','Fraud detection'],mk:'Facebook and Google ads use ML to predict who is most likely to click or buy.'},
+{k:'dl',name:'Deep Learning',short:'DL',r:100,cy:288,op:.2,since:'Boom since 2012',def:'Machine learning using neural networks with many layers, loosely inspired by the brain. It needs lots of data and powerful chips (GPUs).',ex:['Face unlock','Voice typing','Google Translate'],mk:'Instagram uses deep learning to understand what\'s in your photos and videos.'},
+{k:'gen',name:'Generative AI',short:'GenAI',r:58,cy:330,op:.32,since:'Mainstream since 2022',def:'Deep learning that creates new content: text, images, music, video.',ex:['ChatGPT','Claude','Gemini','Midjourney'],mk:'Drafting captions, event posters, ad variations and voice-overs in minutes.'}];
+
+function initCircles(){const svg=$('#circles-svg');const seen=new Set();
+  RINGS.forEach((r,i)=>{const g=S('g',{class:'ringc',tabindex:0,role:'button','aria-pressed':i===0,'aria-label':r.name},svg);
+    S('circle',{cx:200,cy:r.cy,r:r.r,fill:'var(--ai)','fill-opacity':r.op,stroke:'var(--ai)','stroke-width':1.6},g);
+    const t=S('text',{x:200,y:r.k==='gen'?r.cy+5:r.cy-r.r+28,'text-anchor':'middle','font-family':'var(--f-display)','font-weight':800,'font-size':r.k==='gen'?14:17,fill:'var(--ai)'},g);t.textContent=r.k==='gen'?'Generative AI':r.name;
+    const on=e=>{e.stopPropagation();sel(i)};g.addEventListener('click',on);g.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();on(e)}})});
+  function sel(i){seen.add(i);if(seen.size===4)partDone('ai-s1');$$('.ringc',svg).forEach((g,j)=>g.setAttribute('aria-pressed',j===i));const r=RINGS[i];
+    $('#circle-info').innerHTML=`<span class="pill">${r.short} · ${r.since}</span><h3 style="font-size:1.5rem">${r.name}</h3><p>${r.def}</p><div class="ex">${r.ex.map(x=>`<span>${x}</span>`).join('')}</div><p class="note"><b>In marketing:</b> ${r.mk}</p>${i<3?`<p class="muted" style="font-size:.9rem">Inside it: <b style="color:var(--ink)">${RINGS[i+1].name}</b>. Tap the next circle.</p>`:'<p class="muted" style="font-size:.9rem">This is the innermost circle: every generative AI is also deep learning, ML and AI.</p>'}`}
+  sel(0)}
+
+function initLR(){const cv=$('#lr-cv');let G=null;
+  const r=rng(7),pts=[];for(let i=0;i<70;i++){const x=r()*10,y=r()*60;const z=4*(x/10)-4*(y/60)+.3+gauss(r)*.75;pts.push({x,y,b:z>0?1:0})}
+  let w1,w2,b,steps,target=0,probes=[];const sig=z=>1/(1+Math.exp(-z));const P=(x,y)=>sig(w1*(x/10-.5)+w2*(y/60-.5)+b);
+  const acc=()=>Math.round(pts.filter(p=>(P(p.x,p.y)>.5?1:0)===p.b).length/pts.length*100);
+  const M={L:58,R:14,T:14,B:46};
+  function size(){G=setup(cv,Math.round(Math.min(380,Math.max(300,(cv.parentElement.clientWidth||600)*.5))));draw()}
+  function step(){let g1=0,g2=0,gb=0;pts.forEach(p=>{const fx=p.x/10-.5,fy=p.y/60-.5,e=sig(w1*fx+w2*fy+b)-p.b;g1+=e*fx;g2+=e*fy;gb+=e});const n=pts.length,lr=6;w1-=lr*g1/n;w2-=lr*g2/n;b-=lr*gb/n;steps++}
+  function draw(){if(!G)return;const{ctx,w,h}=G,pw=w-M.L-M.R,ph=h-M.T-M.B;ctx.clearRect(0,0,w,h);
+    const cs=8;for(let gx=0;gx<pw;gx+=cs)for(let gy=0;gy<ph;gy+=cs){const p=P((gx+cs/2)/pw*10,(1-(gy+cs/2)/ph)*60);ctx.globalAlpha=p>.5?.07+.22*(p-.5)*2:.02+.07*(.5-p)*2;ctx.fillStyle=p>.5?C.good:C.bad;ctx.fillRect(M.L+gx,M.T+gy,cs+.5,cs+.5)}
+    ctx.globalAlpha=1;ctx.strokeStyle=C.line;ctx.lineWidth=1;ctx.fillStyle=C.muted;ctx.font='12px '+FB;
+    for(let i=0;i<=10;i+=2){const X=M.L+i/10*pw;ln(ctx,X,M.T,X,M.T+ph);ctx.textAlign='center';ctx.fillText(i,X,M.T+ph+17)}
+    for(let j=0;j<=60;j+=15){const Y=M.T+ph-j/60*ph;ln(ctx,M.L,Y,M.L+pw,Y);ctx.textAlign='right';ctx.fillText(j,M.L-8,Y+4)}
+    ctx.textAlign='center';ctx.font='700 12px '+FB;ctx.fillText('Emails opened last month',M.L+pw/2,h-8);ctx.save();ctx.translate(15,M.T+ph/2);ctx.rotate(-Math.PI/2);ctx.fillText('Days since last purchase',0,0);ctx.restore();
+    ctx.save();ctx.beginPath();ctx.rect(M.L,M.T,pw,ph);ctx.clip();ctx.strokeStyle=C.ink;ctx.lineWidth=2;ctx.setLineDash([7,5]);ctx.beginPath();
+    if(Math.abs(w2)>1e-3){const yAt=fx=>-(w1*fx+b)/w2+.5;ctx.moveTo(M.L,M.T+ph-yAt(-.5)*ph);ctx.lineTo(M.L+pw,M.T+ph-yAt(.5)*ph)}else if(Math.abs(w1)>1e-3){const xn=-b/w1+.5;ctx.moveTo(M.L+xn*pw,M.T);ctx.lineTo(M.L+xn*pw,M.T+ph)}
+    ctx.stroke();ctx.restore();
+    pts.forEach(p=>{const X=M.L+p.x/10*pw,Y=M.T+ph-p.y/60*ph;ctx.beginPath();ctx.arc(X,Y,5.5,0,7);if(p.b){ctx.fillStyle=C.good;ctx.fill()}else{ctx.fillStyle=C.panel;ctx.fill();ctx.strokeStyle=C.bad;ctx.lineWidth=2;ctx.stroke()}});
+    probes.forEach(q=>{const X=M.L+q.x/10*pw,Y=M.T+ph-q.y/60*ph;ctx.save();ctx.translate(X,Y);ctx.rotate(Math.PI/4);ctx.fillStyle=C.ai;ctx.fillRect(-6,-6,12,12);ctx.restore();const t=Math.round(P(q.x,q.y)*100)+'%';ctx.font='700 13px '+FM;ctx.textAlign='left';const tw=ctx.measureText(t).width;let tx=X+11;if(tx+tw+8>M.L+pw)tx=X-15-tw;ctx.fillStyle=C.panel;ctx.fillRect(tx-4,Y-11,tw+8,20);ctx.fillStyle=C.ai;ctx.fillText(t,tx,Y+4)})}
+  const out=$('#lr-msg');
+  function reset(){w1=-2.2;w2=2.6;b=.1;steps=0;target=0;probes=[];$('#lr-step').textContent='0';$('#lr-acc').textContent=acc()+'%';$('#lr-train').disabled=false;$('#lr-train').textContent='▶ Train the model';msg(out,'Right now the model is untrained, so its guesses are mostly wrong: see how the green "will buy" area covers the wrong customers. Press Train.','');draw()}
+  $('#lr-train').onclick=()=>{target=steps+(reduced?0:400);if(reduced){for(let i=0;i<400;i++)step();finish()}else{$('#lr-train').disabled=true;msg(out,'Training… the model checks every customer, measures its mistakes and nudges its rule a little. Watch the dashed line move.','')}};
+  $('#lr-reset').onclick=reset;
+  function finish(){award('lr',20);unlock('trainer');partDone('ai-s4');$('#lr-step').textContent=steps;$('#lr-acc').textContent=acc()+'%';$('#lr-train').disabled=false;$('#lr-train').textContent='▶ Train more';msg(out,`Trained! The model now gets <b>${acc()}%</b> of past customers right. It learned the rule by itself: customers who open more emails and bought recently are the most likely to return. Now tap the chart to test a new customer.`,'ok');draw()}
+  anims.push({view:'ai-1',fn(){if(steps<target){for(let i=0;i<4;i++)step();$('#lr-step').textContent=steps;$('#lr-acc').textContent=acc()+'%';draw();if(steps>=target)finish()}}});
+  cv.addEventListener('click',e=>{if(!G)return;const rc=cv.getBoundingClientRect(),mx=e.clientX-rc.left,my=e.clientY-rc.top,pw=G.w-M.L-M.R,ph=G.h-M.T-M.B;if(mx<M.L||mx>M.L+pw||my<M.T||my>M.T+ph)return;const q={x:(mx-M.L)/pw*10,y:(1-(my-M.T)/ph)*60};probes.push(q);if(steps>0)award('probe',5);if(probes.length>5)probes.shift();const pc=Math.round(P(q.x,q.y)*100);
+    msg(out,`A customer who opened <b>${Math.round(q.x)} emails</b> and last bought <b>${Math.round(q.y)} days ago</b> is <b style="color:var(--ai)">${pc}% likely</b> to buy again.`+(steps===0?' (The model isn\'t trained yet, so don\'t trust this guess.)':pc>=50?' Worth targeting with an offer.':' Maybe a win-back campaign.'),'');draw()});
+  redraws.add(draw);resizers.add(size);reset();size()}
+
+function initKM(){const cv=$('#km-cv');let G=null;const r=rng(11),pts=[];
+  const blob=(mx,sx,my,sy)=>{for(let i=0;i<25;i++)pts.push({x:Math.min(19500,Math.max(500,mx+gauss(r)*sx))/20000,y:Math.min(11.7,Math.max(.3,my+gauss(r)*sy))/12,c:-1})};
+  blob(2600,800,9,1.3);blob(15000,2000,2.6,1);blob(4200,1300,2.2,.9);
+  const COLS=()=>[C.ai,C.cu,C.good];let cents,target,round,timer=null,labels=null;
+  const M={L:52,R:14,T:14,B:46};const out=$('#km-msg');
+  function size(){G=setup(cv,300);draw()}
+  function reset(){clearInterval(timer);timer=null;cents=[[.18,.18],[.3,.22],[.24,.36]];target=cents.map(c=>c.slice());round=0;labels=null;pts.forEach(p=>p.c=-1);$('#km-it').textContent='0';$('#km-run').disabled=false;msg(out,'Every customer is grey: the model doesn\'t know any groups yet. The three ✕ marks are its first random guesses for group centres.','');draw()}
+  function assign(){let ch=0;pts.forEach(p=>{let best=0,bd=1e9;target.forEach((c,k)=>{const d=(p.x-c[0])**2+(p.y-c[1])**2;if(d<bd){bd=d;best=k}});if(p.c!==best){ch++;p.c=best}});return ch}
+  function update(){target=target.map((c,k)=>{const m=pts.filter(p=>p.c===k);return m.length?[m.reduce((s,p)=>s+p.x,0)/m.length,m.reduce((s,p)=>s+p.y,0)/m.length]:c})}
+  function name(){const idx=[0,1,2];const big=idx.reduce((a,b)=>target[b][0]>target[a][0]?b:a);const rest=idx.filter(i=>i!==big);const loyal=rest.reduce((a,b)=>target[b][1]>target[a][1]?b:a);labels={};labels[big]='Big spenders';labels[loyal]='Loyal regulars';labels[rest.find(i=>i!==loyal)]='Occasional buyers'}
+  function draw(){if(!G)return;const{ctx,w,h}=G,pw=w-M.L-M.R,ph=h-M.T-M.B,cols=COLS();ctx.clearRect(0,0,w,h);ctx.strokeStyle=C.line;ctx.lineWidth=1;ctx.fillStyle=C.muted;ctx.font='12px '+FB;
+    for(let i=0;i<=4;i++){const X=M.L+i/4*pw;ln(ctx,X,M.T,X,M.T+ph);ctx.textAlign='center';ctx.fillText(i===0?'0':(i*5)+'k',X,M.T+ph+17)}
+    for(let j=0;j<=12;j+=3){const Y=M.T+ph-j/12*ph;ln(ctx,M.L,Y,M.L+pw,Y);ctx.textAlign='right';ctx.fillText(j,M.L-8,Y+4)}
+    ctx.textAlign='center';ctx.font='700 12px '+FB;ctx.fillText('Average order value (Rs.)',M.L+pw/2,h-8);ctx.save();ctx.translate(14,M.T+ph/2);ctx.rotate(-Math.PI/2);ctx.fillText('Visits per month',0,0);ctx.restore();
+    pts.forEach(p=>{ctx.beginPath();ctx.arc(M.L+p.x*pw,M.T+ph-p.y*ph,5,0,7);ctx.fillStyle=p.c<0?C.muted:cols[p.c];ctx.globalAlpha=p.c<0?.55:.85;ctx.fill();ctx.globalAlpha=1});
+    cents.forEach((c,k)=>{const X=M.L+c[0]*pw,Y=M.T+ph-c[1]*ph;ctx.strokeStyle=C.panel;ctx.lineWidth=7;ln(ctx,X-8,Y-8,X+8,Y+8);ln(ctx,X+8,Y-8,X-8,Y+8);ctx.strokeStyle=cols[k];ctx.lineWidth=3.5;ln(ctx,X-8,Y-8,X+8,Y+8);ln(ctx,X+8,Y-8,X-8,Y+8);
+      if(labels){const t=labels[k];ctx.font='700 13px '+FB;const tw=ctx.measureText(t).width;let tx=X+14;if(tx+tw+10>M.L+pw)tx=X-tw-24;const ty=Math.max(M.T+12,Y-14);ctx.fillStyle=C.panel;ctx.fillRect(tx-5,ty-13,tw+10,19);ctx.fillStyle=cols[k];ctx.textAlign='left';ctx.fillText(t,tx,ty+1)}})}
+  anims.push({view:'ai-1',fn(){let mv=false;cents.forEach((c,k)=>{const t=target[k];const dx=t[0]-c[0],dy=t[1]-c[1];if(Math.abs(dx)+Math.abs(dy)>.001){c[0]+=dx*.15;c[1]+=dy*.15;mv=true}else{c[0]=t[0];c[1]=t[1]}});if(mv)draw()}});
+  $('#km-run').onclick=()=>{$('#km-run').disabled=true;const tick=()=>{const ch=assign();round++;$('#km-it').textContent=round;
+      if(ch===0||round>=10){clearInterval(timer);timer=null;name();award('km',20);unlock('pattern');if(GS.ev.rl)partDone('ai-s5');if(reduced)cents=target.map(c=>c.slice());draw();msg(out,`Done in ${round} rounds. The AI found three groups <b>by itself</b>: <b>Big spenders</b>, <b>Loyal regulars</b> and <b>Occasional buyers</b>. Nobody told it these groups existed. A marketer would now give each group a different message.`,'ok');return}
+      update();if(reduced)cents=target.map(c=>c.slice());draw();msg(out,`Round ${round}: each customer joins the nearest centre (✕), then each centre moves to the middle of its group. Repeat until nothing changes.`,'')};
+    tick();timer=setInterval(tick,reduced?300:900)};
+  $('#km-reset').onclick=reset;redraws.add(draw);resizers.add(size);reset();size()}
+
+function initRL(){const ADS=[{n:'Ad A',c:'"20% off all tickets"',p:.04},{n:'Ad B',c:'"Watch the artist teaser"',p:.07},{n:'Ad C',c:'"Early-bird: only 100 left"',p:.13}];
+  const box=$('#ads');box.innerHTML=ADS.map((a,i)=>`<div class="ad" id="ad${i}"><b>${a.n}</b><span class="muted" style="font-size:.92rem">${a.c}</span><div class="bar"><i></i></div><span class="mono" style="font-size:.82rem" data-s></span><span class="mono" style="font-size:.82rem;color:var(--good)" data-t></span></div>`).join('');
+  let sh,cl,total,target=0;const out=$('#rl-msg');
+  function render(){ADS.forEach((a,i)=>{const el=$('#ad'+i);$('.bar i',el).style.width=(total?sh[i]/total*100:0)+'%';$('[data-s]',el).textContent=`Shown ${sh[i]} · clicks ${cl[i]} · est. ${sh[i]?(cl[i]/sh[i]*100).toFixed(1):'–'}%`});$('#rl-n').textContent=total;$('#rl-c').textContent=cl.reduce((a,b)=>a+b,0)}
+  function reset(){sh=[0,0,0];cl=[0,0,0];total=0;target=0;$$('.ad').forEach(e=>e.classList.remove('best'));$$('[data-t]',box).forEach(e=>e.textContent='');$('#rl-run').disabled=false;msg(out,'At first the AI shows all three ads equally, to explore.','');render()}
+  function one(){let k;if(total<45)k=total%3;else if(Math.random()<.1)k=Math.floor(Math.random()*3);else{const est=sh.map((s,i)=>cl[i]/s);k=est.indexOf(Math.max(...est))}sh[k]++;if(Math.random()<ADS[k].p)cl[k]++;total++}
+  function finish(){award('rl',20);unlock('adgenius');if(GS.ev.km)partDone('ai-s5');const best=sh.indexOf(Math.max(...sh));$('#ad'+best).classList.add('best');ADS.forEach((a,i)=>$('[data-t]',$('#ad'+i)).textContent=`Real click rate: ${(a.p*100).toFixed(0)}%`);msg(out,`The AI showed <b>${ADS[best].n}</b> ${Math.round(sh[best]/total*100)}% of the time. Nobody told it which ad was best. It learned by trying, getting rewards (clicks) and doing more of what worked.`+(best!==2?' This time it was fooled by bad luck early on, which also happens in real campaigns. Press Reset and try again.':''),'ok');$('#rl-run').disabled=false}
+  $('#rl-run').onclick=()=>{if(total>=600)reset();if(reduced){while(total<600)one();render();finish();return}target=600;$('#rl-run').disabled=true;msg(out,'Showing ads… after the first 45, the AI mostly shows whichever ad has the best click rate so far, but still explores 10% of the time.','')};
+  $('#rl-reset').onclick=reset;
+  anims.push({view:'ai-1',fn(){if(total<target){for(let i=0;i<8&&total<target;i++)one();render();if(total>=target){target=0;finish()}}}});reset()}
+
+function initTabs(){const tabs=$$('#ai-s5 [role=tab]');let once={uns:false};tabs.forEach(t=>t.onclick=()=>{tabs.forEach(x=>x.setAttribute('aria-selected',x===t));$$('#ai-s5 [data-pane]').forEach(p=>p.hidden=p.dataset.pane!==t.dataset.tab);if(t.dataset.tab==='uns'&&!once.uns){once.uns=true;initKM()}else resizers.forEach(f=>f())})}
+
+function initVocab(){const T={dataset:'<b>Dataset:</b> the whole collection of examples. Here, the table of past customers. Real datasets often have thousands or millions of rows.',feature:'<b>Features:</b> the input columns the model learns from. Here: age, emails opened, city and events attended.',label:'<b>Label:</b> the answer you want the model to predict. Here: did the customer buy again, yes or no?',training:'<b>Training:</b> the model studies every row, comparing the features with the label, and adjusts itself to find the pattern. You watched this happen in Part 4.',model:'<b>Model:</b> the finished pattern-finder. Give it a new customer\'s features and it predicts the label.'};
+  const tbl=$('#vocab-tbl');let tm=[];const vseen=new Set();
+  function set(v){vseen.add(v);if(vseen.size===5)partDone('ai-s6');tm.forEach(clearTimeout);tm=[];$$('#vocab-seg button').forEach(b=>b.setAttribute('aria-pressed',b.dataset.v===v));tbl.classList.remove('hl-all');$$('td,th',tbl).forEach(c=>c.classList.remove('hl-feat','hl-label'));$$('tr',tbl).forEach(r=>r.classList.remove('hl-all'));$('#vocab-new').hidden=v!=='model';msg($('#vocab-msg'),T[v],'');
+    if(v==='dataset')tbl.classList.add('hl-all');
+    if(v==='feature')$$('[data-c=f]',tbl).forEach(c=>c.classList.add('hl-feat'));
+    if(v==='label')$$('[data-c=l]',tbl).forEach(c=>c.classList.add('hl-label'));
+    if(v==='training'){const rows=$$('tbody tr:not([hidden])',tbl);rows.forEach((r,i)=>{tm.push(setTimeout(()=>{rows.forEach(x=>x.classList.remove('hl-all'));r.classList.add('hl-all')},i*650))});tm.push(setTimeout(()=>rows.forEach(x=>x.classList.remove('hl-all')),rows.length*650))}}
+  $$('#vocab-seg button').forEach(b=>b.onclick=()=>set(b.dataset.v));set('dataset')}
+
+const AI_QUIZ=[
+{q:'Which sentence best describes machine learning?',o:['A computer following rules a person wrote by hand','A computer learning patterns from examples','A robot that looks like a human','Any app that uses the internet'],a:1,e:'ML works out the rules from data and answers, instead of a person writing them.'},
+{q:'Who invented the term "Artificial Intelligence" in 1956?',o:['Alan Turing','Geoffrey Hinton','John McCarthy','Arthur Samuel'],a:2,e:'McCarthy coined it for the Dartmouth workshop. Turing asked "Can machines think?" in 1950, and Samuel named machine learning in 1959.'},
+{q:'An AI groups your customers into segments without being told what the groups are. Which type of learning is this?',o:['Supervised','Unsupervised','Reinforcement','Generative'],a:1,e:'No labels were given, so it\'s unsupervised, like the k-means demo in Part 5.'},
+{q:'You want to predict who will buy again. In your dataset, the column "Bought again: yes/no" is the…',o:['Feature','Label','Model','Algorithm'],a:1,e:'The label is the answer you want predicted. The other columns are features.'},
+{q:'Which 2017 invention is the engine inside ChatGPT, Claude and Gemini?',o:['The Perceptron','Backpropagation','The Transformer','Deep Blue'],a:2,e:'The Transformer, from the Google paper "Attention Is All You Need". It\'s the "T" in GPT.'},
+{q:'Which of these is generative AI?',o:['Predicting next month\'s ticket sales','Grouping fans by music taste','Writing 10 caption ideas for an event post','Choosing which ad to show'],a:2,e:'Generative AI creates new content. The others are prediction, clustering and reinforcement learning.'}];
+
+/* =============== HARDWARE LESSON =============== */
+const HW_EVENTS=[
+{y:'~600 BC',short:'Thales',title:'Rubbing amber',who:'Thales of Miletus · Greek philosopher',story:'Thales noticed that rubbing amber (fossilised tree resin) with fur made it attract feathers and dust. This was static electricity.',why:'The Greek word for amber is ēlektron, which is where the words "electricity" and "electron" come from.'},
+{y:'1600',short:'William Gilbert',title:'The father of electricity',who:'William Gilbert · doctor to Queen Elizabeth I',story:'Gilbert carefully tested which materials behaved like amber and published the results in his book De Magnete. He coined the Latin word electricus, meaning "like amber".',why:'He turned a curiosity into an experimental science.'},
+{y:'1752',short:'Ben Franklin',title:'Lightning is electricity',who:'Benjamin Franklin · American writer and scientist',story:'Franklin flew a kite in a thunderstorm with a metal key on the string and drew sparks from it, showing that lightning is a giant electric spark. (Extremely dangerous: a scientist was killed repeating a similar experiment.)',why:'He invented the lightning rod and named the two kinds of charge positive (+) and negative (−).'},
+{y:'1800',short:'Alessandro Volta',title:'The first battery',who:'Alessandro Volta · Italian physicist',story:'Volta stacked discs of zinc and copper separated by cloth soaked in salt water. His "voltaic pile" produced a steady flow of electricity for the first time.',why:'Before this, electricity came only in sudden sparks. The volt (V) is named after him.'},
+{y:'1820s',short:'André-Marie Ampère',title:'The maths of current',who:'André-Marie Ampère · French physicist',story:'In 1820 it was discovered that an electric current moves a compass needle. Within weeks, Ampère began working out the mathematical laws linking current and magnetism.',why:'The ampere (A), the unit of current, is named after him.'},
+{y:'1827',short:'Georg Ohm',title:"Ohm's law",who:'Georg Ohm · German schoolteacher',story:'Ohm measured how current changed with different wires and batteries, and found that voltage = current × resistance. Other scientists mocked his work, and he lost his teaching job.',why:'It became the most-used formula in electronics, and the ohm (Ω) carries his name.'},
+{y:'1831',short:'Michael Faraday',title:'Electricity from magnets',who:'Michael Faraday · English scientist',story:'Faraday, a former bookbinder\'s apprentice with little schooling, discovered that moving a magnet near a coil of wire creates electricity. This is called electromagnetic induction.',why:'Almost every power station still works this way, including Sri Lanka\'s hydro plants at Victoria and Kotmale.'},
+{y:'1880s',short:'War of currents',title:'Edison vs Tesla',who:'Thomas Edison vs Nikola Tesla and George Westinghouse',story:'Edison pushed DC (direct current) for city power. Tesla and Westinghouse pushed AC (alternating current). The battle was bitter and very public.',why:'AC won for power grids because transformers can easily change its voltage, so it travels long distances efficiently.'},
+{y:'1897',short:'J.J. Thomson',title:'Discovering the electron',who:'J.J. Thomson · English physicist',story:'Experimenting with glowing glass tubes, Thomson showed that "cathode rays" were made of tiny negatively charged particles, far smaller than atoms.',why:'People had used electricity for nearly a century without knowing what was flowing. Now they knew: electrons.'},
+{y:'1947',short:'Transistor',title:'The transistor',who:'John Bardeen, Walter Brattain and William Shockley · Bell Labs',story:'They built the first transistor: a tiny switch with no moving parts that electricity itself can turn on and off. They shared the 1956 Nobel Prize in Physics.',why:'Modern chips hold billions of transistors. Every computer, phone and AI chip comes from this. Full lesson in Week 4.'}];
+
+function initAtom(){const svg=$('#atom-svg');const cx=170,cy=170;const R=[40,72,108,148],N=[2,8,18,1],D=[7,12,20,34];
+  R.forEach((r,i)=>S('circle',{cx,cy,r,fill:'none',stroke:i===3?'var(--cu)':'var(--line)','stroke-width':i===3?1.8:1.4,'stroke-dasharray':i===3?'5 5':''},svg));
+  R.forEach((r,i)=>{const g=S('g',{class:'shell',style:`animation-duration:${D[i]}s`},svg);for(let k=0;k<N[i];k++){const a=k/N[i]*Math.PI*2+i;const x=cx+r*Math.cos(a),y=cy+r*Math.sin(a);if(i===3){S('circle',{cx:x,cy:y,r:13,fill:'var(--cu)','fill-opacity':.2},g);S('circle',{cx:x,cy:y,r:7,fill:'var(--cu)'},g)}else S('circle',{cx:x,cy:y,r:4.6,fill:'var(--ink)'},g)}});
+  S('circle',{cx,cy,r:24,fill:'var(--cu)'},svg);const t=S('text',{x:cx,y:cy+5,'text-anchor':'middle','font-family':'var(--f-display)','font-weight':800,'font-size':15,fill:'var(--on-accent)'},svg);t.textContent='29+';
+  const l=S('text',{x:cx,y:12,'text-anchor':'middle','font-family':'var(--f-mono)','font-size':11,'font-weight':600,fill:'var(--cu)'},svg);l.textContent='OUTER SHELL: 1 FREE ELECTRON';
+  const l2=S('text',{x:cx,y:334,'text-anchor':'middle','font-family':'var(--f-mono)','font-size':11,fill:'var(--muted)'},svg);l2.textContent='COPPER · 29 PROTONS · 29 ELECTRONS'}
+
+function initWire(){const cv=$('#wire-cv');let G=null,on=false,els=[];const H=160;
+  function size(){G=setup(cv,H);if(!G)return;const n=Math.round(G.w/11);els=Array.from({length:n},()=>({x:Math.random()*G.w,y:40+Math.random()*80,vx:0,vy:0}))}
+  function draw(){if(!G)return;const{ctx,w,h}=G;ctx.clearRect(0,0,w,h);const x0=on?46:14,x1=on?w-46:w-14;
+    ctx.fillStyle=C['cu-soft'];ctx.strokeStyle=C.cu;ctx.lineWidth=2;ctx.beginPath();ctx.roundRect?ctx.roundRect(x0,30,x1-x0,100,14):ctx.rect(x0,30,x1-x0,100);ctx.fill();ctx.stroke();
+    ctx.font='700 11px '+FM;ctx.textAlign='center';for(let x=x0+26;x<x1-10;x+=40)for(let y=52;y<=112;y+=30){ctx.beginPath();ctx.arc(x,y,9,0,7);ctx.strokeStyle=C.cu;ctx.globalAlpha=.4;ctx.lineWidth=1.5;ctx.stroke();ctx.globalAlpha=.55;ctx.fillStyle=C.cu;ctx.fillText('+',x,y+4);ctx.globalAlpha=1}
+    els.forEach(e=>{if(e.x<x0+4||e.x>x1-4)return;ctx.beginPath();ctx.arc(e.x,e.y,3.6,0,7);ctx.fillStyle=C.ink;ctx.fill()});
+    if(on){ctx.font='800 22px '+FB;ctx.fillStyle=C.cu;ctx.fillText('−',22,88);ctx.fillText('+',w-22,88);ctx.font='700 12px '+FB;ctx.fillStyle=C.ink;ctx.fillText('electron flow →',w/2,150)}
+    else{ctx.font='12px '+FB;ctx.fillStyle=C.muted;ctx.fillText('+ = copper atoms (fixed in place)    • = free electrons',w/2,150)}}
+  anims.push({view:'hw-1',fn(){if(!G)return;if(!reduced)els.forEach(e=>{e.vx=e.vx*.9+(Math.random()-.5)*1.1+(on?.22:0);e.vy=e.vy*.9+(Math.random()-.5)*1.1;e.x+=e.vx;e.y+=e.vy;if(e.y<38){e.y=38;e.vy*=-1}if(e.y>122){e.y=122;e.vy*=-1}if(e.x>G.w)e.x-=G.w;if(e.x<0)e.x+=G.w});draw()}});
+  $('#wire-btn').onclick=()=>{on=!on;if(on)partDone('hw-s1');$('#wire-btn').textContent=on?'Disconnect the battery':'Connect a battery';$('#wire-msg').innerHTML=on?'Connected: the electrons now drift from the <b>−</b> end towards the <b>+</b> end. That drift is electric current. The drift itself is slower than a snail, but the push travels along the wire at nearly the speed of light. Franklin guessed the flow went from + to −, so circuit diagrams still draw "current" that way.':'No battery: the electrons jiggle around randomly, but there\'s no overall flow.'};
+  redraws.add(draw);resizers.add(size);size()}
+
+function initSorter(){const IT=[{n:'Ceiling fan',k:0,w:'Its motor turns electricity into movement.'},{n:'Smartphone',k:1,w:'Its chips process information: calls, apps, photos.'},{n:'Electric kettle',k:0,w:'It turns electricity into heat.'},{n:'Wi-Fi router',k:1,w:'It processes and sends data signals.'},{n:'Clothes iron',k:0,w:'A heating element turns electricity into heat.'},{n:'Laptop',k:1,w:'Its processor runs billions of calculations a second.'},{n:'Filament light bulb',k:0,w:'A glowing hot wire turns electricity into light.'},{n:'Smart TV',k:1,w:'Chips decode video and run apps.'}];
+  const NAMES=['Electrical','Electronic'];const saved=store.get('sort',{});const box=$('#sorter');
+  box.innerHTML=IT.map((t,i)=>`<div class="thing" id="th${i}"><span class="nm">${t.n}</span><div class="row"><button data-i="${i}" data-k="0">Electrical</button><button data-i="${i}" data-k="1">Electronic</button></div><span class="why" hidden></span></div>`).join('');
+  function mark(i,k){saved[i]=k;const el=$('#th'+i),ok=k===IT[i].k;el.className='thing '+(ok?'ok':'no');const w=$('.why',el);w.hidden=false;w.innerHTML=(ok?'<b style="color:var(--good)">Right.</b> ':`<b style="color:var(--bad)">Not quite: it's ${NAMES[IT[i].k].toLowerCase()}.</b> `)+IT[i].w;const n=Object.keys(saved).filter(j=>saved[j]===IT[j].k).length;$('#sort-score').textContent=`${n} / 8 right`+(Object.keys(saved).length===8&&n===8?' · perfect!':'');if(Object.keys(saved).length===8)partDone('hw-s3');if(n===8)unlock('sorter')}
+  box.addEventListener('click',e=>{const b=e.target.closest('button[data-i]');if(!b)return;mark(+b.dataset.i,+b.dataset.k);store.set('sort',saved)});
+  {const q=QUIET;QUIET=true;Object.keys(saved).forEach(i=>mark(+i,saved[i]));QUIET=q}}
+
+function initTank(){const cv=$('#tank-cv');let G=null,parts=[];const vI=$('#tank-v'),rI=$('#tank-r');
+  const st=()=>({V:+vI.value,R:+rI.value});
+  function size(){G=setup(cv,300);parts=Array.from({length:70},()=>({t:Math.random(),u:Math.random()}))}
+  function out(){const{V,R}=st(),I=V/R;$('#tank-vl').textContent=V+' V';$('#tank-rl').textContent=R+' Ω';$('#tank-out').innerHTML=`I = V ÷ R = ${V} V ÷ ${R} Ω = <b style="color:var(--cu)">${I.toFixed(3)} A</b> (${(I*1000).toFixed(1)} mA)`}
+  vI.oninput=rI.oninput=()=>{out();partDone('hw-s4')};
+  anims.push({view:'hw-1',fn(){if(!G)return;const{ctx,w,h}=G,{V,R}=st(),I=V/R*1000;ctx.clearRect(0,0,w,h);
+    const tw=Math.min(150,w*.28),tx=20,bot=262,topMax=36,lvl=V/12*(bot-topMax-10);
+    const pipeY=bot-24,th=40-(R-100)/900*32,px0=tx+tw,px1=w-18;
+    // tank
+    ctx.fillStyle=C.sky;ctx.globalAlpha=.5;ctx.fillRect(tx+3,bot-lvl,tw-6,lvl);ctx.globalAlpha=1;ctx.strokeStyle=C.ink;ctx.lineWidth=3;ctx.beginPath();ctx.moveTo(tx,topMax);ctx.lineTo(tx,bot);ctx.lineTo(px0,bot);ctx.lineTo(px0,pipeY+th/2);ctx.moveTo(px0,pipeY-th/2);ctx.lineTo(px0,topMax);ctx.stroke();
+    ctx.fillStyle=C.sky;ctx.globalAlpha=.5;ctx.fillRect(px0-3,pipeY-th/2,6,th);ctx.globalAlpha=1;
+    // pipe
+    ctx.fillStyle=C.sky;ctx.globalAlpha=.18;ctx.fillRect(px0,pipeY-th/2,px1-px0,th);ctx.globalAlpha=1;ctx.strokeStyle=C.ink;ctx.lineWidth=3;ln(ctx,px0,pipeY-th/2,px1,pipeY-th/2);ln(ctx,px0,pipeY+th/2,px1,pipeY+th/2);
+    const sp=reduced?0:Math.min(.03,.0015+I*.00028);const cnt=Math.round(10+th*1.3);ctx.fillStyle=C.sky;
+    for(let i=0;i<cnt&&i<parts.length;i++){const p=parts[i];p.t=(p.t+sp*(1+p.u*.3))%1;ctx.beginPath();ctx.arc(px0+p.t*(px1-px0),pipeY-th/2+3+p.u*(th-6),2.6,0,7);ctx.fill()}
+    // labels
+    ctx.font='700 12px '+FB;ctx.fillStyle=C.ink;ctx.textAlign='center';ctx.fillText(V+' V',tx+tw/2,bot-lvl-8);
+    ctx.font='12px '+FB;ctx.fillStyle=C.muted;ctx.fillText('Tank height = voltage',tx+tw/2,22);
+    ctx.textAlign='left';const lx=px0+16;ctx.fillText((w<520?'Width = resistance':'Pipe width = resistance ('+R+' Ω)'),lx,pipeY-th/2-12);ctx.textAlign='right';ctx.fillText('Flow = current: '+I.toFixed(1)+' mA',px1,pipeY+th/2+20);
+    // flow meter needle
+    const mx=px0+(px1-px0)*.62,my=110,rr=42;ctx.strokeStyle=C.line;ctx.lineWidth=6;ctx.beginPath();ctx.arc(mx,my,rr,Math.PI,2*Math.PI);ctx.stroke();ctx.strokeStyle=C.cu;ctx.beginPath();const f=Math.min(1,I/120);ctx.arc(mx,my,rr,Math.PI,Math.PI+f*Math.PI);ctx.stroke();ctx.textAlign='center';ctx.font='700 15px '+FM;ctx.fillStyle=C.cu;ctx.fillText(I.toFixed(1)+' mA',mx,my-6);ctx.font='11px '+FB;ctx.fillStyle=C.muted;ctx.fillText('current',mx,my+12)}});
+  resizers.add(size);size();out()}
+
+function initTri(){let mode='I';const tseen=new Set(['I']);const cover=k=>{mode=k;tseen.add(k);if(tseen.size===3)partDone('hw-s5');render()};const F={V:'V = I × R',I:'I = V ÷ R',R:'R = V ÷ I'},TIP={V:'V is covered, and I and R sit side by side, so multiply them.',I:'I is covered, and V sits above R, so divide V by R.',R:'R is covered, and V sits above I, so divide V by I.'};
+  const val={V:9,I:.02,R:450},UN={V:'volts (V)',I:'amps (A)',R:'ohms (Ω)'};
+  function render(){['V','I','R'].forEach(k=>{const p=$('#tri-'+k);p.setAttribute('fill',k===mode?'var(--cu)':'var(--paper)');$('#tt-'+k).setAttribute('fill',k===mode?'var(--on-accent)':'var(--ink)')});
+    $('#calc-f').textContent=F[mode];$('#calc-tip').textContent=TIP[mode];
+    $('#calc-in').innerHTML=['V','I','R'].filter(k=>k!==mode).map(k=>`<label class="slider" for="ci-${k}" style="min-width:140px">${k} in ${UN[k]}<input type="number" id="ci-${k}" step="any" value="${val[k]}"></label>`).join('');
+    $$('#calc-in input').forEach(i=>i.oninput=()=>{val[i.id.slice(3)]=parseFloat(i.value);calc()});calc()}
+  function calc(){const{V,I,R}=val;let t;if(mode==='V')t=`V = ${fmt(I*R)} V`;else if(mode==='I'){const a=V/R;t=`I = ${fmt(a)} A`+(isFinite(a)?` = ${fmt(a*1000)} mA`:'')}else t=`R = ${fmt(V/I)} Ω`;$('#calc-out').textContent=t}
+  ['V','I','R'].forEach(k=>{const p=$('#tri-'+k);p.onclick=()=>cover(k);p.onkeydown=e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();cover(k)}}});render()}
+
+function initCircuit(){const st={V:9,R:330,closed:false,burnt:false,just:''};let off=0,I=0;
+  const BC=['#1B1B1B','#7B4A2A','#D0312D','#EE7F1E','#F2C80F','#2E9E4F','#2F6FD6','#8A4FC8','#8C8C8C','#F4F4F4'];
+  $('#bat-seg').innerHTML=[1.5,5,9,12].map(v=>`<button data-v="${v}">${v} V</button>`).join('');
+  $('#res-seg').innerHTML=[0,100,220,330,470,1000].map(r=>`<button data-r="${r}">${r===0?'None':r>=1000?'1 kΩ':r+' Ω'}</button>`).join('');
+  $('#bat-seg').onclick=e=>{const b=e.target.closest('button');if(!b)return;st.V=+b.dataset.v;st.just='';upd()};
+  $('#res-seg').onclick=e=>{const b=e.target.closest('button');if(!b)return;st.R=+b.dataset.r;st.just='';upd()};
+  const tog=()=>{st.closed=!st.closed;st.just='';upd()};$('#sw-btn').onclick=tog;$('#sw-g').onclick=tog;$('#sw-g').onkeydown=e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();tog()}};
+  $('#led-new').onclick=()=>{st.burnt=false;st.just='';upd()};
+  function puff(){const g=$('#smoke-g');for(let i=0;i<3;i++){const c=S('circle',{cx:478+i*4,cy:150,r:10+i*3,fill:'var(--muted)',class:'smoke',style:`transform-box:fill-box;transform-origin:center;animation-delay:${i*.18}s`},g);setTimeout(()=>c.remove(),2400)}}
+  function upd(){
+    $$('#bat-seg button').forEach(b=>b.setAttribute('aria-pressed',+b.dataset.v===st.V));$$('#res-seg button').forEach(b=>b.setAttribute('aria-pressed',+b.dataset.r===st.R));
+    $('#bat-v').textContent=st.V+' V';
+    $('#res-g').style.display=st.R?'':'none';$('#res-none').setAttribute('opacity',st.R?0:1);
+    if(st.R){const s=String(st.R);$('#rb1').setAttribute('fill',BC[+s[0]]);$('#rb2').setAttribute('fill',BC[+s[1]]);$('#rb3').setAttribute('fill',BC[s.length-2]);$('#res-lbl').textContent=st.R>=1000?'1 kΩ (1000 Ω)':st.R+' Ω'}
+    $('#sw-lever').style.transform=st.closed?'rotate(0deg)':'rotate(-28deg)';$('#sw-lbl').textContent='SWITCH · '+(st.closed?'CLOSED':'OPEN');$('#sw-btn').textContent=st.closed?'Open the switch':'Close the switch';
+    const raw=st.R?(st.V-2)/st.R:Infinity;
+    if(st.closed&&!st.burnt&&st.V>2&&raw>.03){st.burnt=true;st.just=st.R?'high':'none';puff();unlock('smoke')}
+    let m='',cls='',math='';I=0;
+    if(!st.closed){m='The switch is open, so the loop is broken and nothing flows. Tap the switch to close it.'}
+    else if(st.burnt){cls='no';m=st.just==='none'?'No resistor! The current shoots far past what the LED can handle, and it burns out instantly. That\'s why every LED needs a resistor.':st.just==='high'?`About ${(raw*1000).toFixed(0)} mA: far too much! LEDs are made for about 20 mA, and much above 30 mA destroys them. Choose a bigger resistor, then fit a new LED.`:'This LED is burnt out, so the loop is broken. Fit a new LED.'}
+    else if(st.V<=2){cls='warn';m='1.5 V isn\'t enough push. A red LED needs about 2 V before it lights at all. Choose a bigger battery.'}
+    else{I=raw;const mA=(I*1000).toFixed(1);cls=I<.006?'warn':'ok';m=I<.006?`${mA} mA: safe, but dim. Try a smaller resistor or a bigger battery.`:`${mA} mA: the LED glows safely. ${Math.abs(I-.02)<.004?'Almost exactly the ideal 20 mA!':'Within the safe range (ideal is about 20 mA).'}`}
+    if(st.closed&&st.V>2&&st.R)math=`I = (battery − LED's 2 V) ÷ R = (${st.V} − 2) ÷ ${st.R} = ${fmt(raw)} A = ${(raw*1000).toFixed(1)} mA`;
+    msg($('#circ-msg'),m,cls);if(cls==='ok'&&I>0){unlock('light');partDone('hw-s6')}$('#circ-math').textContent=math;
+    $('#meter').textContent=st.closed&&st.burnt&&st.just?'OVERLOAD!':(I*1000).toFixed(1)+' mA';
+    const br=Math.min(1,I/.02);$('#led-glow').setAttribute('opacity',(br*.95).toFixed(2));
+    const body=$('#led-body');body.setAttribute('fill',st.burnt?'var(--muted)':'#E5484D');body.setAttribute('fill-opacity',st.burnt?.6:(.55+.45*br).toFixed(2));body.setAttribute('stroke',st.burnt?'var(--muted)':'#C53039');$('#led-rim').setAttribute('fill',st.burnt?'var(--muted)':'#C53039');$('#led-crack').setAttribute('opacity',st.burnt?1:0);
+    $('#led-new').hidden=!st.burnt;$('#flow').setAttribute('opacity',I>0?1:0)}
+  anims.push({view:'hw-1',fn(){if(I>0&&!reduced){off-=(.6+I*110);$('#flow').setAttribute('stroke-dashoffset',off.toFixed(1))}}});
+  upd()}
+
+function initOsc(){const cv=$('#osc-cv');let G=null,mode='dc',ph=0;const H=240;
+  const M={dc:'A battery\'s voltage stays at the same level, so the electrons always flow the same way.',ac:'The voltage swings from +325 V down to −325 V and back, 50 times every second (slowed down a lot here). 230 V is the effective average. The peaks actually reach about 325 V.'};
+  function size(){G=setup(cv,H)}
+  $$('#osc-seg button').forEach(b=>b.onclick=()=>{mode=b.dataset.m;if(mode==='ac')partDone('hw-s7');$$('#osc-seg button').forEach(x=>x.setAttribute('aria-pressed',x===b));msg($('#osc-msg'),M[mode],'')});msg($('#osc-msg'),M.dc,'');
+  anims.push({view:'hw-1',fn(){if(!G)return;const{ctx,w,h}=G;ctx.clearRect(0,0,w,h);const L=64,R=12,T=14,B=40,pw=w-L-R,phh=h-T-B,mid=T+phh/2;
+    ctx.strokeStyle=C.line;ctx.lineWidth=1;for(let i=0;i<=10;i++){const x=L+i/10*pw;ln(ctx,x,T,x,T+phh)}for(let j=0;j<=8;j++){const y=T+j/8*phh;ln(ctx,L,y,L+pw,y)}
+    ctx.strokeStyle=C.muted;ctx.lineWidth=1.5;ln(ctx,L,mid,L+pw,mid);
+    ctx.font='12px '+FM;ctx.fillStyle=C.muted;ctx.textAlign='right';
+    const max=mode==='dc'?6:400;const Y=v=>mid-v/max*(phh/2);
+    if(mode==='dc'){ctx.fillText('+5 V',L-8,Y(5)+4);ctx.fillText('0 V',L-8,mid+4)}else{ctx.fillText('+325 V',L-8,Y(325)+4);ctx.fillText('0 V',L-8,mid+4);ctx.fillText('−325 V',L-8,Y(-325)+4)}
+    ctx.textAlign='center';ctx.font='12px '+FB;ctx.fillText('time →',L+pw/2,h-12);
+    if(!reduced)ph+=.035;ctx.strokeStyle=C.cu;ctx.lineWidth=3;ctx.beginPath();
+    for(let x=0;x<=pw;x+=2){const v=mode==='dc'?5:325*Math.sin(x/pw*Math.PI*2*2.5-ph);x?ctx.lineTo(L+x,Y(v)):ctx.moveTo(L+x,Y(v))}ctx.stroke();
+    const cx=L+pw/2,v=mode==='dc'?5:325*Math.sin(Math.PI*2*2.5*.5-ph);ctx.strokeStyle=C.ink;ctx.setLineDash([4,4]);ctx.lineWidth=1.5;ln(ctx,cx,T,cx,T+phh);ctx.setLineDash([]);ctx.beginPath();ctx.arc(cx,Y(v),6,0,7);ctx.fillStyle=C.ink;ctx.fill();
+    ctx.font='700 13px '+FB;ctx.fillStyle=C.ink;ctx.textAlign='left';const lbl=v>=0?'push: forward →':'← push: backward';const tw=ctx.measureText(lbl).width;let tx=cx+12;if(tx+tw>L+pw)tx=cx-12-tw;ctx.fillStyle=C.panel;ctx.fillRect(tx-4,T+4,tw+8,20);ctx.fillStyle=C.ink;ctx.fillText(lbl,tx,T+19)}});
+  resizers.add(size);size()}
+
+function initScale(){const box=$('#vscale');const MK=[{v:1.5,t:'AA battery'},{v:5,t:'USB charger'},{v:12,t:'Car battery'},{v:19,t:'Laptop charger'},{v:230,t:'Sri Lankan socket'}];
+  box.innerHTML='<div class="band"></div>'+MK.map((m,i)=>{const p=Math.log10(m.v)/3*100;const tx=p<12?'-15%':p>70?'-80%':'-50%';return`<div class="mk ${i%2?'dn':'up'}" style="left:${p}%"><span style="transform:translateX(${tx})"><b>${m.v} V</b>${m.t}</span></div>`}).join('')}
+
+function checks(){const A={hh2:v=>{const s=v.toLowerCase().replace(',','.');const n=parseFloat(s.replace(/[^0-9.\-]/g,''));if(isNaN(n))return[0,'Type a number first.'];if(s.includes('ma')||Math.abs(n-20)<.5)return Math.abs(n-20)<.5?[1,'Right: 20 mA, which is 0.02 A. (12 ÷ 600 = 0.02)']:[0,'Not quite. Use I = V ÷ R.'];return Math.abs(n-.02)<.0005?[1,'Correct: 12 ÷ 600 = 0.02 A (20 mA).']:[0,'Not quite. Cover I in the triangle: I = V ÷ R.']},
+    hh3:v=>{const n=parseFloat(v.replace(',','.').replace(/[^0-9.\-]/g,''));if(isNaN(n))return[0,'Type a number first.'];return Math.abs(n-200)<.5?[1,'Correct: 5 ÷ 0.025 = 200 Ω.']:[0,'Not quite. Cover R in the triangle: R = V ÷ I.']}};
+  $$('[data-check]').forEach(b=>b.onclick=()=>{const id=b.dataset.check,[ok,t]=A[id]($('#'+id).value),fb=$('#fb-'+id);fb.textContent=(ok?'✓ ':'✗ ')+t;if(ok){award('chk:'+id,15);if(GS.ev['chk:hh2']&&GS.ev['chk:hh3'])unlock('ohm')}fb.className='fb '+(ok?'ok':'no')})}
+
+const HW_QUIZ=[
+{q:'Which unit measures the "push" that drives electrons?',o:['Ampere','Volt','Ohm','Watt'],a:1,e:'Voltage is measured in volts, named after Alessandro Volta.'},
+{q:'What did Alessandro Volta invent in 1800?',o:['The light bulb','The transistor','The battery','The electric motor'],a:2,e:'His "voltaic pile" gave the first steady flow of electricity.'},
+{q:'In the water-tank analogy, a narrow pipe stands for…',o:['Voltage','Current','Resistance','Power'],a:2,e:'A narrow pipe resists the flow, just like resistance.'},
+{q:'5 V across a 250 Ω resistor. What current flows?',o:['0.02 A','1250 A','50 A','0.2 A'],a:0,e:'I = V ÷ R = 5 ÷ 250 = 0.02 A, which is 20 mA.'},
+{q:'Sri Lankan mains power is 230 V AC at 50 Hz. What does "50 Hz" mean?',o:['It is 50% efficient','It completes 50 back-and-forth cycles every second','It can power 50 devices','It is 50 volts'],a:1,e:'Hertz (Hz) means cycles per second. It is named after the German physicist Heinrich Hertz.'},
+{q:'Which particle actually flows through a copper wire?',o:['Protons','Neutrons','Electrons','Whole atoms'],a:2,e:'Free electrons drift through the wire. J.J. Thomson discovered them in 1897.'}];
+
+@@include src/engine.js@@
+
+const INIT={
+  roadmap(){},
+  calendar(){},
+  tracks(){},
+  'ai-1'(){initCircles();timeline($('#tl-ai'),AI_EVENTS,'ai','ai-s3');initLR();initRL();initTabs();initVocab();quiz($('#quiz-ai'),'ai1',AI_QUIZ);homework('hw-ai')},
+  'hw-1'(){initAtom();initWire();timeline($('#tl-hw'),HW_EVENTS,'hw','hw-s2');initSorter();initTank();initTri();initCircuit();initOsc();initScale();quiz($('#quiz-hw'),'hw1',HW_QUIZ);homework('hw-hw');checks()}
+};
+initGame();route();QUIET=false;
+})();
+</script>

@@ -1,0 +1,83 @@
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
+<script>
+(()=>{
+const CFG={apiKey:"AIzaSyCkqj5bT3u1ZyckmGCnACCLVWxvRBWlWWY",authDomain:"wiseweb-7c15a.firebaseapp.com",projectId:"wiseweb-7c15a",storageBucket:"wiseweb-7c15a.firebasestorage.app",messagingSenderId:"1018236846979",appId:"1:1018236846979:web:17e63ff73fff0a80afecb6"};
+const $=s=>document.querySelector(s);
+const ls={get(k){try{return localStorage.getItem(k)}catch(e){return null}},set(k,v){try{localStorage.setItem(k,v)}catch(e){}},del(k){try{localStorage.removeItem(k)}catch(e){}},keys(){try{return Object.keys(localStorage)}catch(e){return[]}}};
+const META=['rtl:__uid','rtl:__ts'];
+const progKeys=()=>ls.keys().filter(k=>k.startsWith('rtl:')&&!META.includes(k));
+const snapshot=()=>{const o={};progKeys().forEach(k=>o[k.slice(4)]=ls.get(k));return o};
+const clearLocal=()=>progKeys().concat(META).forEach(k=>ls.del(k));
+const applyRemote=(p,ts,uid)=>{progKeys().forEach(k=>ls.del(k));Object.entries(p||{}).forEach(([k,v])=>ls.set('rtl:'+k,v));ls.set('rtl:__uid',uid);ls.set('rtl:__ts',String(ts||0))};
+
+const gate=$('#ww-auth'),load=$('#au-load'),ui=$('#au-ui'),msgEl=$('#au-msg');
+const showLoad=t=>{$('#au-load-t').textContent=t;load.hidden=false;ui.hidden=true;gate.hidden=false;document.documentElement.classList.add('ww-locked')};
+const showLogin=()=>{load.hidden=true;ui.hidden=false;gate.hidden=false;document.documentElement.classList.add('ww-locked')};
+const openApp=()=>{gate.hidden=true;document.documentElement.classList.remove('ww-locked')};
+const msg=(t,cls)=>{msgEl.textContent=t;msgEl.className='au-msg '+(cls||'err');msgEl.hidden=!t};
+
+if(!window.firebase){showLoad("Couldn't reach the sign-in service. Check your internet connection, then refresh the page.");$('.au-spin').style.display='none';return}
+firebase.initializeApp(CFG);
+const auth=firebase.auth(),db=firebase.firestore();
+auth.setPersistence(firebase.auth.Auth.Persistence.LOCAL).catch(()=>{});
+
+/* ---------- login UI ---------- */
+let mode='in';
+const setMode=m=>{mode=m;document.querySelectorAll('.au-seg button').forEach(b=>b.setAttribute('aria-pressed',b.dataset.mode===m));const up=m==='up';
+  $('#au-name-l').hidden=!up;$('#au-pw-hint').hidden=!up;$('#au-forgot').hidden=up;$('#au-submit').textContent=up?'Create my account':'Log in';
+  $('#au-pw').autocomplete=up?'new-password':'current-password';$('#au-title').textContent=up?'Create your account.':'Welcome back.';
+  $('#au-sub').textContent=up?'Free, and it saves your progress so you can learn on any device.':'Sign in to continue your bootcamp. Your progress follows you to any device.';$('#au-google-t').textContent=up?'Sign up with Google':'Continue with Google';msg('')};
+document.querySelectorAll('.au-seg button').forEach(b=>b.onclick=()=>setMode(b.dataset.mode));
+const ERR={'auth/invalid-credential':'That email and password don’t match an account. Check them, or create an account.','auth/wrong-password':'That password isn’t right. Try again or reset it.','auth/user-not-found':'There’s no account with that email yet. Choose “Create account”.','auth/email-already-in-use':'An account with that email already exists. Choose “Log in”, or continue with Google if you signed up that way.','auth/invalid-email':'Please enter a valid email address.','auth/weak-password':'Please use a password of at least 8 characters.','auth/missing-password':'Please enter your password.','auth/too-many-requests':'Too many attempts. Wait a few minutes, or reset your password.','auth/network-request-failed':'No connection to the sign-in service. Check your internet and try again.','auth/popup-blocked':'Your browser blocked the Google window. Allow pop-ups for this site and try again.','auth/account-exists-with-different-credential':'This email is already registered with a different sign-in method. Use email and password.','auth/unauthorized-domain':'Sign-in isn’t enabled for this web address.','auth/operation-not-allowed':'This sign-in method isn’t switched on yet.'};
+const errText=e=>ERR[e&&e.code]||('Something went wrong'+(e&&e.code?' ('+e.code+')':'')+'. Please try again.');
+const busy=(b,on)=>{b.disabled=on};
+
+$('#au-google').onclick=async()=>{const b=$('#au-google');msg('');busy(b,true);const p=new firebase.auth.GoogleAuthProvider();p.setCustomParameters({prompt:'select_account'});
+  try{await auth.signInWithPopup(p)}catch(e){if(e.code==='auth/popup-blocked'||e.code==='auth/operation-not-supported-in-this-environment'){try{await auth.signInWithRedirect(p);return}catch(e2){msg(errText(e2))}}else if(e.code!=='auth/popup-closed-by-user'&&e.code!=='auth/cancelled-popup-request')msg(errText(e))}busy(b,false)};
+$('#au-form').onsubmit=async ev=>{ev.preventDefault();msg('');const email=$('#au-email').value.trim(),pw=$('#au-pw').value,name=$('#au-name').value.trim(),b=$('#au-submit');
+  if(!email){msg(ERR['auth/invalid-email']);return}if(!pw){msg(ERR['auth/missing-password']);return}
+  if(mode==='up'){if(!name){msg('Please tell us your name.');return}if(pw.length<8){msg(ERR['auth/weak-password']);return}}
+  busy(b,true);try{if(mode==='up'){const c=await auth.createUserWithEmailAndPassword(email,pw);await c.user.updateProfile({displayName:name});try{await c.user.sendEmailVerification()}catch(e){}renderUser(c.user)}else await auth.signInWithEmailAndPassword(email,pw)}catch(e){msg(errText(e))}busy(b,false)};
+$('#au-forgot').onclick=async()=>{const email=$('#au-email').value.trim();if(!email){msg('Type your email above first, then press “Forgot your password?” again.');$('#au-email').focus();return}
+  try{await auth.sendPasswordResetEmail(email);msg('If an account exists for '+email+', a reset link is on its way. Check your inbox and spam folder.','ok')}catch(e){msg(errText(e))}};
+auth.getRedirectResult().catch(e=>{if(e&&e.code)msg(errText(e))});
+
+/* ---------- header user menu ---------- */
+let syncState='';
+function renderUser(u){let box=$('#ww-user');if(!u){if(box)box.remove();return}
+  if(!box){box=document.createElement('div');box.id='ww-user';const pill=$('#wk-pill');pill.parentNode.insertBefore(box,pill.nextSibling);pill.parentNode.style.gap=pill.parentNode.style.gap||'';}
+  const nm=u.displayName||u.email.split('@')[0],ini=nm.trim().split(/\s+/).map(w=>w[0]).slice(0,2).join('').toUpperCase();
+  box.innerHTML=`<button type="button" aria-label="Account: ${nm.replace(/"/g,'')}" aria-expanded="false" aria-haspopup="true">${u.photoURL?`<img src="${u.photoURL}" alt="" referrerpolicy="no-referrer">`:ini}</button><div id="ww-menu" hidden><b></b><span></span><span class="sync" id="ww-sync"></span><button type="button" id="ww-out">Sign out</button></div>`;
+  box.querySelector('b').textContent=nm;box.querySelector('span').textContent=u.email||'';$('#ww-sync').textContent=syncState;
+  const btn=box.querySelector('button'),menu=$('#ww-menu');btn.onclick=e=>{e.stopPropagation();menu.hidden=!menu.hidden;btn.setAttribute('aria-expanded',!menu.hidden)};
+  $('#ww-out').onclick=signOut}
+document.addEventListener('click',e=>{const m=$('#ww-menu');if(m&&!m.hidden&&!e.target.closest('#ww-user'))m.hidden=true});
+const setSync=t=>{syncState=t;const s=$('#ww-sync');if(s)s.textContent=t};
+
+/* ---------- progress sync ---------- */
+let cur=null,last='',timer=null,pushing=false;
+async function push(force){if(!cur||pushing)return;const snap=snapshot(),s=JSON.stringify(snap);if(!force&&s===last)return;pushing=true;const ts=Date.now();
+  try{await db.collection('users').doc(cur.uid).set({p:snap,ts,name:cur.displayName||'',email:cur.email||''});last=s;ls.set('rtl:__ts',String(ts));setSync('Progress saved to your account ✓')}catch(e){setSync('Not saved yet: offline. It will retry.')}pushing=false}
+async function signOut(){setSync('Saving…');await push(true);if(timer)clearInterval(timer);cur=null;await auth.signOut();clearLocal();location.reload()}
+window.addEventListener('pagehide',()=>{push()});document.addEventListener('visibilitychange',()=>{if(document.visibilityState==='hidden')push()});
+
+auth.onAuthStateChanged(async u=>{
+  if(!u){cur=null;renderUser(null);setMode(mode);showLogin();return}
+  showLoad('Loading your progress…');
+  try{
+    const doc=await db.collection('users').doc(u.uid).get();const remote=doc.exists?doc.data():null;
+    const localUid=ls.get('rtl:__uid'),localTs=+ls.get('rtl:__ts')||0;
+    let reload=false;
+    if(localUid===u.uid){if(remote&&remote.ts>localTs){applyRemote(remote.p,remote.ts,u.uid);reload=true}}
+    else if(!localUid){if(remote){applyRemote(remote.p,remote.ts,u.uid);reload=true}else ls.set('rtl:__uid',u.uid)}
+    else{clearLocal();if(remote)applyRemote(remote.p,remote.ts,u.uid);else ls.set('rtl:__uid',u.uid);reload=true}
+    if(reload){location.reload();return}
+    cur=u;last=remote?JSON.stringify(remote.p):'';renderUser(u);openApp();setSync(remote?'Progress synced ✓':'');
+    await push();if(timer)clearInterval(timer);timer=setInterval(push,5000);
+  }catch(e){cur=u;renderUser(u);openApp();setSync('Couldn’t reach your saved progress. Working offline on this device.');
+    if(timer)clearInterval(timer);timer=setInterval(push,15000)}
+});
+})();
+</script>

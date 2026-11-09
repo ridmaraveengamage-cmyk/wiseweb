@@ -34,4 +34,16 @@ A 90-day, full-time tech bootcamp in six tracks, built as a single interactive w
 
 Each lesson includes history timelines, explanations, interactive tools (binary, CPU, circuit and energy simulators, a working spreadsheet, a risk matrix and more), Python exercises that run in the browser with automatic checking, quizzes, flashcards and homework.
 
-Progress is saved in your browser (localStorage). Python runs in the page through [Skulpt](https://skulpt.org), loaded from jsDelivr. Open `index.html` in any modern browser; there is no build step.
+Python runs in the page through [Skulpt](https://skulpt.org), loaded from jsDelivr.
+
+## Working on WiseWeb
+
+`index.html` is built from the files in `src/`. Edit those, then:
+
+```
+npm run build        # rebuild index.html (and dist/preview.html, the no-login preview)
+npm install && npx playwright install chromium   # first time only
+npm test             # build, run every exercise solution, check login and layout
+```
+
+See `CLAUDE.md` for the full project guide.
