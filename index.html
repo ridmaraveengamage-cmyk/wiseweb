@@ -9,6 +9,96 @@
 <meta name="claude:viewport-fit-sides" content="cover">
 </head>
 <body>
+<style>
+html.ww-locked,html.ww-locked body{overflow:hidden}
+#ww-auth{position:fixed;inset:0;z-index:1000;background:var(--paper);overflow:auto;display:grid}
+#ww-auth[hidden]{display:none!important}
+.au-wrap{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,1fr);min-height:100%}
+@media (max-width:860px){.au-wrap{grid-template-columns:1fr}.au-side{display:none!important}}
+.au-side{background:var(--panel);display:grid;align-content:space-between;gap:32px;padding:clamp(28px,5vw,56px)}
+.au-brand{display:flex;align-items:center;gap:10px;font:700 1.15rem var(--f-display);letter-spacing:-.01em;color:var(--ink)}
+.au-side h2{font:800 clamp(2.2rem,4.4vw,3.6rem)/1.02 var(--f-display);letter-spacing:-.035em;margin:0;color:var(--ink)}
+.au-side p{color:var(--muted);font-size:1.05rem;max-width:44ch;margin:14px 0 0}
+.au-facts{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
+.au-facts div{background:var(--paper);border-radius:18px;padding:16px;display:grid;gap:2px}
+.au-facts b{font:800 1.6rem var(--f-display);letter-spacing:-.02em;color:var(--ink)}
+.au-facts span{font-size:.82rem;color:var(--muted)}
+.au-tracks{display:flex;flex-wrap:wrap;gap:8px}
+.au-tracks span{font-size:.82rem;font-weight:600;padding:6px 12px;border-radius:999px;background:var(--paper);color:var(--ink);display:inline-flex;align-items:center;gap:6px}
+.au-tracks i{width:8px;height:8px;border-radius:50%;background:var(--tc)}
+.au-main{display:grid;place-items:center;padding:clamp(24px,5vw,56px) 16px}
+.au-card{width:100%;max-width:420px;display:grid;gap:18px}
+.au-card .au-brand{display:none}
+@media (max-width:860px){.au-card .au-brand{display:flex}}
+.au-card h1{font:800 clamp(1.9rem,4vw,2.4rem)/1.05 var(--f-display);letter-spacing:-.03em;margin:0;color:var(--ink)}
+.au-card .sub{color:var(--muted);margin:-8px 0 0}
+.au-g{display:flex;align-items:center;justify-content:center;gap:12px;width:100%;min-height:50px;border-radius:999px;border:1.5px solid var(--line);background:var(--paper);color:var(--ink);font:600 1rem var(--f-body);cursor:pointer;transition:background .15s}
+.au-g:hover{background:var(--panel)}
+.au-g:disabled{opacity:.6;cursor:wait}
+.au-or{display:flex;align-items:center;gap:12px;color:var(--muted);font-size:.85rem}
+.au-or::before,.au-or::after{content:"";flex:1;height:1px;background:var(--line)}
+.au-seg{display:grid;grid-template-columns:1fr 1fr;background:var(--panel);border-radius:999px;padding:4px}
+.au-seg button{border:0;background:none;border-radius:999px;padding:10px;font:600 .95rem var(--f-body);color:var(--muted);cursor:pointer}
+.au-seg button[aria-pressed="true"]{background:var(--paper);color:var(--ink);box-shadow:0 1px 3px rgba(0,0,0,.08)}
+.au-form{display:grid;gap:12px}
+.au-form label{display:grid;gap:6px;font-size:.88rem;font-weight:600;color:var(--ink)}
+.au-form input{font:1rem var(--f-body);color:var(--ink);background:var(--paper);border:1.5px solid var(--line);border-radius:14px;padding:12px 14px;width:100%;box-sizing:border-box}
+.au-form input:focus{outline:2px solid var(--ai);outline-offset:1px;border-color:transparent}
+.au-form .hint{font-weight:400;color:var(--muted);font-size:.8rem}
+.au-submit{min-height:50px;border-radius:999px;border:0;background:var(--ai);color:var(--on-accent,#fff);font:600 1rem var(--f-body);cursor:pointer}
+.au-submit:disabled{opacity:.6;cursor:wait}
+.au-link{background:none;border:0;padding:0;color:var(--ai);font:600 .9rem var(--f-body);cursor:pointer;justify-self:start}
+.au-msg{margin:0;padding:12px 14px;border-radius:14px;font-size:.92rem}
+.au-msg.err{background:color-mix(in srgb,var(--bad) 12%,var(--paper));color:var(--bad)}
+.au-msg.ok{background:color-mix(in srgb,var(--good) 14%,var(--paper));color:var(--ink)}
+.au-msg[hidden]{display:none}
+.au-fine{font-size:.8rem;color:var(--muted);margin:0}
+.au-load{display:grid;place-items:center;gap:14px;color:var(--muted);font-size:.95rem;align-content:center;min-height:100vh}
+.au-spin{width:34px;height:34px;border-radius:50%;border:3px solid var(--line);border-top-color:var(--ai);animation:auspin .8s linear infinite}
+@keyframes auspin{to{transform:rotate(360deg)}}
+@media (prefers-reduced-motion:reduce){.au-spin{animation-duration:2.4s}}
+#ww-user{position:relative}
+#ww-user > button{width:36px;height:36px;border-radius:50%;border:0;background:var(--ink);color:var(--paper);font:700 .9rem var(--f-body);cursor:pointer;display:grid;place-items:center;overflow:hidden;padding:0}
+#ww-user > button img{width:100%;height:100%;object-fit:cover}
+#ww-menu{position:absolute;right:0;top:46px;background:var(--paper);border:1px solid var(--line);border-radius:18px;box-shadow:0 12px 32px rgba(0,0,0,.14);padding:14px;display:grid;gap:10px;min-width:240px;z-index:60}
+#ww-menu b{font-size:.95rem;color:var(--ink)}
+#ww-menu span{font-size:.82rem;color:var(--muted);overflow-wrap:anywhere}
+#ww-menu .sync{font-size:.8rem;color:var(--muted)}
+#ww-menu button{border:0;border-radius:999px;padding:10px 14px;background:var(--panel);color:var(--ink);font:600 .9rem var(--f-body);cursor:pointer}
+</style>
+<div id="ww-auth" role="dialog" aria-modal="true" aria-label="Sign in to WiseWeb">
+  <div class="au-load" id="au-load"><div class="au-spin" aria-hidden="true"></div><span id="au-load-t">Checking your sign-in…</span></div>
+  <div class="au-wrap" id="au-ui" hidden>
+    <aside class="au-side">
+      <div class="au-brand"><svg width="28" height="28" viewBox="0 0 28 28" aria-hidden="true"><rect width="28" height="28" rx="8" fill="var(--ink)"/><path d="M16 5 8 16h5l-2 7 9-11h-5z" fill="var(--paper)"/></svg>WiseWeb</div>
+      <div><h2>From beginner to master in 90&nbsp;days.</h2><p>A full-time bootcamp in software, data, AI, hardware, cyber security and blockchain. Start any day you choose.</p></div>
+      <div style="display:grid;gap:14px">
+        <div class="au-facts"><div><b>90</b><span>days</span></div><div><b>682</b><span>hours</span></div><div><b>6</b><span>tracks</span></div></div>
+        <div class="au-tracks"><span class="tk-S"><i></i>Software</span><span class="tk-D"><i></i>Data</span><span class="tk-A"><i></i>AI</span><span class="tk-H"><i></i>Hardware</span><span class="tk-C"><i></i>Cyber</span><span class="tk-B"><i></i>Blockchain</span></div>
+      </div>
+    </aside>
+    <div class="au-main">
+      <div class="au-card">
+        <div class="au-brand"><svg width="28" height="28" viewBox="0 0 28 28" aria-hidden="true"><rect width="28" height="28" rx="8" fill="var(--ink)"/><path d="M16 5 8 16h5l-2 7 9-11h-5z" fill="var(--paper)"/></svg>WiseWeb</div>
+        <h1 id="au-title">Welcome back.</h1>
+        <p class="sub" id="au-sub">Sign in to continue your bootcamp. Your progress follows you to any device.</p>
+        <button class="au-g" id="au-google" type="button"><svg width="20" height="20" viewBox="0 0 48 48" aria-hidden="true"><path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z"/><path fill="#4285F4" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z"/><path fill="#FBBC05" d="M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z"/><path fill="#34A853" d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.15 1.45-4.92 2.3-8.16 2.3-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z"/></svg><span id="au-google-t">Continue with Google</span></button>
+        <div class="au-or">or use email</div>
+        <div class="au-seg" role="group" aria-label="Choose"><button type="button" data-mode="in" aria-pressed="true">Log in</button><button type="button" data-mode="up" aria-pressed="false">Create account</button></div>
+        <form class="au-form" id="au-form" novalidate>
+          <label id="au-name-l" hidden>Your name<input type="text" id="au-name" autocomplete="name" maxlength="60"></label>
+          <label>Email<input type="email" id="au-email" autocomplete="email" required></label>
+          <label>Password <span class="hint" id="au-pw-hint" hidden>At least 8 characters. A short phrase works well.</span><input type="password" id="au-pw" autocomplete="current-password" required minlength="6"></label>
+          <button class="au-submit" type="submit" id="au-submit">Log in</button>
+          <button class="au-link" type="button" id="au-forgot">Forgot your password?</button>
+        </form>
+        <p class="au-msg" id="au-msg" role="alert" hidden></p>
+        <p class="au-fine">Your progress is stored privately in your own account. Only you can see it.</p>
+      </div>
+    </div>
+  </div>
+</div>
+<script>document.documentElement.classList.add('ww-locked')</script>
 <title>WiseWeb</title>
 <meta name="claude:viewport-fit-sides" content="cover">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -2457,5 +2547,88 @@ initGame();route();QUIET=false;
 })();
 </script>
 
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
+<script>
+(()=>{
+const CFG={apiKey:"AIzaSyCkqj5bT3u1ZyckmGCnACCLVWxvRBWlWWY",authDomain:"wiseweb-7c15a.firebaseapp.com",projectId:"wiseweb-7c15a",storageBucket:"wiseweb-7c15a.firebasestorage.app",messagingSenderId:"1018236846979",appId:"1:1018236846979:web:17e63ff73fff0a80afecb6"};
+const $=s=>document.querySelector(s);
+const ls={get(k){try{return localStorage.getItem(k)}catch(e){return null}},set(k,v){try{localStorage.setItem(k,v)}catch(e){}},del(k){try{localStorage.removeItem(k)}catch(e){}},keys(){try{return Object.keys(localStorage)}catch(e){return[]}}};
+const META=['rtl:__uid','rtl:__ts'];
+const progKeys=()=>ls.keys().filter(k=>k.startsWith('rtl:')&&!META.includes(k));
+const snapshot=()=>{const o={};progKeys().forEach(k=>o[k.slice(4)]=ls.get(k));return o};
+const clearLocal=()=>progKeys().concat(META).forEach(k=>ls.del(k));
+const applyRemote=(p,ts,uid)=>{progKeys().forEach(k=>ls.del(k));Object.entries(p||{}).forEach(([k,v])=>ls.set('rtl:'+k,v));ls.set('rtl:__uid',uid);ls.set('rtl:__ts',String(ts||0))};
+
+const gate=$('#ww-auth'),load=$('#au-load'),ui=$('#au-ui'),msgEl=$('#au-msg');
+const showLoad=t=>{$('#au-load-t').textContent=t;load.hidden=false;ui.hidden=true;gate.hidden=false;document.documentElement.classList.add('ww-locked')};
+const showLogin=()=>{load.hidden=true;ui.hidden=false;gate.hidden=false;document.documentElement.classList.add('ww-locked')};
+const openApp=()=>{gate.hidden=true;document.documentElement.classList.remove('ww-locked')};
+const msg=(t,cls)=>{msgEl.textContent=t;msgEl.className='au-msg '+(cls||'err');msgEl.hidden=!t};
+
+if(!window.firebase){showLoad("Couldn't reach the sign-in service. Check your internet connection, then refresh the page.");$('.au-spin').style.display='none';return}
+firebase.initializeApp(CFG);
+const auth=firebase.auth(),db=firebase.firestore();
+auth.setPersistence(firebase.auth.Auth.Persistence.LOCAL).catch(()=>{});
+
+/* ---------- login UI ---------- */
+let mode='in';
+const setMode=m=>{mode=m;document.querySelectorAll('.au-seg button').forEach(b=>b.setAttribute('aria-pressed',b.dataset.mode===m));const up=m==='up';
+  $('#au-name-l').hidden=!up;$('#au-pw-hint').hidden=!up;$('#au-forgot').hidden=up;$('#au-submit').textContent=up?'Create my account':'Log in';
+  $('#au-pw').autocomplete=up?'new-password':'current-password';$('#au-title').textContent=up?'Create your account.':'Welcome back.';
+  $('#au-sub').textContent=up?'Free, and it saves your progress so you can learn on any device.':'Sign in to continue your bootcamp. Your progress follows you to any device.';$('#au-google-t').textContent=up?'Sign up with Google':'Continue with Google';msg('')};
+document.querySelectorAll('.au-seg button').forEach(b=>b.onclick=()=>setMode(b.dataset.mode));
+const ERR={'auth/invalid-credential':'That email and password don’t match an account. Check them, or create an account.','auth/wrong-password':'That password isn’t right. Try again or reset it.','auth/user-not-found':'There’s no account with that email yet. Choose “Create account”.','auth/email-already-in-use':'An account with that email already exists. Choose “Log in”, or continue with Google if you signed up that way.','auth/invalid-email':'Please enter a valid email address.','auth/weak-password':'Please use a password of at least 8 characters.','auth/missing-password':'Please enter your password.','auth/too-many-requests':'Too many attempts. Wait a few minutes, or reset your password.','auth/network-request-failed':'No connection to the sign-in service. Check your internet and try again.','auth/popup-blocked':'Your browser blocked the Google window. Allow pop-ups for this site and try again.','auth/account-exists-with-different-credential':'This email is already registered with a different sign-in method. Use email and password.','auth/unauthorized-domain':'Sign-in isn’t enabled for this web address.','auth/operation-not-allowed':'This sign-in method isn’t switched on yet.'};
+const errText=e=>ERR[e&&e.code]||('Something went wrong'+(e&&e.code?' ('+e.code+')':'')+'. Please try again.');
+const busy=(b,on)=>{b.disabled=on};
+
+$('#au-google').onclick=async()=>{const b=$('#au-google');msg('');busy(b,true);const p=new firebase.auth.GoogleAuthProvider();p.setCustomParameters({prompt:'select_account'});
+  try{await auth.signInWithPopup(p)}catch(e){if(e.code==='auth/popup-blocked'||e.code==='auth/operation-not-supported-in-this-environment'){try{await auth.signInWithRedirect(p);return}catch(e2){msg(errText(e2))}}else if(e.code!=='auth/popup-closed-by-user'&&e.code!=='auth/cancelled-popup-request')msg(errText(e))}busy(b,false)};
+$('#au-form').onsubmit=async ev=>{ev.preventDefault();msg('');const email=$('#au-email').value.trim(),pw=$('#au-pw').value,name=$('#au-name').value.trim(),b=$('#au-submit');
+  if(!email){msg(ERR['auth/invalid-email']);return}if(!pw){msg(ERR['auth/missing-password']);return}
+  if(mode==='up'){if(!name){msg('Please tell us your name.');return}if(pw.length<8){msg(ERR['auth/weak-password']);return}}
+  busy(b,true);try{if(mode==='up'){const c=await auth.createUserWithEmailAndPassword(email,pw);await c.user.updateProfile({displayName:name});try{await c.user.sendEmailVerification()}catch(e){}renderUser(c.user)}else await auth.signInWithEmailAndPassword(email,pw)}catch(e){msg(errText(e))}busy(b,false)};
+$('#au-forgot').onclick=async()=>{const email=$('#au-email').value.trim();if(!email){msg('Type your email above first, then press “Forgot your password?” again.');$('#au-email').focus();return}
+  try{await auth.sendPasswordResetEmail(email);msg('If an account exists for '+email+', a reset link is on its way. Check your inbox and spam folder.','ok')}catch(e){msg(errText(e))}};
+auth.getRedirectResult().catch(e=>{if(e&&e.code)msg(errText(e))});
+
+/* ---------- header user menu ---------- */
+let syncState='';
+function renderUser(u){let box=$('#ww-user');if(!u){if(box)box.remove();return}
+  if(!box){box=document.createElement('div');box.id='ww-user';const pill=$('#wk-pill');pill.parentNode.insertBefore(box,pill.nextSibling);pill.parentNode.style.gap=pill.parentNode.style.gap||'';}
+  const nm=u.displayName||u.email.split('@')[0],ini=nm.trim().split(/\s+/).map(w=>w[0]).slice(0,2).join('').toUpperCase();
+  box.innerHTML=`<button type="button" aria-label="Account: ${nm.replace(/"/g,'')}" aria-expanded="false" aria-haspopup="true">${u.photoURL?`<img src="${u.photoURL}" alt="" referrerpolicy="no-referrer">`:ini}</button><div id="ww-menu" hidden><b></b><span></span><span class="sync" id="ww-sync"></span><button type="button" id="ww-out">Sign out</button></div>`;
+  box.querySelector('b').textContent=nm;box.querySelector('span').textContent=u.email||'';$('#ww-sync').textContent=syncState;
+  const btn=box.querySelector('button'),menu=$('#ww-menu');btn.onclick=e=>{e.stopPropagation();menu.hidden=!menu.hidden;btn.setAttribute('aria-expanded',!menu.hidden)};
+  $('#ww-out').onclick=signOut}
+document.addEventListener('click',e=>{const m=$('#ww-menu');if(m&&!m.hidden&&!e.target.closest('#ww-user'))m.hidden=true});
+const setSync=t=>{syncState=t;const s=$('#ww-sync');if(s)s.textContent=t};
+
+/* ---------- progress sync ---------- */
+let cur=null,last='',timer=null,pushing=false;
+async function push(force){if(!cur||pushing)return;const snap=snapshot(),s=JSON.stringify(snap);if(!force&&s===last)return;pushing=true;const ts=Date.now();
+  try{await db.collection('users').doc(cur.uid).set({p:snap,ts,name:cur.displayName||'',email:cur.email||''});last=s;ls.set('rtl:__ts',String(ts));setSync('Progress saved to your account ✓')}catch(e){setSync('Not saved yet: offline. It will retry.')}pushing=false}
+async function signOut(){setSync('Saving…');await push(true);if(timer)clearInterval(timer);cur=null;await auth.signOut();clearLocal();location.reload()}
+window.addEventListener('pagehide',()=>{push()});document.addEventListener('visibilitychange',()=>{if(document.visibilityState==='hidden')push()});
+
+auth.onAuthStateChanged(async u=>{
+  if(!u){cur=null;renderUser(null);setMode(mode);showLogin();return}
+  showLoad('Loading your progress…');
+  try{
+    const doc=await db.collection('users').doc(u.uid).get();const remote=doc.exists?doc.data():null;
+    const localUid=ls.get('rtl:__uid'),localTs=+ls.get('rtl:__ts')||0;
+    let reload=false;
+    if(localUid===u.uid){if(remote&&remote.ts>localTs){applyRemote(remote.p,remote.ts,u.uid);reload=true}}
+    else if(!localUid){if(remote){applyRemote(remote.p,remote.ts,u.uid);reload=true}else ls.set('rtl:__uid',u.uid)}
+    else{clearLocal();if(remote)applyRemote(remote.p,remote.ts,u.uid);else ls.set('rtl:__uid',u.uid);reload=true}
+    if(reload){location.reload();return}
+    cur=u;last=remote?JSON.stringify(remote.p):'';renderUser(u);openApp();setSync(remote?'Progress synced ✓':'');
+    await push();if(timer)clearInterval(timer);timer=setInterval(push,5000);
+  }catch(e){cur=u;renderUser(u);openApp();setSync('Couldn’t reach your saved progress. Working offline on this device.');
+    if(timer)clearInterval(timer);timer=setInterval(push,15000)}
+});
+})();
+</script>
 </body>
 </html>

@@ -19,6 +19,7 @@ A 90-day, full-time tech bootcamp in six tracks, built as a single interactive w
 
 ## What's in the page
 
+- **Sign in:** continue with Google, or create an account with email and password (with password reset). Each learner's progress is saved to their own account with Firebase (Authentication + Cloud Firestore, project `wiseweb-7c15a`), so it follows them to any device. Security rules let each user read and write only their own record.
 - **Home:** choose your start date, today's sessions, the daily timetable, progress across the six tracks, the four phases
 - **Calendar:** all 90 days, filterable by phase and track, with a tick box for each day; unbuilt lessons are labelled "Not built yet"
 - **Tracks:** all 120 sessions with their hours and day
