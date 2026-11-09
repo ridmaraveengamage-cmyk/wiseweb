@@ -7,6 +7,10 @@
 <style>:root{color-scheme:light;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
 <title>WiseWeb</title>
 <meta name="claude:viewport-fit-sides" content="cover">
+</head>
+<body>
+<title>WiseWeb</title>
+<meta name="claude:viewport-fit-sides" content="cover">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@500;600;700;800&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500;600&display=swap">
@@ -262,9 +266,6 @@ tr:last-child td{border-bottom:0}
   *,*::before,*::after{animation-duration:0s!important;animation-iteration-count:1!important;transition:none!important}
 }
 </style>
-</head>
-<body>
-
 
 <style>
 :root{--c-S:#6E3BC9;--c-D:#00796B;--c-A:#0066CC;--c-H:#B25E00;--c-C:#C0284D;--c-B:#8A6A00}
@@ -342,10 +343,9 @@ a.tc .s{color:var(--tc);font-weight:600}
       <a href="#roadmap">Home</a>
       <a href="#calendar">Calendar</a>
       <a href="#tracks">Tracks</a>
-      <a href="#hw-1">Lesson: Electricity</a>
-      <a href="#ai-1">Lesson: What is AI</a>
+      <a href="#lessons">Lessons</a>
     </nav>
-    <span class="wk-pill" id="wk-pill">Starts 16 Nov</span>
+    <span class="wk-pill" id="wk-pill">Not started</span>
   </div>
 </header>
 
@@ -356,12 +356,12 @@ a.tc .s{color:var(--tc);font-weight:600}
   <div class="wrap">
     <div class="hero">
       <div class="hero-txt">
-        <span class="eyebrow">90-day bootcamp · 16 November 2026 – 13 February 2027</span>
+        <span class="eyebrow">90-day bootcamp · start any day you choose</span>
         <h1>From beginner to master in 90&nbsp;days.</h1>
         <p class="lead">A full-time bootcamp: 6–8 hours a day across software, data, AI, hardware, cyber security and blockchain. Built for someone starting from zero.</p>
         <div class="row">
-          <a class="btn solid" href="#calendar">Open the calendar</a>
-          <a class="btn" href="#tracks" style="background:var(--panel);color:var(--ink)">See the six tracks</a>
+          <a class="btn solid" href="#today-sec">Start or continue</a>
+          <a class="btn" href="#lessons" style="background:var(--panel);color:var(--ink)">Browse lessons</a>
         </div>
       </div>
       <div class="hero-art">
@@ -388,16 +388,16 @@ a.tc .s{color:var(--tc);font-weight:600}
     </div>
 
     <div class="stats">
-      <div class="stat"><span class="n" id="days-left">96</span><span class="l">days to go</span></div>
+      <div class="stat"><span class="n" id="days-left">90</span><span class="l">days to go</span></div>
       <div class="stat"><span class="n">682</span><span class="l">hours of learning</span></div>
       <div class="stat"><span class="n">120</span><span class="l">sessions, 13 projects</span></div>
       <div class="stat"><span class="n" id="st-pct">0%</span><span class="l">of days complete</span></div>
     </div>
 
-    <div class="sec"><div class="today" id="today"></div></div>
+    <div class="sec" id="today-sec"><div class="today" id="today"></div></div>
 
     <div class="sec">
-      <div class="sec-head"><h2>Your bootcamp day.</h2><span class="muted" style="font-size:.95rem">Monday to Friday · 8 hours of work</span></div>
+      <div class="sec-head"><h2>Your bootcamp day.</h2><span class="muted" style="font-size:.95rem">Days 1–5 of each week · 8 hours of work</span></div>
       <div class="tbl-wrap" style="background:var(--panel)"><table>
         <thead><tr><th>Time</th><th>Block</th><th>What happens</th></tr></thead>
         <tbody>
@@ -409,7 +409,7 @@ a.tc .s{color:var(--tc);font-weight:600}
           <tr><td>17:00–17:30</td><td><b>Close</b></td><td style="white-space:normal">Daily quiz, learning journal, plan tomorrow</td></tr>
         </tbody>
       </table></div>
-      <p class="muted" style="font-size:.95rem"><b style="color:var(--ink)">Saturday (7 h):</b> build the week's project and push it to GitHub. <b style="color:var(--ink)">Sunday (6 h):</b> weekly test, spaced review and catch-up. Breaks at 10:30, 12:45 (lunch) and 15:15.</p>
+      <p class="muted" style="font-size:.95rem"><b style="color:var(--ink)">Day 6 of each week (7 h):</b> build the week's project and push it to GitHub. <b style="color:var(--ink)">Day 7 (6 h):</b> weekly test, spaced review and catch-up. Breaks at 10:30, 12:45 (lunch) and 15:15.</p>
     </div>
 
     <div class="sec">
@@ -420,10 +420,10 @@ a.tc .s{color:var(--tc);font-weight:600}
     <div class="sec">
       <h2>Four phases.</h2>
       <div class="phases">
-        <div class="phase"><span class="k">Phase 1 · Days 1–28 · 16 Nov–13 Dec</span><b>Foundations</b><p>Python, statistics and maths for ML, circuits and logic, networks and Linux.</p><span class="gate">Phase 1 exam · Day 28</span></div>
-        <div class="phase"><span class="k">Phase 2 · Days 29–56 · 14 Dec–10 Jan</span><b>Core skills</b><p>SQL and pandas, ML model families, HTML, CSS and JavaScript, cryptography, CPUs, Solidity.</p><span class="gate">Phase 2 exam · Day 56</span></div>
-        <div class="phase"><span class="k">Phase 3 · Days 57–84 · 11 Jan–7 Feb</span><b>Advanced</b><p>LLMs, RAG and agents, full-stack apps, big data, IoT, ethical hacking, dApps. Major chosen on Day 57.</p><span class="gate">Phase 3 exam · Day 84</span></div>
-        <div class="phase cap"><span class="k">Final week · Days 85–90 · 8–13 Feb</span><b>Capstone</b><p>Build a project in your major, finish your portfolio and CV, then present it.</p><span class="gate">Demo day · Day 90</span></div>
+        <div class="phase"><span class="k">Phase 1 · Days 1–28</span><b>Foundations</b><p>Python, statistics and maths for ML, circuits and logic, networks and Linux.</p><span class="gate">Phase 1 exam · Day 28</span></div>
+        <div class="phase"><span class="k">Phase 2 · Days 29–56</span><b>Core skills</b><p>SQL and pandas, ML model families, HTML, CSS and JavaScript, cryptography, CPUs, Solidity.</p><span class="gate">Phase 2 exam · Day 56</span></div>
+        <div class="phase"><span class="k">Phase 3 · Days 57–84</span><b>Advanced</b><p>LLMs, RAG and agents, full-stack apps, big data, IoT, ethical hacking, dApps. Major chosen on Day 57.</p><span class="gate">Phase 3 exam · Day 84</span></div>
+        <div class="phase cap"><span class="k">Final week · Days 85–90</span><b>Capstone</b><p>Build a project in your major, finish your portfolio and CV, then present it.</p><span class="gate">Demo day · Day 90</span></div>
       </div>
     </div>
 
@@ -443,7 +443,7 @@ a.tc .s{color:var(--tc);font-weight:600}
         <div class="goal hw">
           <span class="eyebrow">Kit and rules</span>
           <h3>Before you start</h3>
-          <p class="muted" style="font-size:.95rem"><b style="color:var(--ink)">Buy:</b> Arduino starter kit and multimeter by 9 Jan; Raspberry Pi by 22 Jan.</p>
+          <p class="muted" style="font-size:.95rem"><b style="color:var(--ink)">Buy:</b> Arduino starter kit and multimeter by Day 55; Raspberry Pi by Day 68.</p>
           <p class="muted" style="font-size:.95rem"><b style="color:var(--ink)">Always:</b> 5–12 V only, hack only what you own, test networks only for crypto, no client data in AI tools, sleep 7–8 hours.</p>
         </div>
       </div>
@@ -453,7 +453,7 @@ a.tc .s{color:var(--tc);font-weight:600}
   <footer class="foot">
     <div class="wrap">
       <span><b style="color:var(--bad)">Safety:</b> batteries and USB power only (5–12 V). Never wall sockets: Sri Lankan mains is 230 V.</span>
-      <span>Lessons are added ahead of each day. Ready now: Electricity (Day 1) and What is AI (Day 4).</span>
+      <span>Week 1 (Days 1–7) is fully built. Later weeks are added ahead of you and marked “Not built yet” until then.</span>
     </div>
   </footer>
 </section>
@@ -461,7 +461,7 @@ a.tc .s{color:var(--tc);font-weight:600}
 <!-- ============ CALENDAR ============ -->
 <section class="view wrap" id="v-calendar" hidden>
   <div class="pagehead">
-    <span class="eyebrow">8 hours on weekdays · Saturday project · Sunday test and review</span>
+    <span class="eyebrow">Days 1–5: 8 hours · Day 6: project · Day 7: test and review</span>
     <h1>The 90 days.</h1>
     <div class="ctl">
       <div class="seg" id="cal-ph"><button data-p="1">Phase 1 · Days 1–28</button><button data-p="2">Phase 2 · Days 29–56</button><button data-p="3">Phase 3 · Days 57–90</button></div>
@@ -800,11 +800,1116 @@ a.tc .s{color:var(--tc);font-weight:600}
   </div>
 </section>
 
+<section class="view wrap" id="v-lessons" hidden>
+  <div class="pagehead"><span class="eyebrow">Week 1 ready · new weeks added ahead of you</span><h1>Lessons.</h1><p class="lead" style="max-width:62ch">Each lesson has the history behind the ideas, clear explanations, interactive tools, Python you run right in the page, a quiz, flashcards and homework.</p></div>
+  <div class="cal" id="lessons-list"></div>
+</section>
+<section class="view wrap" id="v-lesson" hidden></section>
 </main>
 <div class="toast" id="toast" role="status"></div>
 <textarea id="copy-fallback" aria-label="Your answers, ready to copy" hidden style="position:fixed;left:16px;right:16px;bottom:80px;width:auto;z-index:21;min-height:160px"></textarea>
 
 <style>@media (prefers-reduced-motion: reduce){.pulse{display:none}}</style>
+<style>
+.coder{display:grid;gap:10px;background:var(--paper);border-radius:20px;padding:18px;min-width:0}
+.coder .task{font-weight:500}
+.coder-wrap{display:grid;gap:8px}
+.code-ed{font:14px/1.55 var(--f-mono);min-height:170px;background:#11131a;color:#E8E8EC;border:0;border-radius:14px;padding:14px 16px;tab-size:4;white-space:pre;overflow:auto;resize:vertical}
+.code-ed:focus{outline:2px solid var(--t);outline-offset:2px}
+.code-in{font:13px/1.5 var(--f-mono);min-height:64px}
+.code-out{font:13px/1.5 var(--f-mono);background:var(--panel);border-radius:12px;padding:12px 14px;margin:0;white-space:pre-wrap;word-break:break-word;min-height:44px;max-height:320px;overflow:auto}
+.code-out.err{color:var(--bad)}
+pre.ex{font:13.5px/1.55 var(--f-mono);background:var(--paper);border-radius:14px;padding:14px 16px;overflow-x:auto;margin:0;white-space:pre}
+.lesson-prose{max-width:72ch}
+.lesson-prose h3{margin-top:10px}
+.lesson-prose ul,.lesson-prose ol{margin:0;padding-left:22px;display:grid;gap:6px}
+.lesson-prose code{font:.92em var(--f-mono);background:var(--paper);padding:1px 6px;border-radius:6px}
+.lesson-prose table{background:var(--paper);border-radius:14px;overflow:hidden}
+.lesson-prose td{white-space:normal}
+.lesson-prose .tbl-wrap{background:var(--paper)}
+.kv{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,160px),1fr));gap:10px}
+.kv div{background:var(--paper);border-radius:14px;padding:12px 14px;display:grid;gap:2px;min-width:0}
+.kv b{font:700 1.3rem var(--f-display);letter-spacing:-.01em;overflow-wrap:anywhere}
+.kv span{font-size:.82rem;color:var(--muted)}
+.fields{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,180px),1fr));gap:12px}
+.fields label{display:grid;gap:4px;font-size:.88rem;font-weight:600}
+select{font:1rem var(--f-body);color:var(--ink);background:var(--paper);border:1.5px solid var(--line);border-radius:12px;padding:10px 12px}
+.bits{display:flex;gap:6px;flex-wrap:wrap}
+.bits button{width:56px;height:68px;border-radius:14px;border:2px solid var(--line);background:var(--paper);display:grid;place-items:center;align-content:center;gap:2px;font:700 1.5rem var(--f-mono);color:var(--ink);cursor:pointer}
+.bits button span{font-size:.7rem;color:var(--muted);font-weight:500;font-family:var(--f-body)}
+.bits button[aria-pressed="true"]{background:var(--t);border-color:var(--t);color:var(--on-t)}
+.bits button[aria-pressed="true"] span{color:inherit;opacity:.8}
+.cpu{display:grid;grid-template-columns:minmax(0,260px) minmax(0,1fr);gap:20px}
+@media (max-width:640px){.cpu{grid-template-columns:1fr}}
+.mem{display:grid;gap:4px}
+.mem .cell{display:grid;grid-template-columns:28px 1fr;gap:8px;font:13px var(--f-mono);background:var(--paper);border-radius:10px;padding:8px 10px;border:2px solid transparent}
+.mem .cell span{color:var(--muted)}
+.mem .cell.on{border-color:var(--t)}
+.mem .cell.data{background:var(--t-soft)}
+.sheet-wrap{overflow:auto;border-radius:14px;background:var(--paper);max-width:100%}
+table.sheet{border-collapse:collapse;font:13px var(--f-mono);width:max-content}
+table.sheet th{background:var(--panel);color:var(--muted);font:600 12px var(--f-mono);text-align:center;padding:6px 8px;border:1px solid var(--line);text-transform:none;letter-spacing:0}
+table.sheet td{border:1px solid var(--line);padding:6px 10px;min-width:96px;height:32px;cursor:cell;white-space:nowrap}
+table.sheet td.n{text-align:right}
+table.sheet td.hd{font-weight:700;background:var(--panel)}
+table.sheet td.sel{outline:2px solid var(--t);outline-offset:-2px}
+.fbar{display:flex;gap:8px;align-items:center}
+.fbar b{min-width:44px;text-align:center;background:var(--paper);padding:10px 6px;border-radius:12px}
+.fbar input{font-family:var(--f-mono)}
+.chk-list{display:grid;gap:8px}
+.chk-list label{display:flex;gap:12px;align-items:flex-start;background:var(--paper);padding:12px 16px;border-radius:14px;font-weight:500;cursor:pointer}
+.chk-list input{width:20px;height:20px;margin-top:2px;accent-color:var(--good);flex:none}
+.flash{display:grid;gap:12px}
+.flash .card{min-height:200px;border-radius:22px;border:0;background:var(--paper);color:var(--ink);display:grid;place-items:center;align-content:center;gap:10px;text-align:center;padding:28px;cursor:pointer;font:700 1.5rem var(--f-display);letter-spacing:-.01em}
+.flash .card small{font:500 .82rem var(--f-body);color:var(--muted)}
+.rgrid{display:grid;grid-template-columns:28px repeat(5,minmax(0,56px));gap:4px;max-width:340px}
+.rgrid span{display:grid;place-items:center;height:40px;border-radius:8px;font:600 .85rem var(--f-mono)}
+.rgrid .ax{color:var(--muted)}
+.rgrid .lo{background:color-mix(in srgb,var(--good) 22%,var(--paper))}
+.rgrid .md{background:color-mix(in srgb,var(--cu-bright) 30%,var(--paper))}
+.rgrid .hi{background:color-mix(in srgb,var(--bad) 28%,var(--paper))}
+.rgrid .on{outline:3px solid var(--ink)}
+.nb{font-style:normal;font-size:.7rem;font-weight:700;color:var(--muted);background:var(--paper);padding:1px 8px;border-radius:999px;margin-left:4px;white-space:nowrap;letter-spacing:0;text-transform:none}
+.nb.ok{color:var(--good)}
+.start-box{background:var(--paper);border-radius:20px;padding:20px;display:grid;gap:12px;border:2px solid var(--ai)}
+details.chg summary{cursor:pointer;font-weight:600;font-size:.9rem;color:var(--muted);padding:10px 4px}
+input[type=date]{font:1rem var(--f-body);color:var(--ink);background:var(--paper);border:1.5px solid var(--line);border-radius:12px;padding:9px 12px}
+.widget{display:grid;gap:14px;min-width:0}
+.note.warn{background:color-mix(in srgb,var(--warn) 14%,var(--paper))}
+.note.danger{background:color-mix(in srgb,var(--bad) 12%,var(--paper))}
+</style>
+<script>
+(()=>{const R=String.raw;window.WW_LESSONS=Object.assign(window.WW_LESSONS||{},{
+s1:{id:'s1',day:1,slot:0,track:'S',hours:4,title:'How computers run programs',
+lead:'Before writing code, you need a clear picture of what a computer actually does when it "runs" something. Today you follow a program from the keyboard down to electrical switches, set up your own coding workspace, and write your first lines of Python.',
+goals:['Explain what a computer is in terms of input, processing, memory and output','Count in binary and explain why computers use it','Describe how text, colours and sounds become numbers','Walk through the fetch–decode–execute cycle of a CPU','Explain what an operating system and a programming language do','Install Python and VS Code, and run your first program'],
+parts:[
+{h:'The big idea: a machine that follows instructions',nav:'Big idea',time:'25 min',body:R`
+<p>A computer is a machine that <b>follows instructions on numbers, very fast</b>. That's the whole idea. Everything else, from WhatsApp to ChatGPT, is built from that one ability.</p>
+<p>Every computer, from a calculator to a data centre, has the same four parts:</p>
+<div class="tbl-wrap"><table><thead><tr><th>Part</th><th>What it does</th><th>Examples</th></tr></thead><tbody>
+<tr><td><b>Input</b></td><td>Brings information in</td><td>Keyboard, mouse, touchscreen, microphone, camera, sensors</td></tr>
+<tr><td><b>Processing</b></td><td>Carries out instructions</td><td>The CPU (central processing unit), and the GPU for graphics and AI</td></tr>
+<tr><td><b>Memory and storage</b></td><td>Holds instructions and data</td><td>RAM (fast, temporary), SSD or hard disk (slower, permanent)</td></tr>
+<tr><td><b>Output</b></td><td>Sends results out</td><td>Screen, speakers, printer, network messages</td></tr>
+</tbody></table></div>
+<p>A <b>program</b> is simply a list of instructions written for the processor. Think of a recipe: the recipe is the program, the cook is the CPU, the kitchen counter is RAM, and the cupboard is storage. The cook takes one instruction at a time and does exactly what it says. Nothing more, nothing less.</p>
+<p>The difference from a human cook is speed. A typical laptop CPU ticks at around 3 GHz: about <b>3 billion clock ticks every second</b>, carrying out one or more simple steps on each tick. Each step is tiny ("add these two numbers", "copy this number there"), but billions per second add up to video calls and AI.</p>
+<div class="note"><b>Hardware vs software:</b> hardware is the physical machine you can touch. Software is the instructions (programs) that tell it what to do. This bootcamp teaches both: the Hardware track goes down to the transistors, the Software track goes up to full apps.</div>`},
+{h:'From Babbage to your laptop',nav:'History',time:'25 min',body:R`<p>Computers were imagined long before they could be built. Tap through the ten moments below; you'll meet many of these people again later in the bootcamp.</p>`,
+timeline:[
+{y:'1837',short:'Charles Babbage',title:'The Analytical Engine',who:'Charles Babbage · English mathematician',story:'Babbage designed a steam-powered mechanical computer with a "mill" (processor) and a "store" (memory), programmed with punched cards borrowed from the Jacquard weaving loom. It was never fully built, because 19th-century engineering couldn\'t make the parts precisely enough.',why:'It already had the four parts of every modern computer: input, processing, memory and output.'},
+{y:'1843',short:'Ada Lovelace',title:'The first published program',who:'Ada Lovelace · English mathematician',story:'Translating an article about the Analytical Engine, Lovelace added notes three times longer than the original. Note G contains a step-by-step method for the machine to calculate Bernoulli numbers. She also predicted machines could one day work with music and symbols, not just numbers.',why:'She is widely called the first computer programmer. The programming language Ada is named after her.'},
+{y:'1936',short:'Alan Turing',title:'The universal machine',who:'Alan Turing · English mathematician',story:'In his paper "On Computable Numbers", Turing described an imaginary machine that reads and writes symbols on a tape following simple rules, and proved that one "universal" machine could carry out any procedure that can be written down.',why:'Every computer you use is a universal machine: the same hardware runs any program.'},
+{y:'1945',short:'ENIAC & von Neumann',title:'Electronic computers and the stored program',who:'J. Presper Eckert, John Mauchly; John von Neumann',story:'ENIAC, finished in 1945 and unveiled in 1946, used about 18,000 vacuum tubes and filled a room. It was programmed by rewiring cables, work done largely by six women programmers. In 1945 von Neumann wrote up the idea of storing the program in memory alongside the data.',why:'The "stored-program" or von Neumann design is still how almost every computer works.'},
+{y:'1947',short:'The transistor',title:'A switch with no moving parts',who:'John Bardeen, Walter Brattain, William Shockley · Bell Labs',story:'The transistor replaced fragile, hot vacuum tubes with a tiny, reliable electronic switch. Its inventors shared the 1956 Nobel Prize in Physics.',why:'Transistors are the 0s and 1s of every chip. You\'ll study them in depth in the Hardware track.'},
+{y:'1958–59',short:'Integrated circuit',title:'Many transistors on one chip',who:'Jack Kilby (Texas Instruments), Robert Noyce (Fairchild)',story:'Working separately, Kilby and Noyce found ways to build many transistors and their connections on a single piece of semiconductor: the integrated circuit, or microchip.',why:'Chips could now shrink and get faster year after year.'},
+{y:'1965',short:'Moore\'s law',title:'Doubling, again and again',who:'Gordon Moore · co-founder of Intel',story:'Moore observed that the number of transistors on a chip was doubling at a steady rate, later settled at roughly every two years.',why:'This steady doubling made computers about a million times more powerful in 50 years.'},
+{y:'1971',short:'Intel 4004',title:'The first commercial microprocessor',who:'Federico Faggin, Ted Hoff, Masatoshi Shima · Intel',story:'The 4004 put a whole CPU on one chip with about 2,300 transistors. It was designed for a Japanese calculator company, Busicom.',why:'Today\'s phone chips hold tens of billions of transistors, but they descend from this one.'},
+{y:'1981',short:'IBM PC',title:'Computers on every desk',who:'IBM, with Microsoft\'s MS-DOS',story:'The IBM Personal Computer, following the Apple II (1977), made computers normal office equipment. Its open design let other companies make compatible PCs, the ancestors of most Windows laptops.',why:'Software became a huge industry once millions of people owned the same kind of machine.'},
+{y:'2007',short:'Smartphone era',title:'A computer in every pocket',who:'Apple iPhone (2007), Android (2008)',story:'Touchscreen smartphones put a powerful, always-connected computer in billions of pockets, including most people in Sri Lanka.',why:'Most of the apps and marketing you work with today run on these pocket computers.'}]},
+{h:'Binary: why computers count in 0s and 1s',nav:'Binary',time:'35 min',body:R`
+<p>Inside a chip, each transistor is a switch that is either <b>off or on</b>. Telling two states apart (low voltage vs high voltage) is far more reliable than telling ten apart, so computers store everything using just two digits: <b>0 and 1</b>. This is the <b>binary</b> number system.</p>
+<p><b>Who worked it out:</b> Gottfried Leibniz published binary arithmetic in 1703. George Boole created an algebra of true/false logic in 1854. Then in 1937, a 21-year-old MIT student, <b>Claude Shannon</b>, showed in his master's thesis that Boole's logic could design circuits of switches. That thesis is often called the most important master's thesis of the 20th century. The word <b>bit</b> (binary digit) appeared in Shannon's 1948 paper, credited to his colleague John Tukey.</p>
+<h3>How binary counting works</h3>
+<p>In everyday decimal, each place is worth 10 times the one to its right (1, 10, 100). In binary, each place is worth <b>2 times</b> the one to its right:</p>
+<pre class="ex">Place value:  128  64  32  16   8   4   2   1
+Bits:           0   1   0   0   0   0   0   1
+Value:          0 + 64 + 0 + 0 + 0 + 0 + 0 + 1 = 65</pre>
+<ul><li><b>Bit:</b> one 0 or 1.</li><li><b>Byte:</b> 8 bits, which can hold 2<sup>8</sup> = 256 different values (0 to 255).</li><li><b>Kilobyte (KB)</b> ≈ a thousand bytes, <b>megabyte (MB)</b> ≈ a million, <b>gigabyte (GB)</b> ≈ a billion, <b>terabyte (TB)</b> ≈ a trillion.</li></ul>
+<p><b>Try it below:</b> click the bits to switch them on and off. Make 65 (the letter A), then 97 (lowercase a), then 255 (all eight bits on).</p>`,widget:'binary',after:R`<div class="note"><b>Hexadecimal</b> is a shorthand programmers use: each hex digit (0–9, then A–F) stands for 4 bits, so one byte is always exactly two hex digits. 255 is FF. You'll see hex in colour codes like #FF0000 (pure red) and in memory addresses.</div>`},
+{h:'Everything is numbers: text, colour and sound',nav:'Encoding',time:'25 min',body:R`
+<p>If a computer only stores numbers, how does it hold your name, a photo or a song? By agreeing on a <b>code</b> that turns each thing into numbers.</p>
+<ul>
+<li><b>Text:</b> ASCII (1963) gave each English letter, digit and symbol a number from 0 to 127. "A" is 65, "a" is 97, a space is 32. <b>Unicode</b> (1991) extended this to every writing system: Sinhala letters live in the range U+0D80 to U+0DFF. <b>UTF-8</b>, designed by Ken Thompson and Rob Pike in 1992, is how most of the web stores Unicode today.</li>
+<li><b>Images:</b> a picture is a grid of <b>pixels</b>. Each pixel is three numbers for red, green and blue light (0–255 each), so 3 bytes per pixel. A 12-megapixel phone photo is about 36 MB raw, which is why formats like JPEG compress it.</li>
+<li><b>Sound:</b> a microphone's signal is measured thousands of times per second. CD audio takes 44,100 samples every second, each stored as a number.</li>
+</ul>
+<p><b>Try it:</b> mix a colour from three numbers. Each slider is one byte.</p>`,widget:'rgb'},
+{h:'Inside the machine: the fetch–decode–execute cycle',nav:'The CPU',time:'35 min',body:R`
+<p>The <b>CPU</b> has three key parts:</p>
+<ul><li><b>Control unit:</b> reads instructions and directs everything else.</li><li><b>ALU (arithmetic logic unit):</b> does the maths and comparisons.</li><li><b>Registers:</b> a handful of super-fast storage slots inside the CPU itself.</li></ul>
+<p>Programs and data both sit in <b>RAM</b> (memory), each in a numbered slot called an <b>address</b>. This is von Neumann's stored-program design from 1945. RAM is fast but loses everything when power goes off; your SSD keeps files permanently but is slower, so programs are copied from the SSD into RAM to run.</p>
+<p>The CPU then repeats one loop, billions of times per second:</p>
+<ol><li><b>Fetch:</b> read the next instruction from memory, at the address held in the <b>program counter (PC)</b>, and add 1 to the PC.</li><li><b>Decode:</b> work out what the instruction means.</li><li><b>Execute:</b> do it: load a number, add, store, compare or jump.</li></ol>
+<p><b>Try it:</b> step through a real (simplified) program that adds 5 and 7. Watch the program counter, the registers and memory cell 7.</p>`,widget:'cpu',after:R`<div class="note"><b>Why this matters for coding:</b> when you write <code>total = 5 + 7</code> in Python, it is eventually turned into instructions very like the ones above. Python hides the details so you can think about your problem instead of registers.</div>`},
+{h:'The operating system: the manager',nav:'Operating systems',time:'20 min',body:R`
+<p>You never talk to the CPU directly. The <b>operating system (OS)</b> sits between your apps and the hardware. Its jobs:</p>
+<ul><li><b>Run programs:</b> each running program is a <b>process</b>. The OS switches the CPU between them so fast that they all seem to run at once.</li><li><b>Manage memory:</b> give each process its own space in RAM, and stop them reading each other's.</li><li><b>Manage files:</b> folders, file names and permissions on the SSD.</li><li><b>Drive devices:</b> small programs called <b>drivers</b> talk to the keyboard, Wi-Fi card, printer and screen.</li><li><b>Security:</b> user accounts, passwords and permissions.</li></ul>
+<p><b>History:</b> Ken Thompson and Dennis Ritchie created <b>Unix</b> at Bell Labs in 1969, and Ritchie created the C language (1972) to rewrite it. Microsoft's MS-DOS arrived in 1981 and Windows 1.0 in 1985. In 1991 a Helsinki student, <b>Linus Torvalds</b>, released <b>Linux</b>, which now runs most web servers, supercomputers and every Android phone.</p>
+<div class="note"><b>Try it now (2 minutes):</b> on Windows press <code>Ctrl + Shift + Esc</code> to open Task Manager. The Processes tab lists every running program with its CPU and memory use. The Performance tab shows your CPU's speed and how much RAM you have.</div>`},
+{h:'Programming languages: talking to the machine',nav:'Languages',time:'20 min',body:R`
+<p>CPUs only understand <b>machine code</b>: binary instructions like <code>10110000 01100001</code>. Writing that by hand is slow and error-prone, so people built layers of languages on top:</p>
+<ol><li><b>Assembly language</b> (Kathleen Booth, 1947) gives each machine instruction a short name, such as <code>ADD</code> or <code>MOV</code>.</li><li><b>High-level languages</b> read more like English and maths. <b>Grace Hopper</b> built one of the first compilers in 1952 and helped create COBOL. <b>John Backus</b> led FORTRAN at IBM in 1957.</li><li>A <b>compiler</b> translates a whole program into machine code before it runs (C, Rust, Go). An <b>interpreter</b> runs it step by step (Python, JavaScript), which is slower but quicker to experiment with.</li></ol>
+<div class="tbl-wrap"><table><thead><tr><th>Language</th><th>Created</th><th>Used for</th><th>In this bootcamp</th></tr></thead><tbody>
+<tr><td><b>Python</b></td><td>1991, Guido van Rossum</td><td>Data, AI, automation, back ends</td><td>Software, Data, AI, Cyber</td></tr>
+<tr><td><b>JavaScript</b></td><td>1995, Brendan Eich</td><td>Websites and web apps</td><td>Software, Blockchain</td></tr>
+<tr><td><b>SQL</b></td><td>1974, Chamberlin and Boyce at IBM</td><td>Querying databases</td><td>Data</td></tr>
+<tr><td><b>C / C++</b></td><td>1972 / 1985</td><td>Operating systems, devices, games</td><td>Hardware (Arduino)</td></tr>
+<tr><td><b>Solidity</b></td><td>2014, Gavin Wood</td><td>Smart contracts</td><td>Blockchain</td></tr>
+</tbody></table></div>
+<p>We start with <b>Python</b> because it reads almost like English, has the biggest toolkit for data and AI, and you can be productive in it within days.</p>`},
+{h:'Lab: set up your coding workspace',nav:'Lab: setup',time:'60 min',body:R`
+<p>Set up the tools you'll use every day for 90 days. Tick each step as you finish it. If you can't install software right now, use the in-browser Python runner in the next part and come back to this later.</p>
+<ol>
+<li>In File Explorer, create a folder called <code>wiseweb</code> in your Documents folder, and inside it a folder called <code>day01</code>.</li>
+<li>Go to <b>python.org/downloads</b> and install the latest Python 3. On the first installer screen, <b>tick "Add python.exe to PATH"</b>. This is the step most people miss.</li>
+<li>Open <b>Command Prompt</b> (press the Windows key, type <code>cmd</code>, press Enter) and type <code>python --version</code>. You should see something like <code>Python 3.13.x</code>. If Windows says it can't find python, try <code>py --version</code>, or reinstall with the PATH box ticked.</li>
+<li>Install <b>VS Code</b> from code.visualstudio.com. Open it, click the Extensions icon (four squares) and install <b>Python</b> by Microsoft.</li>
+<li>In VS Code choose <b>File → Open Folder</b> and open your <code>day01</code> folder.</li>
+<li>Create a new file called <code>hello.py</code> and type <code>print("Hello, WiseWeb!")</code>. Save it, then click the ▶ Run button at the top right. The message appears in the terminal at the bottom.</li>
+<li>In the terminal, type <code>python</code> and press Enter to open the interactive shell. Try <code>2 + 3</code>, then <code>2 ** 100</code>. Type <code>exit()</code> to leave.</li>
+<li>Install <b>Anki</b> from apps.ankiweb.net for your daily flashcards, and make a deck called WiseWeb.</li></ol>`,
+check:['Created the wiseweb\\day01 folder','Installed Python with "Add to PATH" ticked','python --version shows Python 3','Installed VS Code and the Python extension','Ran hello.py and saw the message','Used the interactive shell and exit()','Installed Anki and created a WiseWeb deck']},
+{h:'Your first programs',nav:'First code',time:'30 min',body:R`<p>These exercises run real Python right here in the page. Type your code in the dark box, press <b>Run</b>, and read the output. The page checks your answer. The first run takes a few seconds while the Python engine loads.</p>`,
+code:[
+{task:R`<b>Say hello.</b> Make the program print exactly: <code>Hello, WiseWeb!</code>`,starter:R`print("Hello")`,expect:'Hello, WiseWeb!',hint:'Text goes inside quotes, inside the brackets: print("your text").',solution:R`print("Hello, WiseWeb!")`},
+{task:R`<b>About you.</b> Print three lines: your name, your city, and the word <code>Python</code>.`,starter:R`print("Ridma")
+`,contains:['python'],hint:'Use three print() lines, one under the other.',solution:R`print("Ridma")
+print("Colombo")
+print("Python")`},
+{task:R`<b>Python as a calculator.</b> Print the number of seconds in one day. Use <code>*</code> to multiply: 60 seconds × 60 minutes × 24 hours.`,starter:R`print(60 * 60)`,expect:'86400',solution:R`print(60 * 60 * 24)`},
+{task:R`<b>Binary in Python.</b> <code>int("01000001", 2)</code> turns a binary string into a number, and <code>chr()</code> turns a number into its character. Print both results: the number on the first line, the letter on the second.`,starter:R`number = int("01000001", 2)
+print(number)
+`,expect:'65\nA',hint:'Add a second line: print(chr(number))',solution:R`number = int("01000001", 2)
+print(number)
+print(chr(number))`}]},
+{h:'Check yourself',nav:'Quiz',time:'15 min',quiz:[
+{q:'Which part of a computer carries out instructions?',o:['RAM','The CPU','The SSD','The monitor'],a:1,e:'The CPU (processor) fetches, decodes and executes instructions. RAM and the SSD store them.'},
+{q:'What is 00001010 in decimal?',o:['8','10','12','1010'],a:1,e:'8 + 2 = 10.'},
+{q:'How many different values can one byte hold?',o:['8','128','255','256'],a:3,e:'8 bits give 2⁸ = 256 values: 0 to 255.'},
+{q:'Who wrote the first published computer program?',o:['Alan Turing','Charles Babbage','Ada Lovelace','Grace Hopper'],a:2,e:'Ada Lovelace\'s Note G (1843) described an algorithm for the Analytical Engine.'},
+{q:'What happens to RAM when you switch the computer off?',o:['It is saved to the cloud','It is erased','It moves to the CPU','Nothing changes'],a:1,e:'RAM is volatile. Files survive only if they are saved to storage such as an SSD.'},
+{q:'In the fetch–decode–execute cycle, what does the program counter hold?',o:['The result of the last sum','The address of the next instruction','The number of programs running','The CPU temperature'],a:1,e:'The PC points to the next instruction in memory and moves forward after each fetch.'},
+{q:'Which of these is an operating system?',o:['Python','Linux','VS Code','Chrome'],a:1,e:'Linux is an operating system. Python is a language, VS Code an editor, Chrome a browser.'},
+{q:'Python is usually described as…',o:['A compiled language only','An interpreted language','Machine code','An operating system'],a:1,e:'Python code is run by an interpreter, which makes it quick to experiment with.'}]},
+{h:'Flashcards',nav:'Flashcards',time:'10 min',body:R`<p>Go through these, then add any you missed to your Anki deck. You'll see them again in tomorrow's warm-up.</p>`,widget:'flash',cfg:{cards:[['Bit','One binary digit: 0 or 1.'],['Byte','8 bits; 256 possible values (0–255).'],['CPU','The processor: control unit + ALU + registers. Executes instructions.'],['RAM','Fast, temporary memory that holds running programs and data. Erased when powered off.'],['Fetch–decode–execute','The CPU\'s loop: read the next instruction, work out what it means, do it.'],['Operating system','Software that manages processes, memory, files, devices and security.'],['Compiler vs interpreter','A compiler translates the whole program first; an interpreter runs it step by step.'],['Von Neumann architecture','Programs and data are stored together in the same memory (1945).'],['ASCII / Unicode','Codes that turn characters into numbers. "A" = 65.']]}}],
+homework:['In your own words, explain to a non-technical friend what happens inside a computer when they press a key and a letter appears on the screen.','Convert these to binary: 5, 13, 100. Then convert 11111111 and 10000000 to decimal. Show your working.','Open Task Manager. Write down your CPU name and speed, how much RAM you have, and the three processes using the most memory.']},
+
+s2:{id:'s2',day:2,slot:0,track:'S',hours:4,title:'Python I: variables, types, operators and strings',
+lead:'Today you learn the building blocks every Python program uses: storing values in variables, the main data types, doing calculations, working with text, and talking to the user with input and output. By the end you will write small programs that solve real marketing sums.',
+goals:['Create and update variables with good names','Use the core types int, float, str and bool, and convert between them','Calculate with arithmetic, comparison and logical operators','Slice and format strings, including f-strings','Read input from a user and print clear output','Read a Python error message and fix the bug'],
+parts:[
+{h:'Meet Python',nav:'Meet Python',time:'15 min',body:R`
+<p>In December 1989, a Dutch programmer called <b>Guido van Rossum</b> was looking for a hobby project over the Christmas holidays at CWI, a research institute in Amsterdam. He started writing a new language that would be easy to read and fun to use, and named it after the British comedy show <i>Monty Python's Flying Circus</i>. Python 0.9 was released in February 1991, Python 2 in 2000 and Python 3, the version you will use, in 2008.</p>
+<p>Python's guiding ideas were written down in 1999 by Tim Peters as <i>The Zen of Python</i>. Three of its lines explain why beginners love it:</p>
+<pre class="ex">Beautiful is better than ugly.
+Simple is better than complex.
+Readability counts.</pre>
+<p>Today Python is one of the most used languages in the world, and the main language of data science and AI.</p>`},
+{h:'Variables: names for values',nav:'Variables',time:'35 min',body:R`
+<p>A <b>variable</b> is a name that points to a value, like a label stuck on a box. You create one with <code>=</code>, which in Python means <b>"store this"</b>, not "equals".</p>
+<pre class="ex">event = "Colombo Jazz Night"
+tickets_sold = 340
+ticket_price = 2500
+tickets_sold = tickets_sold + 10   # update: now 350</pre>
+<p>Python works out the right-hand side first, then stores the result under the name on the left. That's why <code>tickets_sold = tickets_sold + 10</code> makes sense.</p>
+<h3>Naming rules</h3>
+<ul><li>Use letters, digits and underscores; don't start with a digit (<code>2nd_event</code> fails).</li><li>Names are case-sensitive: <code>Price</code> and <code>price</code> are different.</li><li>Python style is <b>snake_case</b>: lowercase words joined by underscores.</li><li>Choose names that explain themselves: <code>ticket_price</code> beats <code>tp</code> or <code>x</code>.</li><li>Don't use Python's reserved words such as <code>if</code>, <code>for</code>, <code>class</code> or <code>print</code>.</li></ul>
+<p>The <code>#</code> symbol starts a <b>comment</b>: text Python ignores, written for humans.</p>`,
+code:[{task:R`Create variables <code>event</code> (your favourite event name), <code>tickets_sold</code> (340) and <code>ticket_price</code> (2500). Then print all three, one per line.`,starter:R`event = "Colombo Jazz Night"
+`,contains:['340','2500'],solution:R`event = "Colombo Jazz Night"
+tickets_sold = 340
+ticket_price = 2500
+print(event)
+print(tickets_sold)
+print(ticket_price)`}]},
+{h:'Data types',nav:'Types',time:'30 min',body:R`
+<p>Every value has a <b>type</b>, which decides what you can do with it.</p>
+<div class="tbl-wrap"><table><thead><tr><th>Type</th><th>Meaning</th><th>Examples</th></tr></thead><tbody>
+<tr><td><code>int</code></td><td>Whole numbers</td><td><code>340</code>, <code>-5</code>, <code>0</code></td></tr>
+<tr><td><code>float</code></td><td>Numbers with a decimal point</td><td><code>2.5</code>, <code>99.99</code>, <code>3.0</code></td></tr>
+<tr><td><code>str</code></td><td>Text (a "string" of characters)</td><td><code>"Galle"</code>, <code>'hello'</code>, <code>"42"</code></td></tr>
+<tr><td><code>bool</code></td><td>True or false</td><td><code>True</code>, <code>False</code></td></tr>
+<tr><td><code>NoneType</code></td><td>"No value yet"</td><td><code>None</code></td></tr>
+</tbody></table></div>
+<p><code>type(x)</code> tells you a value's type. You convert between types with <code>int()</code>, <code>float()</code> and <code>str()</code>: <code>int("42")</code> gives the number 42, and <code>str(42)</code> gives the text "42".</p>
+<div class="note"><b>A surprise worth knowing:</b> <code>0.1 + 0.2</code> prints <code>0.30000000000000004</code>. Floats are stored in binary, and 0.1 can't be written exactly in binary, just as 1/3 can't be written exactly in decimal. For money, round your results, or count in whole cents.</div>`,
+code:[{task:R`Print the type of each value: <code>340</code>, <code>2500.0</code>, <code>"Kandy"</code> and <code>True</code>, one per line.`,starter:R`print(type(340))
+`,expect:"<class 'int'>\n<class 'float'>\n<class 'str'>\n<class 'bool'>",solution:R`print(type(340))
+print(type(2500.0))
+print(type("Kandy"))
+print(type(True))`}]},
+{h:'Operators: doing calculations',nav:'Operators',time:'35 min',body:R`
+<div class="tbl-wrap"><table><thead><tr><th>Operator</th><th>Meaning</th><th>Example</th><th>Result</th></tr></thead><tbody>
+<tr><td><code>+ - *</code></td><td>Add, subtract, multiply</td><td><code>340 * 2500</code></td><td>850000</td></tr>
+<tr><td><code>/</code></td><td>Divide (always gives a float)</td><td><code>7 / 2</code></td><td>3.5</td></tr>
+<tr><td><code>//</code></td><td>Whole-number division</td><td><code>7 // 2</code></td><td>3</td></tr>
+<tr><td><code>%</code></td><td>Remainder (modulo)</td><td><code>7 % 2</code></td><td>1</td></tr>
+<tr><td><code>**</code></td><td>Power</td><td><code>2 ** 10</code></td><td>1024</td></tr>
+<tr><td><code>== != &lt; &gt; &lt;= &gt;=</code></td><td>Comparisons (give True or False)</td><td><code>340 &gt; 300</code></td><td>True</td></tr>
+<tr><td><code>and or not</code></td><td>Combine True/False values</td><td><code>True and False</code></td><td>False</td></tr>
+</tbody></table></div>
+<p><b>Order of operations</b> works as in school maths: brackets, then <code>**</code>, then <code>* / // %</code>, then <code>+ -</code>. When in doubt, add brackets.</p>
+<p><b>Shortcuts:</b> <code>total += 10</code> means <code>total = total + 10</code>. There are also <code>-=</code>, <code>*=</code> and <code>/=</code>.</p>
+<p><b>Why <code>%</code> matters:</b> it answers "is this number divisible?". <code>n % 2 == 0</code> is True for even numbers. You'll use it constantly.</p>`,
+code:[
+{task:R`An event sold 340 tickets at Rs. 2,500 each, and the venue takes a 15% commission. Print the total revenue on line 1, the venue's commission on line 2, and what's left on line 3. Use <code>int()</code> so they print as whole numbers.`,starter:R`tickets = 340
+price = 2500
+revenue = tickets * price
+`,expect:'850000\n127500\n722500',hint:'commission = revenue * 15 / 100. Wrap each value in int() when you print it.',solution:R`tickets = 340
+price = 2500
+revenue = tickets * price
+commission = revenue * 15 / 100
+print(int(revenue))
+print(int(commission))
+print(int(revenue - commission))`},
+{task:R`A post got 2,400 clicks from 120,000 impressions. Print the click-through rate as a percentage, rounded to 2 decimal places with <code>round(value, 2)</code>.`,starter:R`clicks = 2400
+impressions = 120000
+`,expect:'2.0',hint:'CTR = clicks / impressions * 100. round(2.0, 2) prints 2.0.',solution:R`clicks = 2400
+impressions = 120000
+print(round(clicks / impressions * 100, 2))`}]},
+{h:'Strings: working with text',nav:'Strings',time:'45 min',body:R`
+<p>Strings go in single or double quotes. Each character has a position called an <b>index</b>, starting from <b>0</b>, and negative indexes count from the end:</p>
+<pre class="ex"> C  o  l  o  m  b  o
+ 0  1  2  3  4  5  6
+-7 -6 -5 -4 -3 -2 -1</pre>
+<ul>
+<li><code>city[0]</code> → <code>"C"</code>, <code>city[-1]</code> → <code>"o"</code></li>
+<li><b>Slicing</b> <code>city[0:3]</code> → <code>"Col"</code> (from 0 up to, but not including, 3). <code>city[:3]</code> and <code>city[3:]</code> leave a side open.</li>
+<li><code>+</code> joins strings, <code>*</code> repeats them: <code>"ha" * 3</code> → <code>"hahaha"</code>.</li>
+<li><code>len(city)</code> → 7.</li>
+<li>Methods: <code>.upper()</code>, <code>.lower()</code>, <code>.title()</code>, <code>.strip()</code> (removes spaces at the ends), <code>.replace("a", "b")</code>, <code>.split(",")</code> (makes a list), <code>.count("o")</code>.</li>
+<li>Strings can't be changed in place (they're <b>immutable</b>). Methods return a new string, so store it: <code>name = name.strip()</code>.</li></ul>
+<h3>f-strings: the best way to build text</h3>
+<p>Since Python 3.6 (2016), you can put an <code>f</code> before the quotes and drop variables straight into the text with curly brackets:</p>
+<pre class="ex">name = "Ridma"
+sold = 340
+print(f"{name} sold {sold} tickets")       # Ridma sold 340 tickets
+print(f"CTR: {2400 / 120000 * 100:.2f}%")  # CTR: 2.00%</pre>
+<p>The <code>:.2f</code> part means "2 decimal places".</p>`,
+code:[
+{task:R`Given <code>city = "  colombo  "</code>, print it with the spaces removed and in title case (<code>Colombo</code>), then print its first three letters in capitals (<code>COL</code>).`,starter:R`city = "  colombo  "
+clean = city.strip()
+`,expect:'Colombo\nCOL',hint:'clean.title() and clean[:3].upper()',solution:R`city = "  colombo  "
+clean = city.strip()
+print(clean.title())
+print(clean[:3].upper())`},
+{task:R`Use an f-string to print exactly: <code>Colombo Jazz Night: 340 tickets, Rs. 850000</code>`,starter:R`event = "Colombo Jazz Night"
+tickets = 340
+price = 2500
+`,expect:'Colombo Jazz Night: 340 tickets, Rs. 850000',solution:R`event = "Colombo Jazz Night"
+tickets = 340
+price = 2500
+print(f"{event}: {tickets} tickets, Rs. {tickets * price}")`}]},
+{h:'Input and output',nav:'Input',time:'25 min',body:R`
+<p><code>print()</code> can take several values, separated by commas; it puts a space between them. <code>print("a", "b", sep="-")</code> changes the separator.</p>
+<p><code>input("Question? ")</code> shows a question and waits for the user to type. <b>It always returns a string</b>, so to do maths with the answer you must convert it:</p>
+<pre class="ex">age = int(input("Your age? "))
+print(f"Next year you will be {age + 1}")</pre>
+<p>In this page, type the user's answers in the <b>Program input</b> box before you press Run, one per line.</p>`,
+code:[{task:R`Ask for the user's name and the number of tickets they want (Rs. 2,500 each). Print <code>Thank you, NAME. Your total is Rs. TOTAL</code>. The input box already contains <code>Ridma</code> and <code>3</code>.`,starter:R`name = input("Your name? ")
+`,inputs:'Ridma\n3',contains:['Thank you, Ridma. Your total is Rs. 7500'],hint:'qty = int(input("How many tickets? ")), then total = qty * 2500.',solution:R`name = input("Your name? ")
+qty = int(input("How many tickets? "))
+total = qty * 2500
+print(f"Thank you, {name}. Your total is Rs. {total}")`}]},
+{h:'Reading errors like a programmer',nav:'Errors',time:'25 min',body:R`
+<p>Errors are normal: professionals see dozens a day. The skill is reading them calmly. Python's message ends with the <b>error type</b> and a description, and it names the <b>line number</b>. Read the last line first.</p>
+<div class="tbl-wrap"><table><thead><tr><th>Error</th><th>Usually means</th><th>Example cause</th></tr></thead><tbody>
+<tr><td><code>SyntaxError</code></td><td>Python can't understand the line</td><td>A missing quote or bracket</td></tr>
+<tr><td><code>NameError</code></td><td>A name isn't defined</td><td>A typo: <code>pirnt</code>, or using a variable before creating it</td></tr>
+<tr><td><code>TypeError</code></td><td>Wrong type for the operation</td><td><code>"Total: " + 5</code> (text plus a number)</td></tr>
+<tr><td><code>ValueError</code></td><td>Right type, impossible value</td><td><code>int("abc")</code></td></tr>
+<tr><td><code>IndentationError</code></td><td>Spaces at the start of a line are wrong</td><td>An accidental space before a line</td></tr>
+</tbody></table></div>`,
+code:[{task:R`<b>Fix the bugs.</b> This program has three errors. Run it, read each error, fix it, and run again until it prints <code>Total for 4 tickets: Rs. 10000</code>.`,starter:R`tickets = "4"
+price = 2500
+total = tickets * price
+pirnt("Total for " + tickets + " tickets: Rs. " + total)`,expect:'Total for 4 tickets: Rs. 10000',hint:'tickets should be a number (4, not "4"); print is misspelled; and you can\'t add a number to text, so use str(), or better, an f-string.',solution:R`tickets = 4
+price = 2500
+total = tickets * price
+print(f"Total for {tickets} tickets: Rs. {total}")`}]},
+{h:'Check yourself',nav:'Quiz',time:'15 min',quiz:[
+{q:'What does = do in Python?',o:['Checks whether two values are equal','Stores a value under a name','Prints a value','Compares types'],a:1,e:'= assigns. To compare, use ==.'},
+{q:'What is 17 // 5?',o:['3.4','3','2','4'],a:1,e:'// is whole-number division: 5 goes into 17 three times.'},
+{q:'What is 17 % 5?',o:['2','3','3.4','0'],a:0,e:'% gives the remainder: 17 = 3 × 5 + 2.'},
+{q:'What type does input() always return?',o:['int','float','str','bool'],a:2,e:'Always a string; convert it with int() or float() for maths.'},
+{q:'If word = "Python", what is word[1:4]?',o:['Pyt','yth','ytho','tho'],a:1,e:'From index 1 up to, but not including, 4: y, t, h.'},
+{q:'Which name follows Python style?',o:['TicketPrice','ticketprice','ticket_price','2ticket'],a:2,e:'snake_case: lowercase words joined with underscores.'},
+{q:'"Total: " + 5 causes which error?',o:['NameError','SyntaxError','TypeError','ValueError'],a:2,e:'You can\'t add a str and an int. Use an f-string or str(5).'},
+{q:'Who created Python?',o:['Dennis Ritchie','Guido van Rossum','Brendan Eich','Linus Torvalds'],a:1,e:'Guido van Rossum started it in December 1989; it was released in 1991.'}]},
+{h:'Flashcards',nav:'Flashcards',time:'10 min',widget:'flash',cfg:{cards:[['Variable','A name that points to a value. Created with =.'],['int / float / str / bool','Whole number / decimal number / text / True or False.'],['//  and  %','Whole-number division, and remainder.'],['Index','A character\'s position in a string, starting at 0. -1 is the last.'],['Slice  s[a:b]','Characters from index a up to, but not including, b.'],['f-string','f"Hello {name}": puts variables straight into text.'],['input()','Asks the user a question; always returns a string.'],['TypeError','You used a value of the wrong type, e.g. text + number.']]}}],
+homework:['Write a program (paste the code here) that asks for an event name, the number of tickets sold and the ticket price, then prints the total revenue with an f-string.','Explain the difference between "5" and 5 in Python, and give one bug it can cause.','What do these print? (a) "Galle"[::-1]  (b) 2 ** 3 ** 2  (c) 10 / 4  (d) 10 // 4. Run them to check, then explain any that surprised you.']}
+});})();
+
+</script>
+<script>
+(()=>{const R=String.raw;
+const SALES=[['Event','Category','Venue','Tickets','Price','Revenue'],['Jazz Night','Concert','Colombo',340,2500,''],['Sunset Beats','Concert','Galle',520,3000,''],['Comedy Live','Comedy','Colombo',180,1500,''],['Kandy Perahera Tour','Tour','Kandy',95,7500,''],['Rock Fest','Concert','Colombo',1200,4000,''],['Stand-up Sunday','Comedy','Kandy',150,1200,''],['Food Fair','Festival','Galle',800,500,'']];
+const sheetData={};SALES.forEach((r,i)=>r.forEach((v,j)=>{if(v!=='')sheetData['ABCDEF'[j]+(i+1)]=v}));sheetData.H1='Results';
+const PIV=SALES.slice(1).map(r=>({Event:r[0],Category:r[1],Venue:r[2],Tickets:r[3],Price:r[4],Revenue:r[3]*r[4]}));
+const near=(a,b)=>typeof a==='number'&&Math.abs(a-b)<0.5;
+window.WW_LESSONS=Object.assign(window.WW_LESSONS||{},{
+d1:{id:'d1',day:2,slot:1,track:'D',hours:3,title:'Data thinking: types, the data lifecycle and KPIs',
+lead:'Before any tool or formula comes a way of thinking: what data is, what kind it is, how it flows through an organisation, and which numbers actually matter. Marketers who think this way stop drowning in dashboards and start making decisions.',
+goals:['Tell structured, semi-structured and unstructured data apart','Classify any column as numerical (discrete or continuous) or categorical (nominal or ordinal)','Describe the seven stages of the data lifecycle','Choose KPIs that drive decisions instead of vanity metrics','Calculate the core marketing KPIs: CTR, conversion rate, CPC, CPA and ROAS'],
+parts:[
+{h:'Data before computers',nav:'History',time:'20 min',body:R`<p>Data-driven decisions are older than computers. Three stories show the habits you'll practise all bootcamp: map the data, show it clearly, and automate the counting.</p>`,timeline:[
+{y:'1854',short:'John Snow',title:'The cholera map',who:'John Snow · London physician',story:'During a cholera outbreak in Soho, Snow marked each death on a street map and saw them clustered around one water pump on Broad Street. He persuaded officials to remove the pump handle, and cases fell.',why:'He went from data to a decision that saved lives: the core of analytics.'},
+{y:'1858',short:'Florence Nightingale',title:'Charts that changed policy',who:'Florence Nightingale · nurse and statistician',story:'Nightingale showed with her "rose diagrams" that far more British soldiers in the Crimean War died from preventable disease than from battle wounds. The charts persuaded the government to reform army hospitals.',why:'A clear chart can move people who would never read a table.'},
+{y:'1890',short:'Herman Hollerith',title:'Machines that count',who:'Herman Hollerith · American inventor',story:'Hollerith\'s punched-card tabulating machines processed the 1890 US census in a fraction of the time the previous census had taken by hand. His company later became part of IBM.',why:'The start of automated data processing.'},
+{y:'1950s',short:'W. Edwards Deming',title:'Measure to improve',who:'W. Edwards Deming · American statistician',story:'Deming taught Japanese manufacturers to use statistics to measure and steadily improve quality, which helped Japan\'s post-war industrial rise.',why:'KPIs are only useful when they lead to action and improvement.'},
+{y:'2008',short:'"Data scientist"',title:'A new job title',who:'DJ Patil (LinkedIn) and Jeff Hammerbacher (Facebook)',story:'The two are credited with popularising the title "data scientist" for people who combine statistics, coding and business sense.',why:'This bootcamp\'s Data and AI tracks lead towards roles like these.'}]},
+{h:'What data is, and its shapes',nav:'Data shapes',time:'25 min',body:R`
+<p><b>Data</b> is recorded facts: a ticket sale, a click, a temperature reading, a review. On its own it's raw material; <b>information</b> is data organised to answer a question, and <b>insight</b> is information that changes what you do.</p>
+<div class="tbl-wrap"><table><thead><tr><th>Shape</th><th>What it looks like</th><th>Examples</th></tr></thead><tbody>
+<tr><td><b>Structured</b></td><td>Rows and columns with fixed types</td><td>Spreadsheets, sales databases, CRM records</td></tr>
+<tr><td><b>Semi-structured</b></td><td>Labelled but flexible</td><td>JSON from an API, emails (headers + body), web logs</td></tr>
+<tr><td><b>Unstructured</b></td><td>No fixed format</td><td>Photos, videos, voice notes, social media comments</td></tr>
+</tbody></table></div>
+<p>Industry estimates commonly put around 80% of the world's data in the unstructured group, which is why AI tools that read text and images matter so much.</p>
+<p>In a structured table, each <b>row</b> is one record (one sale, one customer) and each <b>column</b> is one variable (date, price, city). Getting this right is called <b>tidy data</b>, a term popularised by statistician Hadley Wickham in 2014: one variable per column, one observation per row.</p>`},
+{h:'Types of data',nav:'Data types',time:'30 min',body:R`
+<p>The type of a column decides which maths and charts make sense. You can average ages, but not cities.</p>
+<div class="tbl-wrap"><table><thead><tr><th>Type</th><th>Sub-type</th><th>Meaning</th><th>Examples</th></tr></thead><tbody>
+<tr><td rowspan="2"><b>Numerical</b> (quantitative)</td><td>Discrete</td><td>Counted, whole numbers</td><td>Tickets sold, number of clicks, followers</td></tr>
+<tr><td>Continuous</td><td>Measured, any value in a range</td><td>Revenue, temperature, time on page</td></tr>
+<tr><td rowspan="2"><b>Categorical</b> (qualitative)</td><td>Nominal</td><td>Labels with no order</td><td>City, payment method, ticket category</td></tr>
+<tr><td>Ordinal</td><td>Labels with a natural order</td><td>Rating (poor → excellent), ticket tier (General, VIP, VVIP)</td></tr>
+<tr><td><b>Date/time</b></td><td></td><td>Points or spans in time</td><td>Purchase date, event start time</td></tr>
+</tbody></table></div>
+<p><b>A trap:</b> numbers aren't always numerical. A phone number or postal code is a label, so it's categorical. Averaging postal codes is meaningless.</p>
+<p><b>Sort these real columns from a ticketing database:</b></p>`,widget:'classify',cfg:{opts:['Discrete','Continuous','Nominal','Ordinal','Date/time'],items:[['Tickets sold per order',0,'Counted in whole numbers.'],['Order value (Rs.)',1,'Money is measured and can take any value.'],['Customer city',2,'Labels with no natural order.'],['Seat tier: General / VIP / VVIP',3,'Labels with a clear order.'],['Purchase timestamp',4,'A point in time.'],['Customer phone number',2,'Digits, but it\'s a label: you can\'t average it.'],['Satisfaction: 1–5 stars',3,'Ordered categories. Averages are common, but strictly it\'s ordinal.'],['Minutes spent on the event page',1,'Measured time, any value.']]}},
+{h:'The data lifecycle',nav:'Lifecycle',time:'20 min',body:R`
+<p>Data flows through seven stages. Problems at an early stage poison everything after it, which is summed up in the old computing saying <b>"garbage in, garbage out"</b>.</p>
+<ol><li><b>Collect:</b> forms, ticket sales, website tracking, surveys, sensors.</li><li><b>Store:</b> spreadsheets, databases, cloud warehouses.</li><li><b>Clean:</b> fix typos, duplicates, missing values, inconsistent formats ("Colombo", "colombo", "CMB").</li><li><b>Analyse:</b> calculate, compare, find patterns.</li><li><b>Visualise:</b> charts and dashboards people can read at a glance.</li><li><b>Act:</b> make a decision, change a campaign, test something new.</li><li><b>Govern:</b> keep it secure, legal and accurate. In Sri Lanka, personal data falls under the Personal Data Protection Act No. 9 of 2022.</li></ol>
+<div class="note"><b>Real-world rule of thumb:</b> analysts commonly report spending most of their time collecting and cleaning, not on the analysis itself. Week 4's pandas lessons are mostly about cleaning for exactly this reason.</div>`},
+{h:'Metrics, KPIs and asking good questions',nav:'KPIs',time:'30 min',body:R`
+<p>A <b>metric</b> is anything you can measure. A <b>KPI (key performance indicator)</b> is one of the few metrics tied directly to a goal. A good analyst starts with the decision, not the data:</p>
+<ol><li><b>Business goal:</b> sell out the Rock Fest (1,200 tickets) by 15 March.</li><li><b>Question:</b> which channel brings buyers most cheaply?</li><li><b>KPI:</b> cost per ticket sold, by channel.</li><li><b>Decision:</b> move budget to the cheapest channel weekly.</li></ol>
+<h3>Vanity vs actionable</h3>
+<p><b>Vanity metrics</b> look good but don't guide decisions: total page views, follower counts, impressions on their own. <b>Actionable metrics</b> change what you do: conversion rate, cost per acquisition, repeat-purchase rate.</p>
+<h3>Leading vs lagging</h3>
+<p><b>Lagging</b> indicators report results after the fact (monthly revenue). <b>Leading</b> indicators predict them (add-to-cart rate this week, early-bird sign-ups). Track both.</p>
+<h3>The core marketing KPIs</h3>
+<div class="tbl-wrap"><table><thead><tr><th>KPI</th><th>Formula</th><th>Tells you</th></tr></thead><tbody>
+<tr><td><b>CTR</b> (click-through rate)</td><td>clicks ÷ impressions × 100</td><td>Is the ad grabbing attention?</td></tr>
+<tr><td><b>Conversion rate</b></td><td>conversions ÷ clicks × 100</td><td>Does the landing page persuade?</td></tr>
+<tr><td><b>CPC</b> (cost per click)</td><td>spend ÷ clicks</td><td>How expensive is traffic?</td></tr>
+<tr><td><b>CPA</b> (cost per acquisition)</td><td>spend ÷ conversions</td><td>What does each customer cost?</td></tr>
+<tr><td><b>ROAS</b> (return on ad spend)</td><td>revenue ÷ spend</td><td>Do the ads pay for themselves?</td></tr>
+<tr><td><b>CLV</b> (customer lifetime value)</td><td>average order × orders per year × years</td><td>How much may you spend to win a customer?</td></tr>
+</tbody></table></div>
+<p><b>Try it:</b> change the campaign numbers and watch every KPI and the verdict update.</p>`,widget:'kpi'},
+{h:'Practice: KPIs in Python',nav:'Practice',time:'25 min',body:R`<p>You learned Python variables this morning. Use them to calculate KPIs, the way analysts automate reports.</p>`,
+code:[{task:R`A Facebook campaign for Sunset Beats had 85,000 impressions, 1,700 clicks, 68 ticket sales, spend of Rs. 102,000 and revenue of Rs. 204,000. Print CTR (%), conversion rate (%), CPA (Rs.) and ROAS, each rounded to 2 decimals, one per line.`,starter:R`impressions = 85000
+clicks = 1700
+sales = 68
+spend = 102000
+revenue = 204000
+`,expect:'2.0\n4.0\n1500.0\n2.0',hint:'round(clicks / impressions * 100, 2) and so on. CPA = spend / sales; ROAS = revenue / spend.',solution:R`impressions = 85000
+clicks = 1700
+sales = 68
+spend = 102000
+revenue = 204000
+print(round(clicks / impressions * 100, 2))
+print(round(sales / clicks * 100, 2))
+print(round(spend / sales, 2))
+print(round(revenue / spend, 2))`}]},
+{h:'Check yourself',nav:'Quiz',time:'15 min',quiz:[
+{q:'A customer\'s postcode is which type of data?',o:['Discrete numerical','Continuous numerical','Nominal categorical','Ordinal categorical'],a:2,e:'It\'s a label made of digits; maths on it is meaningless.'},
+{q:'Which is a vanity metric for a ticket campaign on its own?',o:['Cost per ticket sold','Total impressions','Conversion rate','Repeat-purchase rate'],a:1,e:'Impressions alone don\'t tell you whether to change anything.'},
+{q:'ROAS of 0.8 means…',o:['80% of visitors bought','The ads earned less than they cost','The campaign is very profitable','The CTR is 0.8%'],a:1,e:'Revenue ÷ spend = 0.8: each Rs. 1 of ads brought back Rs. 0.80.'},
+{q:'Which stage of the data lifecycle fixes "Colombo" vs "colombo"?',o:['Collect','Clean','Visualise','Govern'],a:1,e:'Cleaning makes values consistent before analysis.'},
+{q:'Who mapped cholera deaths around a water pump in 1854?',o:['Florence Nightingale','John Snow','Herman Hollerith','W. Edwards Deming'],a:1,e:'John Snow\'s map led to the Broad Street pump handle being removed.'},
+{q:'Early-bird sign-ups this week are best described as…',o:['A lagging indicator','A leading indicator','Unstructured data','A vanity metric'],a:1,e:'They predict future ticket sales, so they lead.'}]},
+{h:'Flashcards',nav:'Flashcards',time:'10 min',widget:'flash',cfg:{cards:[['Structured data','Rows and columns with fixed types, like a spreadsheet.'],['Discrete vs continuous','Counted whole numbers vs measured values on a scale.'],['Nominal vs ordinal','Labels with no order vs labels with a natural order.'],['KPI','A key metric tied directly to a business goal.'],['CTR','Clicks ÷ impressions × 100.'],['CPA','Spend ÷ conversions: the cost of each customer.'],['ROAS','Revenue ÷ ad spend.'],['Leading indicator','A metric that predicts future results.']]}}],
+homework:['Pick a real event or product you know. Write its business goal, one question, one KPI and the decision that KPI would drive.','List 8 columns you would collect for an event-ticketing database and classify each as discrete, continuous, nominal, ordinal or date/time.','Find one vanity metric you have seen reported at work or online. Suggest an actionable metric to replace it, and explain why.']},
+
+d2:{id:'d2',day:3,slot:0,track:'D',hours:4,title:'Spreadsheets in depth',
+lead:'Spreadsheets are still the most used data tool in the world, and the fastest way to learn how analysts think. Today you master references, the key functions, lookups, cleaning and pivot tables, practising in a real spreadsheet built into this page.',
+goals:['Write formulas with relative and absolute references','Use SUM, AVERAGE, COUNT, MIN, MAX and ROUND','Make decisions in a cell with IF, AND and OR','Summarise by condition with SUMIF, COUNTIF and AVERAGEIF','Look up values with XLOOKUP or INDEX/MATCH','Clean messy data and build a pivot table'],
+parts:[
+{h:'How the spreadsheet changed business',nav:'History',time:'15 min',body:R`
+<p>In 1978, Harvard Business School student <b>Dan Bricklin</b> watched a professor erase and recalculate a whole financial table on a blackboard after changing one number. He imagined a "magic blackboard" that recalculated itself. With programmer <b>Bob Frankston</b> he built <b>VisiCalc</b> (1979) for the Apple II. It was so useful that businesses bought Apple computers just to run it, making it arguably the first "killer app".</p>
+<p><b>Lotus 1-2-3</b> took over on IBM PCs in 1983. Microsoft <b>Excel</b> arrived on the Mac in 1985 and on Windows in 1987, and became the standard. <b>Google Sheets</b> (2006) brought live collaboration in the browser. Everything you learn today works in both Excel and Google Sheets.</p>`},
+{h:'Cells, formulas and references',nav:'References',time:'35 min',body:R`
+<p>Every cell has an address: column letter + row number, like <code>B3</code>. A <b>formula</b> starts with <code>=</code>: <code>=D2*E2</code> multiplies two cells and updates automatically when either changes.</p>
+<h3>Relative vs absolute references</h3>
+<p>When you copy <code>=D2*E2</code> from row 2 down to row 3, it becomes <code>=D3*E3</code>: <b>relative</b> references move with the formula. Usually that's what you want.</p>
+<p>Sometimes one cell must stay fixed, such as a tax rate in <code>H2</code>. Add dollar signs: <code>=F2*$H$2</code>. The <code>$</code> locks the column, the row, or both (<code>$H2</code>, <code>H$2</code>, <code>$H$2</code>). In Excel, press <b>F4</b> to cycle through them.</p>
+<h3>Operators</h3>
+<p><code>+ - * /</code>, <code>^</code> for powers, <code>&amp;</code> to join text (<code>=A2&amp;" - "&amp;C2</code>), and comparisons <code>= &lt;&gt; &gt; &lt; &gt;= &lt;=</code>, which return TRUE or FALSE.</p>`},
+{h:'The essential functions',nav:'Functions',time:'40 min',body:R`
+<div class="tbl-wrap"><table><thead><tr><th>Function</th><th>Does</th><th>Example</th></tr></thead><tbody>
+<tr><td><code>SUM</code></td><td>Adds a range</td><td><code>=SUM(F2:F8)</code></td></tr>
+<tr><td><code>AVERAGE</code></td><td>Mean of the numbers</td><td><code>=AVERAGE(E2:E8)</code></td></tr>
+<tr><td><code>COUNT</code> / <code>COUNTA</code></td><td>Counts numbers / non-empty cells</td><td><code>=COUNTA(A2:A8)</code></td></tr>
+<tr><td><code>MIN</code> / <code>MAX</code></td><td>Smallest / largest</td><td><code>=MAX(D2:D8)</code></td></tr>
+<tr><td><code>ROUND</code></td><td>Rounds to n decimals</td><td><code>=ROUND(F2/D2, 2)</code></td></tr>
+<tr><td><code>IF</code></td><td>Chooses between two results</td><td><code>=IF(D2&gt;=500, "Big", "Small")</code></td></tr>
+<tr><td><code>AND</code> / <code>OR</code></td><td>Combine conditions</td><td><code>=IF(AND(D2&gt;100, E2&lt;3000), "Hit", "")</code></td></tr>
+<tr><td><code>SUMIF</code></td><td>Adds values whose row matches a condition</td><td><code>=SUMIF(B2:B8, "Concert", F2:F8)</code></td></tr>
+<tr><td><code>COUNTIF</code></td><td>Counts matching cells</td><td><code>=COUNTIF(C2:C8, "Colombo")</code></td></tr>
+<tr><td><code>AVERAGEIF</code></td><td>Averages matching rows</td><td><code>=AVERAGEIF(B2:B8, "Comedy", D2:D8)</code></td></tr>
+</tbody></table></div>
+<p>Conditions can use operators in quotes: <code>=COUNTIF(D2:D8, "&gt;500")</code> counts events that sold more than 500 tickets. <code>SUMIFS</code> and <code>COUNTIFS</code> (Excel and Sheets) take several conditions at once.</p>`},
+{h:'Hands-on: the ticket-sales sheet',nav:'Live sheet',time:'60 min',body:R`<p>This is a working spreadsheet. Click a cell, type in the formula bar, press <b>Enter</b>. Complete each task; the checklist ticks itself when the answer is right.</p>`,widget:'sheet',cfg:{data:sheetData,rows:10,tasks:[
+['In F2, calculate revenue: <code>=D2*E2</code>. Then fill F3 to F8 the same way (=D3*E3 and so on).',v=>['F2','F3','F4','F5','F6','F7','F8'].every((c,i)=>near(v(c),SALES[i+1][3]*SALES[i+1][4]))],
+['In F9, the total revenue: <code>=SUM(F2:F8)</code>',v=>near(v('F9'),PIV.reduce((s,r)=>s+r.Revenue,0))],
+['In H2, the average ticket price, rounded to 0 decimals: <code>=ROUND(AVERAGE(E2:E8),0)</code>',v=>near(v('H2'),Math.round(PIV.reduce((s,r)=>s+r.Price,0)/7))],
+['In H3, count the events held in Colombo with COUNTIF.',v=>near(v('H3'),3)],
+['In H4, total Concert revenue with SUMIF.',v=>near(v('H4'),PIV.filter(r=>r.Category==='Concert').reduce((s,r)=>s+r.Revenue,0))],
+['In G2, use IF to label Jazz Night "Big" if it sold 500 or more tickets, else "Small". Fill G3 to G8.',v=>['G2','G3','G4','G5','G6','G7','G8'].every((c,i)=>String(v(c)).toLowerCase()===(SALES[i+1][3]>=500?'big':'small'))],
+['In H5, the largest number of tickets sold at one event with MAX.',v=>near(v('H5'),1200)]]}},
+{h:'Lookups: finding values in another table',nav:'Lookups',time:'25 min',body:R`
+<p>Lookups pull a value from another table by matching a key, such as finding a customer's city by their ID.</p>
+<ul><li><b>VLOOKUP</b> (1980s classic): <code>=VLOOKUP(key, table, column_number, FALSE)</code>. It only looks to the right, and breaks if someone inserts a column. Always use <code>FALSE</code> for an exact match.</li>
+<li><b>XLOOKUP</b> (Excel 2019 onward, and Google Sheets): <code>=XLOOKUP(key, lookup_range, return_range, "Not found")</code>. It looks in any direction and is the modern choice.</li>
+<li><b>INDEX + MATCH</b>: <code>=INDEX(return_range, MATCH(key, lookup_range, 0))</code>. It works in every version and is very fast on big sheets.</li></ul>
+<pre class="ex">Price of Rock Fest:
+=XLOOKUP("Rock Fest", A2:A8, E2:E8)          → 4000
+=INDEX(E2:E8, MATCH("Rock Fest", A2:A8, 0))  → 4000</pre>`},
+{h:'Cleaning messy data',nav:'Cleaning',time:'25 min',body:R`
+<p>Real exports are messy. These functions fix the most common problems:</p>
+<div class="tbl-wrap"><table><thead><tr><th>Problem</th><th>Fix</th></tr></thead><tbody>
+<tr><td>Extra spaces: "  Colombo "</td><td><code>=TRIM(A2)</code></td></tr>
+<tr><td>Inconsistent case: "COLOMBO", "colombo"</td><td><code>=PROPER(A2)</code>, <code>=UPPER()</code>, <code>=LOWER()</code></td></tr>
+<tr><td>Numbers stored as text</td><td><code>=VALUE(A2)</code>, or multiply by 1</td></tr>
+<tr><td>Duplicates</td><td>Data → Remove duplicates (Sheets: Data → Data cleanup)</td></tr>
+<tr><td>Combining columns</td><td><code>=CONCAT(A2," ",B2)</code> or <code>&amp;</code></td></tr>
+<tr><td>Splitting "Galle, Southern"</td><td>Data → Split text to columns</td></tr>
+<tr><td>Mixed date formats</td><td>Format → Number → Date, then check that DATE values sort correctly</td></tr>
+</tbody></table></div>
+<div class="note"><b>Golden rule:</b> never clean the original. Copy the raw data into a new sheet, or add cleaned columns next to the raw ones, so you can always check your work.</div>`},
+{h:'Pivot tables: summaries in seconds',nav:'Pivot tables',time:'30 min',body:R`
+<p>A <b>pivot table</b> groups rows by a category and summarises a value (sum, average, count), with no formulas. Lotus Improv (1991) introduced the idea, and Excel made it famous as PivotTable in 1993. In Excel or Sheets: select the data → Insert → Pivot table → choose <b>Rows</b> and <b>Values</b>.</p>
+<p><b>Try it:</b> change the grouping and the value to answer: which venue brings the most revenue? Which category sells the most tickets?</p>`,widget:'pivot',cfg:{groups:['Venue','Category'],rows:PIV},after:R`<p><b>Choosing charts:</b> bar charts compare categories, line charts show change over time, and pie charts only work for a few parts of one whole. You'll go much deeper in the visualisation lessons.</p>`},
+{h:'Check yourself',nav:'Quiz',time:'15 min',quiz:[
+{q:'You copy =D2*$H$2 from row 2 to row 3. What do you get?',o:['=D3*$H$3','=D3*$H$2','=D2*$H$2','=D3*H3'],a:1,e:'D2 is relative so it becomes D3; $H$2 is absolute and stays fixed.'},
+{q:'Which formula counts events that sold more than 500 tickets?',o:['=COUNT(D2:D8>500)','=COUNTIF(D2:D8,">500")','=SUMIF(D2:D8,">500")','=IF(D2>500)'],a:1,e:'COUNTIF with the condition in quotes.'},
+{q:'Why is XLOOKUP preferred over VLOOKUP?',o:['It\'s older','It can look in any direction and doesn\'t break when columns move','It only works in Excel 2007','It doesn\'t need a key'],a:1,e:'VLOOKUP uses a fixed column number and only looks right.'},
+{q:'Who created VisiCalc?',o:['Bill Gates','Dan Bricklin and Bob Frankston','Steve Jobs','Mitch Kapor'],a:1,e:'In 1979, for the Apple II.'},
+{q:'What does =TRIM("  Galle  ") return?',o:['"  Galle"','"Galle"','"GALLE"','An error'],a:1,e:'TRIM removes extra spaces.'},
+{q:'A pivot table is best for…',o:['Typing new data','Summarising values by category without formulas','Drawing maps','Sending emails'],a:1,e:'Group by rows, summarise values.'}]},
+{h:'Flashcards',nav:'Flashcards',time:'10 min',widget:'flash',cfg:{cards:[['Relative reference','A2: changes when the formula is copied.'],['Absolute reference','$A$2: stays fixed when copied. F4 toggles it in Excel.'],['SUMIF','=SUMIF(range, condition, sum_range)'],['COUNTIF','=COUNTIF(range, condition)'],['XLOOKUP','=XLOOKUP(key, lookup_range, return_range): the modern lookup.'],['INDEX/MATCH','=INDEX(return, MATCH(key, lookup, 0)): works everywhere.'],['Pivot table','Groups rows by a category and summarises values.'],['TRIM / PROPER','Remove extra spaces / Capitalise Each Word.']]}}],
+homework:['Recreate the ticket-sales table in Google Sheets or Excel. Add a column for VAT at a rate kept in one cell (use an absolute reference). Paste your formulas here.','Write the formula to find the price of "Comedy Live" with XLOOKUP, and again with INDEX/MATCH.','Build a pivot table of tickets by venue in your own sheet. Which venue sells the most, and what would you do with that insight as a marketer?']},
+
+c1:{id:'c1',day:3,slot:1,track:'C',hours:3,title:'Security foundations',
+lead:'Cyber security starts with a simple set of ideas: what we protect, who attacks, how risk is judged, and the habits that stop most attacks. Today you learn the vocabulary every security professional uses and secure your own accounts.',
+goals:['Explain the CIA triad with real examples','Describe the main threat actors and what motivates them','Tell vulnerabilities, threats and risks apart, and score a risk','Name the most common attacks','Apply personal security hygiene: passphrases, password managers, MFA, updates and backups'],
+parts:[
+{h:'A short history of attacks',nav:'History',time:'20 min',body:R`<p>Every major attack taught defenders a lesson they still use.</p>`,timeline:[
+{y:'1971',short:'Creeper',title:'The first self-copying program',who:'Bob Thomas · BBN Technologies',story:'Creeper moved between computers on ARPANET, the ancestor of the internet, displaying "I\'m the creeper, catch me if you can!". Ray Tomlinson then wrote Reaper to chase and delete it.',why:'The first worm, and the first antivirus.'},
+{y:'1988',short:'Morris worm',title:'The internet\'s first big outage',who:'Robert Tappan Morris · Cornell student',story:'A worm meant to measure the internet spread far faster than intended, slowing or crashing thousands of machines, a large share of the internet at the time. Morris became the first person convicted under the US Computer Fraud and Abuse Act.',why:'It led to the first CERT, the computer emergency response team model that Sri Lanka also uses.'},
+{y:'2000',short:'ILOVEYOU',title:'Social engineering at scale',who:'An email worm from the Philippines',story:'An email titled "ILOVEYOU" with an attachment called LOVE-LETTER-FOR-YOU spread to millions of computers in days, overwriting files.',why:'It proved that tricking people is often easier than breaking technology.'},
+{y:'2006',short:'Sri Lanka CERT',title:'A national response team',who:'Sri Lanka CERT|CC',story:'Sri Lanka set up its national Computer Emergency Readiness Team to coordinate responses to cyber incidents. The Computer Crime Act No. 24 of 2007 followed, making unauthorised access a criminal offence.',why:'Know where incidents are reported and what the law says before you ever practise hacking.'},
+{y:'2010',short:'Stuxnet',title:'Code that broke machines',who:'Widely attributed to state actors',story:'Stuxnet targeted industrial controllers and physically damaged centrifuges in Iran, the first widely known cyber weapon to cause physical destruction.',why:'Cyber attacks can affect the physical world: power, water, factories.'},
+{y:'2017',short:'WannaCry',title:'Ransomware goes global',who:'Ransomware worm',story:'WannaCry encrypted files on hundreds of thousands of computers in about 150 countries, disrupting hospitals in the UK, using a Windows flaw that already had a patch available.',why:'Many victims had simply not installed updates. Patching matters.'}]},
+{h:'The CIA triad',nav:'CIA triad',time:'25 min',body:R`
+<p>Security protects three properties of information, known as the <b>CIA triad</b> (nothing to do with the spy agency):</p>
+<div class="tbl-wrap"><table><thead><tr><th>Property</th><th>Means</th><th>Broken when…</th><th>Protected by</th></tr></thead><tbody>
+<tr><td><b>Confidentiality</b></td><td>Only the right people can see it</td><td>Customer list leaked</td><td>Passwords, MFA, encryption, permissions</td></tr>
+<tr><td><b>Integrity</b></td><td>It is accurate and unaltered</td><td>Someone changes bank details on an invoice</td><td>Hashes, signatures, audit logs, backups</td></tr>
+<tr><td><b>Availability</b></td><td>It works when needed</td><td>Ticketing site down on launch day</td><td>Backups, redundancy, DDoS protection</td></tr>
+</tbody></table></div>
+<p><b>Sort these incidents</b> by the property they mainly attack:</p>`,widget:'classify',cfg:{opts:['Confidentiality','Integrity','Availability'],items:[['A hacker downloads your customer email list',0,'Data was exposed to the wrong people.'],['Ransomware locks all office files',2,'You can\'t use your data. Ransomware gangs now often steal it too, which also hits confidentiality.'],['A fake email changes the bank account on a supplier invoice',1,'The information was altered.'],['A flood of traffic takes the ticket site offline',2,'A denial-of-service attack stops people using the service.'],['An intern reads salary files they shouldn\'t access',0,'Wrong person, wrong data.'],['Someone edits event prices on your website',1,'Unauthorised change to information.']]}},
+{h:'Threat actors, vulnerabilities and risk',nav:'Risk',time:'30 min',body:R`
+<h3>Who attacks</h3>
+<div class="tbl-wrap"><table><thead><tr><th>Threat actor</th><th>Motivation</th><th>Typical attack</th></tr></thead><tbody>
+<tr><td>Cyber criminals</td><td>Money</td><td>Ransomware, phishing, card fraud</td></tr>
+<tr><td>Hacktivists</td><td>A political or social cause</td><td>Defacing websites, leaking data</td></tr>
+<tr><td>Nation-state groups</td><td>Espionage, disruption</td><td>Long, stealthy intrusions</td></tr>
+<tr><td>Insiders</td><td>Revenge, money, or simple mistakes</td><td>Data theft, accidental leaks</td></tr>
+<tr><td>Unskilled attackers ("script kiddies")</td><td>Curiosity, bragging</td><td>Running ready-made attack tools</td></tr>
+</tbody></table></div>
+<h3>Three words people mix up</h3>
+<ul><li><b>Vulnerability:</b> a weakness, such as an unpatched laptop or a reused password.</li><li><b>Threat:</b> something that could exploit it, such as a ransomware gang.</li><li><b>Risk:</b> the chance and the cost of it happening. A simple score is <b>risk = likelihood × impact</b>.</li></ul>
+<p>Your <b>attack surface</b> is every way in: email inboxes, social media logins, the website, laptops, phones, Wi-Fi, suppliers and people.</p>
+<p><b>Try it:</b> score a risk, for example "the brand's Instagram account has no MFA".</p>`,widget:'risk'},
+{h:'Common attacks in one page',nav:'Attacks',time:'20 min',body:R`
+<ul>
+<li><b>Phishing:</b> fake messages that trick you into clicking, paying or typing a password. The most common way in, and tomorrow's deep-dive topic.</li>
+<li><b>Malware:</b> harmful software. <b>Ransomware</b> encrypts files and demands payment.</li>
+<li><b>Credential stuffing:</b> attackers try passwords leaked from one site on many other sites. This is why reused passwords are dangerous.</li>
+<li><b>Brute force:</b> guessing passwords at huge speed. Weak or short passwords fall quickly.</li>
+<li><b>Man-in-the-middle:</b> intercepting traffic, for example on fake public Wi-Fi.</li>
+<li><b>Denial of service (DoS/DDoS):</b> flooding a service until it can't respond.</li>
+<li><b>Social media account takeover:</b> common against brands, influencers and event pages, often through fake "copyright violation" messages.</li></ul>`},
+{h:'Personal security hygiene',nav:'Hygiene',time:'30 min',body:R`
+<p>A handful of habits stop the large majority of everyday attacks:</p>
+<ol>
+<li><b>Long passphrases:</b> four or five random words ("mango-tuktuk-river-violin") beat short complex passwords. Length matters most.</li>
+<li><b>A password manager</b> (Bitwarden, 1Password, or the one built into your browser or phone) so every account gets a different password. You remember one strong master passphrase.</li>
+<li><b>MFA (multi-factor authentication)</b> everywhere it's offered. Best: <b>passkeys</b> or security keys; good: authenticator apps; weakest: SMS codes, because SIM-swap fraud can steal them.</li>
+<li><b>Updates:</b> turn on automatic updates for Windows, your phone, browser and apps. WannaCry spread through an already-patched flaw.</li>
+<li><b>Backups (3-2-1 rule):</b> 3 copies, on 2 kinds of storage, 1 offline or off-site.</li>
+<li><b>Check before you click:</b> unexpected attachments, urgent payment requests and login links in messages deserve a second look.</li>
+<li><b>Lock screens and encrypt devices:</b> BitLocker on Windows, and a strong PIN on your phone.</li></ol>
+<p><b>Try it:</b> test how strong different passwords are. Nothing you type leaves this page.</p>`,widget:'password'},
+{h:'Lab: secure your own accounts',nav:'Lab',time:'25 min',body:R`<p>Do these now, on your real accounts. They feed directly into the Day 6 Project 1 security audit.</p>`,check:['Listed my 10 most important accounts (email, banking, social media, work tools)','Checked my main email at haveibeenpwned.com for past breaches','Installed or opened a password manager','Changed my main email password to a unique passphrase','Turned on MFA (authenticator app or passkey) for my main email','Turned on MFA for my main social media accounts','Turned on automatic updates for Windows and my phone','Checked I have a recent backup of important files']},
+{h:'Check yourself',nav:'Quiz',time:'15 min',quiz:[
+{q:'An attacker changes the bank details on an invoice. Which part of the CIA triad is attacked?',o:['Confidentiality','Integrity','Availability','None'],a:1,e:'The data was altered.'},
+{q:'Risk is usually scored as…',o:['Threat + vulnerability','Likelihood × impact','Cost ÷ time','Number of attacks per year'],a:1,e:'How likely, times how bad.'},
+{q:'Which MFA method is weakest?',o:['Passkey','Hardware security key','Authenticator app','SMS code'],a:3,e:'SMS codes can be stolen through SIM-swap fraud. They are still far better than no MFA.'},
+{q:'Why is reusing one password on many sites dangerous?',o:['It\'s slower to type','A leak on one site opens the others (credential stuffing)','It breaks MFA','It isn\'t dangerous'],a:1,e:'Attackers automatically try leaked passwords everywhere.'},
+{q:'What did WannaCry (2017) mostly exploit?',o:['Weak Wi-Fi','Computers missing an available Windows update','Fake websites','Stolen phones'],a:1,e:'A patch already existed; unpatched machines were hit.'},
+{q:'Which Sri Lankan law makes unauthorised computer access a crime?',o:['Personal Data Protection Act 2022','Computer Crime Act No. 24 of 2007','Electronic Transactions Act','Telecommunications Act'],a:1,e:'The Computer Crime Act No. 24 of 2007.'}]},
+{h:'Flashcards',nav:'Flashcards',time:'10 min',widget:'flash',cfg:{cards:[['CIA triad','Confidentiality, Integrity, Availability.'],['Vulnerability','A weakness that could be exploited.'],['Threat','Someone or something that could exploit a weakness.'],['Risk','Likelihood × impact.'],['Attack surface','Every possible way into a system or organisation.'],['Credential stuffing','Trying leaked passwords on many other sites.'],['MFA','A second proof of identity: passkey, app code, or (weakest) SMS.'],['3-2-1 backups','3 copies, 2 kinds of storage, 1 off-site or offline.']]}}],
+homework:['Map the attack surface of an events brand: list at least 10 ways an attacker could get in.','Score three risks for that brand with likelihood × impact, and give one fix for each.','Explain the CIA triad to a colleague with one example of each from the events or music business.']}
+});})();
+
+</script>
+<script>
+(()=>{const R=String.raw;window.WW_LESSONS=Object.assign(window.WW_LESSONS||{},{
+s3:{id:'s3',day:4,slot:0,track:'S',hours:4,title:'Python II: decisions, loops and debugging',
+lead:'Programs become useful when they can decide and repeat. Today you learn if/elif/else, while and for loops, and the debugging mindset professionals rely on, then use them to build pricing rules, reports and the famous FizzBuzz.',
+goals:['Write decisions with if, elif and else, and combine conditions with and, or and not','Repeat work with for loops and range(), and with while loops','Use the accumulator and counter patterns','Control loops with break and continue','Debug systematically: read, reproduce, isolate, fix, test'],
+parts:[
+{h:'Three building blocks are enough',nav:'The idea',time:'15 min',body:R`
+<p>In 1966, Italian computer scientists <b>Corrado Böhm</b> and <b>Giuseppe Jacopini</b> proved that any computable procedure can be written with just three structures:</p>
+<ol><li><b>Sequence:</b> do steps in order (what you did yesterday).</li><li><b>Selection:</b> choose between paths (<code>if</code>).</li><li><b>Iteration:</b> repeat (<code>for</code>, <code>while</code>).</li></ol>
+<p>Two years later, Dutch pioneer <b>Edsger Dijkstra</b> published his famous letter "Go To Statement Considered Harmful", arguing programs should be built only from these clear blocks rather than jumping around. Modern languages, including Python, follow that advice. Master today's lesson and you can, in principle, write any program.</p>`},
+{h:'Decisions with if, elif and else',nav:'if / elif / else',time:'40 min',body:R`
+<pre class="ex">age = 17
+if age &lt; 12:
+    price = 0
+elif age &lt; 18:
+    price = 1500
+else:
+    price = 2500
+print(price)        # 1500</pre>
+<ul>
+<li>The condition is followed by a <b>colon</b>, and the code that belongs to it is <b>indented by 4 spaces</b>. Indentation isn't decoration in Python: it defines the blocks.</li>
+<li>Python checks conditions top to bottom and runs only the <b>first</b> one that's True.</li>
+<li><code>elif</code> and <code>else</code> are optional.</li>
+<li>Combine conditions with <code>and</code>, <code>or</code>, <code>not</code>: <code>if age &gt;= 18 and has_ticket:</code></li>
+<li><b>Truthiness:</b> <code>0</code>, <code>""</code>, empty lists and <code>None</code> count as False; most other values count as True. So <code>if name:</code> means "if name isn't empty".</li></ul>`,
+code:[
+{task:R`<b>Ticket pricing.</b> Children under 12 enter free, ages 12–17 pay Rs. 1,500, adults pay Rs. 2,500, and anyone 60 or over pays Rs. 1,000. Print the price for each age in the input box (one per run is fine; the box has <code>65</code>).`,starter:R`age = int(input("Age? "))
+`,inputs:'65',contains:['1000'],hint:'Check the 60+ case before the adult case, because Python stops at the first True condition.',solution:R`age = int(input("Age? "))
+if age < 12:
+    price = 0
+elif age < 18:
+    price = 1500
+elif age >= 60:
+    price = 1000
+else:
+    price = 2500
+print(price)`},
+{task:R`<b>Campaign verdict.</b> Given <code>roas</code>, print <code>Scale up</code> if it's 3 or more, <code>Keep testing</code> if it's at least 1, and <code>Pause</code> otherwise. The starter sets roas to 2.4.`,starter:R`roas = 2.4
+`,expect:'Keep testing',solution:R`roas = 2.4
+if roas >= 3:
+    print("Scale up")
+elif roas >= 1:
+    print("Keep testing")
+else:
+    print("Pause")`}]},
+{h:'for loops and range()',nav:'for loops',time:'45 min',body:R`
+<p>A <code>for</code> loop repeats a block once for each item in a sequence:</p>
+<pre class="ex">for city in ["Colombo", "Kandy", "Galle"]:
+    print("Tickets on sale in", city)
+
+for i in range(5):      # 0, 1, 2, 3, 4
+    print(i)</pre>
+<ul><li><code>range(5)</code> → 0 to 4. <code>range(1, 6)</code> → 1 to 5. <code>range(0, 20, 5)</code> → 0, 5, 10, 15.</li><li>You can loop over a string's characters: <code>for ch in "Galle":</code></li></ul>
+<h3>Two patterns you'll use forever</h3>
+<pre class="ex">total = 0                    # accumulator
+for sale in [2500, 3000, 1500]:
+    total += sale
+print(total)                 # 7000
+
+count = 0                    # counter
+for sale in [2500, 3000, 1500]:
+    if sale &gt;= 2500:
+        count += 1
+print(count)                 # 2</pre>`,
+code:[
+{task:R`Use a loop to add up all the whole numbers from 1 to 100 and print the total.`,starter:R`total = 0
+`,expect:'5050',hint:'for n in range(1, 101): total += n',solution:R`total = 0
+for n in range(1, 101):
+    total += n
+print(total)`},
+{task:R`Print the 7 times table from <code>7 x 1 = 7</code> to <code>7 x 10 = 70</code>, one line each, exactly in that format.`,starter:R`for i in range(1, 11):
+`,expect:Array.from({length:10},(_,i)=>`7 x ${i+1} = ${7*(i+1)}`).join('\n'),solution:R`for i in range(1, 11):
+    print(f"7 x {i} = {7 * i}")`},
+{task:R`Given the list of daily ticket sales, print the total, then the number of days with more than 100 sales.`,starter:R`daily = [45, 120, 98, 210, 160, 75, 300]
+`,expect:'1008\n4',solution:R`daily = [45, 120, 98, 210, 160, 75, 300]
+total = 0
+big_days = 0
+for d in daily:
+    total += d
+    if d > 100:
+        big_days += 1
+print(total)
+print(big_days)`}]},
+{h:'while loops, break and continue',nav:'while loops',time:'30 min',body:R`
+<p>A <code>while</code> loop repeats as long as its condition is True. Use it when you don't know in advance how many repeats you need.</p>
+<pre class="ex">seats = 5
+while seats &gt; 0:
+    print("Seats left:", seats)
+    seats -= 1
+print("Sold out!")</pre>
+<ul><li><b>break</b> leaves the loop immediately.</li><li><b>continue</b> skips to the next repeat.</li><li><b>Infinite loop warning:</b> if the condition never becomes False, the loop never ends. Always make sure something inside the loop moves it towards stopping. This page stops runaway code after a few seconds.</li></ul>`,
+code:[{task:R`A savings goal: you save Rs. 15,000 a month towards a Rs. 100,000 laptop. Use a while loop to count the months needed, and print <code>Months: 7</code>.`,starter:R`saved = 0
+months = 0
+`,expect:'Months: 7',solution:R`saved = 0
+months = 0
+while saved < 100000:
+    saved += 15000
+    months += 1
+print(f"Months: {months}")`}]},
+{h:'FizzBuzz: the classic test',nav:'FizzBuzz',time:'25 min',body:R`
+<p>FizzBuzz began as a children's counting game and became a famous programming interview question in 2007, when developers noticed many applicants couldn't solve it. It checks exactly what you learned today: loops, <code>%</code> and if/elif ordering.</p>
+<p><b>Rules:</b> for the numbers 1 to 15, print <code>Fizz</code> if the number is divisible by 3, <code>Buzz</code> if divisible by 5, <code>FizzBuzz</code> if divisible by both, and otherwise the number itself.</p>`,
+code:[{task:R`Write FizzBuzz for 1 to 15.`,starter:R`for n in range(1, 16):
+`,expect:'1\n2\nFizz\n4\nBuzz\nFizz\n7\n8\nFizz\nBuzz\n11\nFizz\n13\n14\nFizzBuzz',hint:'Check "divisible by both" (n % 15 == 0) first. Otherwise 15 would print just Fizz.',solution:R`for n in range(1, 16):
+    if n % 15 == 0:
+        print("FizzBuzz")
+    elif n % 3 == 0:
+        print("Fizz")
+    elif n % 5 == 0:
+        print("Buzz")
+    else:
+        print(n)`}]},
+{h:'The debugging mindset',nav:'Debugging',time:'35 min',body:R`
+<p>On 9 September 1947, operators of the Harvard Mark II computer found a moth trapped in a relay and taped it into the logbook with the note "First actual case of bug being found". <b>Grace Hopper</b> loved telling this story. Engineers had called faults "bugs" since Edison's time, but the moth made "debugging" famous.</p>
+<h3>A process that always works</h3>
+<ol><li><b>Read</b> the error message: last line first, then the line number.</li><li><b>Reproduce</b> the bug reliably with the smallest input that causes it.</li><li><b>Isolate:</b> add <code>print()</code> lines to see what your variables really contain at each step. Assumptions are where bugs hide.</li><li><b>Fix</b> one thing at a time.</li><li><b>Test</b> again, including normal cases and edge cases (0, empty, very large).</li></ol>
+<p><b>Rubber duck debugging:</b> explain your code line by line, out loud, to a rubber duck or any object. The idea comes from the book <i>The Pragmatic Programmer</i> (1999), and it works surprisingly often: you hear your own wrong assumption.</p>
+<p><b>Common loop bugs:</b> off-by-one ranges (<code>range(1, 10)</code> stops at 9), forgetting to update the counter, resetting an accumulator inside the loop, and wrong indentation.</p>`,
+code:[{task:R`<b>Debug this.</b> It should print the average of the scores (<code>78.0</code>) but gives a wrong answer. Find the two bugs.`,starter:R`scores = [72, 85, 90, 65]
+for s in scores:
+    total = 0
+    total += s
+average = total / 3
+print(average)`,expect:'78.0',hint:'Where is total reset? And how many scores are there? Use len(scores).',solution:R`scores = [72, 85, 90, 65]
+total = 0
+for s in scores:
+    total += s
+average = total / len(scores)
+print(average)`}]},
+{h:'Check yourself',nav:'Quiz',time:'15 min',quiz:[
+{q:'What does range(2, 8, 2) produce?',o:['2, 4, 6, 8','2, 4, 6','2, 3, 4, 5, 6, 7','0, 2, 4, 6'],a:1,e:'Start at 2, step 2, stop before 8.'},
+{q:'In an if/elif chain, how many blocks run?',o:['All that are True','Only the first True one','Only the last True one','None'],a:1,e:'Python stops at the first True condition.'},
+{q:'What does break do?',o:['Skips to the next repeat','Leaves the loop immediately','Stops the whole program','Causes an error'],a:1,e:'break exits the loop; continue skips to the next repeat.'},
+{q:'Which value counts as False?',o:['"0"','[0]','0','"False"'],a:2,e:'The number 0 is falsy; "0", [0] and "False" are non-empty, so truthy.'},
+{q:'Who proved that sequence, selection and iteration are enough to write any program?',o:['Dijkstra','Böhm and Jacopini','Turing','Hopper'],a:1,e:'Böhm and Jacopini, 1966.'},
+{q:'Your loop never ends. The most likely cause is…',o:['A missing colon','The condition never becomes False','Too many print statements','Using range()'],a:1,e:'Something inside the loop must move it towards stopping.'}]},
+{h:'Flashcards',nav:'Flashcards',time:'10 min',widget:'flash',cfg:{cards:[['if / elif / else','Runs the first block whose condition is True.'],['Indentation','4 spaces that define which lines belong to a block.'],['for loop','Repeats once for each item in a sequence.'],['range(a, b, s)','From a up to (not including) b, in steps of s.'],['while loop','Repeats as long as a condition is True.'],['Accumulator','A variable that builds up a total inside a loop.'],['break / continue','Leave the loop / skip to the next repeat.'],['Rubber duck debugging','Explain your code out loud, line by line, to find the bug.']]}}],
+homework:['Write a program (paste it here) that asks for a number of tickets and prints the price with these rules: Rs. 2,500 each, 10% off for 5 or more tickets, 20% off for 10 or more.','Write FizzBuzz for 1 to 100 in VS Code on your laptop, run it, and paste your code.','Describe a bug you hit today (in any exercise), how you found it, and how you fixed it.']},
+
+h2:{id:'h2',day:5,slot:0,track:'H',hours:4,title:'Circuits: series, parallel, power and Kirchhoff\'s laws',
+lead:'On Day 1 you met voltage, current, resistance and Ohm\'s law in a single loop. Real circuits have many parts connected in series, in parallel, or both. Today you learn the two laws that let you analyse any of them, how to calculate power and energy, and what your electricity bill is really measuring.',
+goals:['Calculate total resistance, current and voltage in series circuits','Do the same for parallel circuits','Apply Kirchhoff\'s current and voltage laws','Calculate power with P = V × I and its variations','Turn watts and hours into kWh and a cost','Design a voltage divider'],
+parts:[
+{h:'The people behind today\'s laws',nav:'History',time:'20 min',body:R`<p>Three 19th-century scientists gave us the tools of this lesson.</p>`,timeline:[
+{y:'1776',short:'James Watt',title:'The unit of power',who:'James Watt · Scottish engineer',story:'Watt\'s improved steam engine (patented 1769) powered the Industrial Revolution. To sell it, he compared its output to horses, inventing "horsepower". In 1882 the unit of power was named the watt in his honour.',why:'Every appliance label in your home is rated in watts.'},
+{y:'1841',short:'James Joule',title:'Electricity makes heat',who:'James Prescott Joule · English brewer and physicist',story:'Joule measured that the heat produced by a current is proportional to the current squared times the resistance (I²R). He went on to show that heat and work are forms of the same thing: energy.',why:'Joule\'s law explains why wires heat up, why fuses blow and how kettles work. The joule is the unit of energy.'},
+{y:'1845',short:'Gustav Kirchhoff',title:'Two laws for every circuit',who:'Gustav Kirchhoff · German physicist',story:'While still a student in Königsberg, aged 21, Kirchhoff published two laws describing how current and voltage behave at junctions and around loops of any circuit, generalising Ohm\'s work.',why:'Every circuit simulator and every electrical engineer still uses them.'}]},
+{h:'Series circuits',nav:'Series',time:'40 min',body:R`
+<p>In a <b>series</b> circuit, components are connected one after another in a single loop, like beads on a string. Old fairy lights worked this way: when one bulb failed, the whole string went dark.</p>
+<ul><li><b>Current is the same everywhere.</b> There's only one path, so every electron passes through every part.</li><li><b>Resistances add:</b> R<sub>total</sub> = R1 + R2 + R3.</li><li><b>Voltages add up to the battery's voltage.</b> Each resistor "uses" a share in proportion to its resistance: V = I × R for each.</li></ul>
+<pre class="ex">9 V battery, R1 = 100 Ω, R2 = 200 Ω
+R_total = 100 + 200 = 300 Ω
+I = 9 ÷ 300 = 0.03 A  (30 mA), the same in both
+V1 = 0.03 × 100 = 3 V,  V2 = 0.03 × 200 = 6 V
+Check: 3 + 6 = 9 V ✓</pre>
+<h3>The voltage divider</h3>
+<p>Two series resistors split a voltage in a fixed ratio: V<sub>out</sub> = V<sub>in</sub> × R2 ÷ (R1 + R2). It's used everywhere, for example to read sensors with an Arduino in Week 9.</p>`},
+{h:'Parallel circuits',nav:'Parallel',time:'40 min',body:R`
+<p>In a <b>parallel</b> circuit, each component has its own branch between the same two points. Your home is wired in parallel: every socket gets the full 230 V, and switching off one lamp doesn't affect the others.</p>
+<ul><li><b>Voltage is the same across every branch.</b></li><li><b>Currents add:</b> the total current is the sum of the branch currents.</li><li><b>Total resistance is lower than the smallest branch:</b> 1 ÷ R<sub>total</sub> = 1 ÷ R1 + 1 ÷ R2 + 1 ÷ R3. For two resistors: R<sub>total</sub> = (R1 × R2) ÷ (R1 + R2).</li></ul>
+<pre class="ex">9 V battery, R1 = 100 Ω, R2 = 200 Ω in parallel
+I1 = 9 ÷ 100 = 0.09 A,  I2 = 9 ÷ 200 = 0.045 A
+I_total = 0.135 A
+R_total = (100 × 200) ÷ 300 = 66.7 Ω   (less than 100!)</pre>
+<div class="note danger"><b>Why overloading a power strip is dangerous:</b> every appliance you add in parallel adds its current. Total current through the strip and its wire rises until the wire overheats (Joule's I²R heating). That's what fuses and circuit breakers are for.</div>`},
+{h:'Kirchhoff\'s two laws',nav:'Kirchhoff',time:'25 min',body:R`
+<ol><li><b>Current law (KCL):</b> at any junction, the current flowing in equals the current flowing out. Charge doesn't pile up or vanish. In the parallel example, 0.135 A in = 0.09 + 0.045 A out.</li>
+<li><b>Voltage law (KVL):</b> around any closed loop, the voltage rises equal the voltage drops. Energy is conserved. In the series example, the 9 V battery = 3 V + 6 V across the resistors.</li></ol>
+<p>With Ohm's law and these two laws you can solve any circuit of resistors, however complicated, by writing one equation per junction and per loop.</p>`},
+{h:'Simulator: build series and parallel circuits',nav:'Simulator',time:'45 min',body:R`<p>Switch between series and parallel, change the battery and resistors, and watch the table. Check Kirchhoff's laws in the line underneath. Try these:</p>
+<ol><li>In series, double R2. What happens to the current, and to the voltage across R1?</li><li>In parallel, add R3. Does the total resistance go up or down? Why?</li><li>Find settings where every resistor in parallel draws the same current.</li></ol>`,widget:'circuit'},
+{h:'Power and energy',nav:'Power',time:'35 min',body:R`
+<p><b>Power</b> is how fast energy is used, measured in <b>watts (W)</b>: one watt is one joule per second.</p>
+<pre class="ex">P = V × I       (watts = volts × amps)
+P = I² × R      (Joule heating)
+P = V² ÷ R</pre>
+<p><b>Energy</b> is power × time. Your electricity bill counts <b>kilowatt-hours (kWh)</b>: 1 kWh is 1,000 watts used for one hour. A 1,200 W kettle used for 2 hours uses 2.4 kWh.</p>
+<p>Components have power ratings too. A small ¼ W resistor carrying more than 0.25 W will overheat and can burn out, which is why you check power in Week 3's component lessons.</p>
+<p><b>Try it:</b> estimate what an appliance costs to run. Enter the rate per kWh printed on your own electricity bill.</p>`,widget:'energy'},
+{h:'Practice problems',nav:'Practice',time:'30 min',body:R`<p>Solve these with Python as your calculator. Each one prints a single number.</p>`,
+code:[
+{task:R`Three resistors of 220 Ω, 330 Ω and 470 Ω are in series on a 12 V battery. Print the current in milliamps, rounded to 1 decimal place.`,starter:R`V = 12
+R_total = 220 + 330 + 470
+`,expect:'11.8',hint:'I = V / R_total gives amps; multiply by 1000 for mA, then round(..., 1).',solution:R`V = 12
+R_total = 220 + 330 + 470
+print(round(V / R_total * 1000, 1))`},
+{task:R`Two resistors, 100 Ω and 400 Ω, are in parallel. Print their combined resistance.`,starter:R`R1 = 100
+R2 = 400
+`,expect:'80.0',solution:R`R1 = 100
+R2 = 400
+print(R1 * R2 / (R1 + R2))`},
+{task:R`A voltage divider has V_in = 9 V, R1 = 1000 Ω, R2 = 2000 Ω. Print V_out.`,starter:R`Vin = 9
+R1 = 1000
+R2 = 2000
+`,expect:'6.0',solution:R`Vin = 9
+R1 = 1000
+R2 = 2000
+print(Vin * R2 / (R1 + R2))`},
+{task:R`A 25 mA current flows through a 220 Ω resistor. Print the power in watts, rounded to 3 decimals. Is a ¼ W resistor safe?`,starter:R`I = 0.025
+R = 220
+`,expect:'0.138',hint:'P = I ** 2 * R. 0.138 W is under 0.25 W, so yes.',solution:R`I = 0.025
+R = 220
+print(round(I ** 2 * R, 3))`}]},
+{h:'Check yourself',nav:'Quiz',time:'15 min',quiz:[
+{q:'In a series circuit, what is the same through every component?',o:['Voltage','Current','Power','Resistance'],a:1,e:'There\'s one path, so the current is the same everywhere.'},
+{q:'Two 100 Ω resistors in parallel have a total resistance of…',o:['200 Ω','100 Ω','50 Ω','0 Ω'],a:2,e:'(100 × 100) ÷ 200 = 50 Ω: always less than the smallest branch.'},
+{q:'Kirchhoff\'s current law says…',o:['Voltages around a loop add to zero','Current in = current out at a junction','V = I × R','Power = V × I'],a:1,e:'Charge is conserved at junctions.'},
+{q:'Why does your house use parallel wiring?',o:['It uses less copper','Each appliance gets the full voltage and works independently','It lowers the voltage','It is cheaper to bill'],a:1,e:'Every socket gets 230 V; one lamp off doesn\'t affect the rest.'},
+{q:'A 2,000 W heater running for 3 hours uses…',o:['6 kWh','600 kWh','0.6 kWh','2,003 kWh'],a:0,e:'2 kW × 3 h = 6 kWh.'},
+{q:'The unit of power is named after…',o:['James Joule','James Watt','Georg Ohm','Gustav Kirchhoff'],a:1,e:'The watt honours James Watt.'}]},
+{h:'Flashcards',nav:'Flashcards',time:'10 min',widget:'flash',cfg:{cards:[['Series','One path: same current; resistances and voltages add.'],['Parallel','Separate branches: same voltage; currents add; total R falls.'],['Two resistors in parallel','R = (R1 × R2) ÷ (R1 + R2)'],['KCL','Current into a junction = current out.'],['KVL','Voltage rises = voltage drops around any loop.'],['Power','P = V × I = I²R = V²/R, in watts.'],['kWh','1,000 watts for 1 hour: the unit on your electricity bill.'],['Voltage divider','V_out = V_in × R2 ÷ (R1 + R2)']]}}],
+homework:['Draw (on paper, then photograph it) a circuit with one resistor in series followed by two in parallel. Choose values, calculate every current and voltage, and check both of Kirchhoff\'s laws.','List five appliances at home with their wattage (from the labels), estimate daily hours, and calculate a monthly kWh total and cost using your own bill\'s rate.','In Tinkercad Circuits (free, tinkercad.com), build the series example from this lesson and measure the voltages with the virtual multimeter. Did they match your calculation?']},
+
+s4:{id:'s4',day:5,slot:1,track:'S',hours:3,title:'Python III: functions, scope, modules and documentation',
+lead:'Functions let you name a piece of logic once and reuse it everywhere. Today you write your own functions, understand where variables live, use Python\'s huge standard library through modules, and learn to read documentation, a skill you will use every working day.',
+goals:['Define functions with parameters, default values and return values','Explain the difference between return and print','Describe local and global scope','Import and use modules from the standard library, such as math and random','Read official documentation and help() output to learn new tools on your own'],
+parts:[
+{h:'Why functions exist',nav:'Why functions',time:'15 min',body:R`
+<p>In 1951, <b>David Wheeler</b>, working on the EDSAC computer at Cambridge, invented a way to jump into a reusable piece of code and come back again, known as the "Wheeler jump". It was the first <b>subroutine</b>, the ancestor of every function. Wheeler earned the first PhD in computer science (1951) and is also credited with the saying "All problems in computer science can be solved by another level of indirection."</p>
+<p>Functions give you three things:</p>
+<ul><li><b>Reuse:</b> write the CTR calculation once, call it a thousand times.</li><li><b>Readability:</b> <code>if is_strong(password):</code> reads like English.</li><li><b>Fewer bugs:</b> fix the logic in one place. This is the <b>DRY</b> principle: Don't Repeat Yourself, from <i>The Pragmatic Programmer</i> (1999).</li></ul>`},
+{h:'Defining functions',nav:'def',time:'40 min',body:R`
+<pre class="ex">def ctr(clicks, impressions):
+    """Return the click-through rate as a percentage."""
+    return clicks / impressions * 100
+
+rate = ctr(2400, 120000)
+print(round(rate, 2))      # 2.0</pre>
+<ul><li><code>def</code> starts a function, followed by its name, its <b>parameters</b> in brackets and a colon.</li><li>The indented body runs only when the function is <b>called</b>.</li><li>The text in triple quotes is a <b>docstring</b>: documentation that <code>help(ctr)</code> displays.</li><li><b>Default values:</b> <code>def price_with_tax(price, rate=0.1):</code> lets callers leave the rate out.</li><li><b>Keyword arguments:</b> <code>price_with_tax(price=2500, rate=0.18)</code> makes calls self-explanatory.</li></ul>
+<h3>return vs print: the key difference</h3>
+<p><code>print</code> shows something on screen and gives nothing back. <code>return</code> hands a value back to whoever called the function, so it can be stored or used in more calculations. A function without <code>return</code> gives back <code>None</code>. Most functions should return, and leave printing to the caller.</p>`,
+code:[
+{task:R`Write a function <code>celsius_to_fahrenheit(c)</code> that <b>returns</b> c × 9 ÷ 5 + 32. Hidden tests will call it with several values.`,starter:R`def celsius_to_fahrenheit(c):
+    pass
+`,tests:R`assert celsius_to_fahrenheit(0) == 32, "0°C should be 32°F"
+assert celsius_to_fahrenheit(100) == 212, "100°C should be 212°F"
+assert round(celsius_to_fahrenheit(30), 1) == 86.0, "30°C should be 86°F"
+print("ALL TESTS PASSED")`,hint:'Replace pass with: return c * 9 / 5 + 32',solution:R`def celsius_to_fahrenheit(c):
+    return c * 9 / 5 + 32`},
+{task:R`Write <code>price_after_discount(price, qty, discount=0)</code> that returns the total for <code>qty</code> tickets after a percentage discount. For example <code>price_after_discount(2500, 4, 10)</code> returns 9000.`,starter:R`def price_after_discount(price, qty, discount=0):
+    pass
+`,tests:R`assert price_after_discount(2500, 4, 10) == 9000, "4 x 2500 with 10% off should be 9000"
+assert price_after_discount(2500, 2) == 5000, "Without a discount, 2 x 2500 = 5000"
+assert price_after_discount(1000, 10, 25) == 7500, "10 x 1000 with 25% off = 7500"
+print("ALL TESTS PASSED")`,solution:R`def price_after_discount(price, qty, discount=0):
+    total = price * qty
+    return total - total * discount / 100`},
+{task:R`Write <code>campaign_verdict(spend, revenue)</code> that returns <code>"Scale up"</code> if ROAS is 3 or more, <code>"Keep testing"</code> if at least 1, otherwise <code>"Pause"</code>. Return <code>"No spend"</code> if spend is 0, to avoid dividing by zero.`,starter:R`def campaign_verdict(spend, revenue):
+    pass
+`,tests:R`assert campaign_verdict(100000, 400000) == "Scale up"
+assert campaign_verdict(100000, 150000) == "Keep testing"
+assert campaign_verdict(100000, 50000) == "Pause"
+assert campaign_verdict(0, 5000) == "No spend"
+print("ALL TESTS PASSED")`,hint:'Check spend == 0 first and return early. Then compute roas = revenue / spend.',solution:R`def campaign_verdict(spend, revenue):
+    if spend == 0:
+        return "No spend"
+    roas = revenue / spend
+    if roas >= 3:
+        return "Scale up"
+    elif roas >= 1:
+        return "Keep testing"
+    return "Pause"`}]},
+{h:'Scope: where variables live',nav:'Scope',time:'25 min',body:R`
+<p>Variables created inside a function are <b>local</b>: they exist only while the function runs and can't be seen outside. Variables created at the top level of the file are <b>global</b>.</p>
+<pre class="ex">rate = 0.1                 # global
+
+def add_tax(price):
+    tax = price * rate      # can READ the global rate
+    return price + tax
+
+print(add_tax(1000))       # 1100.0
+print(tax)                 # NameError: tax only existed inside add_tax</pre>
+<p>Python looks up names in the order <b>L</b>ocal, <b>E</b>nclosing, <b>G</b>lobal, <b>B</b>uilt-in (the LEGB rule). Best practice: pass values in as parameters and get results out with <code>return</code>, rather than relying on global variables. It makes functions predictable and easy to test.</p>`},
+{h:'Modules and the standard library',nav:'Modules',time:'30 min',body:R`
+<p>A <b>module</b> is a file of ready-made functions. Python ships with a large standard library ("batteries included"), and hundreds of thousands more packages are on PyPI, which you install with <code>pip</code> on Day 15.</p>
+<pre class="ex">import math
+print(math.sqrt(144))        # 12.0
+print(math.pi)               # 3.141592653589793
+
+import random
+print(random.randint(1, 6))  # a dice roll
+
+from math import ceil
+print(ceil(10.2))            # 11: round up, e.g. buses needed for guests</pre>
+<p>Other standard modules you'll meet: <code>datetime</code> (dates and times), <code>csv</code> and <code>json</code> (files), <code>statistics</code> (mean, median), <code>os</code> (files and folders).</p>`,
+code:[
+{task:R`An event has 523 guests and each shuttle bus seats 40. Use <code>math.ceil</code> to print how many buses are needed.`,starter:R`import math
+guests = 523
+`,expect:'14',solution:R`import math
+guests = 523
+print(math.ceil(guests / 40))`},
+{task:R`Write <code>lucky_draw(names)</code> that returns one random name from a list, using <code>random.choice</code>. The test checks the winner is always one of the entrants.`,starter:R`import random
+
+def lucky_draw(names):
+    pass
+`,tests:R`entrants = ["Amal", "Nimali", "Kasun", "Dilini"]
+for _ in range(20):
+    assert lucky_draw(entrants) in entrants, "The winner must be one of the entrants"
+print("ALL TESTS PASSED")`,solution:R`import random
+
+def lucky_draw(names):
+    return random.choice(names)`}]},
+{h:'Reading documentation',nav:'Docs',time:'20 min',body:R`
+<p>No developer memorises everything. What they do is <b>read documentation quickly</b>. This is the most transferable skill in the bootcamp.</p>
+<ol><li><b>help() in Python:</b> <code>help(len)</code> or <code>help(str.replace)</code> prints the docstring.</li><li><b>The official docs</b> at docs.python.org: the Library Reference lists every standard module. Read the signature line first, for example <code>round(number, ndigits=None)</code>, then the examples.</li><li><b>Read errors as documentation:</b> <code>TypeError: ctr() missing 1 required positional argument: 'impressions'</code> tells you exactly what's wrong.</li><li><b>Use AI assistants wisely:</b> ask them to explain code or documentation, then check against the official docs. Never paste code you don't understand.</li></ol>
+<div class="note"><b>Practice now (10 minutes):</b> open docs.python.org, find the <code>statistics</code> module and read about <code>statistics.median</code>. Then in VS Code, run <code>import statistics</code> and <code>print(statistics.median([45, 120, 98, 210]))</code>.</div>`},
+{h:'Check yourself',nav:'Quiz',time:'15 min',quiz:[
+{q:'What does a function return if it has no return statement?',o:['0','An empty string','None','An error'],a:2,e:'Python returns None by default.'},
+{q:'Why prefer return over print inside most functions?',o:['return is faster','A returned value can be stored and reused; printed text can\'t','print doesn\'t work in functions','return shows colours'],a:1,e:'Return values can feed other calculations.'},
+{q:'A variable created inside a function is…',o:['Global','Local to that function','Visible everywhere','Saved to disk'],a:1,e:'It exists only while the function runs.'},
+{q:'Which line imports only ceil from math?',o:['import ceil','from math import ceil','import math.ceil()','using math.ceil'],a:1,e:'from module import name.'},
+{q:'In def greet(name, greeting="Hello"), greeting is…',o:['A required parameter','A parameter with a default value','A global variable','A return value'],a:1,e:'Callers may leave it out.'},
+{q:'DRY stands for…',o:['Do Run Yourself','Don\'t Repeat Yourself','Debug, Run, Yield','Define Return Yield'],a:1,e:'From The Pragmatic Programmer (1999).'}]},
+{h:'Flashcards',nav:'Flashcards',time:'10 min',widget:'flash',cfg:{cards:[['def','Defines a function: def name(params):'],['return','Sends a value back to the caller and ends the function.'],['Parameter vs argument','Name in the definition vs value passed in the call.'],['Default value','def f(x, rate=0.1): rate is optional.'],['Docstring','The """text""" under def, shown by help().'],['Local scope','Variables inside a function exist only there.'],['Module','A file of reusable code: import math.'],['DRY','Don\'t Repeat Yourself: put repeated logic in a function.']]}}],
+homework:['Write three functions for marketing maths, cpa(spend, conversions), roas(revenue, spend) and conversion_rate(conversions, clicks), with docstrings. Paste them here, with a few lines that call them.','Explain return vs print to a beginner in your own words, with a short example.','Read the documentation for the datetime module and write a program that prints how many days are left until a date you choose.']}
+});})();
+
+</script>
+<script>
+(()=>{const R=String.raw;
+const CAMP=[['Campaign','Channel','Impressions','Clicks','Spend','Sales','Revenue','ROAS'],['Jazz Night FB','Facebook',150000,3000,60000,120,300000],['Jazz Night Search','Google',80000,2400,72000,90,225000],['Rock Fest TikTok','TikTok',300000,4500,90000,60,240000],['Rock Fest FB','Facebook',200000,2000,80000,40,160000],['Comedy IG','Instagram',90000,1800,45000,15,22500]];
+const cd={};CAMP.forEach((r,i)=>r.forEach((v,j)=>{cd['ABCDEFGH'[j]+(i+1)]=v}));cd.A7='TOTAL';cd.A9='Overall CTR %';cd.A10='Overall CPA (Rs.)';cd.A11='Facebook revenue';cd.A12='Campaigns ROAS 3+';
+const C=CAMP.slice(1),sum=j=>C.reduce((s,r)=>s+r[j],0);
+const close=(a,b,t=0.01)=>typeof a==='number'&&Math.abs(a-b)<=t;
+window.WW_LESSONS=Object.assign(window.WW_LESSONS||{},{
+p1:{id:'p1',day:6,slot:0,track:'P',hours:7,title:'Project 1: security audit, KPI sheet and unit converter',
+lead:'Today you put Week 1 to work on three small but real deliverables: an audit of your own digital security, a campaign KPI spreadsheet with a recommendation, and a tested Python unit converter. Professionals build portfolios from pieces like these.',
+goals:['Audit and improve the security of your own accounts and devices','Build a KPI spreadsheet from raw campaign data and turn numbers into a decision','Write, test and run a small Python program made of functions','Present your work clearly in writing'],
+parts:[
+{h:'The brief',nav:'Brief',time:'15 min',body:R`
+<p>A project day has no new theory. You use what you learned on Days 1–5. Work through the three parts in order, and take a 10-minute break between them.</p>
+<div class="tbl-wrap"><table><thead><tr><th>Part</th><th>Deliverable</th><th>Uses</th><th>Time</th></tr></thead><tbody>
+<tr><td><b>A</b></td><td>Personal security audit and an action list</td><td>Day 3 Security foundations</td><td>2 h</td></tr>
+<tr><td><b>B</b></td><td>Campaign KPI spreadsheet and a 5-sentence recommendation</td><td>Day 2 Data thinking, Day 3 Spreadsheets</td><td>2 h 30</td></tr>
+<tr><td><b>C</b></td><td>Python unit converter with tested functions</td><td>Days 1, 2, 4 and 5 Python</td><td>2 h 15</td></tr>
+<tr><td></td><td>Write-up and submission</td><td>All</td><td>15 min</td></tr></tbody></table></div>
+<div class="note warn"><b>Ground rule:</b> never paste a real password, PIN or recovery code anywhere on this page or in our chat. The audit records <i>what</i> you changed, never the secrets themselves.</div>`},
+{h:'Part A: your personal security audit',nav:'A · Security audit',time:'2 h',body:R`
+<p>You will audit the accounts and devices you use every day, fix the biggest risks first, and write down what you did. Start with your <b>email account</b>: whoever controls your email can reset every other password.</p>
+<ol><li>List your 10 most important accounts (email, banking app, social media, work tools, cloud storage).</li><li>For each, score the risk with the matrix below (likelihood × impact).</li><li>Fix the high-risk ones today using the checklist.</li></ol>`,widget:'risk',
+check:['My main email has a unique, long password (12+ characters, or a 4–5 word passphrase)','Multi-factor authentication (MFA) is on for my email, using an authenticator app rather than SMS where possible','MFA is on for my banking and social media accounts','I installed a password manager (for example Bitwarden, which has a free plan) and saved my main accounts in it','I checked my email address at haveibeenpwned.com and changed any password from a listed breach','My phone and laptop have a screen lock and automatic updates turned on','My laptop has the operating system\'s built-in disk encryption on (BitLocker on Windows, FileVault on Mac)','I reviewed which apps can access my Google or Microsoft account and removed ones I don\'t use','My important files have a backup copy in a second place (the 3-2-1 rule: 3 copies, 2 kinds of storage, 1 off-site)','I wrote my action list: what I fixed today and what I will fix this week']},
+{h:'Part B: the campaign KPI spreadsheet',nav:'B · KPI sheet',time:'2 h 30',body:R`
+<p>You're the marketer for an events company. Five ad campaigns ran last month. Your manager asks: <b>"Where should next month's budget go?"</b> Build the analysis below, then answer in five sentences in the homework.</p>
+<p>Click a cell, type a formula in the bar, press <b>Enter</b>. Remember ROAS = revenue ÷ spend, CTR = clicks ÷ impressions × 100, CPA = spend ÷ sales.</p>`,widget:'sheet',cfg:{data:cd,rows:12,tasks:[
+['In H2 to H6, calculate each campaign\'s ROAS: <code>=G2/E2</code>, then =G3/E3 and so on.',v=>[2,3,4,5,6].every((r,i)=>close(v('H'+r),C[i][6]/C[i][4]))],
+['In C7 to G7, total each column with SUM, for example <code>=SUM(C2:C6)</code>.',v=>[2,3,4,5,6].every(j=>close(v('CDEFG'[j-2]+'7'),sum(j)))],
+['In H7, the overall ROAS (total revenue ÷ total spend), rounded to 2 decimals.',v=>close(v('H7'),Math.round(sum(6)/sum(4)*100)/100,0.006)],
+['In B9, the overall CTR as a percentage, rounded to 2 decimals.',v=>close(v('B9'),Math.round(sum(3)/sum(2)*10000)/100,0.006)],
+['In B10, the overall cost per sale (CPA), rounded to 0 decimals.',v=>close(v('B10'),Math.round(sum(4)/sum(5)),0.5)],
+['In B11, total revenue from Facebook campaigns with SUMIF.',v=>close(v('B11'),C.filter(r=>r[1]==='Facebook').reduce((s,r)=>s+r[6],0))],
+['In B12, count the campaigns with a ROAS of 3 or more: <code>=COUNTIF(H2:H6,">=3")</code>',v=>close(v('B12'),C.filter(r=>r[6]/r[4]>=3).length)]]},
+after:R`<p><b>Think before you write:</b> which campaign earns the most per rupee? Which loses money? Is the TikTok campaign weak because of the ad (CTR) or because of what happens after the click (conversion rate = sales ÷ clicks)? A good recommendation names numbers, makes a decision and says what you'd test next.</p>`},
+{h:'Part C: the Python unit converter',nav:'C · Converter',time:'2 h 15',body:R`
+<p>You'll build a converter one function at a time. Each function has hidden tests, exactly as professional code does. When all four pass, you combine them into a program that talks to the user.</p>
+<p>Useful facts: 1 km = 0.621371 miles. °F = °C × 9 ÷ 5 + 32. 1 kg = 2.20462 lb. Energy cost = watts × hours ÷ 1000 × rate.</p>`,
+code:[
+{task:R`<b>Step 1.</b> Write <code>km_to_miles(km)</code> returning the distance in miles, rounded to 2 decimals.`,starter:R`def km_to_miles(km):
+    pass
+`,tests:R`assert km_to_miles(10) == 6.21, "10 km should be 6.21 miles"
+assert km_to_miles(0) == 0, "0 km should be 0"
+assert km_to_miles(42.195) == 26.22, "A marathon is 26.22 miles"
+print("ALL TESTS PASSED")`,solution:R`def km_to_miles(km):
+    return round(km * 0.621371, 2)`},
+{task:R`<b>Step 2.</b> Write <code>c_to_f(c)</code> and <code>f_to_c(f)</code>, both rounded to 1 decimal.`,starter:R`def c_to_f(c):
+    pass
+
+def f_to_c(f):
+    pass
+`,tests:R`assert c_to_f(30) == 86.0, "30°C should be 86.0°F"
+assert c_to_f(-40) == -40.0, "-40 is the same in both scales"
+assert f_to_c(212) == 100.0, "212°F should be 100.0°C"
+assert f_to_c(98.6) == 37.0, "98.6°F should be 37.0°C"
+print("ALL TESTS PASSED")`,hint:'f_to_c is the reverse: (f - 32) * 5 / 9.',solution:R`def c_to_f(c):
+    return round(c * 9 / 5 + 32, 1)
+
+def f_to_c(f):
+    return round((f - 32) * 5 / 9, 1)`},
+{task:R`<b>Step 3.</b> Write <code>energy_cost(watts, hours, rate)</code> returning the cost in rupees, rounded to 2 decimals. Return 0 if any value is negative.`,starter:R`def energy_cost(watts, hours, rate):
+    pass
+`,tests:R`assert energy_cost(1200, 2, 50) == 120.0, "1200 W for 2 h at Rs. 50 = Rs. 120"
+assert energy_cost(60, 5, 32.5) == 9.75, "60 W for 5 h at Rs. 32.5 = Rs. 9.75"
+assert energy_cost(-5, 2, 50) == 0, "Negative input should return 0"
+print("ALL TESTS PASSED")`,solution:R`def energy_cost(watts, hours, rate):
+    if watts < 0 or hours < 0 or rate < 0:
+        return 0
+    return round(watts * hours / 1000 * rate, 2)`},
+{task:R`<b>Step 4.</b> Write <code>convert(value, kind)</code> that uses your functions: kind <code>"km"</code> gives miles, <code>"c"</code> gives °F, <code>"f"</code> gives °C, <code>"kg"</code> gives pounds (rounded to 2). Any other kind returns <code>None</code>. Paste your earlier functions above it.`,starter:R`# paste km_to_miles, c_to_f and f_to_c here
+
+def convert(value, kind):
+    pass
+`,tests:R`assert convert(10, "km") == 6.21
+assert convert(30, "c") == 86.0
+assert convert(212, "f") == 100.0
+assert convert(70, "kg") == 154.32, "70 kg should be 154.32 lb"
+assert convert(5, "parsec") is None, "Unknown kinds return None"
+print("ALL TESTS PASSED")`,hint:'Use if/elif on kind. For kg: round(value * 2.20462, 2).',solution:R`def km_to_miles(km):
+    return round(km * 0.621371, 2)
+
+def c_to_f(c):
+    return round(c * 9 / 5 + 32, 1)
+
+def f_to_c(f):
+    return round((f - 32) * 5 / 9, 1)
+
+def convert(value, kind):
+    if kind == "km":
+        return km_to_miles(value)
+    elif kind == "c":
+        return c_to_f(value)
+    elif kind == "f":
+        return f_to_c(value)
+    elif kind == "kg":
+        return round(value * 2.20462, 2)
+    return None`},
+{task:R`<b>Step 5: the finished program.</b> Ask the user for a kind and a value (the input box has <code>km</code> and <code>21.1</code>), call <code>convert</code>, and print <code>Result: 13.11</code>. If the kind is unknown, print <code>Sorry, I can't convert that.</code>`,starter:R`# paste your functions here, then:
+kind = input("Convert what (km, c, f, kg)? ")
+value = float(input("Value? "))
+`,inputs:'km\n21.1',contains:['Result: 13.11'],solution:R`def km_to_miles(km):
+    return round(km * 0.621371, 2)
+
+def c_to_f(c):
+    return round(c * 9 / 5 + 32, 1)
+
+def f_to_c(f):
+    return round((f - 32) * 5 / 9, 1)
+
+def convert(value, kind):
+    if kind == "km":
+        return km_to_miles(value)
+    elif kind == "c":
+        return c_to_f(value)
+    elif kind == "f":
+        return f_to_c(value)
+    elif kind == "kg":
+        return round(value * 2.20462, 2)
+    return None
+
+kind = input("Convert what (km, c, f, kg)? ")
+value = float(input("Value? "))
+result = convert(value, kind)
+if result is None:
+    print("Sorry, I can't convert that.")
+else:
+    print(f"Result: {result}")`}],
+after:R`<div class="note"><b>Stretch goal:</b> copy the finished program into VS Code on your laptop, save it as <code>converter.py</code>, and wrap the questions in a <code>while True:</code> loop so it keeps converting until the user types <code>quit</code> (use <code>break</code>).</div>`},
+{h:'How your project is marked',nav:'Rubric',time:'15 min',body:R`
+<p>Paste your homework into our chat and I'll mark it against this rubric, out of 20.</p>
+<div class="tbl-wrap"><table><thead><tr><th>Criterion</th><th>Excellent (5)</th><th>Developing (2–3)</th></tr></thead><tbody>
+<tr><td><b>Security</b></td><td>All high risks fixed, with a clear action list for the rest</td><td>Some fixes, no plan</td></tr>
+<tr><td><b>Analysis</b></td><td>All 7 sheet tasks correct; numbers explained</td><td>Some formulas wrong or unexplained</td></tr>
+<tr><td><b>Recommendation</b></td><td>A clear decision backed by 2–3 numbers and a next test</td><td>Opinion without numbers</td></tr>
+<tr><td><b>Code</b></td><td>All tests pass; clear names and docstrings</td><td>Works partly; hard to read</td></tr></tbody></table></div>`,
+check:['Part A checklist done and action list written','All 7 spreadsheet tasks ticked','All 5 converter steps pass','Homework answers written below, then copied into our chat']}],
+homework:['Security audit summary (no passwords): what did you fix today, and what is on your list for this week?','Your recommendation to the manager in 5 sentences: where should next month\'s budget go, and why? Use at least two numbers from your sheet.','Paste your final converter program.','What was the hardest part of today, and how did you get past it?']},
+
+t1:{id:'t1',day:7,slot:0,track:'T',hours:6,title:'Week 1 test, spaced review and catch-up',
+lead:'Testing yourself is one of the most effective ways to learn, because recalling something strengthens the memory far more than re-reading it. Today you take the Week 1 test, review the cards you missed, and close any gaps before Week 2.',
+goals:['Recall the key ideas from all six Week 1 lessons','Solve practical Python, circuit and KPI problems without help','Find your weak spots and fix them','Plan the week ahead'],
+parts:[
+{h:'How today works',nav:'How it works',time:'10 min',body:R`
+<ol><li><b>Section A: 25 questions</b> (45 minutes). No notes, no going back to lessons. Answer from memory, then read every explanation.</li><li><b>Section B: practical tasks</b> (90 minutes). Coding and calculation problems. You may use the hint button, but try for 10 minutes first.</li><li><b>Break</b> (30 minutes).</li><li><b>Spaced review</b> (45 minutes). Flashcards from every lesson.</li><li><b>Catch-up</b> (the rest of the day). Revisit anything below 80%, finish missed homework, and plan Week 2.</li></ol>
+<p><b>Why this works:</b> in 1885 German psychologist <b>Hermann Ebbinghaus</b> measured how quickly we forget, a pattern now called the <b>forgetting curve</b>. He found that reviewing at increasing intervals (a day, a few days, a week) keeps knowledge for much longer. This bootcamp's Day 7 reviews are built on his finding, and modern studies on <b>retrieval practice</b> show self-testing beats re-reading.</p>
+<p><b>Target:</b> 20 out of 25 or more (80%). Below that, spend the catch-up time on the topics you missed.</p>`},
+{h:'Section A: 25 questions',nav:'A · Quiz',time:'45 min',quiz:[
+{q:'What are the three steps a CPU repeats billions of times per second?',o:['Input, process, output','Fetch, decode, execute','Load, save, print','Read, write, delete'],a:1,e:'The fetch–decode–execute cycle (Day 1).'},
+{q:'What is 1010 in binary as a decimal number?',o:['8','10','12','1010'],a:1,e:'8 + 0 + 2 + 0 = 10.'},
+{q:'How many different values can one byte (8 bits) hold?',o:['8','128','255','256'],a:3,e:'2⁸ = 256 values, from 0 to 255.'},
+{q:'Which part of a computer loses its contents when the power goes off?',o:['SSD','RAM','Hard disk','USB drive'],a:1,e:'RAM is fast, temporary working memory.'},
+{q:'What does print(type(3.0)) show?',o:["<class 'int'>","<class 'float'>","<class 'str'>","<class 'bool'>"],a:1,e:'Any number with a decimal point is a float.'},
+{q:'What does 17 // 5 give in Python?',o:['3.4','3','2','4'],a:1,e:'// is floor division: the whole part only.'},
+{q:'input() always returns…',o:['An int','A float','A string','Whatever the user typed'],a:2,e:'Convert it with int() or float() when you need a number.'},
+{q:'What is the output of: for i in range(3): print(i)',o:['1 2 3','0 1 2','0 1 2 3','3'],a:1,e:'range(3) produces 0, 1 and 2.'},
+{q:'Which statement leaves a loop immediately?',o:['continue','pass','break','return'],a:2,e:'break exits; continue skips to the next repeat.'},
+{q:'A function without a return statement gives back…',o:['0','None','An empty string','The last printed value'],a:1,e:'Python returns None by default.'},
+{q:'Ohm\'s law is…',o:['P = V × I','V = I × R','R = V × I','I = V × R'],a:1,e:'Voltage = current × resistance.'},
+{q:'A 9 V battery drives 30 mA through a resistor. What is the resistance?',o:['30 Ω','270 Ω','300 Ω','3,000 Ω'],a:2,e:'R = V ÷ I = 9 ÷ 0.03 = 300 Ω.'},
+{q:'Two 200 Ω resistors in series give a total of…',o:['100 Ω','200 Ω','400 Ω','40,000 Ω'],a:2,e:'Series resistances add.'},
+{q:'Two 200 Ω resistors in parallel give a total of…',o:['100 Ω','200 Ω','400 Ω','0 Ω'],a:0,e:'(200 × 200) ÷ 400 = 100 Ω.'},
+{q:'A 1,500 W iron is used for 2 hours. How much energy is that?',o:['3 kWh','750 kWh','0.75 kWh','3,000 kWh'],a:0,e:'1.5 kW × 2 h = 3 kWh.'},
+{q:'What is the safe voltage range for every hands-on lab in this bootcamp?',o:['5–12 V','12–48 V','110–230 V','Any voltage with gloves'],a:0,e:'Mains electricity (230 V) can kill. We only use 5–12 V.'},
+{q:'Customer reviews written as free text are which kind of data?',o:['Structured','Semi-structured','Unstructured','Metadata'],a:2,e:'Free text has no fixed rows and columns.'},
+{q:'A campaign spent Rs. 50,000 and earned Rs. 200,000. Its ROAS is…',o:['0.25×','4×','150,000','25%'],a:1,e:'ROAS = revenue ÷ spend = 4×.'},
+{q:'Which formula adds up Revenue (F2:F8) only for rows whose Venue (C2:C8) is "Galle"?',o:['=SUM(F2:F8,"Galle")','=SUMIF(C2:C8,"Galle",F2:F8)','=COUNTIF(C2:C8,"Galle")','=IF(C2="Galle",SUM(F2:F8))'],a:1,e:'SUMIF(criteria range, criterion, sum range).'},
+{q:'A pivot table is used to…',o:['Draw charts only','Summarise and group data quickly','Protect a sheet with a password','Remove duplicates'],a:1,e:'It groups rows and calculates totals, averages or counts.'},
+{q:'The CIA triad in security stands for…',o:['Control, Inspection, Audit','Confidentiality, Integrity, Availability','Cyber, Internet, Access','Code, Identity, Authentication'],a:1,e:'The three goals of information security (Day 3).'},
+{q:'A website is knocked offline by a flood of traffic. Which part of the CIA triad is hit?',o:['Confidentiality','Integrity','Availability','None'],a:2,e:'A denial-of-service attack targets availability.'},
+{q:'Which is the strongest choice for most people?',o:['A short complex password reused everywhere','A long unique passphrase in a password manager, plus MFA','Their pet\'s name and birth year','The same password with a different number on each site'],a:1,e:'Length, uniqueness and MFA matter most.'},
+{q:'An email says your bank account will close in 1 hour unless you click a link. This is most likely…',o:['A real warning','Phishing','A software update','Spam you can safely click'],a:1,e:'Urgency plus a link is the classic phishing pattern. Go to the bank\'s app or website directly instead.'},
+{q:'Which of these is a task AI is good at today?',o:['Guaranteeing facts are true','Recognising patterns in large amounts of data','Understanding the world exactly as humans do','Making decisions with no human oversight'],a:1,e:'AI finds patterns in data; it can still be confidently wrong (Day 4).'}]},
+{h:'Section B: practical tasks',nav:'B · Practical',time:'90 min',body:R`<p>Five problems covering the whole week. Try each for at least 10 minutes before using the hint.</p>`,
+code:[
+{task:R`<b>B1. Ticket summary.</b> Using a loop, print the total tickets sold, then the name of the best-selling event.`,starter:R`events = ["Jazz Night", "Sunset Beats", "Comedy Live", "Rock Fest"]
+sold = [340, 520, 180, 1200]
+`,expect:'2240\nRock Fest',hint:'Track the best index as you loop: for i in range(len(sold)): …',solution:R`events = ["Jazz Night", "Sunset Beats", "Comedy Live", "Rock Fest"]
+sold = [340, 520, 180, 1200]
+total = 0
+best = 0
+for i in range(len(sold)):
+    total += sold[i]
+    if sold[i] > sold[best]:
+        best = i
+print(total)
+print(events[best])`},
+{task:R`<b>B2. Grade function.</b> Write <code>grade(score)</code> returning <code>"A"</code> for 80 and over, <code>"B"</code> for 65–79, <code>"C"</code> for 50–64 and <code>"F"</code> below 50.`,starter:R`def grade(score):
+    pass
+`,tests:R`assert grade(92) == "A"
+assert grade(80) == "A", "80 is an A"
+assert grade(79) == "B"
+assert grade(65) == "B"
+assert grade(50) == "C"
+assert grade(49) == "F"
+print("ALL TESTS PASSED")`,solution:R`def grade(score):
+    if score >= 80:
+        return "A"
+    elif score >= 65:
+        return "B"
+    elif score >= 50:
+        return "C"
+    return "F"`},
+{task:R`<b>B3. LED resistor.</b> A red LED needs about 2 V and 20 mA. On a 9 V battery the resistor must drop the rest. Print the resistance needed (R = (9 − 2) ÷ 0.02).`,starter:R`supply = 9
+led_v = 2
+current = 0.02
+`,expect:'350.0',solution:R`supply = 9
+led_v = 2
+current = 0.02
+print((supply - led_v) / current)`},
+{task:R`<b>B4. Password checker.</b> Write <code>is_strong(pw)</code> returning <code>True</code> only if the password is at least 12 characters long and is not in the list of common passwords given.`,starter:R`COMMON = ["password1234", "qwertyuiop12", "123456789012"]
+
+def is_strong(pw):
+    pass
+`,tests:R`assert is_strong("correct horse battery") is True
+assert is_strong("short") is False, "Too short"
+assert is_strong("password1234") is False, "Common password"
+assert is_strong("Galle-Sunset-Rice-42") is True
+print("ALL TESTS PASSED")`,hint:'return len(pw) >= 12 and pw not in COMMON',solution:R`COMMON = ["password1234", "qwertyuiop12", "123456789012"]
+
+def is_strong(pw):
+    return len(pw) >= 12 and pw not in COMMON`},
+{task:R`<b>B5. Campaign report.</b> For each campaign print a line like <code>FB: CTR 2.0%, ROAS 5.0</code>, with both numbers rounded to 1 decimal.`,starter:R`names = ["FB", "Search", "TikTok"]
+impressions = [150000, 80000, 300000]
+clicks = [3000, 2400, 4500]
+spend = [60000, 72000, 90000]
+revenue = [300000, 230000, 240000]
+`,expect:'FB: CTR 2.0%, ROAS 5.0\nSearch: CTR 3.0%, ROAS 3.2\nTikTok: CTR 1.5%, ROAS 2.7',hint:'Inside a for i in range(len(names)) loop, use round(..., 1) and an f-string.',solution:R`names = ["FB", "Search", "TikTok"]
+impressions = [150000, 80000, 300000]
+clicks = [3000, 2400, 4500]
+spend = [60000, 72000, 90000]
+revenue = [300000, 230000, 240000]
+for i in range(len(names)):
+    ctr = round(clicks[i] / impressions[i] * 100, 1)
+    roas = round(revenue[i] / spend[i], 1)
+    print(f"{names[i]}: CTR {ctr}%, ROAS {roas}")`}]},
+{h:'Spaced review: Week 1 flashcards',nav:'Review',time:'45 min',body:R`<p>Go through every card. Mark "Again" honestly; those cards come back. Aim to finish with all of them known.</p>`,widget:'flash',cfg:{cards:[
+['Fetch–decode–execute','The cycle every CPU repeats for each instruction.'],['Bit and byte','A bit is a 0 or 1; a byte is 8 bits (256 values).'],['RAM vs storage','RAM is fast and temporary; SSDs and disks keep data with the power off.'],['Operating system','Software that manages hardware and runs programs: Windows, macOS, Linux, Android.'],['Variable','A name that refers to a value: price = 2500.'],['int, float, str, bool','Whole number, decimal number, text, True/False.'],['f-string','f"Total: {total}" puts values inside text.'],['if / elif / else','Runs the first block whose condition is True.'],['for vs while','for: once per item; while: as long as a condition holds.'],['def and return','Define a function; send a value back.'],['Ohm\'s law','V = I × R'],['Series vs parallel','Series: same current, R adds. Parallel: same voltage, currents add.'],['Power','P = V × I, in watts.'],['kWh','1,000 W for 1 hour.'],['Structured data','Rows and columns, like a spreadsheet.'],['KPI','A metric tied directly to a goal.'],['ROAS','Revenue ÷ ad spend.'],['SUMIF','Adds values that meet a condition.'],['CIA triad','Confidentiality, Integrity, Availability.'],['Phishing','A fake message designed to steal logins or money.'],['MFA','A second proof of identity beyond your password.'],['AI vs ML','AI is the goal of smart machines; ML learns patterns from data.']]}},
+{h:'Catch-up and planning',nav:'Catch-up',time:'Rest of day',body:R`<p>Use the rest of the day to close gaps. Tick each item when it's done.</p>`,
+check:['I scored 20/25 or more on Section A, or I re-studied every topic I got wrong','All five Section B tasks pass','Every Week 1 lesson\'s quiz is complete','All Week 1 homework is copied into our chat for marking','My Day 6 project is submitted','I\'ve looked at the Week 2 calendar and blocked the time in my diary']}],
+homework:['Your Section A score out of 25, and the three topics you found hardest.','Explain one idea from this week (your choice) as if teaching a friend with no tech background, in 5–8 sentences.','What will you do differently in Week 2 (study times, breaks, note-taking)?']}
+});})();
+
+</script>
 <script>
 (()=>{
 const $=(s,r=document)=>r.querySelector(s), $$=(s,r=document)=>[...r.querySelectorAll(s)];
@@ -833,8 +1938,12 @@ const SVGNS='http://www.w3.org/2000/svg';
 function S(tag,attrs,parent){const e=document.createElementNS(SVGNS,tag);for(const k in attrs)e.setAttribute(k,attrs[k]);if(parent)parent.appendChild(e);return e}
 
 /* ---------- routing ---------- */
-const VIEWS=['roadmap','calendar','tracks','ai-1','hw-1'];const inited={};
-function route(){let h=location.hash.slice(1);if(!VIEWS.includes(h))h='roadmap';VIEWS.forEach(v=>$('#v-'+v).hidden=v!==h);$$('.tabs a').forEach(a=>a.setAttribute('aria-current',a.getAttribute('href')==='#'+h?'page':'false'));window.scrollTo(0,0);if(!inited[h]){inited[h]=true;INIT[h]()}else resizers.forEach(f=>f())}
+const VIEWS=['roadmap','calendar','tracks','lessons','lesson','ai-1','hw-1'];const inited={};
+function route(){let h=location.hash.slice(1),lid=null;if(h==='today-sec'){h='roadmap';history.replaceState(null,'','#roadmap');VIEWS.forEach(v=>$('#v-'+v).hidden=v!=='roadmap');$('#today-sec').scrollIntoView({behavior:reduced?'auto':'smooth'});return}
+  if(h.startsWith('l-')&&window.WW_LESSONS&&WW_LESSONS[h.slice(2)]){lid=h.slice(2);h='lesson'}if(!VIEWS.includes(h)||(h==='lesson'&&!lid))h='roadmap';
+  VIEWS.forEach(v=>$('#v-'+v).hidden=v!==h);const tab=['lesson','ai-1','hw-1'].includes(h)?'lessons':h;$$('.tabs a').forEach(a=>a.setAttribute('aria-current',a.getAttribute('href')==='#'+tab?'page':'false'));window.scrollTo(0,0);
+  if(h==='lesson'){renderLesson(lid);return}if(h==='lessons'){renderLessonsIndex();return}
+  if(!inited[h]){inited[h]=true;INIT[h]()}else{if(['roadmap','calendar','tracks'].includes(h))refresh();resizers.forEach(f=>f())}}
 window.addEventListener('hashchange',route);
 document.addEventListener('click',e=>{const j=e.target.closest('[data-jump]');if(j){e.preventDefault();const t=document.getElementById(j.dataset.jump);if(t)t.scrollIntoView({behavior:reduced?'auto':'smooth',block:'start'})}});
 
@@ -854,8 +1963,7 @@ function renderParts(){for(const k in PARTS){const list=PARTS[k],n=doneIn(k);
     $('#lp-'+k+'-txt').textContent=`${n} of ${list.length} sections complete`;$('#lp-'+k+'-bar').style.width=(n/list.length*100)+'%';$('#lp-'+k+'-xp').textContent=GS.ev['done:1'+(k==='ai'?'a':'h')]?'Lesson complete ✓':'';
     list.forEach(([id,,how])=>{const blk=$('#'+id);if(!blk)return;const d=!!GS.ev['part:'+id];const hd=$(':scope > header',blk);let m=$('.mission',hd);if(!m){m=document.createElement('span');hd.appendChild(m)}m.className='mission'+(d?' ok':'');m.innerHTML=d?'<i>✓</i>Completed':`<i></i>To complete: ${how}`})}}
 
-/* ---------- course data (90-day bootcamp, approved 9 Nov 2026) ---------- */
-const START='2026-11-16';
+/* ---------- course data (90-day bootcamp; start date chosen by the learner) ---------- */
 const TR={
  S:{n:'Software engineering',h:85,d:'From your first line of Python to a deployed full-stack app with React, an API and a database.'},
  D:{n:'Data analytics & big data',h:75,d:'Statistics, SQL, pandas and dashboards, then Spark, cloud warehouses and streaming.'},
@@ -868,39 +1976,44 @@ const MODS={"S": [["How computers run programs: binary, CPU, memory, OS; dev set
 
 const PH=[{n:1,name:'Foundations',from:1,to:28},{n:2,name:'Core skills',from:29,to:56},{n:3,name:'Advanced',from:57,to:84},{n:4,name:'Capstone',from:85,to:90}];
 const CALPH=[{n:1,from:1,to:28},{n:2,from:29,to:56},{n:3,from:57,to:90}];
-const LINK={1:[null,'#hw-1'],4:[null,'#ai-1']};
+const LINK={};const addLink=(d,s,u)=>{(LINK[d]=LINK[d]||[null,null])[s]=u};addLink(1,1,'#hw-1');addLink(4,1,'#ai-1');Object.values(window.WW_LESSONS||{}).forEach(L=>addLink(L.day,L.slot||0,'#l-'+L.id));
 const MON=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'],WD=['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
-const t0=Date.parse(START+'T00:00:00Z');
-const dateOf=n=>new Date(t0+(n-1)*864e5);
-const fmtD=n=>{const d=dateOf(n);return `${WD[d.getUTCDay()]} ${d.getUTCDate()} ${MON[d.getUTCMonth()]}`};
-const shortD=n=>{const d=dateOf(n);return `${d.getUTCDate()} ${MON[d.getUTCMonth()]}`};
-const todayN=()=>Math.floor((Date.parse(colToday()+'T00:00:00Z')-t0)/864e5)+1;
+const t0=()=>Date.parse(GS.start+'T00:00:00Z');
+const dateOf=n=>new Date(t0()+(n-1)*864e5);
+const fmtD=n=>{if(!GS.start)return '';const d=dateOf(n);return `${WD[d.getUTCDay()]} ${d.getUTCDate()} ${MON[d.getUTCMonth()]}`};
+const shortD=n=>{if(!GS.start)return 'Day '+n;const d=dateOf(n);return `${d.getUTCDate()} ${MON[d.getUTCMonth()]}`};
+const todayN=()=>GS.start?Math.floor((Date.parse(colToday()+'T00:00:00Z')-t0())/864e5)+1:0;
+const linkId=href=>href?(href.startsWith('#l-')?href.slice(3):href.slice(1)):null;
 const KIND={P:'Project day · 7 hours',T:'Test and review day · 6 hours',X:'Capstone week'};
 const blocks=n=>{const a=DAYS[n-1];if(a.length===2)return[{t:a[0],x:a[1]}];return[{t:a[0],x:a[1],h:4},{t:a[2],x:a[3],h:3}]};
 const phaseOf=n=>PH.find(p=>n>=p.from&&n<=p.to);
 const calPhaseOf=n=>CALPH.find(p=>n>=p.from&&n<=p.to).n;
 const isDone=n=>!!GS.ev['bday:'+n];
 function trackProg(t){let tot=0,dn=0;for(let n=1;n<=90;n++)blocks(n).forEach(b=>{if(b.t===t){tot+=b.h;if(isDone(n))dn+=b.h}});return[dn,tot]}
-function blockHTML(b,n,i){if(!TR[b.t])return`<span class="blk lab"><span class="tg">${KIND[b.t]}</span>${b.x}</span>`;const href=LINK[n]&&LINK[n][i];return`<span class="blk tk-${b.t}"><span class="tg">${TR[b.t].n} · ${b.h} h</span>${href?`<a href="${href}">${b.x} →</a>`:b.x}</span>`}
+function blockHTML(b,n,i){const href=LINK[n]&&LINK[n][i],id=linkId(href);const st=id?(lessonDone(id)?' <em class="nb ok">Complete ✓</em>':''):' <em class="nb">Not built yet</em>';const body=(href?`<a href="${href}">${b.x} →</a>`:b.x)+st;
+  if(!TR[b.t])return`<span class="blk lab"><span class="tg">${KIND[b.t]}</span>${body}</span>`;return`<span class="blk tk-${b.t}"><span class="tg">${TR[b.t].n} · ${b.h} h</span>${body}</span>`}
 let calPhase=null,calTrack='all',selTrack='S';
 function renderCal(){const tn=todayN();if(!calPhase)calPhase=tn>=1&&tn<=90?calPhaseOf(tn):1;const ph=CALPH[calPhase-1];let h='';
   for(let w=Math.ceil(ph.from/7);w<=Math.ceil(ph.to/7);w++){const s=(w-1)*7+1,e=Math.min(w*7,90);
-    h+=`<div class="wkb"><div class="wk-h"><b>Week ${w}${w===13?' · Capstone':w%4===0?' · Phase exam':''}</b><span>${shortD(s)} – ${shortD(e)}</span></div>`;
+    h+=`<div class="wkb"><div class="wk-h"><b>Week ${w}${w===13?' · Capstone':w%4===0?' · Phase exam':''}</b><span>${GS.start?shortD(s)+' – '+shortD(e):'Days '+s+'–'+e}</span></div>`;
     for(let n=s;n<=e;n++){const bs=blocks(n),dim=calTrack!=='all'&&!bs.some(b=>b.t===calTrack);
       h+=`<div class="dr${n===tn?' today':''}${isDone(n)?' done':''}${dim?' dim':''}" id="day-${n}"><label class="dchk"><input type="checkbox" data-day="${n}" ${isDone(n)?'checked':''} aria-label="Mark Day ${n} done"></label><div class="dn"><b>Day ${n}</b><span>${fmtD(n)}</span>${n===tn?'<span class="now-pill">Today</span>':''}</div><div class="bl">${bs.map((b,i)=>blockHTML(b,n,i)).join('')}</div></div>`}
     h+='</div>'}
   $('#cal').innerHTML=h;$$('#cal-ph button').forEach(b=>b.setAttribute('aria-pressed',+b.dataset.p===calPhase));$$('#cal-tr button').forEach(b=>b.setAttribute('aria-pressed',b.dataset.t===calTrack))}
-function todayCard(b,n,i){if(!TR[b.t])return`<div class="tc"><span class="k">${KIND[b.t]}</span><span class="t">${b.x}</span><span class="s">${b.t==='P'?'Push the result to GitHub and write it up':b.t==='T'?'Test, spaced review, then catch up':'Your major, end to end'}</span></div>`;const href=LINK[n]&&LINK[n][i],tag=href?'a':'div';return`<${tag} ${href?`href="${href}" `:''}class="tc tk-${b.t}"><span class="k">Session ${i?'B':'A'} · ${TR[b.t].n} · ${b.h} hours</span><span class="t">${b.x}</span><span class="s">${href?'Open lesson →':'Lesson added before this day'}</span></${tag}>`}
-function renderToday(){const tn=todayN();let n,label;
-  if(tn<1){n=1;label=`Starts ${fmtD(1)} · ${1-tn} day${1-tn>1?'s':''} away`}else if(tn>90){n=90;label='Bootcamp complete'}else{n=tn;label=`Today · ${fmtD(n)}`}
+function todayCard(b,n,i){const href=LINK[n]&&LINK[n][i],id=linkId(href),tag=href?'a':'div',dn=id&&lessonDone(id);const k=TR[b.t]?`Session ${i?'B':'A'} · ${TR[b.t].n} · ${b.h} hours`:KIND[b.t];
+  return`<${tag} ${href?`href="${href}" `:''}class="tc${TR[b.t]?' tk-'+b.t:''}"><span class="k">${k}</span><span class="t">${b.x}</span><span class="s">${href?(dn?'Complete ✓ · open again →':'Open lesson →'):'Not built yet: added before you reach this day'}</span></${tag}>`}
+function renderToday(){const tn=todayN();let n,label,pre='',post='';
+  if(!GS.start){n=1;label='Not started yet · Day 1 preview';pre=`<div class="start-box"><h3 style="margin:0">Start whenever you're ready.</h3><p class="muted" style="margin:0">Choose your Day 1. Calendar dates, your daily plan and the countdown all follow from it, and you can change it later.</p><div class="row"><label class="slider" style="flex:0 1 230px;min-width:0">My Day 1<input type="date" id="start-date" value="${colToday()}"></label><button class="btn solid" id="start-btn">Start my bootcamp</button></div></div>`}
+  else if(tn<1){n=1;label=`Starts ${fmtD(1)} · ${1-tn} day${1-tn>1?'s':''} away`}else if(tn>90){n=90;label='Bootcamp complete'}else{n=tn;label=`Today · ${fmtD(n)}`}
   const ph=phaseOf(n),bs=blocks(n),learn=bs.length===2;
-  $('#today').innerHTML=`<div class="td-h"><span class="eyebrow" style="color:var(--muted)">${label}</span><h2>Day ${n} <span class="muted">of 90</span></h2><span class="pill">Phase ${ph.n} · ${ph.name} · Week ${Math.ceil(n/7)}${learn?' · 8 hours':''}</span></div><div class="td-b">${bs.map((b,i)=>todayCard(b,n,i)).join('')}</div>${learn?'<p class="muted" style="font-size:.92rem">Plus the 30-minute warm-up at 08:00 and the 30-minute quiz and journal at 17:00.</p>':''}<div class="row" style="justify-content:space-between"><label class="dchk"><input type="checkbox" data-day="${n}" ${isDone(n)?'checked':''}> Mark Day ${n} done</label><a class="btn" href="#calendar" data-goto-day="${n}" style="background:var(--paper);color:var(--ink)">Open in calendar</a></div>`}
+  $('#today').innerHTML=`<div class="td-h"><span class="eyebrow" style="color:var(--muted)">${label}</span><h2>Day ${n} <span class="muted">of 90</span></h2><span class="pill">Phase ${ph.n} · ${ph.name} · Week ${Math.ceil(n/7)}${learn?' · 8 hours':''}</span></div><div class="td-b">${bs.map((b,i)=>todayCard(b,n,i)).join('')}</div>${learn?'<p class="muted" style="font-size:.92rem">Plus the 30-minute warm-up at 08:00 and the 30-minute quiz and journal at 17:00.</p>':''}<div class="row" style="justify-content:space-between"><label class="dchk"><input type="checkbox" data-day="${n}" ${isDone(n)?'checked':''}> Mark Day ${n} done</label><a class="btn" href="#calendar" data-goto-day="${n}" style="background:var(--paper);color:var(--ink)">Open in calendar</a></div>${GS.start?`<details class="chg"><summary>Change my start date (Day 1 is ${fmtD(1)})</summary><div class="row"><input type="date" id="start-date2" value="${GS.start}" aria-label="New Day 1"><button class="btn" id="start-save" style="background:var(--paper)">Save</button></div></details>`:''}`;if(pre)$('#today').insertAdjacentHTML('afterbegin',pre)}
 function renderTrackCards(){$('#track-cards').innerHTML=Object.keys(TR).map(t=>{const tr=TR[t],[d,tot]=trackProg(t);return`<a class="tcard tk-${t}" href="#tracks" data-track="${t}"><span class="k">${tr.h} hours · ${MODS[t].length} sessions</span><span class="t">${tr.n}</span><span class="d">${tr.d}</span><span class="pbar"><i style="width:${d/tot*100}%"></i></span><span class="s">${d} of ${tot} hours done</span></a>`}).join('')}
 function renderTracks(){const tr=TR[selTrack],[d,tot]=trackProg(selTrack);$$('#tr-seg button').forEach(b=>b.setAttribute('aria-pressed',b.dataset.t===selTrack));
-  $('#tr-body').innerHTML=`<div class="tr-head tk-${selTrack}"><span class="eyebrow">${tr.h} hours · ${MODS[selTrack].length} sessions · ${d} of ${tot} hours done</span><h2>${tr.n}</h2><p class="lead">${tr.d}</p><span class="pbar"><i style="width:${d/tot*100}%"></i></span></div><div class="tbl-wrap"><table><thead><tr><th>#</th><th>Session</th><th>Hours</th><th>Day</th><th>Date</th></tr></thead><tbody>${MODS[selTrack].map((m,i)=>`<tr${isDone(m[2])?' style="opacity:.55"':''}><td>${i+1}</td><td style="white-space:normal;min-width:260px"><b>${m[0].split(':')[0]}</b>${m[0].includes(':')?':'+m[0].slice(m[0].indexOf(':')+1):''}</td><td>${m[1]}</td><td><a href="#calendar" data-goto-day="${m[2]}">Day ${m[2]}</a></td><td>${fmtD(m[2])}</td></tr>`).join('')}</tbody></table></div>`}
+  $('#tr-body').innerHTML=`<div class="tr-head tk-${selTrack}"><span class="eyebrow">${tr.h} hours · ${MODS[selTrack].length} sessions · ${d} of ${tot} hours done</span><h2>${tr.n}</h2><p class="lead">${tr.d}</p><span class="pbar"><i style="width:${d/tot*100}%"></i></span></div><div class="tbl-wrap"><table><thead><tr><th>#</th><th>Session</th><th>Hours</th><th>Day</th><th>Date</th></tr></thead><tbody>${MODS[selTrack].map((m,i)=>`<tr${isDone(m[2])?' style="opacity:.55"':''}><td>${i+1}</td><td style="white-space:normal;min-width:260px"><b>${m[0].split(':')[0]}</b>${m[0].includes(':')?':'+m[0].slice(m[0].indexOf(':')+1):''}</td><td>${m[1]}</td><td><a href="#calendar" data-goto-day="${m[2]}">Day ${m[2]}</a></td><td>${fmtD(m[2])||'—'}</td></tr>`).join('')}</tbody></table></div>`}
 function stats(){const tn=todayN(),done=Array.from({length:90},(_,i)=>isDone(i+1)).filter(Boolean).length;$('#st-pct').textContent=Math.round(done/90*100)+'%';
-  const end=Date.UTC(2027,1,13,18,30);$('#days-left').textContent=Math.max(0,Math.floor((end-Date.now())/864e5));
-  $('#wk-pill').textContent=tn<1?'Starts 16 Nov':tn>90?'Bootcamp complete':`Day ${tn} of 90`}
+  $('#days-left').textContent=GS.start&&tn>=1?Math.max(0,91-tn):90;
+  $('#wk-pill').textContent=!GS.start?'Not started':tn<1?`Starts ${shortD(1)}`:tn>90?'Bootcamp complete':`Day ${tn} of 90`}
+document.addEventListener('click',e=>{const sb=e.target.closest('#start-btn,#start-save');if(!sb)return;const v=$(sb.id==='start-btn'?'#start-date':'#start-date2').value;if(!/^\d{4}-\d{2}-\d{2}$/.test(v)){toast('Pick a date first');return}GS.start=v;saveG();calPhase=null;refresh();toast(sb.id==='start-btn'?`Started · Day 1 is ${fmtD(1)}`:'Start date updated')});
 function refresh(){renderToday();renderTrackCards();renderCal();renderTracks();stats()}
 function initGame(){refresh();renderParts()}
 document.addEventListener('change',e=>{const c=e.target.closest('input[data-day]');if(!c)return;const n=+c.dataset.day;if(c.checked)GS.ev['bday:'+n]=1;else delete GS.ev['bday:'+n];saveG();refresh();toast(c.checked?`Day ${n} done ✓`:`Day ${n} unmarked`)});
@@ -924,7 +2037,7 @@ function quiz(el,key,qs){const saved=store.get('quiz:'+key,{});el.innerHTML='';
   const sc=document.createElement('div');sc.className='row';sc.style.justifyContent='space-between';sc.innerHTML='<p class="score"></p><button class="btn">Reset quiz</button>';
   const score=()=>{const n=qs.filter((q,i)=>saved[i]===q.a).length,d=Object.keys(saved).length;$('.score',sc).textContent=`Score: ${n} / ${qs.length}`+(d<qs.length?` · ${qs.length-d} to go`:n===qs.length?' · perfect!':'')};
   qs.forEach((q,i)=>{const box=document.createElement('div');box.className='q';box.innerHTML=`<p class="qt">${i+1}. ${q.q}</p><div class="opts">${q.o.map((o,j)=>`<button class="opt" data-j="${j}">${o}</button>`).join('')}</div><p class="expl" hidden></p>`;el.appendChild(box);
-    const pick=(j,silent)=>{saved[i]=j;$$('.opt',box).forEach((b,k)=>{b.classList.toggle('right',k===q.a);b.classList.toggle('wrong',k===j&&j!==q.a)});const ex=$('.expl',box);ex.hidden=false;ex.innerHTML=(j===q.a?'<b style="color:var(--good)">Correct.</b> ':'<b style="color:var(--bad)">Not quite.</b> ')+q.e;if(!silent){store.set('quiz:'+key,saved);if(j===q.a)award('q:'+key+':'+i,10);if(Object.keys(saved).length===qs.length)partDone(key==='ai1'?'ai-s7':'hw-s8');if(qs.every((qq,ii)=>saved[ii]===qq.a))unlock('quiz-'+key)}score()};
+    const pick=(j,silent)=>{saved[i]=j;$$('.opt',box).forEach((b,k)=>{b.classList.toggle('right',k===q.a);b.classList.toggle('wrong',k===j&&j!==q.a)});const ex=$('.expl',box);ex.hidden=false;ex.innerHTML=(j===q.a?'<b style="color:var(--good)">Correct.</b> ':'<b style="color:var(--bad)">Not quite.</b> ')+q.e;if(!silent){store.set('quiz:'+key,saved);if(j===q.a)award('q:'+key+':'+i,10);if(Object.keys(saved).length===qs.length)partDone({ai1:'ai-s7',hw1:'hw-s8'}[key]||('q-'+key));if(qs.every((qq,ii)=>saved[ii]===qq.a))unlock('quiz-'+key)}score()};
     $$('.opt',box).forEach(b=>b.onclick=()=>pick(+b.dataset.j));if(saved[i]!=null)pick(saved[i],true)});
   el.appendChild(sc);$('button',sc).onclick=()=>{store.set('quiz:'+key,{});quiz(el,key,qs)};score()}
 
@@ -1178,6 +2291,160 @@ const HW_QUIZ=[
 {q:'5 V across a 250 Ω resistor. What current flows?',o:['0.02 A','1250 A','50 A','0.2 A'],a:0,e:'I = V ÷ R = 5 ÷ 250 = 0.02 A, which is 20 mA.'},
 {q:'Sri Lankan mains power is 230 V AC at 50 Hz. What does "50 Hz" mean?',o:['It is 50% efficient','It completes 50 back-and-forth cycles every second','It can power 50 devices','It is 50 volts'],a:1,e:'Hertz (Hz) means cycles per second. It is named after the German physicist Heinrich Hertz.'},
 {q:'Which particle actually flows through a copper wire?',o:['Protons','Neutrons','Electrons','Whole atoms'],a:2,e:'Free electrons drift through the wire. J.J. Thomson discovered them in 1897.'}];
+
+/* =============== GENERIC LESSON ENGINE =============== */
+const LESSONS=window.WW_LESSONS||{};
+const esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+let skP=null;
+function loadSk(){if(window.Sk&&Sk.importMainWithBody&&Sk.builtinFiles)return Promise.resolve();if(skP)return skP;
+  const add=src=>new Promise((res,rej)=>{const s=document.createElement('script');s.src=src;s.onload=res;s.onerror=rej;document.head.appendChild(s)});
+  skP=add('https://cdn.jsdelivr.net/npm/skulpt@1.2.0/dist/skulpt.min.js').then(()=>add('https://cdn.jsdelivr.net/npm/skulpt@1.2.0/dist/skulpt-stdlib.js'));skP.catch(()=>{skP=null});return skP}
+function runPy(code,inputs){return loadSk().then(()=>new Promise(resolve=>{let out='',k=0;const ins=(inputs||'').split('\n');
+  Sk.configure({output:t=>{out+=t},read:x=>{if(Sk.builtinFiles===undefined||Sk.builtinFiles.files[x]===undefined)throw "File not found: '"+x+"'";return Sk.builtinFiles.files[x]},inputfun:p=>{const v=ins[k++]??'';out+=(p||'')+v+'\n';return v},inputfunTakesPrompt:true,__future__:Sk.python3,execLimit:6000});
+  Sk.misceval.asyncToPromise(()=>Sk.importMainWithBody('<stdin>',false,code,true)).then(()=>resolve({ok:true,out}),e=>resolve({ok:false,out,err:String(e)}))}))}
+const norm=s=>String(s).replace(/\r/g,'').split('\n').map(l=>l.replace(/\s+$/,'')).join('\n').trim();
+function initCoder(box,ex,key){const ed=$('.code-ed',box),inp=$('.code-in',box),out=$('.code-out',box),res=$('.res',box);
+  ed.value=store.get('code:'+key,ex.starter||'');ed.addEventListener('input',()=>store.set('code:'+key,ed.value));
+  ed.addEventListener('keydown',e=>{if(e.key==='Tab'){e.preventDefault();const s=ed.selectionStart,en=ed.selectionEnd;ed.value=ed.value.slice(0,s)+'    '+ed.value.slice(en);ed.selectionStart=ed.selectionEnd=s+4;store.set('code:'+key,ed.value)}});
+  if(GS.ev['ex:'+key]){res.hidden=false;msg(res,'✓ Solved earlier. You can keep experimenting.','ok')}
+  $('.run',box).onclick=async()=>{out.className='code-out';out.textContent='Running…';const graded=!!(ex.expect!=null||ex.contains||ex.tests);
+    let r;try{r=await runPy(ex.tests?ed.value+'\n\n'+ex.tests:ed.value,inp?inp.value:'')}catch(e){out.textContent='Couldn\'t load the Python engine. Check your internet connection and press Run again.';out.className='code-out err';return}
+    out.textContent=(r.out||'')+(r.ok?'':(r.out?'\n':'')+r.err);if(!r.ok)out.className='code-out err';if(!r.out&&r.ok)out.textContent='(no output; did you forget print()?)';
+    if(!graded)return;res.hidden=false;let pass=false;const o=norm(r.out||'');
+    if(ex.tests)pass=r.ok&&o.includes('ALL TESTS PASSED');else if(ex.expect!=null)pass=r.ok&&o===norm(ex.expect);else pass=r.ok&&ex.contains.every(c=>o.toLowerCase().includes(String(c).toLowerCase()));
+    if(pass){award('ex:'+key);msg(res,'✓ Correct. Well done.','ok');refreshLessonProgress()}
+    else msg(res,r.ok?(ex.tests?'Not yet: a hidden test failed. Read the output above for which one.':ex.expect!=null?'Not yet. Expected output:<pre class="ex" style="margin-top:8px">'+esc(ex.expect)+'</pre>':'Not yet. Your output should include: '+ex.contains.map(esc).join(', ')):'Your code raised an error. Read the last line of the output: it names the problem and the line.','no')};
+  $('.reset',box).onclick=()=>{ed.value=ex.starter||'';store.set('code:'+key,ed.value);out.textContent='Output appears here';out.className='code-out'};
+  const hb=$('.hint',box);if(hb)hb.onclick=()=>{const h=$('.hint-text',box);h.hidden=!h.hidden};
+  const sb=$('.sol',box);if(sb)sb.onclick=()=>{ed.value=ex.solution;store.set('code:'+key,ed.value)}}
+function coderHTML(ex){return`<div class="coder"><div class="task">${ex.task}</div><textarea class="code-ed" spellcheck="false" aria-label="Python code editor"></textarea>${ex.inputs!=null?`<label class="slider" style="min-width:0">Program input (one value per line)<textarea class="code-in" spellcheck="false">${esc(ex.inputs)}</textarea></label>`:''}<div class="row"><button class="btn solid run">▶ Run</button><button class="btn reset" style="background:var(--panel)">Reset code</button>${ex.hint?'<button class="btn hint" style="background:var(--panel)">Hint</button>':''}${ex.solution?'<button class="btn sol" style="background:var(--panel)">Show a solution</button>':''}</div>${ex.hint?`<p class="hint-text note" hidden>${ex.hint}</p>`:''}<pre class="code-out">Output appears here</pre><p class="msg res" hidden></p></div>`}
+
+/* ---------- widgets ---------- */
+const WIDGETS={
+ binary(el){el.innerHTML=`<div class="bits">${[128,64,32,16,8,4,2,1].map(v=>`<button data-v="${v}" aria-pressed="false">0<span>${v}</span></button>`).join('')}</div><div class="kv"><div><b id="bn-dec">0</b><span>decimal</span></div><div><b id="bn-hex">00</b><span>hexadecimal</span></div><div><b id="bn-chr">–</b><span>ASCII character</span></div></div><div class="row"><label class="slider" style="flex:0 1 220px">Type a number (0–255)<input type="number" min="0" max="255" id="bn-in" value="0"></label><button class="btn" id="bn-a" style="background:var(--paper)">Show the letter A (65)</button></div>`;
+  let n=0;const draw=()=>{$$('.bits button',el).forEach(b=>{const on=(n&+b.dataset.v)>0;b.setAttribute('aria-pressed',on);b.firstChild.textContent=on?'1':'0'});$('#bn-dec',el).textContent=n;$('#bn-hex',el).textContent=n.toString(16).toUpperCase().padStart(2,'0');$('#bn-chr',el).textContent=n>=32&&n<127?String.fromCharCode(n):(n===32?'space':'–');$('#bn-in',el).value=n};
+  $$('.bits button',el).forEach(b=>b.onclick=()=>{n^=+b.dataset.v;draw();if(n===65)award('w:binary-a')});$('#bn-in',el).oninput=e=>{n=Math.max(0,Math.min(255,parseInt(e.target.value)||0));draw()};$('#bn-a',el).onclick=()=>{n=65;draw()};draw()},
+ rgb(el){el.innerHTML=`<div class="two"><div style="display:grid;gap:10px">${['Red','Green','Blue'].map((c,i)=>`<label class="slider">${c}: <span class="mono" id="rgb-l${i}"></span><input type="range" min="0" max="255" value="${[230,72,77][i]}" id="rgb-${i}"></label>`).join('')}</div><div style="display:grid;gap:10px"><div id="rgb-sw" style="height:120px;border-radius:18px"></div><p class="mono" id="rgb-tx" style="font-size:.9rem"></p></div></div>`;
+  const draw=()=>{const v=[0,1,2].map(i=>+$('#rgb-'+i,el).value);v.forEach((x,i)=>$('#rgb-l'+i,el).textContent=`${x} = ${x.toString(2).padStart(8,'0')}`);$('#rgb-sw',el).style.background=`rgb(${v})`;$('#rgb-tx',el).textContent=`#${v.map(x=>x.toString(16).padStart(2,'0')).join('').toUpperCase()} · 3 bytes = 24 bits for this one pixel`};[0,1,2].forEach(i=>$('#rgb-'+i,el).oninput=draw);draw()},
+ cpu(el){const PROG=[['LOAD A, 5','Put the number 5 into register A'],['LOAD B, 7','Put the number 7 into register B'],['ADD A, B','Add B to A; the result stays in A'],['STORE A, [7]','Copy A into memory cell 7'],['PRINT [7]','Send memory cell 7 to the screen'],['HALT','Stop']];
+  el.innerHTML=`<div class="cpu"><div><p class="eyebrow">Memory (RAM)</p><div class="mem" id="cpu-mem"></div></div><div style="display:grid;gap:10px;align-content:start"><p class="eyebrow">CPU</p><div class="kv"><div><b id="cpu-pc">0</b><span>PC: program counter</span></div><div><b id="cpu-a">0</b><span>Register A</span></div><div><b id="cpu-b">0</b><span>Register B</span></div></div><div class="kv"><div style="grid-column:1/-1"><b id="cpu-ir" style="font-family:var(--f-mono);font-size:1.05rem">–</b><span>IR: instruction register</span></div></div><p class="msg" id="cpu-msg">Press Step to start the fetch–decode–execute cycle.</p><div class="row"><button class="btn solid" id="cpu-step">Step</button><button class="btn" id="cpu-reset" style="background:var(--paper)">Reset</button></div><p class="eyebrow">Screen</p><pre class="code-out" id="cpu-out"></pre></div></div>`;
+  let s;const reset=()=>{s={pc:0,a:0,b:0,ir:null,phase:0,m7:0,out:'',halt:false};draw()};
+  const draw=()=>{$('#cpu-mem',el).innerHTML=PROG.map((p,i)=>`<div class="cell${i===s.pc&&!s.halt?' on':''}"><span>${i}</span>${p[0]}</div>`).join('')+`<div class="cell"><span>6</span>(empty)</div><div class="cell${s.m7?' data':''}"><span>7</span>${s.m7}</div>`;$('#cpu-pc',el).textContent=s.pc;$('#cpu-a',el).textContent=s.a;$('#cpu-b',el).textContent=s.b;$('#cpu-ir',el).textContent=s.ir===null?'–':PROG[s.ir][0];$('#cpu-out',el).textContent=s.out};
+  $('#cpu-step',el).onclick=()=>{if(s.halt){msg($('#cpu-msg',el),'Halted. Press Reset to run the program again.','');return}const m=$('#cpu-msg',el);
+    if(s.phase===0){s.ir=s.pc;msg(m,`<b>Fetch:</b> the CPU reads the instruction at address ${s.pc} into the instruction register, then adds 1 to the program counter.`,'');s.pc++;s.phase=1}
+    else if(s.phase===1){msg(m,`<b>Decode:</b> the control unit works out what "${PROG[s.ir][0]}" means: ${PROG[s.ir][1].toLowerCase()}.`,'');s.phase=2}
+    else{const op=PROG[s.ir][0];if(op.startsWith('LOAD A'))s.a=5;else if(op.startsWith('LOAD B'))s.b=7;else if(op.startsWith('ADD'))s.a=s.a+s.b;else if(op.startsWith('STORE'))s.m7=s.a;else if(op.startsWith('PRINT'))s.out+=s.m7+'\n';else{s.halt=true;award('w:cpu')}
+      msg(m,`<b>Execute:</b> ${PROG[s.ir][1]}.${s.halt?' The program is finished: 5 + 7 = 12 appeared on the screen.':''}`,s.halt?'ok':'');s.phase=0}draw()};
+  $('#cpu-reset',el).onclick=reset;reset()},
+ classify(el,cfg,key){const saved=store.get('cls:'+key,{});el.innerHTML=`<div class="sort">${cfg.items.map((it,i)=>`<div class="thing" id="${key}-${i}"><span class="nm">${it[0]}</span><div class="row">${cfg.opts.map((o,j)=>`<button data-i="${i}" data-k="${j}">${o}</button>`).join('')}</div><span class="why" hidden></span></div>`).join('')}</div><p class="score" id="${key}-sc"></p>`;
+  const mark=(i,k,quiet)=>{saved[i]=k;const it=cfg.items[i],ok=k===it[1],box=$('#'+key+'-'+i,el);box.className='thing '+(ok?'ok':'no');const w=$('.why',box);w.hidden=false;w.innerHTML=(ok?'<b style="color:var(--good)">Right.</b> ':`<b style="color:var(--bad)">Not quite: ${cfg.opts[it[1]]}.</b> `)+it[2];if(!quiet)store.set('cls:'+key,saved);const n=Object.keys(saved).filter(j=>saved[j]===cfg.items[j][1]).length;$('#'+key+'-sc',el).textContent=`${n} / ${cfg.items.length} right`;if(Object.keys(saved).length===cfg.items.length)award('w:'+key)};
+  el.addEventListener('click',e=>{const b=e.target.closest('button[data-i]');if(b)mark(+b.dataset.i,+b.dataset.k)});Object.keys(saved).forEach(i=>mark(+i,saved[i],true));if(!Object.keys(saved).length)$('#'+key+'-sc',el).textContent=`0 / ${cfg.items.length} sorted`},
+ kpi(el){const F=[['imp','Impressions',120000],['clk','Clicks',2400],['conv','Conversions (sales)',96],['spend','Ad spend (Rs.)',180000],['rev','Revenue (Rs.)',576000]];
+  el.innerHTML=`<div class="fields">${F.map(f=>`<label>${f[1]}<input type="number" min="0" id="k-${f[0]}" value="${f[2]}"></label>`).join('')}</div><div class="kv" id="k-out"></div><p class="msg" id="k-msg"></p>`;
+  const v=k=>+$('#k-'+k,el).value||0,f=(x,d=2)=>isFinite(x)?x.toLocaleString('en-US',{maximumFractionDigits:d}):'–';
+  const draw=()=>{const ctr=v('clk')/v('imp')*100,cr=v('conv')/v('clk')*100,cpc=v('spend')/v('clk'),cpa=v('spend')/v('conv'),roas=v('rev')/v('spend'),profit=v('rev')-v('spend');
+    $('#k-out',el).innerHTML=[[f(ctr)+'%','CTR = clicks ÷ impressions'],[f(cr)+'%','Conversion rate = sales ÷ clicks'],['Rs. '+f(cpc,0),'CPC = spend ÷ clicks'],['Rs. '+f(cpa,0),'CPA = spend ÷ sales'],[f(roas)+'×','ROAS = revenue ÷ spend'],['Rs. '+f(profit,0),'Revenue − spend']].map(x=>`<div><b>${x[0]}</b><span>${x[1]}</span></div>`).join('');
+    msg($('#k-msg',el),roas>=3?`A ROAS of ${f(roas)}× means every Rs. 1 of ads brought back Rs. ${f(roas)} in revenue: a healthy campaign, if product costs leave a margin.`:roas>=1?`ROAS of ${f(roas)}× covers the ad spend, but after product and staff costs this campaign may still lose money.`:`ROAS below 1× means the ads cost more than they earned. Look at the weakest step: CTR (the ad) or conversion rate (the landing page).`,roas>=3?'ok':roas>=1?'warn':'no')};
+  F.forEach(x=>$('#k-'+x[0],el).oninput=draw);draw()},
+ password(el){el.innerHTML=`<label class="slider" style="min-width:0">Type a password to test (it never leaves this page)<input type="password" id="pw-in" autocomplete="off" placeholder="e.g. Colombo2024!"></label><label class="dchk" style="font-weight:500"><input type="checkbox" id="pw-show"> Show password</label><div class="kv"><div><b id="pw-bits">0</b><span>bits of entropy (rough)</span></div><div><b id="pw-time">instant</b><span>to guess at 10 billion tries/sec</span></div></div><div class="bar" style="height:10px;border-radius:6px;background:var(--line);overflow:hidden"><i id="pw-bar" style="display:block;height:100%;width:0;background:var(--bad);transition:width .3s"></i></div><ul id="pw-tips" class="prose" style="margin:0;padding-left:20px"></ul>`;
+  const COMMON=['password','123456','qwerty','letmein','admin','welcome','iloveyou','colombo','srilanka','abc123','111111','monkey','dragon'];
+  const human=s=>s<1?'instant':s<60?Math.round(s)+' seconds':s<3600?Math.round(s/60)+' minutes':s<86400?Math.round(s/3600)+' hours':s<31557600?Math.round(s/86400)+' days':s<31557600e3?Math.round(s/31557600)+' years':s<31557600e6?Math.round(s/31557600e3)+' thousand years':'millions of years+';
+  const draw=()=>{const p=$('#pw-in',el).value;let pool=0;if(/[a-z]/.test(p))pool+=26;if(/[A-Z]/.test(p))pool+=26;if(/[0-9]/.test(p))pool+=10;if(/[^A-Za-z0-9]/.test(p))pool+=33;let bits=p.length?p.length*Math.log2(pool||1):0;const low=p.toLowerCase(),tips=[];
+    if(COMMON.some(c=>low.includes(c))){bits=Math.min(bits,20);tips.push('It contains a very common word or pattern: attackers try those first.')}
+    if(/(.)\1\1/.test(p)){bits-=10;tips.push('Repeated characters (like aaa) add little strength.')}
+    if(/(19|20)\d\d/.test(p)){bits-=8;tips.push('Years are easy to guess, especially birth years.')}
+    if(p.length<12)tips.push('Use at least 12 characters. Length beats complexity.');
+    if(p.length>=12&&pool<=26)tips.push('Good length. A 4–5 random-word passphrase is even easier to remember.');
+    bits=Math.max(0,bits);const secs=Math.pow(2,bits)/2/1e10;$('#pw-bits',el).textContent=Math.round(bits);$('#pw-time',el).textContent=human(secs);
+    const pct=Math.min(100,bits/80*100);const bar=$('#pw-bar',el);bar.style.width=pct+'%';bar.style.background=bits<40?'var(--bad)':bits<60?'var(--warn)':'var(--good)';
+    if(bits>=60)tips.push('Strong. Now make sure it is unique to this one account, stored in a password manager, and backed by MFA.');
+    $('#pw-tips',el).innerHTML=p?tips.map(t=>`<li>${t}</li>`).join(''):'<li>Start typing to see the estimate.</li>';if(bits>=60)award('w:pw')};
+  $('#pw-in',el).oninput=draw;$('#pw-show',el).onchange=e=>$('#pw-in',el).type=e.target.checked?'text':'password';draw()},
+ risk(el){el.innerHTML=`<div class="fields"><label>Likelihood (1 rare – 5 almost certain)<input type="range" min="1" max="5" value="4" id="rk-l"></label><label>Impact (1 minor – 5 severe)<input type="range" min="1" max="5" value="5" id="rk-i"></label></div><div class="rgrid" id="rk-grid"></div><p class="msg" id="rk-msg"></p>`;
+  const draw=()=>{const l=+$('#rk-l',el).value,i=+$('#rk-i',el).value,s=l*i;let h='<span></span>';for(let c=1;c<=5;c++)h+=`<span class="ax">${c}</span>`;for(let r=5;r>=1;r--){h+=`<span class="ax">${r}</span>`;for(let c=1;c<=5;c++){const v=r*c;h+=`<span class="rc ${v>=15?'hi':v>=8?'md':'lo'}${r===i&&c===l?' on':''}">${v}</span>`}}$('#rk-grid',el).innerHTML=h;
+    msg($('#rk-msg',el),`Risk = likelihood × impact = ${l} × ${i} = <b>${s}</b>. ${s>=15?'High: act now (for example, turn on MFA today).':s>=8?'Medium: plan a fix soon and monitor it.':'Low: accept it or fix it when convenient.'}`,s>=15?'no':s>=8?'warn':'ok')};$('#rk-l',el).oninput=$('#rk-i',el).oninput=draw;draw()},
+ circuit(el){el.innerHTML=`<div class="seg" id="ci-mode"><button data-m="s" aria-pressed="true">Series</button><button data-m="p" aria-pressed="false">Parallel</button></div><div class="fields"><label>Battery voltage: <span class="mono" id="ci-vl"></span><input type="range" min="1.5" max="12" step="0.5" value="9" id="ci-v"></label>${[1,2,3].map(i=>`<label>R${i}: <span class="mono" id="ci-rl${i}"></span><input type="range" min="${i===3?0:10}" max="1000" step="10" value="${[100,220,0][i-1]}" id="ci-r${i}"></label>`).join('')}</div><p class="muted" style="font-size:.88rem">Set R3 to 0 to leave it out.</p><div class="stage"><svg viewBox="0 0 560 230" id="ci-svg" style="width:100%;height:auto;display:block" role="img" aria-label="Circuit diagram"></svg></div><div class="tbl-wrap"><table><thead><tr><th>Part</th><th>Resistance</th><th>Voltage across it</th><th>Current through it</th><th>Power</th></tr></thead><tbody id="ci-tb"></tbody></table></div><p class="msg mono" id="ci-law"></p>`;
+  let mode='s';const f=(x,d=3)=>String(parseFloat(x.toPrecision(d)));
+  const draw=()=>{$$('#ci-mode button',el).forEach(b=>b.setAttribute('aria-pressed',b.dataset.m===mode));const V=+$('#ci-v',el).value,R=[1,2,3].map(i=>+$('#ci-r'+i,el).value).filter(r=>r>0);$('#ci-vl',el).textContent=V+' V';[1,2,3].forEach(i=>$('#ci-rl'+i,el).textContent=(+$('#ci-r'+i,el).value||'off')+(+$('#ci-r'+i,el).value?' Ω':''));
+    let rows=[],Rt,It;if(mode==='s'){Rt=R.reduce((a,b)=>a+b,0);It=V/Rt;rows=R.map((r,i)=>[`R${i+1}`,r,It*r,It,It*It*r])}else{Rt=1/R.reduce((a,b)=>a+1/b,0);It=V/Rt;rows=R.map((r,i)=>[`R${i+1}`,r,V,V/r,V*V/r])}
+    $('#ci-tb',el).innerHTML=rows.map(r=>`<tr><td><b>${r[0]}</b></td><td>${r[1]} Ω</td><td>${f(r[2])} V</td><td>${f(r[3]*1000)} mA</td><td>${f(r[4]*1000)} mW</td></tr>`).join('')+`<tr><td><b>Whole circuit</b></td><td>${f(Rt)} Ω</td><td>${V} V</td><td>${f(It*1000)} mA</td><td>${f(V*It*1000)} mW</td></tr>`;
+    $('#ci-law',el).innerHTML=mode==='s'?`Kirchhoff's voltage law: ${rows.map(r=>f(r[2])+' V').join(' + ')} = ${f(rows.reduce((a,r)=>a+r[2],0))} V, the battery's ${V} V.`:`Kirchhoff's current law: ${rows.map(r=>f(r[3]*1000)+' mA').join(' + ')} = ${f(rows.reduce((a,r)=>a+r[3],0)*1000)} mA, the total current.`;
+    const svg=$('#ci-svg',el);let g=`<g fill="none" stroke="var(--muted)" stroke-width="3">`;const resistor=(x,y,lab,vert)=>vert?`<rect x="${x-12}" y="${y-30}" width="24" height="60" rx="5" fill="var(--cu-soft)" stroke="var(--cu)" stroke-width="2"/><text x="${x+22}" y="${y+5}" font-size="13" fill="var(--ink)" stroke="none" font-family="var(--f-mono)">${lab}</text>`:`<rect x="${x-30}" y="${y-12}" width="60" height="24" rx="5" fill="var(--cu-soft)" stroke="var(--cu)" stroke-width="2"/><text x="${x}" y="${y-20}" text-anchor="middle" font-size="13" fill="var(--ink)" stroke="none" font-family="var(--f-mono)">${lab}</text>`;
+    g+=`<path d="M60 70 V30 H500 V200 H60 V150"/></g><rect x="40" y="70" width="40" height="80" rx="6" fill="var(--paper)" stroke="var(--ink)" stroke-width="2"/><text x="60" y="114" text-anchor="middle" font-size="13" font-weight="700" fill="var(--ink)" font-family="var(--f-mono)">${V}V</text>`;
+    if(mode==='s'){R.forEach((r,i)=>{const x=170+i*130;g+=`<rect x="${x-34}" y="22" width="68" height="16" fill="var(--paper)"/>`+resistor(x,30,`R${i+1} ${r}Ω`)})}else{g+=`<g fill="none" stroke="var(--muted)" stroke-width="3">`;R.forEach((r,i)=>{const x=200+i*110;g+=`<path d="M${x} 30 V200"/>`});g+=`</g>`;R.forEach((r,i)=>{const x=200+i*110;g+=resistor(x,115,`R${i+1} ${r}Ω`,true)})}
+    svg.innerHTML=g};
+  $$('#ci-mode button',el).forEach(b=>b.onclick=()=>{mode=b.dataset.m;draw();award('w:circuit-'+mode)});$$('input',el).forEach(i=>i.oninput=draw);draw()},
+ energy(el){el.innerHTML=`<div class="fields"><label>Appliance power (watts)<input type="number" id="en-w" value="1200" min="0"></label><label>Hours used per day<input type="number" id="en-h" value="2" min="0" step="0.5"></label><label>Days<input type="number" id="en-d" value="30" min="0"></label><label>Your rate (Rs. per kWh, from your bill)<input type="number" id="en-r" value="50" min="0"></label></div><div class="kv" id="en-out"></div>`;
+  const v=k=>+$('#en-'+k,el).value||0;const draw=()=>{const kwh=v('w')*v('h')*v('d')/1000;$('#en-out',el).innerHTML=`<div><b>${kwh.toLocaleString('en-US',{maximumFractionDigits:1})} kWh</b><span>energy = watts × hours ÷ 1000</span></div><div><b>Rs. ${(kwh*v('r')).toLocaleString('en-US',{maximumFractionDigits:0})}</b><span>cost = kWh × your rate</span></div><div><b>${(v('w')/230).toFixed(2)} A</b><span>current drawn at 230 V (I = P ÷ V)</span></div>`};$$('input',el).forEach(i=>i.oninput=draw);draw()},
+ flash(el,cfg,key){let i=0,flip=false;const known=store.get('fl:'+key,{});el.innerHTML=`<div class="flash"><button class="card" id="fl-card"></button><div class="row" style="justify-content:space-between"><span class="muted" id="fl-pos"></span><div class="row"><button class="btn" id="fl-again" style="background:var(--paper)">Again</button><button class="btn solid" id="fl-know">I knew it</button></div></div></div>`;
+  const draw=()=>{const c=cfg.cards[i];$('#fl-card',el).innerHTML=flip?`<span style="font-weight:500;font-size:1.05rem;font-family:var(--f-body)">${c[1]}</span>`:`${c[0]}<small>Tap to reveal</small>`;$('#fl-pos',el).textContent=`Card ${i+1} of ${cfg.cards.length} · ${Object.keys(known).length} known`};
+  $('#fl-card',el).onclick=()=>{flip=!flip;draw()};const next=()=>{i=(i+1)%cfg.cards.length;flip=false;draw()};$('#fl-know',el).onclick=()=>{known[i]=1;store.set('fl:'+key,known);if(Object.keys(known).length===cfg.cards.length)award('w:'+key);next()};$('#fl-again',el).onclick=()=>{delete known[i];store.set('fl:'+key,known);next()};draw()},
+ pivot(el,cfg){el.innerHTML=`<div class="fields"><label>Rows (group by)<select id="pv-g">${cfg.groups.map(g=>`<option>${g}</option>`).join('')}</select></label><label>Value<select id="pv-v"><option value="sum:Tickets">Sum of Tickets</option><option value="sum:Revenue">Sum of Revenue</option><option value="avg:Price">Average of Price</option><option value="count:">Count of rows</option></select></label></div><div class="tbl-wrap"><table><thead><tr><th id="pv-h1"></th><th id="pv-h2"></th></tr></thead><tbody id="pv-b"></tbody></table></div>`;
+  const draw=()=>{const g=$('#pv-g',el).value,[fn,col]=$('#pv-v',el).value.split(':');const m={};cfg.rows.forEach(r=>{const k=r[g];(m[k]=m[k]||[]).push(r)});const val=a=>fn==='count'?a.length:fn==='sum'?a.reduce((s,r)=>s+r[col],0):a.reduce((s,r)=>s+r[col],0)/a.length;
+    const keys=Object.keys(m).sort((a,b)=>val(m[b])-val(m[a]));const tot=fn==='avg'?val(cfg.rows):val(cfg.rows);$('#pv-h1',el).textContent=g;$('#pv-h2',el).textContent=$('#pv-v',el).selectedOptions[0].textContent;
+    $('#pv-b',el).innerHTML=keys.map(k=>`<tr><td>${k}</td><td>${Math.round(val(m[k])).toLocaleString('en-US')}</td></tr>`).join('')+`<tr><td><b>Grand total</b></td><td><b>${Math.round(tot).toLocaleString('en-US')}</b></td></tr>`;award('w:pivot')};$$('select',el).forEach(s=>s.onchange=draw);draw()},
+ sheet(el,cfg,key){
+  const COLS='ABCDEFGH'.split(''),NR=cfg.rows||12;const cells=store.get('sh:'+key,null)||JSON.parse(JSON.stringify(cfg.data));let sel='A1';
+  el.innerHTML=`<div class="fbar"><b class="mono" id="sh-ref">A1</b><input type="text" id="sh-f" spellcheck="false" aria-label="Formula bar" placeholder="Type a value or a formula such as =SUM(E2:E8), then press Enter"></div><div class="sheet-wrap"><table class="sheet" id="sh-t"></table></div><div class="row"><button class="btn" id="sh-reset" style="background:var(--paper)">Reset sheet</button><span class="muted" style="font-size:.88rem">Click a cell, type in the bar, press Enter. Functions: SUM, AVERAGE, COUNT, COUNTA, MIN, MAX, ROUND, IF, SUMIF, COUNTIF, AVERAGEIF, UPPER, LOWER, LEN, TRIM, PROPER, CONCAT.</span></div><div class="chk-list" id="sh-tasks"></div>`;
+  const val=ref=>{const raw=cells[ref];if(raw==null||raw==='')return'';if(typeof raw==='number')return raw;if(String(raw).startsWith('='))return evalF(String(raw).slice(1),ref);const n=Number(raw);return raw.trim()!==''&&!isNaN(n)?n:raw};
+  const range=(a,b)=>{const c1=a.charCodeAt(0),c2=b.charCodeAt(0),r1=+a.slice(1),r2=+b.slice(1),o=[];for(let r=Math.min(r1,r2);r<=Math.max(r1,r2);r++)for(let c=Math.min(c1,c2);c<=Math.max(c1,c2);c++)o.push(String.fromCharCode(c)+r);return o};
+  const match=(v,crit)=>{const m=String(crit).match(/^(>=|<=|<>|>|<|=)?(.*)$/);const op=m[1]||'=',t=m[2],tn=Number(t),isn=t!==''&&!isNaN(tn);const a=isn?Number(v):String(v).toLowerCase(),b=isn?tn:t.toLowerCase();return op==='='?a===b:op==='<>'?a!==b:op==='>'?a>b:op==='<'?a<b:op==='>='?a>=b:a<=b};
+  function evalF(src,self){let p=0;const s=src.toUpperCase().replace(/"[^"]*"/g,x=>x),raw=src;const ws=()=>{while(raw[p]===' ')p++};
+    const num=v=>{if(v===''||v==null)return 0;const n=Number(v);if(isNaN(n))throw'#VALUE!';return n};const flat=a=>a.flat(Infinity);
+    const nums=args=>flat(args).filter(v=>typeof v==='number'||(v!==''&&!isNaN(Number(v))&&typeof v!=='string')).map(Number);
+    const FN={SUM:a=>nums(a).reduce((x,y)=>x+y,0),AVERAGE:a=>{const n=nums(a);if(!n.length)throw'#DIV/0!';return n.reduce((x,y)=>x+y,0)/n.length},COUNT:a=>nums(a).length,COUNTA:a=>flat(a).filter(v=>v!=='').length,MIN:a=>Math.min(...nums(a)),MAX:a=>Math.max(...nums(a)),ROUND:a=>{const f=Math.pow(10,num(a[1]||0));return Math.round(num(a[0])*f)/f},
+      IF:a=>a[0]?a[1]:(a[2]??false),UPPER:a=>String(a[0]).toUpperCase(),LOWER:a=>String(a[0]).toLowerCase(),LEN:a=>String(a[0]).length,TRIM:a=>String(a[0]).trim().replace(/\s+/g,' '),PROPER:a=>String(a[0]).toLowerCase().replace(/\b\w/g,c=>c.toUpperCase()),CONCAT:a=>flat(a).join(''),
+      SUMIF:(a,r)=>{const cr=r[0],sr=r[2]||r[0];return cr.reduce((t,ref,i)=>t+(match(val(ref),a[1])?num(val(sr[i])):0),0)},COUNTIF:(a,r)=>r[0].filter(ref=>match(val(ref),a[1])).length,AVERAGEIF:(a,r)=>{const cr=r[0],sr=r[2]||r[0];const v=cr.map((ref,i)=>match(val(ref),a[1])?num(val(sr[i])):null).filter(x=>x!==null);if(!v.length)throw'#DIV/0!';return v.reduce((x,y)=>x+y,0)/v.length}};
+    const prim=()=>{ws();const c=raw[p];if(c==='('){p++;const v=cmp();ws();if(raw[p]!==')')throw'#ERROR';p++;return v}if(c==='"'){const e=raw.indexOf('"',p+1);if(e<0)throw'#ERROR';const v=raw.slice(p+1,e);p=e+1;return v}if(c==='-'){p++;return -num(prim())}
+      let m=raw.slice(p).match(/^\d+(\.\d+)?/);if(m){p+=m[0].length;return Number(m[0])}
+      m=raw.slice(p).match(/^([A-Za-z]+)\s*\(/);if(m){const name=m[1].toUpperCase();p+=m[0].length;const args=[],refs=[];ws();if(raw[p]!==')'){for(;;){ws();const rm=raw.slice(p).match(/^([A-Ha-h])(\d+):([A-Ha-h])(\d+)/);if(rm){p+=rm[0].length;const rr=range(rm[1].toUpperCase()+rm[2],rm[3].toUpperCase()+rm[4]);if(rr.includes(self))throw'#CIRCULAR';refs.push(rr);args.push(rr.map(val))}else{refs.push(null);args.push(cmp())}ws();if(raw[p]===','){p++;continue}break}}ws();if(raw[p]!==')')throw'#ERROR';p++;if(!FN[name])throw'#NAME?';return FN[name](args,refs)}
+      m=raw.slice(p).match(/^([A-Ha-h])(\d+)/);if(m){p+=m[0].length;const ref=m[1].toUpperCase()+m[2];if(ref===self)throw'#CIRCULAR';return val(ref)}
+      m=raw.slice(p).match(/^(TRUE|FALSE)/i);if(m){p+=m[0].length;return m[0].toUpperCase()==='TRUE'}throw'#ERROR'};
+    const pow=()=>{let v=prim();ws();while(raw[p]==='^'){p++;v=Math.pow(num(v),num(prim()));ws()}return v};
+    const mul=()=>{let v=pow();ws();while(raw[p]==='*'||raw[p]==='/'){const o=raw[p++];const r=num(pow());if(o==='/'&&r===0)throw'#DIV/0!';v=o==='*'?num(v)*r:num(v)/r;ws()}return v};
+    const add=()=>{let v=mul();ws();while(raw[p]==='+'||raw[p]==='-'||raw[p]==='&'){const o=raw[p++];const r=mul();v=o==='&'?String(v)+String(r):o==='+'?num(v)+num(r):num(v)-num(r);ws()}return v};
+    const cmp=()=>{let v=add();ws();const m=raw.slice(p).match(/^(>=|<=|<>|=|>|<)/);if(m){p+=m[0].length;const r=add();const a=typeof v==='string'?v.toLowerCase():v,b=typeof r==='string'?r.toLowerCase():r;v=m[0]==='='?a==b:m[0]==='<>'?a!=b:m[0]==='>'?a>b:m[0]==='<'?a<b:m[0]==='>='?a>=b:a<=b}return v};
+    try{const v=cmp();ws();if(p<raw.length)throw'#ERROR';return v}catch(e){return typeof e==='string'?e:'#ERROR'}}
+  const show=v=>typeof v==='number'?(Number.isInteger(v)?v.toLocaleString('en-US'):v.toLocaleString('en-US',{maximumFractionDigits:2})):v===true?'TRUE':v===false?'FALSE':esc(v);
+  const draw=()=>{let h='<tr><th></th>'+COLS.map(c=>`<th>${c}</th>`).join('')+'</tr>';for(let r=1;r<=NR;r++){h+=`<tr><th>${r}</th>`+COLS.map(c=>{const ref=c+r,v=val(ref);return`<td data-ref="${ref}" class="${ref===sel?'sel':''}${typeof v==='number'?' n':''}${r===1?' hd':''}">${show(v)}</td>`}).join('')+'</tr>'}$('#sh-t',el).innerHTML=h;$('#sh-ref',el).textContent=sel;$('#sh-f',el).value=cells[sel]??'';
+    $('#sh-tasks',el).innerHTML=cfg.tasks.map((t,i)=>{let ok=false;try{ok=t[1](val,cells)}catch(e){}if(ok)award('sh:'+key+':'+i);return`<label><input type="checkbox" disabled ${ok?'checked':''}> <span>${t[0]}${ok?' <b style="color:var(--good)">✓</b>':''}</span></label>`}).join('')};
+  $('#sh-t',el).addEventListener('click',e=>{const td=e.target.closest('td[data-ref]');if(!td)return;sel=td.dataset.ref;draw();$('#sh-f',el).focus()});
+  $('#sh-f',el).addEventListener('keydown',e=>{if(e.key!=='Enter')return;e.preventDefault();cells[sel]=$('#sh-f',el).value;store.set('sh:'+key,cells);const r=+sel.slice(1);if(r<NR)sel=sel[0]+(r+1);draw()});
+  $('#sh-reset',el).onclick=()=>{Object.keys(cells).forEach(k=>delete cells[k]);Object.assign(cells,JSON.parse(JSON.stringify(cfg.data)));store.set('sh:'+key,null);draw()};draw()}
+};
+
+function partHTML(L,p,i){const k=`${L.id}-${i}`;let h=`<div class="block" id="lp-${k}"><header><span class="eyebrow">Part ${i+1}${p.time?' · '+p.time:''}</span><h2>${p.h}</h2></header>`;
+  if(p.body)h+=`<div class="prose lesson-prose">${p.body}</div>`;
+  if(p.timeline)h+=`<div class="tl" id="tl-${k}"><div class="tl-track"></div><div class="tl-card" aria-live="polite"></div><div class="row"><button class="btn tl-prev">← Earlier</button><button class="btn tl-next">Later →</button></div></div>`;
+  if(p.widget)h+=`<div class="widget" data-w="${p.widget}" data-k="${k}"></div>`;
+  if(p.code)h+=p.code.map((ex,j)=>`<div class="coder-wrap" data-k="${k}-${j}"><p class="eyebrow" style="color:var(--muted)">Exercise ${j+1} of ${p.code.length}</p>${coderHTML(ex)}</div>`).join('');
+  if(p.quiz)h+=`<div class="quiz" id="qz-${k}"></div>`;
+  if(p.check)h+=`<div class="chk-list">${p.check.map((c,j)=>`<label><input type="checkbox" data-chk="${k}-${j}"> <span>${c}</span></label>`).join('')}</div>`;
+  if(p.after)h+=`<div class="prose lesson-prose">${p.after}</div>`;
+  return h+'</div>'}
+function lessonProgress(L){let tot=0,dn=0;L.parts.forEach((p,i)=>{const k=`${L.id}-${i}`;if(p.code)p.code.forEach((ex,j)=>{if(ex.expect!=null||ex.contains||ex.tests){tot++;if(GS.ev['ex:'+k+'-'+j])dn++}});if(p.quiz){tot++;const s=store.get('quiz:'+k,{});if(Object.keys(s).length===p.quiz.length)dn++}if(p.widget==='sheet'){tot++;if(p.cfg.tasks.every((t,j)=>GS.ev['sh:'+k+':'+j]))dn++}if(p.widget==='classify'){tot++;if(GS.ev['w:'+k])dn++}if(p.check){tot++;if(p.check.every((c,j)=>store.get('chk:'+k+'-'+j,false)))dn++}});return[dn,tot]}
+const lessonDone=id=>id==='hw-1'?!!GS.ev['done:1h']:id==='ai-1'?!!GS.ev['done:1a']:!!GS.ev['lesson:'+id];
+let curLesson=null;
+function refreshLessonProgress(){if(!curLesson)return;const[d,t]=lessonProgress(curLesson);const b=$('#ls-bar');if(b){b.style.width=(t?d/t*100:0)+'%';$('#ls-txt').textContent=`${d} of ${t} activities complete`}}
+function renderLesson(id){const L=LESSONS[id];curLesson=L;const root=$('#v-lesson');const tc=TR[L.track]?`var(--c-${L.track})`:'var(--ink)';root.style.setProperty('--t',tc);root.style.setProperty('--t-soft',`color-mix(in srgb, ${tc} 12%, var(--paper))`);root.style.setProperty('--on-t',L.track==='H'||L.track==='B'?'#1D1200':'#FFFFFF');
+  const tname=TR[L.track]?TR[L.track].n:(L.track==='P'?'Weekly project':'Weekly test');
+  let h=`<div class="lhero"><div class="meta"><span class="pill">Day ${L.day}${L.slot!=null&&TR[L.track]?' · Session '+(L.slot?'B':'A'):''} · ${tname}</span><span class="pill">${L.hours} hours</span></div><h1>${L.title}</h1><p class="lead">${L.lead}</p>${L.goals?`<div class="note"><b>By the end you will be able to:</b><ul style="margin:8px 0 0;padding-left:20px">${L.goals.map(g=>`<li>${g}</li>`).join('')}</ul></div>`:''}<div class="lprog"><div class="row" style="justify-content:space-between"><span id="ls-txt"></span><span>${lessonDone(id)?'Lesson complete ✓':''}</span></div><div class="bar"><i id="ls-bar"></i></div></div><nav class="lpath">${L.parts.map((p,i)=>`<a class="lnode" href="#" data-jump="lp-${L.id}-${i}"><span class="dot">${i+1}</span>${p.nav||p.h}</a>`).join('')}</nav></div>`;
+  h+=L.parts.map((p,i)=>partHTML(L,p,i)).join('');
+  if(L.homework)h+=`<div class="block" id="lp-${L.id}-hw"><header><span class="eyebrow">Homework</span><h2>${L.homeworkTitle||'Homework'}</h2><p class="muted">Your answers save automatically. Copy them and paste them into our chat so I can mark them.</p></header><div class="hwk" id="hwk-${L.id}">${L.homework.map((q,i)=>`<div class="item"><label for="h-${L.id}-${i}">${i+1}. ${q}</label><textarea id="h-${L.id}-${i}" data-q="${esc(q.replace(/<[^>]+>/g,''))}"></textarea></div>`).join('')}</div></div>`;
+  h+=`<div class="done-bar"><span><b>Finished?</b> ${L.homework?'Copy your homework for me to mark, then ':''}mark this lesson complete.</span><div class="row">${L.homework?`<button class="btn" data-copy="hwk-${L.id}" data-title="Day ${L.day}: ${esc(L.title)} homework">Copy my answers</button>`:''}<button class="btn solid go-green" data-lesson-done="${L.id}">Mark lesson complete</button><a class="btn" href="#calendar" style="background:var(--panel)">Back to calendar</a></div></div>`;
+  root.innerHTML=h;
+  L.parts.forEach((p,i)=>{const k=`${L.id}-${i}`;
+    if(p.timeline)timeline($('#tl-'+k),p.timeline,k,'tl-'+k);
+    if(p.widget)WIDGETS[p.widget]($(`.widget[data-k="${k}"]`,root),p.cfg||{},k);
+    if(p.code)p.code.forEach((ex,j)=>initCoder($(`.coder-wrap[data-k="${k}-${j}"]`,root),ex,k+'-'+j));
+    if(p.quiz)quiz($('#qz-'+k),k,p.quiz);
+    if(p.check)p.check.forEach((c,j)=>{const cb=$(`input[data-chk="${k}-${j}"]`,root);cb.checked=store.get('chk:'+k+'-'+j,false);cb.onchange=()=>{store.set('chk:'+k+'-'+j,cb.checked);refreshLessonProgress()}})});
+  if(L.homework)homework('hwk-'+L.id);refreshLessonProgress();
+  root.onclick=()=>setTimeout(refreshLessonProgress,50)}
+function renderLessonsIndex(){const tn=todayN();let h='';for(let w=1;w<=2;w++){h+=`<div class="wkb"><div class="wk-h"><b>Week ${w}</b><span>${w===1?'Ready now':'Next to be built'}</span></div>`;
+  for(let n=(w-1)*7+1;n<=w*7;n++){h+=`<div class="dr${n===tn?' today':''}"><span></span><div class="dn"><b>Day ${n}</b><span>${fmtD(n)}</span></div><div class="bl">${blocks(n).map((b,i)=>{const href=LINK[n]&&LINK[n][i];const id=href&&href.startsWith('#l-')?href.slice(3):href?href.slice(1):null;const st=id?(lessonDone(id)?'<em class="nb ok">Complete ✓</em>':''):'<em class="nb">Not built yet</em>';const tg=TR[b.t]?`${TR[b.t].n} · ${b.h} h`:KIND[b.t];return`<span class="blk ${TR[b.t]?'tk-'+b.t:'lab'}"><span class="tg">${tg}</span>${href?`<a href="${href}">${b.x} →</a>`:b.x} ${st}</span>`}).join('')}</div></div>`}h+='</div>'}
+  $('#lessons-list').innerHTML=h}
+document.addEventListener('click',e=>{const b=e.target.closest('[data-lesson-done]');if(!b)return;toast(award('lesson:'+b.dataset.lessonDone)?'Lesson complete ✓':'Already complete');refresh();refreshLessonProgress()});
 
 const INIT={
   roadmap(){},

@@ -4,8 +4,8 @@ A 90-day, full-time tech bootcamp in six tracks, built as a single interactive w
 
 **Live site:** https://ridmaraveengamage-cmyk.github.io/wiseweb/
 
-**Dates:** Monday 16 November 2026 to Saturday 13 February 2027
-**Load:** 8 hours Monday to Friday, a 7-hour project on Saturday, a 6-hour test and review day on Sunday (about 682 hours)
+**Start any day:** you choose your Day 1 in the page, and every date, today's plan and the countdown follow from it. You can change it later.
+**Load:** 8 hours on days 1–5 of each week, a 7-hour project on day 6, a 6-hour test and review on day 7 (about 682 hours)
 
 | Track | Teaching hours |
 | --- | --- |
@@ -19,9 +19,18 @@ A 90-day, full-time tech bootcamp in six tracks, built as a single interactive w
 
 ## What's in the page
 
-- **Home:** today's two sessions, the daily timetable, progress across the six tracks, the four phases
-- **Calendar:** all 90 days, filterable by phase and track, with a tick box for each day
-- **Tracks:** all 120 sessions with their hours, day and date
-- **Lessons:** "What is electricity?" (Day 1) and "What are AI and machine learning?" (Day 4), with simulations, quizzes and homework
+- **Home:** choose your start date, today's sessions, the daily timetable, progress across the six tracks, the four phases
+- **Calendar:** all 90 days, filterable by phase and track, with a tick box for each day; unbuilt lessons are labelled "Not built yet"
+- **Tracks:** all 120 sessions with their hours and day
+- **Lessons:** Week 1 is fully built, with 12 lessons across Days 1–7:
+  - Day 1: How computers run programs · Electricity
+  - Day 2: Python I · Data thinking
+  - Day 3: Spreadsheets in depth · Security foundations
+  - Day 4: Python II · What AI is
+  - Day 5: Circuits · Python III
+  - Day 6: Project 1 (security audit, KPI spreadsheet, Python unit converter)
+  - Day 7: Week 1 test, spaced review and catch-up
 
-Progress is saved in your browser (localStorage). Open `index.html` in any modern browser; there is no build step.
+Each lesson includes history timelines, explanations, interactive tools (binary, CPU, circuit and energy simulators, a working spreadsheet, a risk matrix and more), Python exercises that run in the browser with automatic checking, quizzes, flashcards and homework.
+
+Progress is saved in your browser (localStorage). Python runs in the page through [Skulpt](https://skulpt.org), loaded from jsDelivr. Open `index.html` in any modern browser; there is no build step.
